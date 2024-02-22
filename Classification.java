@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 public enum Classification {
     Freshmen,
     Sophomore,
