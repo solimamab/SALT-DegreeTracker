@@ -1,0 +1,44 @@
+[
+  {
+  	"id": "88fd4cb0-6232-4891-a944-94ea8fe952c1",
+    "username": "John1",
+    "password": "12345678",
+    "firstname": "John",
+    "lastname": "sul",
+    "classification": "Freshman",
+    "completedCreditHours": 12,
+    "remainingCreditHours": 113,
+    "flag": "None",
+    "overallGPA": 3.0,
+    "majorId": "a5722aa5-ec7e-4bea-a526-a916bb80506d",
+    "minor" : "Math",
+    "FERPA" : false, 
+    "advisorId" : 1,
+    "completedCourses" : [
+      {
+        "courseId": "a5722aa5-ec7e-4bea-a526-a916bb80506d",
+        "letterGrade": "A",
+        "qualityPoints": 0.5
+      },
+      {
+        "courseId": "a5722aa5-ec7e-4bea-a526-a916bb80506d",
+        "letterGrade": "A",
+        "qualityPoints": 0.5
+      },
+      {
+        "courseId": "a5722aa5-ec7e-4bea-a526-a916bb80506d",
+        "letterGrade": "A",
+        "qualityPoints": 0.5
+      }
+    ],
+    "eightSemesterPlan" : [
+      {
+        "classesInPlanIDs" : ["e78f58c2-f07d-4b32-a6d3-141d63c329d5","5018afd6-00ff-482e-a12a-52211130e496","88fd4cb0-6232-4891-a944-94ea8fe952c1","f4e20828-6af9-4594-ac9e-60d3ae4e7df0","a5722aa5-ec7e-4bea-a526-a916bb80506d"],
+        "applicationAreaIDs" : ["88fd4cb0-6232-4891-a944-94ea8fe952c1","f4e20828-6af9-4594-ac9e-60d3ae4e7df0","a5722aa5-ec7e-4bea-a526-a916bb80506d"],
+        "electiveChoiceIDs" : ["e78f58c2-f07d-4b32-a6d3-141d63c329d5","5018afd6-00ff-482e-a12a-52211130e496","88fd4cb0-6232-4891-a944-94ea8fe952c1"],
+        "majorProgress" : 0.05
+      }
+    ],
+    "currentCoursesIDs" : [1,2,3,4]
+  }
+]
