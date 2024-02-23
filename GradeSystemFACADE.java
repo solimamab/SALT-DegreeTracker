@@ -1,5 +1,6 @@
+import java.util.ArrayList;
 public class GradeSytemFACADE {
-    
+
     private UserList userList;
     private CourseList courseList;
     private Major majorList;
@@ -17,16 +18,16 @@ public GradeSystemFACADE(){
     }
 
     public ArrayList<Course> findCourse() {
-        return viewCourseDetails();
+        return new ArrayList<Course>;
     }
 
-public User login(String userName, String password){
-    return user.getUsername();
-}
+    public User login(String userName, String password) {
+        return user.getUsername();
+    }
 
-public boolean addCourse(Course course){
-    return true;
-}
+    public boolean addCourse(Course course) {
+        return true;
+    }
 
     public User findUser(String username) {
         return user.getUsername();
