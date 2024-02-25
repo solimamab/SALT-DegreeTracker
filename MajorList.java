@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class MajorList {
     private static MajorList majorList;
-    private Course courseTest;  // filler
+    private Course courseTest;  // filler for now
     private ArrayList<Major> availableMajors;
 
     private MajorList()
