@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 
 public class UndergradStudent extends User{
-    // Attributes
     private Classification classification;
     private int completedCreditHours;
     private int remainingCreditHours;
@@ -17,7 +16,7 @@ public class UndergradStudent extends User{
     private ArrayList<Course> currentCourses;
 
     public UndergradStudent(String username, String password, String firstname, String lastname, Classification classification, int completedCreditHours, int remainingCreditHours, Flag flag, double overallGPA, Major major, String minor, Boolean FEPRA, Advisor advisor, EightSemesterPlan eightSemesterPlan, ArrayList<Course> currentCourses) {
-        super(username, password, firstname, lastname); // Call to User class constructor
+        super(username, password, firstname, lastname); 
         this.classification = new Classification();
         this.completedCreditHours = 0;
         this.remainingCreditHours = 0;
@@ -33,13 +32,11 @@ public class UndergradStudent extends User{
     }
 
     public void setCompletedHours(ArrayList<CompletedCourse> courses) {
-        // Assume the logic sets completed hours
-        int coursesTotal = 1; //Insert method to go through courses and calculate hours
+        int coursesTotal = 1; 
         this.completedCreditHours = coursesTotal;
     }
 
     public void setRemainingHours(int completedHours) {
-        // Assume the logic sets remaining hours
         this.remainingCreditHours = completedHours;
     }
 
@@ -48,7 +45,7 @@ public class UndergradStudent extends User{
     }
 
     public void viewAvailableCourses(ArrayList<Course> availableCourses) {
-        System.out.println(availableCourses); // Assume this method would display available courses
+        System.out.println(availableCourses); 
     }
 
     public void chooseApplicationArea(ArrayList<Course> applicationArea) {
@@ -56,8 +53,7 @@ public class UndergradStudent extends User{
     }
 
     public void calculateOverallGPA(ArrayList<Course> completedCourses) {
-        // Assume this method calculates the GPA
-        this.overallGPA = 4.0; // Example hard-coded value
+        this.overallGPA = 4.0;
     }
 
     public void viewCompletedCourses(ArrayList<Course> completedCourses) {
@@ -77,14 +73,11 @@ public class UndergradStudent extends User{
     }
 
     public double getOverallGPA() {
-        // Return the overall GPA
         return this.overallGPA;
     }
 
     public Course courseSearch(String department, String number) {
-        // Return a new Course object as a placeholder for the actual search result
         return new Course(null, number, number, number, number, completedCreditHours, null, currentCourses, currentCourses);
     }
 
-    // Getters and setters for other attributes could be added here as needed
 }
