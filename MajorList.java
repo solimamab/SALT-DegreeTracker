@@ -2,17 +2,16 @@ import java.util.ArrayList;
 
 public class MajorList {
     private static MajorList majorList;
-    private Course courseTest;  // filler for now
     private ArrayList<Major> availableMajors;
 
-    private MajorList()
-    {
-        majorList = this;
-        this.availableMajors = null;
+    private MajorList() {
+        this.availableMajors = new ArrayList<>();
     }
 
-    public MajorList getInstance()
-    {
-        return this.majorList;
+    public MajorList getInstance() {
+        if (majorList == null) {
+            majorList = new MajorList();
+        }
+        return majorList;    
     }
 }
