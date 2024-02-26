@@ -1,6 +1,5 @@
 public class Advisor {
     private ArrayList<Student> students;
-    private User user;
 
     public Advisor(User user, ArrayList<Student> students){
 
