@@ -80,5 +80,5 @@ public class Student extends User {
     public Course courseSearch(String department, String number) {
         return new Course(null, number, number, number, number, completedCreditHours, null, currentCourses, currentCourses);
     }
-
+    
 }

@@ -5,8 +5,8 @@ import java.util.ArrayList;
  */
 public class UserList {
     private static UserList userList;
-    private ArrayList<User> students;
-    private ArrayList<User> advisors;
+    private ArrayList<Student> students;
+    private ArrayList<Advisor> advisors;
 
     /**
      * Constructor to initialize students and advisors list
@@ -47,4 +47,7 @@ public class UserList {
         // If user is not found in both lists
         return null;
     }
+
 }
+
+
