@@ -27,6 +27,7 @@ public class CourseList {
         if (courseList == null) {
             courseList = new CourseList();
         }
+        courseList = new CourseList();
         return courseList;
     }
 

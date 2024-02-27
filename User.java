@@ -60,4 +60,9 @@ public class User {
     {
         return this.lastName;
     }
+
+    public User getUser()
+    {
+        return this;
+    }
 }

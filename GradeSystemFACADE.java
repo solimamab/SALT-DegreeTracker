@@ -1,6 +1,5 @@
 import java.util.ArrayList;
-
-public class GradeSystemFACADE {
+public class GradeSytemFACADE {
 
     private UserList userList;
     private CourseList courseList;
@@ -8,13 +7,12 @@ public class GradeSystemFACADE {
     private User user;
     private Course course;
 
-    public GradeSystemFACADE() {
-        this.userList = userList;
-        this.courseList = courseList;
-        this.majorList = majorList;
-        this.user = user;
-        this.course = course;
-    }
+public GradeSystemFACADE(){
+    this.userList = userList;
+    this.courseList = courseList;
+    this.majorList = majorList;
+    this.user = user;
+}
 
     public Course findCourse(String number) {
         return course;
@@ -25,7 +23,7 @@ public class GradeSystemFACADE {
     }
 
     public User login(String userName, String password) {
-        return user;
+        return user.getUsername();
     }
 
     public boolean addCourse(Course course) {
@@ -33,7 +31,7 @@ public class GradeSystemFACADE {
     }
 
     public User findUser(String username) {
-        return user;
+        return user.getUsername();
     }
 
     public ArrayList<Course> getCourseDetails(Course course) {
