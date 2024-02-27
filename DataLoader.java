@@ -44,9 +44,18 @@ public class DataLoader extends DataConstants {
                 String minor = (String) studentJSON.get(STUDENT_MINOR);
                 boolean FERPA = (boolean) studentJSON.get(STUDENT_FERPA);
                 UUID advisorId = UUID.fromString((String) studentJSON.get(STUDENT_ADVISOR_ID));
-                // Work on the rest (completedCourses, eightSemesterPlan, etc.) in class
+                // completed courses
+                UUID courseId = UUID.fromString((String) studentJSON.get(STUDENT_COURSE_ID));
+                String letterGrade = (String) studentJSON.get(STUDENT_LETTER_GRADE);
+                Double qualityPoints = (Double) studentJSON.get(STUDENT_QUALITY_POINTS);
+                // eight semester plan
+                UUID classesInPlanIDs = UUID.fromString((String) studentJSON.get(STUDENT_CLASSES_IN_PLAN_IDS));
+                UUID applicationAreaIDs = UUID.fromString((String) studentJSON.get(STUDENT_APPLICATION_AREA_IDS));
+                UUID electiveChoiceIDs = UUID.fromString((String) studentJSON.get(STUDENT_ELECTIVE_CHOICE_IDS));
+                Double majorProgress = (Double) studentJSON.get(STUDENT_MAJOR_PROGRESS);
+                UUID currentCoursesIDs = UUID.fromString((String) studentJSON.get(STUDENT_CURRENT_COURSES_IDS));
 
-                // Student constructor need Student class to not be red
+                // Student constructor
                 Student student = new Student(id, username, password, lastname, classification, completedCreditHours,
                         remainingCreditHours, flag, overallGPA, majorId, minor, FERPA, advisorId);
                 students.add(student);
