@@ -10,6 +10,7 @@ public class DataConstants {
     protected static final String STUDENT_ID = "id";
     protected static final String STUDENT_USERNAME = "username";
     protected static final String STUDENT_PASSWORD = "password";
+    protected static final String STUDENT_FIRSTNAME = "firstname";
     protected static final String STUDENT_LASTNAME = "lastname";
     protected static final String STUDENT_CLASSIFICATION = "classification";
     protected static final String STUDENT_COMPLETED_CREDIT_HOURS = "completedCreditHours";
