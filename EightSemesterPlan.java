@@ -8,7 +8,7 @@ class EightSemesterPlan {
 
     public EightSemesterPlan(ArrayList<Course> plan) {
         this.classesInPlan = plan;
-        this.applicationArea = new ApplicationArea(); 
+        this.applicationArea = new ApplicationArea(plan); 
         this.electiveChoice = new ArrayList<>();
         this.majorProgress = 0.0;
     }
