@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 
-public class UndergradStudent extends User {
+public class Student extends User {
     private Classification classification;
     private int completedCreditHours;
     private int remainingCreditHours;
@@ -15,12 +15,12 @@ public class UndergradStudent extends User {
     private EightSemesterPlan eightSemesterPlan;
     private ArrayList<Course> currentCourses;
 
-    public UndergradStudent(String username, String password, String firstname, String lastname, Classification classification, int completedCreditHours, int remainingCreditHours, Flag flag, double overallGPA, Major major, String minor, Boolean FEPRA, Advisor advisor, EightSemesterPlan eightSemesterPlan, ArrayList<Course> currentCourses) {
+    public Student(String username, String password, String firstname, String lastname, Classification classification, int completedCreditHours, int remainingCreditHours, Flag flag, double overallGPA, Major major, String minor, Boolean FEPRA, Advisor advisor, EightSemesterPlan eightSemesterPlan, ArrayList<Course> currentCourses) {
         super(username, password, firstname, lastname); 
-        this.classification = new Classification();
+        this.classification = classification;
         this.completedCreditHours = 0;
         this.remainingCreditHours = 0;
-        this.flag = new Flag();
+        this.flag = flag;
         this.overallGPA = 0.0;
         this.major = new Major();
         this.minor = "";
