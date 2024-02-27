@@ -4,7 +4,7 @@ public class Advisor {
     private ArrayList<Student> students;
 
     public Advisor(User user, ArrayList<Student> students){
-
+        this.students = students;
     }
 
     public Student searchForStudent(String idNumber){
@@ -16,10 +16,10 @@ public class Advisor {
     }
 
     public void setStudentsFlag(Flag flag, User student){
-
+        System.out.println();
     }
 
     public void viewAdvisingStudents(ArrayList<Student> students){
-
+        System.out.println(students);
     }
 }
