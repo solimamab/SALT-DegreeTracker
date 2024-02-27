@@ -26,7 +26,7 @@ public class Student extends User {
         this.major = new Major(id, minor, currentCourses, eightSemesterPlan);
         this.minor = "";
         this.FEPRA = false;
-        this.advisor = new Advisor(null, null);
+        this.advisor = new Advisor(null, null,null,null,null);
         this.completedCourses = new ArrayList<>();
         this.eightSemesterPlan = new EightSemesterPlan(currentCourses);
         this.currentCourses = new ArrayList<>();
@@ -80,5 +80,5 @@ public class Student extends User {
     public Course courseSearch(String department, String number) {
         return new Course(null, number, number, number, number, completedCreditHours, null, currentCourses, currentCourses);
     }
-    
+
 }
