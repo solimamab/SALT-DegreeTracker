@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 
-public class UndergradStudent extends User{
+public class UndergradStudent extends User {
     private Classification classification;
     private int completedCreditHours;
     private int remainingCreditHours;
