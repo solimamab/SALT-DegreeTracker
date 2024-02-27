@@ -25,7 +25,7 @@ public class Advisor extends User{
     public Student searchForStudent(String idNumber){
         
         
-        return new Student(idNumber, null, null, null, null, 0, 0, null, 0, null, null, null, null, null, null);
+        return new Student(idNumber, null, null, null, null, 0, 0, null, 0, null, null, null, null, null, null, null);
        
     }
 
@@ -36,7 +36,7 @@ public class Advisor extends User{
      * @return the student that matches that id number
      */
     public Student searchForStudent( String firstName, String lastName){
-        return new Student(lastName, lastName, lastName, lastName, null, 0, 0, null, 0, null, lastName, null, null, null, null);
+        return new Student(lastName, lastName, lastName, lastName, null, 0, 0, null, 0, null, lastName, null, null, null, null, null);
     }
 
     /**

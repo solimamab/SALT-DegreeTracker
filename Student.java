@@ -16,7 +16,7 @@ public class Student extends User {
     private EightSemesterPlan eightSemesterPlan;
     private ArrayList<Course> currentCourses;
 
-    public Student(String username, String password, String firstname, String lastname, Classification classification, int completedCreditHours, int remainingCreditHours, Flag flag, double overallGPA, Major major, String minor, Boolean FEPRA, Advisor advisor, EightSemesterPlan eightSemesterPlan, ArrayList<Course> currentCourses) {
+    public Student(String username, String password, String firstname, String lastname, Classification classification, int completedCreditHours, int remainingCreditHours, Flag flag, double overallGPA, Major major, String minor, Boolean FEPRA, Advisor advisor, EightSemesterPlan eightSemesterPlan, ArrayList<Course> currentCourses, ArrayList<CompletedCourse> completedCourses) {
         super(username, password, firstname, lastname); 
         this.classification = classification;
         this.completedCreditHours = 0;
@@ -30,6 +30,7 @@ public class Student extends User {
         this.completedCourses = new ArrayList<>();
         this.eightSemesterPlan = new EightSemesterPlan(currentCourses);
         this.currentCourses = new ArrayList<>();
+        this.completedCourses = new ArrayList<>(completedCourses);
     }
 
     public void setCompletedHours(ArrayList<CompletedCourse> courses) {
