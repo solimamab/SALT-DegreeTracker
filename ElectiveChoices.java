@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-class ElectiveChoices {
+public class ElectiveChoices {
     private ArrayList<Course> electiveChoices;
     private int numCredits;
 
