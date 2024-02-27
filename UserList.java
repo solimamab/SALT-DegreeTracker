@@ -1,23 +1,36 @@
 import java.util.ArrayList;
 
+/**
+ * User list of all users in the system
+ */
 public class UserList {
     private static UserList userList;
     private ArrayList<User> students;
     private ArrayList<User> advisors;
 
-    private UserList()
-    {
+    /**
+     * Constructor to initialize students and advisors list
+     */
+    private UserList() {
         this.students = new ArrayList<>();
         this.advisors = new ArrayList<>();
     }
 
-    public UserList getInstance()
-    {
+    /**
+     * Gets the instance to make the userlist static
+     * @return the user list
+     */
+    public UserList getInstance() {
         if (userList == null) {
             userList = new UserList();
         }
-        return userList;    }
+        return userList;    
+    }
 
+    /**
+     * Searches for the user from the user lists by username
+     * @return the user
+     */
     public User getUser(String username) {
         // Search in students list
         for (User user : students) {
