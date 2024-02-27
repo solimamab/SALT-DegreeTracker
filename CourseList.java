@@ -24,7 +24,8 @@ public class CourseList {
      */
     public CourseList getInstance()
     {
-        return this.courseList;
+        courseList = new CourseList();
+        return courseList;
     }
 
     /**
