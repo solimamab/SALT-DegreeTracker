@@ -22,12 +22,12 @@ public class Student extends User {
         this.remainingCreditHours = 0;
         this.flag = flag;
         this.overallGPA = 0.0;
-        this.major = new Major();
+        this.major = new Major(id, minor, currentCourses, eightSemesterPlan);
         this.minor = "";
         this.FEPRA = false;
-        this.advisor = new Advisor();
+        this.advisor = new Advisor(null, null);
         this.completedCourses = new ArrayList<>();
-        this.eightSemesterPlan = new EightSemesterPlan();
+        this.eightSemesterPlan = new EightSemesterPlan(currentCourses);
         this.currentCourses = new ArrayList<>();
     }
 
@@ -61,7 +61,7 @@ public class Student extends User {
     }
 
     public void addCompletedCourse(Course course) {
-        this.completedCourses.add(course);
+        this.completedCourses.add((CompletedCourse) course);
     }
 
     public void viewEightSemesterPlan(EightSemesterPlan eightSemesterPlan) {
