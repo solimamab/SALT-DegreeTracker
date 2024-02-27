@@ -22,8 +22,8 @@ public GradeSystemFACADE(){
         return new ArrayList<Course>();
     }
 
-    public User login(String userName, String password) {
-        return user.getUser();
+    public boolean login(String userName, String password) {
+        return true;
     }
 
     public boolean addCourse(Course course) {

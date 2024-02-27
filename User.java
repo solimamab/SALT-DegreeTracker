@@ -63,6 +63,6 @@ public class User {
 
     public User getUser()
     {
-        return this;
+        return new User("asmite", "12345", "amy", "smith");
     }
 }
