@@ -42,13 +42,16 @@ public class Course {
     }
 
     /**
-     * 
-     * @param course
-     * @return
+     * The method to be able to view course details
+     * @param course the course for the details to be accessed
+     * @return the string to represent the course details
      */
-    public ArrayList<String> viewCourseDetails(Course course)
+    public String viewCourseDetails(Course course)
     {
-        return new ArrayList<String>();
+        return course.name + " " + course.department + " " + course.number + " " 
+        + course.description + " " + course.creditHours + " " + course.availablity + " " 
+        + course.prerequisite + " " + course.corequisite;
     }
+    
     
 }
