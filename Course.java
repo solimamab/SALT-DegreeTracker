@@ -53,5 +53,70 @@ public class Course {
         + course.prerequisite + " " + course.corequisite;
     }
     
+        // Getters
+        public UUID getId() {
+            return id;
+        }
+    
+        public String getName() {
+            return name;
+        }
+    
+        public String getDepartment() {
+            return department;
+        }
+    
+        public String getNumber() {
+            return number;
+        }
+    
+        public String getDescription() {
+            return description;
+        }
+    
+        public int getCreditHours() {
+            return creditHours;
+        }
+    
+        public ArrayList<Course> getPrerequisite() {
+            return prerequisite;
+        }
+    
+        public ArrayList<Course> getCorequisite() {
+            return corequisite;
+        }
+    
+        // Setters
+        public void setId(UUID id) {
+            this.id = id;
+        }
+    
+        public void setName(String name) {
+            this.name = name;
+        }
+    
+        public void setDepartment(String department) {
+            this.department = department;
+        }
+    
+        public void setNumber(String number) {
+            this.number = number;
+        }
+    
+        public void setDescription(String description) {
+            this.description = description;
+        }
+    
+        public void setCreditHours(int creditHours) {
+            this.creditHours = creditHours;
+        }
+    
+        public void setPrerequisite(ArrayList<Course> prerequisite) {
+            this.prerequisite = prerequisite;
+        }
+    
+        public void setCorequisite(ArrayList<Course> corequisite) {
+            this.corequisite = corequisite;
+        }
     
 }
