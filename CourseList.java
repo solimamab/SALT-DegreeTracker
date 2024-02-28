@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class CourseList {
 
     private static CourseList courseList;
-    private Course courseTest; //just here for a filler 
+    // private Course courseTest; //just here for a filler 
     private ArrayList<Course> availableCourses;
 
     /**
@@ -14,8 +14,8 @@ public class CourseList {
      */
     private CourseList()
     {
-        courseList = this;
-        this.availableCourses = null;
+        this.courseList = courseList;
+        this.availableCourses = availableCourses;
     }
 
     /**
@@ -24,7 +24,11 @@ public class CourseList {
      */
     public CourseList getInstance()
     {
-        return this.courseList;
+        if (courseList == null) {
+            courseList = new CourseList();
+        }
+        courseList = new CourseList();
+        return courseList;
     }
 
     /**
@@ -35,6 +39,6 @@ public class CourseList {
      */
     public Course getCourseByNumber(String department, String number)
     {
-        return this.courseTest;
+        return null;
     }
 }

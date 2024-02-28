@@ -1,28 +1,29 @@
 import java.util.ArrayList;
-public class GradeSytemFACADE {
+public class GradeSystemFACADE {
 
     private UserList userList;
     private CourseList courseList;
-    private Major majorList;
+    private MajorList majorList;
     private User user;
+    private Course course;
 
 public GradeSystemFACADE(){
-    this.userList = userList;
-    this.courseList = courseList;
-    this.majorList = majorList;
+    this.userList = userList.getInstance();
+    this.courseList = courseList.getInstance();
+    this.majorList = majorList.getInstance();
     this.user = user;
 }
 
     public Course findCourse(String number) {
-        return courseList.getCourse();
+        return course;
     }
 
     public ArrayList<Course> findCourse() {
-        return new ArrayList<Course>;
+        return new ArrayList<Course>();
     }
 
-    public User login(String userName, String password) {
-        return user.getUsername();
+    public boolean login(String userName, String password) {
+        return true;
     }
 
     public boolean addCourse(Course course) {
@@ -30,12 +31,12 @@ public GradeSystemFACADE(){
     }
 
     public User findUser(String username) {
-        return user.getUsername();
+        return user.getUser();
     }
 
-public ArrayList<Course> getCourseDetails(Course course){
-    return new ArrayList<Course>;
-}
+    public ArrayList<Course> getCourseDetails(Course course) {
+        return new ArrayList<Course>();
+    }
 
     public boolean getUserDetails(User user) {
         return true;
@@ -45,7 +46,7 @@ public ArrayList<Course> getCourseDetails(Course course){
         return false;
     }
 
-    public boolean advisorReassignment(UndergradStudent student) {
+    public boolean advisorReassignment(Student student) {
         return true;
     }
 

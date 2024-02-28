@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-class ElectiveChoices {
+public class ElectiveChoices {
     private ArrayList<Course> electiveChoices;
     private int numCredits;
 
@@ -10,12 +10,6 @@ class ElectiveChoices {
     }
 
     public boolean ElectiveClusterCompleted(ArrayList<Course> electives, int requiredCredits) {
-        int totalCredits = 0;
-        for (Course course : electives) {
-            totalCredits += course.getCredits(); //temporary implimenation
-        }
-        
-        return totalCredits >= requiredCredits;
+        return true;
     }
-
 }
