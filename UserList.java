@@ -2,18 +2,24 @@ import java.util.ArrayList;
 
 /**
  * User list of all users in the system
+ * @author abhinavk
  */
 public class UserList {
     private static UserList userList;
-    private ArrayList<Student> students;
-    private ArrayList<Advisor> advisors;
+    private ArrayList<Student> listOfStudents;
+    private ArrayList<Advisor> listOfAdvisors;
 
     /**
      * Constructor to initialize students and advisors list
      */
     private UserList() {
-        students = (DataLoader.loadStudents() == null ? new ArrayList<>() : DataLoader.loadStudents());
-        advisors = (DataLoader.loadAdvisors() == null ? new ArrayList<>() : DataLoader.loadAdvisors());
+        listOfStudents = (DataLoader.loadStudents() == null ? new ArrayList<>() : DataLoader.loadStudents());
+        listOfAdvisors = (DataLoader.loadAdvisors() == null ? new ArrayList<>() : DataLoader.loadAdvisors());
+    }
+
+    private UserList(ArrayList<Student> students, ArrayList<Advisor> advisors) {
+        listOfStudents = students;
+        listOfAdvisors = advisors;
     }
 
     /**
@@ -33,13 +39,13 @@ public class UserList {
      */
     public User getUser(String username) {
         // Search in students list
-        for (User user : students) {
+        for (User user : listOfStudents) {
             if (user.getUsername().equals(username)) {
                 return user;
             }
         }
         // Search in advisors list
-        for (User user : advisors) {
+        for (User user : listOfAdvisors) {
             if (user.getUsername().equals(username)) {
                 return user;
             }
@@ -49,7 +55,7 @@ public class UserList {
     }
 
     public void saveStudents() {
-        DataWriter.saveStudentList(students);
+        DataWriter.saveStudentList(listOfStudents);
     }
 
 }
