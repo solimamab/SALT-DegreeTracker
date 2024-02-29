@@ -1,8 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import java.util.ArrayList;
-import java.util.UUID;
+
 
 
 public class Student extends User{
@@ -91,7 +90,7 @@ public class Student extends User{
     }
 
     public Course courseSearch(String department, String number) {
-        return new Course(null, number, number, number, number, completedCreditHours, null, currentCourses, currentCourses);
+        return new Course(null, number, number, number, number, completedCreditHours, null, null , currentCourses);
     }
 
 }
