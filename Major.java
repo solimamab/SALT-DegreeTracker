@@ -13,4 +13,8 @@ public class Major {
         this.requiredCourses = requiredCourses;
         this.majorMap = majorMap;
     }
+
+    public Major(UUID id2, String majorName2, ArrayList<UUID> requiredCoursesIDs, ArrayList<EightSemesterPlan> defaultPlan) {
+        // stuff goes here
+    }
 }

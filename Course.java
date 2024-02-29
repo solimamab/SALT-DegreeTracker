@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -39,6 +40,11 @@ public class Course {
         this.availablity = availablity;
         this.prerequisite = prerequisite;
         this.corequisite= corequisite;
+    }
+
+    public Course(UUID id2, String name2, String department2, long number2, String description2, long creditHours2,
+            List<String> availability, UUID prerequisiteID, UUID corequisiteID) {
+                
     }
 
     /**
