@@ -70,4 +70,8 @@ public class User {
     {
         return new User("asmith", "12345", "amy", "smith");
     }
+
+    public String toString(){
+        return "username:" + username + "password:" +password + "firstname:" + firstName + "lastname: "+ lastName + "id:" +id;
+    }
 }
