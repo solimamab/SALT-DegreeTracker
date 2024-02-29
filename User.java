@@ -8,6 +8,7 @@ public class User {
     private String firstName;
     private String lastName;
     protected UUID id;
+    public boolean loggedIn;
     
     /**
      * 
@@ -73,5 +74,18 @@ public class User {
 
     public String toString(){
         return "username:" + username + "\n" + "password:" + password + "\n" + "firstname:" + firstName + "\n" +"lastname: "+ lastName;
+    }
+
+    public boolean facadeLogin(String username, String password) {
+        return login(username, password);
+    }
+
+    private boolean login(String username, String passsword) {
+        if (this.username.equals(username) && this.password.equals(password)) {
+            this.loggedIn = true;
+            return true;
+        }
+        this.loggedIn = false;
+        return false;
     }
 }

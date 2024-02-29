@@ -22,7 +22,7 @@ public class CourseList {
      * 
      * @return
      */
-    public CourseList getInstance()
+    public static CourseList getInstance()
     {
         if (courseList == null) {
             courseList = new CourseList();

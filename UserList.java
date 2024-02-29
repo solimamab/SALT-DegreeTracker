@@ -20,7 +20,7 @@ public class UserList {
      * Gets the instance to make the userlist static
      * @return the user list
      */
-    public UserList getInstance() {
+    public static UserList getInstance() {
         if (userList == null) {
             userList = new UserList();
         }

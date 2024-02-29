@@ -8,7 +8,7 @@ public class MajorList {
         this.availableMajors = new ArrayList<>();
     }
 
-    public MajorList getInstance() {
+    public static MajorList getInstance() {
         if (majorList == null) {
             majorList = new MajorList();
         }
