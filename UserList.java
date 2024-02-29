@@ -12,8 +12,8 @@ public class UserList {
      * Constructor to initialize students and advisors list
      */
     private UserList() {
-        this.students = new ArrayList<>();
-        this.advisors = new ArrayList<>();
+        students = (DataLoader.loadStudents() == null ? new ArrayList<>() : DataLoader.loadStudents());
+        advisors = (DataLoader.loadAdvisors() == null ? new ArrayList<>() : DataLoader.loadAdvisors());
     }
 
     /**
@@ -46,6 +46,10 @@ public class UserList {
         }
         // If user is not found in both lists
         return null;
+    }
+
+    public void saveStudents() {
+        DataWriter.saveStudentList(students);
     }
 
 }

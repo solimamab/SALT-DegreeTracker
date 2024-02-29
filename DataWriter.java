@@ -42,9 +42,9 @@ public class DataWriter {
     }
 
 
-    public static void saveStudentList(ArrayList<User> users) {
+    public static void saveStudentList(ArrayList<Student> students) {
         JSONArray jsonUsers = new JSONArray();
-        for (User user : users) {
+        for (User user : students) {
             JSONObject jsonUser = new JSONObject();
             jsonUser.put(DataConstants.STUDENT_ID, user.getId().toString());
             jsonUser.put(DataConstants.STUDENT_USERNAME, user.getUsername());
