@@ -14,11 +14,7 @@ import org.json.simple.parser.JSONParser;
  * @author abhinavk
  */
 public class DataLoader extends DataConstants {
-    private static final String STUDENT_FILE_NAME = "json/students.json";
-    private static final String COURSE_FILE_NAME = "json/courses.json";
-    private static final String MAJOR_FILE_NAME = "json/majors.json";
-    private static final String ADVISOR_FILE_NAME = "json/advisors.json";
-
+    
     /**
      * Loads students from a JSON file.
      * @return A list of Student objects.
