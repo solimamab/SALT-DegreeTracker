@@ -73,7 +73,7 @@ public class User {
     }
 
     public String toString(){
-        return "username:" + username + "\n" + "password:" + password + "\n" + "firstname:" + firstName + "\n" +"lastname: "+ lastName;
+        return "username:" + username + "\n" + "password:" + password + "\n" + "firstname:" + firstName + "\n" + "lastname: " + lastName;
     }
 
     public boolean facadeLogin(String username, String password) {
