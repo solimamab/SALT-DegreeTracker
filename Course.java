@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
@@ -13,7 +14,7 @@ public class Course {
     private String description;
     private int creditHours;
     private Availablity availablity;
-    private ArrayList<Course> prerequisite;
+    private HashMap<Course,String> prerequisite;
     private ArrayList<Course> corequisite;
 
     /**
@@ -29,7 +30,7 @@ public class Course {
      * @param corequisite
      */
     public Course(UUID id, String name, String department, String number, String description, int creditHours,
-    Availablity availablity, ArrayList<Course> prerequisite, ArrayList<Course> corequisite)
+    Availablity availablity, HashMap<Course,String> prerequisite, ArrayList<Course> corequisite)
     {
         this.id = id;
         this.name = name;
@@ -84,7 +85,7 @@ public class Course {
             return creditHours;
         }
     
-        public ArrayList<Course> getPrerequisite() {
+        public HashMap<Course,String> getPrerequisite() {
             return prerequisite;
         }
     
@@ -117,7 +118,7 @@ public class Course {
             this.creditHours = creditHours;
         }
     
-        public void setPrerequisite(ArrayList<Course> prerequisite) {
+        public void setPrerequisite(HashMap<Course,String> prerequisite) {
             this.prerequisite = prerequisite;
         }
     
