@@ -6,8 +6,8 @@ public class DegreeTrackerUI
 {
     private GradeSystemFACADE gradeSystemFACADE;
 
-    DegreeTrackerUI() {
-       gradeSystemFACADE = new GradeSystemFACADE();
+    public DegreeTrackerUI() {
+       gradeSystemFACADE = GradeSystemFACADE.getFacadeInstance();
 
     }
 

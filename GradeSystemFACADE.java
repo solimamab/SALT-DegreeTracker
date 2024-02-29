@@ -7,11 +7,16 @@ public class GradeSystemFACADE {
     private CourseList courseList = CourseList.getInstance();
     private MajorList majorList = MajorList.getInstance();
 
-
-    GradeSystemFACADE() {
+    /**
+     * Private constructor to prevent direct instantiation
+     */
+    private GradeSystemFACADE() {
         this.currentUser = new User("asmith", "12345", "Amy", "Smith");
     }
 
+    /**
+     * Get the singleton instance
+     */
     public static GradeSystemFACADE getFacadeInstance() {
         if (facade == null) {
             facade = new GradeSystemFACADE();
