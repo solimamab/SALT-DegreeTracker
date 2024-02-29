@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 import java.util.ArrayList;
 import java.util.UUID;
@@ -19,7 +20,9 @@ public class Student extends User{
     private EightSemesterPlan eightSemesterPlan;
     private ArrayList<Course> currentCourses;
 
-    public Student(String username, String password, String firstname, String lastname, Classification classification, int completedCreditHours, int remainingCreditHours, String flag, double overallGPA, Major major, String minor, Boolean FEPRA, Advisor advisor, EightSemesterPlan eightSemesterPlan, ArrayList<Course> currentCourses) {
+    public Student(String username, String password, String firstname, String lastname, Classification classification, 
+    int completedCreditHours, int remainingCreditHours, String flag, double overallGPA, Major major, String minor, 
+    Boolean FEPRA, Advisor advisor, EightSemesterPlan eightSemesterPlan, ArrayList<Course> currentCourses) {
         super(username, password, firstname, lastname); 
                         this.classification = classification;
                         this.completedCreditHours = 0;
@@ -33,6 +36,13 @@ public class Student extends User{
                         this.completedCourses = new ArrayList<>();
                         this.eightSemesterPlan = new EightSemesterPlan(currentCourses);
                         this.currentCourses = new ArrayList<>();
+    }
+
+    public Student(String username, String password, String firstname, String lastname, String classification2,
+            long completedCreditHours2, long remainingCreditHours2, boolean flag2, double overallGPA2, UUID majorId,
+            String minor2, boolean fERPA, UUID advisorId, EightSemesterPlan eightSemesterPlan2, UUID currentCoursesIDs,
+            List<CompletedCourse> completedCourses2) {
+                super(username, password, firstname, lastname);
     }
 
     public void setCompletedHours(ArrayList<CompletedCourse> courses) {

@@ -77,7 +77,8 @@ public class DataLoader extends DataConstants {
                 UUID currentCoursesIDs = UUID.fromString((String) studentJSON.get(STUDENT_CURRENT_COURSES_IDS));
 
                 // Student constructor need Student class to not be red
-                Student student = new Student (username, password, firstname, lastname, classification, completedCreditHours, remainingCreditHours, flag, overallGPA, majorId, minor, FERPA, advisorId, eightSemesterPlan, currentCoursesIDs, completedCourses);
+                Student student = new Student (username, password, firstname, lastname, classification, completedCreditHours, remainingCreditHours,
+                flag, overallGPA, majorId, minor, FERPA, advisorId, eightSemesterPlan, currentCoursesIDs, completedCourses);
                 students.add(student);
             }
             reader.close();
