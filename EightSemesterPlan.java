@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.UUID;
 
 class EightSemesterPlan {
     private ArrayList<Course> classesInPlan;
@@ -11,6 +12,10 @@ class EightSemesterPlan {
         this.applicationArea = new ApplicationArea(plan); 
         this.electiveChoice = new ArrayList<>();
         this.majorProgress = 0.0;
+    }
+
+    public EightSemesterPlan(ArrayList<UUID> classesInPlanIDs, ArrayList<UUID> applicationAreaIDs,ArrayList<UUID> electiveChoiceIDs) {
+        // stuff goes here
     }
 
     public void addClassToPlan(Course course, EightSemesterPlan plan) {

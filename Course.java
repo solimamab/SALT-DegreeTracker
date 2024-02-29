@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -41,6 +42,11 @@ public class Course {
         this.corequisite= corequisite;
     }
 
+    public Course(UUID id2, String name2, String department2, long number2, String description2, long creditHours2,
+            List<String> availability, UUID prerequisiteID, UUID corequisiteID) {
+                
+    }
+
     /**
      * The method to be able to view course details
      * @param course the course for the details to be accessed
@@ -53,5 +59,70 @@ public class Course {
         + course.prerequisite + " " + course.corequisite;
     }
     
+        // Getters
+        public UUID getId() {
+            return id;
+        }
+    
+        public String getName() {
+            return name;
+        }
+    
+        public String getDepartment() {
+            return department;
+        }
+    
+        public String getNumber() {
+            return number;
+        }
+    
+        public String getDescription() {
+            return description;
+        }
+    
+        public int getCreditHours() {
+            return creditHours;
+        }
+    
+        public ArrayList<Course> getPrerequisite() {
+            return prerequisite;
+        }
+    
+        public ArrayList<Course> getCorequisite() {
+            return corequisite;
+        }
+    
+        // Setters
+        public void setId(UUID id) {
+            this.id = id;
+        }
+    
+        public void setName(String name) {
+            this.name = name;
+        }
+    
+        public void setDepartment(String department) {
+            this.department = department;
+        }
+    
+        public void setNumber(String number) {
+            this.number = number;
+        }
+    
+        public void setDescription(String description) {
+            this.description = description;
+        }
+    
+        public void setCreditHours(int creditHours) {
+            this.creditHours = creditHours;
+        }
+    
+        public void setPrerequisite(ArrayList<Course> prerequisite) {
+            this.prerequisite = prerequisite;
+        }
+    
+        public void setCorequisite(ArrayList<Course> corequisite) {
+            this.corequisite = corequisite;
+        }
     
 }

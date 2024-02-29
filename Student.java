@@ -1,12 +1,16 @@
 import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import java.util.ArrayList;
 import java.util.UUID;
 
 
-public class Student extends User {
+public class Student extends User{
     private Classification classification;
+    private UUID id;
     private int completedCreditHours;
     private int remainingCreditHours;
-    private Flag flag;
+    private String flag;
     private double overallGPA;
     private Major major;
     private String minor;
@@ -16,20 +20,29 @@ public class Student extends User {
     private EightSemesterPlan eightSemesterPlan;
     private ArrayList<Course> currentCourses;
 
-    public Student(String username, String password, String firstname, String lastname, Classification classification, int completedCreditHours, int remainingCreditHours, Flag flag, double overallGPA, Major major, String minor, Boolean FEPRA, Advisor advisor, EightSemesterPlan eightSemesterPlan, ArrayList<Course> currentCourses) {
+    public Student(String username, String password, String firstname, String lastname, Classification classification, 
+    int completedCreditHours, int remainingCreditHours, String flag, double overallGPA, Major major, String minor, 
+    Boolean FEPRA, Advisor advisor, EightSemesterPlan eightSemesterPlan, ArrayList<Course> currentCourses) {
         super(username, password, firstname, lastname); 
-        this.classification = classification;
-        this.completedCreditHours = 0;
-        this.remainingCreditHours = 0;
-        this.flag = flag;
-        this.overallGPA = 0.0;
-        this.major = new Major(id, minor, currentCourses, eightSemesterPlan);
-        this.minor = "";
-        this.FEPRA = false;
-        this.advisor = new Advisor(null, null,null,null,null);
-        this.completedCourses = new ArrayList<>();
-        this.eightSemesterPlan = new EightSemesterPlan(currentCourses);
-        this.currentCourses = new ArrayList<>();
+                        this.classification = classification;
+                        this.completedCreditHours = 0;
+                        this.remainingCreditHours = 0;
+                        this.flag = "None"; // Instantiate the Flag class using the appropriate constructor
+                        this.overallGPA = 0.0;
+                        this.id = UUID.randomUUID();
+                        this.major = new Major(id, minor, currentCourses, eightSemesterPlan);
+                        this.minor = "";
+                        this.FEPRA = false;
+                        this.completedCourses = new ArrayList<>();
+                        this.eightSemesterPlan = new EightSemesterPlan(currentCourses);
+                        this.currentCourses = new ArrayList<>();
+    }
+
+    public Student(String username, String password, String firstname, String lastname, String classification2,
+            long completedCreditHours2, long remainingCreditHours2, boolean flag2, double overallGPA2, UUID majorId,
+            String minor2, boolean fERPA, UUID advisorId, EightSemesterPlan eightSemesterPlan2, UUID currentCoursesIDs,
+            List<CompletedCourse> completedCourses2) {
+                super(username, password, firstname, lastname);
     }
 
     public void setCompletedHours(ArrayList<CompletedCourse> courses) {
@@ -42,7 +55,7 @@ public class Student extends User {
     }
 
     public void setFlag(Flag flag) {
-        this.flag = flag;
+        this.flag = "flag";
     }
 
     public void viewAvailableCourses(ArrayList<Course> availableCourses) {
@@ -62,7 +75,7 @@ public class Student extends User {
     }
 
     public void addCompletedCourse(Course course) {
-        this.completedCourses.add((CompletedCourse) course);
+        System.out.println("Course added: " + course);
     }
 
     public void viewEightSemesterPlan(EightSemesterPlan eightSemesterPlan) {

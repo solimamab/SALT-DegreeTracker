@@ -65,4 +65,12 @@ public class DataConstants {
     protected static final String ADVISOR_FIRST_NAME = "firstname";
     protected static final String ADVISOR_LAST_NAME = "lastname";
     protected static final String ADVISOR_STUDENT_IDS = "studentIDs";
+
+    /**
+     * File paths
+     */
+    protected static final String STUDENT_FILE_NAME = "json/students.json";
+    protected static final String COURSE_FILE_NAME = "json/courses.json";
+    protected static final String MAJOR_FILE_NAME = "json/majors.json";
+    protected static final String ADVISOR_FILE_NAME = "json/advisors.json";
 }
