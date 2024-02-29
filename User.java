@@ -72,6 +72,6 @@ public class User {
     }
 
     public String toString(){
-        return "username:" + username + "password:" +password + "firstname:" + firstName + "lastname: "+ lastName + "id:" +id;
+        return "username:" + username + "password:" +password + "firstname:" + firstName + "lastname: "+ lastName;
     }
 }
