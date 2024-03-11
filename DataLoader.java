@@ -118,6 +118,7 @@ public class DataLoader extends DataConstants {
                 }
                 
                 // Parse prerequisiteID and corequisiteID
+                // Need to change prerequisite to match hashmap
                 UUID prerequisiteID = parseUUID(courseJSON.get(COURSE_PREREQUISITES_ID));
                 UUID corequisiteID = parseUUID(courseJSON.get(COURSE_COREQUISITE_ID));
 
