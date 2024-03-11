@@ -84,6 +84,11 @@ public class Course {
         public int getCreditHours() {
             return creditHours;
         }
+
+        public Availablity getAvailablity()
+        {
+            return availablity;
+        }
     
         public HashMap<Course,String> getPrerequisite() {
             return prerequisite;

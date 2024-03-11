@@ -17,7 +17,7 @@
         "description" : "Topics in algebra specifically needed for MATH 141 MATH 142 and MATH 241. Circular functions analytic trigonometry applicatoins of triginometry, Credit may not be received for both MATH 122 and MATH 115",
         "creditHours" : 4,
         "availability" : ["Fall", "Spring"],
-        "prerequisiteID" : ["b2085769-86f2-4393-8437-3cac7daf3079"],
+        "prerequisiteID" : ["b2085769-86f2-4393-8437-3cac7daf3079", "C"],
         "corequisiteID" : "None"
     }
 ]
