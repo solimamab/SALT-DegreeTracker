@@ -9,7 +9,7 @@ public class Student extends User{
     private UUID id;
     private int completedCreditHours;
     private int remainingCreditHours;
-    private String flag;
+    private Flag flag;
     private double overallGPA;
     private Major major;
     private String minor;
@@ -26,7 +26,7 @@ public class Student extends User{
                         this.classification = classification;
                         this.completedCreditHours = 0;
                         this.remainingCreditHours = 0;
-                        this.flag = "None"; // Instantiate the Flag class using the appropriate constructor
+                        this.flag = Flag.None; // Instantiate the Flag class using the appropriate constructor
                         this.overallGPA = 0.0;
                         this.id = UUID.randomUUID();
                         this.major = new Major(id, minor, currentCourses, eightSemesterPlan);
@@ -37,6 +37,7 @@ public class Student extends User{
                         this.currentCourses = new ArrayList<>();
     }
 
+    // why is there two constructors?
     public Student(String username, String password, String firstname, String lastname, String classification2,
             long completedCreditHours2, long remainingCreditHours2, boolean flag2, double overallGPA2, UUID majorId,
             String minor2, boolean fERPA, UUID advisorId, EightSemesterPlan eightSemesterPlan2, UUID currentCoursesIDs,
@@ -44,19 +45,37 @@ public class Student extends User{
                 super(username, password, firstname, lastname);
     }
 
+    /**
+     * This method loops through the list of completed courses to calculate the number of completed cerdit hours
+     * and sets the completed cerdit hours to the number calculated
+     * @param courses the arrayList of completed courses
+     */
     public void setCompletedHours(ArrayList<CompletedCourse> courses) {
-        int coursesTotal = 1; 
-        this.completedCreditHours = coursesTotal;
+       int completedCredits = 0;
+        for (int i = 0;i < courses.size(); i++)
+       {
+        completedCredits = completedCredits + courses.get(i).getCreditHours();
+       }
+       this.completedCreditHours = completedCredits;
     }
 
+    /**
+     * This method calculates and sets the number of remaining cerdit hours needed to complete the student's degree
+     * @param completedHours the number of hours they have completed
+     */
     public void setRemainingHours(int completedHours) {
-        this.remainingCreditHours = completedHours;
+        this.remainingCreditHours = 120 - completedHours;
     }
 
+    /**
+     * This method sets the flag for to be added to the students account
+     * @param flag the flag to be added
+     */
     public void setFlag(Flag flag) {
-        this.flag = "flag";
+        this.flag = flag;
     }
 
+    
     public void viewAvailableCourses(ArrayList<Course> availableCourses) {
         System.out.println(availableCourses); 
     }
