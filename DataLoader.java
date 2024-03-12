@@ -118,7 +118,7 @@ public class DataLoader extends DataConstants {
                 
                 // Parse availability
                 JSONArray availabilityJSON = (JSONArray) courseJSON.get(COURSE_AVAILABILITY);
-                ArrayList<String> availability = new ArrayList<>();
+                List<String> availability = new ArrayList<>();
                 for (Object availabilityObj : availabilityJSON) {
                     availability.add((String) availabilityObj);
                 }
