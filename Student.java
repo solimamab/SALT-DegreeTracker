@@ -75,19 +75,20 @@ public class Student extends User{
         this.flag = flag;
     }
 
+    /**
+     * This method calsulates and sets the overall GPA
+     * @param completedCourses The list of completed course 
+     */
+    public void calculateOverallGPA(ArrayList<CompletedCourse> completedCourses) {
+        double qualityPoints = 0;
+        for ( int i = 0; i < completedCourses.size(); i++)
+        {
+            qualityPoints =  qualityPoints + completedCourses.get(i).getqualityPoints();
+        }
+        this.overallGPA = qualityPoints/this.completedCreditHours;
+    }
+
     
-    public void viewAvailableCourses(ArrayList<Course> availableCourses) {
-        System.out.println(availableCourses); 
-    }
-
-    public void chooseApplicationArea(ArrayList<Course> applicationArea) {
-        System.out.println(applicationArea); 
-    }
-
-    public void calculateOverallGPA(ArrayList<Course> completedCourses) {
-        this.overallGPA = 4.0;
-    }
-
     public void viewCompletedCourses(ArrayList<Course> completedCourses) {
         System.out.println(completedCourses);   
     }
@@ -107,6 +108,14 @@ public class Student extends User{
     public double getOverallGPA() {
         return this.overallGPA;
     }
+    public void viewAvailableCourses(ArrayList<Course> availableCourses) {
+        System.out.println(availableCourses); 
+    }
+
+    public void chooseApplicationArea(ArrayList<Course> applicationArea) {
+        System.out.println(applicationArea); 
+    }
+
 
     public Course courseSearch(String department, String number) {
         return new Course(null, number, number, number, number, completedCreditHours, null, null , currentCourses);

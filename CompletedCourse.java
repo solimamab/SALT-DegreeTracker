@@ -11,11 +11,10 @@ public class CompletedCourse extends Course {
      * @param letterGrade
      * @param qualityPoints
      */
-    public CompletedCourse(Course course, String letterGrade, double qualityPoints) {
+    public CompletedCourse(Course course, String letterGrade) {
         super(course.getId(),course.getName(),course.getDepartment(),course.getNumber(),course.getDescription(),
         course.getCreditHours(),course.getAvailablity(),course.getPrerequisite(),null);
         this.letterGrade = letterGrade;
-        this.qualityPoints = qualityPoints;
     }
 
     /**
@@ -34,5 +33,31 @@ public class CompletedCourse extends Course {
     public double getqualityPoints()
     {
         return this.qualityPoints;
+    }
+
+    /**
+     * Setter for quality points based on the USC GPA scale
+     */
+    public void setQualityPoints()
+    {
+        double points = 0;
+        if (letterGrade.equalsIgnoreCase("A"))
+            points = 4;
+        else if (letterGrade.equalsIgnoreCase("B+"))
+            points = 3.5;
+        else if (letterGrade.equalsIgnoreCase("B"))
+            points = 3;
+        else if (letterGrade.equalsIgnoreCase("C+"))
+            points = 2.5;
+        else if (letterGrade.equalsIgnoreCase("C"))
+            points = 2;
+        else if (letterGrade.equalsIgnoreCase("D+"))
+            points = 1.5;
+        else if (letterGrade.equalsIgnoreCase("D"))
+            points = 1;
+        else
+            points = 0;
+        
+        this.qualityPoints = points * super.getCreditHours();
     }
 }
