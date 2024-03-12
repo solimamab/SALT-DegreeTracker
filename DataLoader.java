@@ -103,7 +103,7 @@ public class DataLoader extends DataConstants {
             JSONArray coursesJSON = (JSONArray) new JSONParser().parse(reader);
             
             // Temporary map to hold courses by their ID for easy lookup
-            Map<UUID, Course> courseMap = new HashMap<>();
+            HashMap<UUID, Course> courseMap = new HashMap<>();
             
             // First pass: create all courses without prerequisites and corequisites
             for (Object courseObj : coursesJSON) {
@@ -118,12 +118,12 @@ public class DataLoader extends DataConstants {
                 
                 // Parse availability
                 JSONArray availabilityJSON = (JSONArray) courseJSON.get(COURSE_AVAILABILITY);
-                List<String> availability = new ArrayList<>();
-                for (Object availabilityObj : availabilityJSON) {
-                    availability.add((String) availabilityObj);
-                }
+                // Availablity availability = new Availablity();
+                // for (Object availabilityObj : availabilityJSON) {
+                //     availability.add((String) availabilityObj);
+                // }
                 
-                Course course = new Course(id, name, department, number, description, creditHours, availability, null, null);
+                Course course = new Course(id, name, department, number, description, creditHours, availabilityJSON, null, null);
                 courseMap.put(course.getId(), course);
             }
             

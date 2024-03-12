@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+import java.util.Iterator;
 
 /**
 *
@@ -27,7 +28,7 @@ public class Course {
         this.creditHours = creditHours;
         this.availablity = availablity; 
         this.prerequisite = new HashMap<>();
-        for (UUID prerequisiteID : prerequisite) {
+        for (UUID prerequisiteID : prerequisiteIDs) {
             this.prerequisite.put(prerequisiteID, ""); // Placeholder for grade requirement, if any
         }
         this.corequisite = new ArrayList<>();
