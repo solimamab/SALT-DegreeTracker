@@ -7,15 +7,18 @@ public class CourseList {
 
     private static CourseList courseList;
     // private Course courseTest; //just here for a filler 
-    private ArrayList<Course> availableCourses;
+    private ArrayList<Course> listOfCourses;
 
     /**
      * 
      */
     private CourseList()
     {
-        this.courseList = courseList;
-        this.availableCourses = availableCourses;
+        listOfCourses = (DataLoader.loadCourses() == null ? new ArrayList<>() : DataLoader.loadCourses());
+    }
+
+    private CourseList(ArrayList<Course> courses) {
+        listOfCourses = courses;
     }
 
     /**
@@ -27,7 +30,6 @@ public class CourseList {
         if (courseList == null) {
             courseList = new CourseList();
         }
-        courseList = new CourseList();
         return courseList;
     }
 
@@ -40,5 +42,9 @@ public class CourseList {
     public Course getCourseByNumber(String department, String number)
     {
         return null;
+    }
+
+    public void saveCourses() {
+        DataWriter.saveCourses(listOfCourses);
     }
 }
