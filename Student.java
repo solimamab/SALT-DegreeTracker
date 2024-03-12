@@ -7,7 +7,7 @@ import java.util.UUID;
 public class Student extends User{
     private Classification classification;
     private UUID id;
-    private int completedCreditHours;
+    private long completedCreditHours;
     private int remainingCreditHours;
     private Flag flag;
     private double overallGPA;
@@ -46,12 +46,97 @@ public class Student extends User{
     }
 
     /**
+     * The getters for the attributes of the student class
+     */
+    public Classification getClassification()
+    {
+        return this.classification;
+    }
+
+    public UUID getUUID()
+    {
+        return this.id;
+    }
+
+    public long getCompletedCreditHours()
+    {
+        return this.completedCreditHours;
+    }
+
+    public int getRemainingCreditHours()
+    {
+        return this.remainingCreditHours;
+    }
+
+    public Flag getFlag()
+    {
+        return this.flag;
+    }
+
+    public double getOverallGPA()
+    {
+        return this.overallGPA;
+    }
+
+    public Major getMajor()
+    {
+        return this.major;
+    }
+
+    public String getMinor()
+    {
+        return this.minor;
+    }
+
+    public Boolean getFEPRA()
+    {
+        return this.FEPRA;
+    }
+
+    public Advisor getAdvisor()
+    {
+        return this.advisor;
+    }
+
+    public ArrayList<CompletedCourse> getCompletedCourses()
+    {
+        return this.completedCourses;
+    }
+
+    public EightSemesterPlan getEightSemesterPlan()
+    {
+        return this.eightSemesterPlan;
+    }
+
+    public ArrayList<Course> getCurrentCourses()
+    {
+        return this.currentCourses;
+    }
+
+    /**
+     * A setter that uses the number of completed credit hours to determine the classification of the student 
+     * based on the USC requirements
+     */
+    public void setClassifcation()
+    {
+        if (completedCreditHours < 30 )
+            this.classification = Classification.Freshmen;
+        else if (completedCreditHours >= 30 && completedCreditHours < 60)
+            this.classification = Classification.Sophomore;
+        else if (completedCreditHours >= 60 && completedCreditHours < 90)
+            this.classification = Classification.Junior;
+        else
+            this.classification = Classification.Senior;
+    }
+
+
+    /**
      * This method loops through the list of completed courses to calculate the number of completed cerdit hours
      * and sets the completed cerdit hours to the number calculated
      * @param courses the arrayList of completed courses
      */
     public void setCompletedHours(ArrayList<CompletedCourse> courses) {
-       int completedCredits = 0;
+       long completedCredits = 0;
         for (int i = 0;i < courses.size(); i++)
        {
         completedCredits = completedCredits + courses.get(i).getCreditHours();
@@ -79,7 +164,7 @@ public class Student extends User{
      * This method calsulates and sets the overall GPA
      * @param completedCourses The list of completed course 
      */
-    public void calculateOverallGPA(ArrayList<CompletedCourse> completedCourses) {
+    public void setOverallGPA(ArrayList<CompletedCourse> completedCourses) {
         double qualityPoints = 0;
         for ( int i = 0; i < completedCourses.size(); i++)
         {
@@ -98,19 +183,7 @@ public class Student extends User{
         completedCourses.add(new CompletedCourse(course, grade));
     }
 
-    /**
-     * This method calculates and returns the overall GPA of the student
-     * @return the GPA
-     */
-    public double getOverallGPA() {
-        double overallQualityPoints = 0;
-        for ( int i = 0; i < completedCourses.size(); i++)
-        {
-            overallQualityPoints = overallQualityPoints + completedCourses.get(i).getqualityPoints();
-        }
-        return overallQualityPoints / completedCreditHours;
-    }
-
+    
     public void viewCompletedCourses(ArrayList<Course> completedCourses) {
         System.out.println(completedCourses);   
     }
@@ -134,7 +207,7 @@ public class Student extends User{
 
 
     public Course courseSearch(String department, String number) {
-        return new Course(null, number, number, number, number, completedCreditHours, null, null , currentCourses);
+        return new Course(id, number, department, remainingCreditHours, number, completedCreditHours, null, null, null);
     }
 
 }

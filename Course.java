@@ -27,7 +27,7 @@ public class Course {
         this.creditHours = creditHours;
         this.availablity = availablity; 
         this.prerequisite = new HashMap<>();
-        for (UUID prerequisiteID : prerequisiteIDs) {
+        for (UUID prerequisiteID : prerequisite) {
             this.prerequisite.put(prerequisiteID, ""); // Placeholder for grade requirement, if any
         }
         this.corequisite = new ArrayList<>();
@@ -77,7 +77,7 @@ public class Course {
         return availablity;
     }
     
-    public Map<UUID,String> getPrerequisite() {
+    public HashMap<UUID,String> getPrerequisite() {
         return prerequisite;
     }
     

@@ -1,17 +1,20 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.UUID;
-
+/**
+ * The class for the completed courses a student has taken and the class is able to hold the class information along 
+ * with the grade that the student had recieved in the course
+ */
 public class CompletedCourse extends Course {
-    private String letterGrade;
+    private Grade letterGrade;
     private double qualityPoints;
     
-    public CompletedCourse(UUID id, String name, String department, long number, String description, long creditHours,
-    Availablity availability, HashMap<UUID, String> prerequisite, ArrayList<UUID> corequisite,
-    String letterGrade, double qualityPoints) {
-        super(id, name, department, number, description, creditHours, availability, prerequisite, corequisite);
+    /**
+     * The constructor for the completed course
+     * @param course the course that the student completed
+     * @param letterGrade the letter grade the student recieved in the course
+     */
+    public CompletedCourse(Course course, Grade letterGrade) {
+        super(course.getId(),course.getName(),course.getDepartment(),course.getNumber(),course.getDescription(),
+        course.getCreditHours(),course.getAvailablity(),course.getPrerequisite(),course.getCorequisite());
         this.letterGrade = letterGrade;
-        this.qualityPoints = qualityPoints;
     }
     
     /**
@@ -19,23 +22,43 @@ public class CompletedCourse extends Course {
     */
     public void setQualityPoints() {
         double points = 0;
-        if (letterGrade.equals(Grade.A.toString()))
+        if (letterGrade.equals(Grade.A))
             points = 4;
-        else if (letterGrade.equals(Grade.B_PLUS.toString()))
+        else if (letterGrade.equals(Grade.B_PLUS))
             points = 3.5;
-        else if (letterGrade.equals(Grade.B.toString()))
+        else if (letterGrade.equals(Grade.B))
             points = 3;
-        else if (letterGrade.equals(Grade.C_PLUS.toString()))
+        else if (letterGrade.equals(Grade.C_PLUS))
             points = 2.5;
-        else if (letterGrade.equals(Grade.C.toString()))
+        else if (letterGrade.equals(Grade.C))
             points = 2;
-        else if (letterGrade.equals(Grade.D_PLUS.toString()))
+        else if (letterGrade.equals(Grade.D_PLUS))
             points = 1.5;
-        else if (letterGrade.equals(Grade.D.toString()))
+        else if (letterGrade.equals(Grade.D))
             points = 1;
         else
             points = 0;
         
         this.qualityPoints = points * super.getCreditHours();
     }
+
+    /**
+     * getter for quality points
+     * @return the double that represents the quality points for the course
+     */
+    public double getqualityPoints()
+    {
+        return this.qualityPoints;
+    }
+
+    /**
+     * the getter for the letter grade
+     * @return the grade that the student recieved in the course
+     */
+    public Grade getLetterGrade()
+    {
+        return this.letterGrade;
+    }
+
+
 }
