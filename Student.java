@@ -205,9 +205,9 @@ public class Student extends User{
         System.out.println(applicationArea); 
     }
 
-
+    // need to implement logic here?
     public Course courseSearch(String department, String number) {
-        return new Course(id, number, department, remainingCreditHours, number, completedCreditHours, null, null, null);
+        return null;
     }
 
 }
