@@ -18,6 +18,7 @@ public class Advisor extends User{
         
     }
 
+    
     public Advisor(UUID id, String username, String password, String firstname, String lastname,
             ArrayList<UUID> studentIDs) {
             super(username, password, firstname, lastname);
