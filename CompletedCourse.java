@@ -2,7 +2,7 @@
  * This class represents a course that has been completed and stores the grade received in that class
  */
 public class CompletedCourse extends Course {
-    private String letterGrade;
+    private Grade letterGrade;
     private double qualityPoints;
 
     /**
@@ -11,7 +11,7 @@ public class CompletedCourse extends Course {
      * @param letterGrade
      * @param qualityPoints
      */
-    public CompletedCourse(Course course, String letterGrade) {
+    public CompletedCourse(Course course, Grade letterGrade) {
         super(course.getId(),course.getName(),course.getDepartment(),course.getNumber(),course.getDescription(),
         course.getCreditHours(),course.getAvailablity(),course.getPrerequisite(),null);
         this.letterGrade = letterGrade;
@@ -21,7 +21,7 @@ public class CompletedCourse extends Course {
      * Getter for letter Grade
      * @return the letter grade
      */
-    public String getLetterGrade()
+    public Grade getLetterGrade()
     {
         return this.letterGrade;
     }
@@ -41,19 +41,19 @@ public class CompletedCourse extends Course {
     public void setQualityPoints()
     {
         double points = 0;
-        if (letterGrade.equalsIgnoreCase("A"))
+        if (letterGrade.equals(Grade.A))
             points = 4;
-        else if (letterGrade.equalsIgnoreCase("B+"))
+        else if (letterGrade.equals(Grade.B_plus))
             points = 3.5;
-        else if (letterGrade.equalsIgnoreCase("B"))
+        else if (letterGrade.equals(Grade.B_plus))
             points = 3;
-        else if (letterGrade.equalsIgnoreCase("C+"))
+        else if (letterGrade.equals(Grade.C_plus))
             points = 2.5;
-        else if (letterGrade.equalsIgnoreCase("C"))
+        else if (letterGrade.equals(Grade.C))
             points = 2;
-        else if (letterGrade.equalsIgnoreCase("D+"))
+        else if (letterGrade.equals(Grade.D_plus))
             points = 1.5;
-        else if (letterGrade.equalsIgnoreCase("D"))
+        else if (letterGrade.equals(Grade.D))
             points = 1;
         else
             points = 0;

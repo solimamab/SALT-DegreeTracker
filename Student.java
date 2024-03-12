@@ -88,14 +88,33 @@ public class Student extends User{
         this.overallGPA = qualityPoints/this.completedCreditHours;
     }
 
-    
+    /**
+     * This method adds a course to the list of completed courses once the student finishes a class
+     * and is assigned a final grade for the course
+     * @param course the course the student finished
+     * @param grade the grade they received
+     */
+    public void addCompletedCourse(Course course, Grade grade) {
+        completedCourses.add(new CompletedCourse(course, grade));
+    }
+
+    /**
+     * This method calculates and returns the overall GPA of the student
+     * @return the GPA
+     */
+    public double getOverallGPA() {
+        double overallQualityPoints = 0;
+        for ( int i = 0; i < completedCourses.size(); i++)
+        {
+            overallQualityPoints = overallQualityPoints + completedCourses.get(i).getqualityPoints();
+        }
+        return overallQualityPoints / completedCreditHours;
+    }
+
     public void viewCompletedCourses(ArrayList<Course> completedCourses) {
         System.out.println(completedCourses);   
     }
 
-    public void addCompletedCourse(Course course) {
-        System.out.println("Course added: " + course);
-    }
 
     public void viewEightSemesterPlan(EightSemesterPlan eightSemesterPlan) {
         System.out.println(eightSemesterPlan);       
@@ -105,9 +124,6 @@ public class Student extends User{
         System.out.println(currentCourses);
     }
 
-    public double getOverallGPA() {
-        return this.overallGPA;
-    }
     public void viewAvailableCourses(ArrayList<Course> availableCourses) {
         System.out.println(availableCourses); 
     }
