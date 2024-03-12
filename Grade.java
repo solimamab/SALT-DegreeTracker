@@ -1,10 +1,10 @@
 public enum Grade {
     A,
-    B_plus,
+    B_PLUS,
     B,
-    C_plus,
+    C_PLUS,
     C,
-    D_plus,
+    D_PLUS,
     D,
     F
 }
