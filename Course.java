@@ -10,14 +10,14 @@ public class Course {
     private UUID id;
     private String name;
     private String department;
-    private long number;
+    private String number;
     private String description;
     private long creditHours;
     private Availablity availablity;
     private HashMap<UUID, String> prerequisite;
     private ArrayList<UUID> corequisite;
     
-    public Course(UUID id, String name, String department, long number, String description, long creditHours,
+    public Course(UUID id, String name, String department, String number, String description, long creditHours,
     Availablity availability, HashMap<UUID, String> prerequisiteIDs, ArrayList<UUID> corequisiteIDs) {
         this.id = id;
         this.name = name;
@@ -60,7 +60,7 @@ public class Course {
         return department;
     }
     
-    public long getNumber() {
+    public String getNumber() {
         return number;
     }
     
@@ -98,7 +98,7 @@ public class Course {
         this.department = department;
     }
     
-    public void setNumber(long number) {
+    public void setNumber(String number) {
         this.number = number;
     }
     
