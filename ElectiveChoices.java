@@ -12,4 +12,6 @@ public class ElectiveChoices {
     public boolean ElectiveClusterCompleted(ArrayList<Course> electives, int requiredCredits) {
         return true;
     }
+
+    
 }

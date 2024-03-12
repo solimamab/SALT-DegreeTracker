@@ -19,7 +19,7 @@ public class Course {
     private ArrayList<UUID> corequisite;
     
     public Course(UUID id, String name, String department, String number, String description, long creditHours,
-    Availablity availability, HashMap<UUID, String> prerequisiteIDs, ArrayList<UUID> corequisiteIDs) {
+    Availablity availability, HashMap<UUID, String> prerequisites, ArrayList<UUID> corequisiteIDs) {
         this.id = id;
         this.name = name;
         this.department = department;
@@ -27,14 +27,8 @@ public class Course {
         this.description = description;
         this.creditHours = creditHours;
         this.availablity = availablity; 
-        this.prerequisite = new HashMap<>();
-        for (UUID prerequisiteID : prerequisiteIDs) {
-            this.prerequisite.put(prerequisiteID, ""); // Placeholder for grade requirement, if any
-        }
-        this.corequisite = new ArrayList<>();
-        for (UUID corequisiteID : corequisiteIDs) {
-            this.corequisite.add(corequisiteID);
-        }
+        this.prerequisite = prerequisites;
+        this.corequisite = corequisiteIDs;
     }
     
     /**

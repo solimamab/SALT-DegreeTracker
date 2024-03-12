@@ -112,16 +112,12 @@ public class DataLoader extends DataConstants {
                 UUID id = UUID.fromString((String) courseJSON.get(COURSE_ID));
                 String name = (String) courseJSON.get(COURSE_NAME);
                 String department = (String) courseJSON.get(COURSE_DEPARTMENT);
-                long number = (long) courseJSON.get(COURSE_NUMBER);
+                String number = (String) courseJSON.get(COURSE_NUMBER);
                 String description = (String) courseJSON.get(COURSE_DESCRIPTION);
                 long creditHours = (long) courseJSON.get(COURSE_CREDIT_HOURS);
                 
                 // Parse availability
-                JSONArray availabilityJSON = (JSONArray) courseJSON.get(COURSE_AVAILABILITY);
-                // Availablity availability = new Availablity();
-                // for (Object availabilityObj : availabilityJSON) {
-                //     availability.add((String) availabilityObj);
-                // }
+                Availablity availabilityJSON = (Availablity) courseJSON.get(COURSE_AVAILABILITY);
                 
                 Course course = new Course(id, name, department, number, description, creditHours, availabilityJSON, null, null);
                 courseMap.put(course.getId(), course);
