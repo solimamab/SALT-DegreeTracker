@@ -41,11 +41,11 @@ public class CourseList {
      */
     public Course getCourseByNumber(String department, String number)
     {
-        for(int i = 0; i < availableCourses.size(); i++)
+        for(int i = 0; i < listOfCourses.size(); i++)
         {
-            if (availableCourses.get(i).getDepartment().equals(department) && availableCourses.get(i).getNumber().equals(number))
+            if (listOfCourses.get(i).getDepartment().equals(department) && listOfCourses.get(i).getNumber().equals(number))
             {
-                return availableCourses.get(i);
+                return listOfCourses.get(i);
             }
             i++;
         }
