@@ -23,9 +23,6 @@ public class Advisor extends User{
             super(username, password, firstname, lastname);
             this.students = studentIDs;
             NumberofStudents = studentIDs.size();
-            
-
-        
     }
     /** 
      * Search for student by the id number of the student
