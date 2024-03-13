@@ -2,8 +2,6 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 import org.json.simple.JSONArray;
@@ -37,7 +35,7 @@ public class DataLoader extends DataConstants {
                 String classification = (String) studentJSON.get(STUDENT_CLASSIFICATION);
                 long completedCreditHours = (long) studentJSON.get(STUDENT_COMPLETED_CREDIT_HOURS);
                 long remainingCreditHours = (long) studentJSON.get(STUDENT_REMAINING_CREDIT_HOURS);
-                boolean flag = (boolean) studentJSON.get(STUDENT_FLAG);
+                String flag = (String) studentJSON.get(STUDENT_FLAG);
                 double overallGPA = (double) studentJSON.get(STUDENT_OVERALL_GPA);
                 UUID majorId = UUID.fromString((String) studentJSON.get(STUDENT_MAJOR_ID));
                 String minor = (String) studentJSON.get(STUDENT_MINOR);
@@ -46,13 +44,12 @@ public class DataLoader extends DataConstants {
                 
                 // Parse completedCourses
                 JSONArray completedCoursesJSON = (JSONArray) studentJSON.get(STUDENT_COMPLETED_COURSES);
-                List<CompletedCourse> completedCourses = new ArrayList<>();
+                ArrayList<CompletedCourse> completedCourses = new ArrayList<>();
                 for (Object courseObj : completedCoursesJSON) {
                     JSONObject courseJSON = (JSONObject) courseObj;
                     String courseId = (String) courseJSON.get(STUDENT_COURSE_ID);
-                    Grade letterGrade = (Grade) courseJSON.get(STUDENT_LETTER_GRADE);
-                    double qualityPoints = (double) courseJSON.get(STUDENT_QUALITY_POINTS);
-                    
+                    Grade letterGrade = Grade.valueOf((String)courseJSON.get(STUDENT_LETTER_GRADE));
+
                     Course course = getCourseById(courseId);
                     completedCourses.add(new CompletedCourse(course, letterGrade));
                 }
@@ -280,5 +277,18 @@ public class DataLoader extends DataConstants {
         }
         
         return advisors;
+    }
+
+    public static void main(String[] args){
+        ArrayList<Student> students = DataLoader.loadStudents();
+        ArrayList<Course> courses = DataLoader.loadCourses();
+
+        for(Student student : students){
+            System.out.println(student);
+        }
+
+        for(Course course : courses) {
+            System.out.print(course);
+        }
     }
 }

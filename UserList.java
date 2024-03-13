@@ -63,11 +63,11 @@ public class UserList {
     }
 
     public void saveStudents() {
-        DataWriter.saveStudentList(listOfStudents);
+        DataWriter.saveStudents(listOfStudents);
     }
 
     public void saveAdvisors() {
-        DataWriter.saveAdvisorList(listOfAdvisors);  // waiting on datawriter method for this
+        DataWriter.saveAdvisors(listOfAdvisors);  // waiting on datawriter method for this
     }
 }
 
