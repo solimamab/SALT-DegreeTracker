@@ -66,7 +66,7 @@ public class DataWriter {
         }
     }
 
-    public static void saveAdvisors(ArrayList<Advisor> advisors) {
+    public static void saveAdvisorList(ArrayList<Advisor> advisors) {
         JSONArray jsonUsers = new JSONArray();
         for (Advisor advisor : advisors) {
             JSONObject jsonAdvisor = new JSONObject();
