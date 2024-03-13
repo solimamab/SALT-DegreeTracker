@@ -14,12 +14,12 @@ public class Course {
     private String number;
     private String description;
     private long creditHours;
-    private Availablity availablity;
+    private ArrayList<Availablity> availablity;
     private HashMap<UUID, String> prerequisite;
     private ArrayList<UUID> corequisite;
     
     public Course(UUID id, String name, String department, String number, String description, long creditHours,
-    Availablity availability, HashMap<UUID, String> prerequisites, ArrayList<UUID> corequisiteIDs) {
+    ArrayList<Availablity> availability, HashMap<UUID, String> prerequisites, ArrayList<UUID> corequisiteIDs) {
         this.id = id;
         this.name = name;
         this.department = department;
@@ -67,7 +67,7 @@ public class Course {
         return creditHours;
     }
     
-    public Availablity getAvailablity()
+    public ArrayList<Availablity> getAvailablity()
     {
         return availablity;
     }

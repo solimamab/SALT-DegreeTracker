@@ -117,9 +117,15 @@ public class DataLoader extends DataConstants {
                 long creditHours = (long) courseJSON.get(COURSE_CREDIT_HOURS);
                 
                 // Parse availability
-                Availablity availabilityJSON = (Availablity) courseJSON.get(COURSE_AVAILABILITY);
+                JSONArray availabilityJSON = (JSONArray) courseJSON.get(COURSE_AVAILABILITY);
+                ArrayList<Availablity> availabilityList = new ArrayList<>();
+                for (Object availabilityObj : availabilityJSON) {
+                    String availabilityStr = (String) availabilityObj;
+                    Availablity availability = Availablity.valueOf(availabilityStr); // Convert string to enum
+                    availabilityList.add(availability);
+                }
                 
-                Course course = new Course(id, name, department, number, description, creditHours, availabilityJSON, null, null);
+                Course course = new Course(id, name, department, number, description, creditHours, availabilityList, null, null);
                 courseMap.put(course.getId(), course);
             }
             
