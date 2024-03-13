@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.UUID;
 /**
@@ -63,5 +64,9 @@ public class Advisor extends User{
     public ArrayList<UUID> viewAdvisingStudents(){
         return this.students;
         
+    }
+
+    public ArrayList<UUID> getStudents() {
+        return students;
     }
 }

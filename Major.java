@@ -17,4 +17,9 @@ public class Major {
     public Major(UUID id2, String majorName2, ArrayList<UUID> requiredCoursesIDs, ArrayList<EightSemesterPlan> defaultPlan) {
         // stuff goes here
     }
+
+
+    public UUID getId() {
+        return id;
+    }
 }

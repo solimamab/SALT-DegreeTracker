@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -42,4 +43,11 @@ class EightSemesterPlan {
         }
     }
 
+    public ArrayList<Course> getClassesInPlan() {
+        return this.classesInPlan;
+    }
+
+    public ArrayList<ElectiveChoices> getElectiveChoices() {
+        return this.electiveChoice;
+    }
 }
