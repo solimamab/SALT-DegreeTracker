@@ -9,14 +9,16 @@ public class ElectiveChoices {
         this.numCredits = numCredits;
     }
 
-    public boolean ElectiveClusterCompleted(ArrayList<Course> electives, int requiredCredits) {
-        return true;
+    public boolean ElectiveClusterCompleted(int requiredCredits,int electiveCreditCompleted) {
+        if( requiredCredits > electiveCreditCompleted )
+            return false;
+        else
+            return true;
     }
 
     public void listElectiveClustertoChoseFrom(ArrayList<Course> electives, int requiredCredits)
     {
         
     }
-
     
 }

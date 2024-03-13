@@ -38,11 +38,12 @@ public class Advisor extends User{
                  return listOfStudents.get(i);
              }
         }
-        return 
+        return null;
      }
  
 
     /**
+     * 
      * Search for a student by the first name and the last name
      * @param firstName the first name to be looked for 
      * @param lastName the last name to be looked for
@@ -50,10 +51,12 @@ public class Advisor extends User{
      */
     public Student searchForStudent(String firstName, String lastName){
         for(int i = 0; i < listOfStudents.size(); i++){
-            if(listOfStudents.getFirstName().equals(firstName) && listOfStudents.getLastName().equals(lastName)){
-
+            if(listOfStudents.get(i).getFirstName().equals(firstName) && listOfStudents.get(i).getLastName().equals(lastName))
+            {
+                return listOfStudents.get(i);
             }
         }
+        return null;
     }
 
     /**
