@@ -13,8 +13,14 @@ public class UserList {
      * Constructor to initialize students and advisors list
      */
     private UserList() {
-        listOfStudents = (DataLoader.loadStudents() != null ? DataLoader.loadStudents() : new ArrayList<>());
-        listOfAdvisors = (DataLoader.loadAdvisors() != null ? DataLoader.loadAdvisors() : new ArrayList<>());
+        try {
+            listOfStudents = (DataLoader.loadStudents() != null ? DataLoader.loadStudents() : new ArrayList<>());
+            listOfAdvisors = (DataLoader.loadAdvisors() != null ? DataLoader.loadAdvisors() : new ArrayList<>());
+        } catch (Exception e) {
+            e.printStackTrace();
+            listOfStudents = new ArrayList<>(); // Ensure the list is initialized even if error
+            listOfAdvisors = new ArrayList<>();
+        }
     }
 
     /**
