@@ -19,14 +19,17 @@ public class DataWriter {
             jsonCourse.put(DataConstants.COURSE_CREDIT_HOURS, course.getCreditHours());
 
             JSONArray prereqIDs = new JSONArray();
-            for (Course prereq : course.getPrerequisite()) {
-                prereqIDs.add(prereq.getId().toString());
+            for (UUID prereqID : course.getPrerequisite().keySet()) {
+                JSONObject prereqObj = new JSONObject();
+                prereqObj.put("id", prereqID.toString());
+                prereqObj.put("gradeReq", course.getPrerequisite().get(prereqID));
+                prereqIDs.add(prereqObj);
             }
             jsonCourse.put(DataConstants.COURSE_PREREQUISITES_ID, prereqIDs);
 
             JSONArray coreqIDs = new JSONArray();
-            for (Course coreq : course.getCorequisite()) {
-                coreqIDs.add(coreq.getId().toString());
+            for (UUID coreq : course.getCorequisite()) {
+                coreqIDs.add(coreqIDs.toString());
             }
             jsonCourse.put(DataConstants.COURSE_COREQUISITE_ID, coreqIDs);
 
@@ -40,7 +43,6 @@ public class DataWriter {
             e.printStackTrace();
         }
     }
-
 
     public static void saveStudentList(ArrayList<Student> students) {
         JSONArray jsonUsers = new JSONArray();
@@ -58,6 +60,46 @@ public class DataWriter {
 
         try (FileWriter file = new FileWriter(DataConstants.STUDENT_FILE_NAME)) { // Adjust filename accordingly
             file.write(jsonUsers.toJSONString());
+            file.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void saveAdvisors(ArrayList<Advisor> advisors) {
+        JSONArray jsonUsers = new JSONArray();
+        for (Advisor advisor : advisors) {
+            JSONObject jsonAdvisor = new JSONObject();
+            jsonAdvisor.put(DataConstants.ADVISOR_ID, advisor.getId().toString());
+            jsonAdvisor.put(DataConstants.ADVISOR_USERNAME, advisor.getUsername());
+            jsonAdvisor.put(DataConstants.ADVISOR_PASSWORD, advisor.getPassword());
+            jsonAdvisor.put(DataConstants.ADVISOR_FIRST_NAME, advisor.getFirstName());
+            jsonAdvisor.put(DataConstants.ADVISOR_LAST_NAME, advisor.getLastName());
+
+            jsonUsers.add(jsonAdvisor);
+        }
+
+        try (FileWriter file = new FileWriter(DataConstants.ADVISOR_FILE_NAME)) {
+            file.write(jsonUsers.toJSONString());
+            file.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void saveCompletedCourses(ArrayList<CompletedCourse> completedCourses) {
+        JSONArray jsonCompletedCourses = new JSONArray();
+        for (CompletedCourse completedCourse : completedCourses) {
+            JSONObject jsonCompletedCourse = new JSONObject();
+            jsonCompletedCourse.put(DataConstants.STUDENT_COURSE_ID, completedCourse.getId().toString());
+            jsonCompletedCourse.put(DataConstants.STUDENT_LETTER_GRADE, completedCourse.getLetterGrade());
+            jsonCompletedCourse.put(DataConstants.STUDENT_QUALITY_POINTS, completedCourse.getqualityPoints());
+
+            jsonCompletedCourses.add(jsonCompletedCourse);
+        }
+
+        try (FileWriter file = new FileWriter(DataConstants.STUDENT_FILE_NAME)) {
+            file.write(jsonCompletedCourses.toJSONString());
             file.flush();
         } catch (IOException e) {
             e.printStackTrace();
