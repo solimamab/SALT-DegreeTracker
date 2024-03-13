@@ -13,5 +13,10 @@ public class ElectiveChoices {
         return true;
     }
 
+    public void listElectiveClustertoChoseFrom(ArrayList<Course> electives, int requiredCredits)
+    {
+        
+    }
+
     
 }
