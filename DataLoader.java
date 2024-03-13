@@ -103,7 +103,7 @@ public class DataLoader extends DataConstants {
             JSONArray coursesJSON = (JSONArray) new JSONParser().parse(reader);
             
             // Temporary map to hold courses by their ID for easy lookup
-            Map<UUID, Course> courseMap = new HashMap<>();
+            HashMap<UUID, Course> courseMap = new HashMap<>();
             
             // First pass: create all courses without prerequisites and corequisites
             for (Object courseObj : coursesJSON) {
@@ -112,18 +112,20 @@ public class DataLoader extends DataConstants {
                 UUID id = UUID.fromString((String) courseJSON.get(COURSE_ID));
                 String name = (String) courseJSON.get(COURSE_NAME);
                 String department = (String) courseJSON.get(COURSE_DEPARTMENT);
-                long number = (long) courseJSON.get(COURSE_NUMBER);
+                String number = (String) courseJSON.get(COURSE_NUMBER);
                 String description = (String) courseJSON.get(COURSE_DESCRIPTION);
                 long creditHours = (long) courseJSON.get(COURSE_CREDIT_HOURS);
                 
                 // Parse availability
                 JSONArray availabilityJSON = (JSONArray) courseJSON.get(COURSE_AVAILABILITY);
-                List<String> availability = new ArrayList<>();
+                ArrayList<Availablity> availabilityList = new ArrayList<>();
                 for (Object availabilityObj : availabilityJSON) {
-                    availability.add((String) availabilityObj);
+                    String availabilityStr = (String) availabilityObj;
+                    Availablity availability = Availablity.valueOf(availabilityStr); // Convert string to enum
+                    availabilityList.add(availability);
                 }
                 
-                Course course = new Course(id, name, department, number, description, creditHours, availability, null, null);
+                Course course = new Course(id, name, department, number, description, creditHours, availabilityList, null, null);
                 courseMap.put(course.getId(), course);
             }
             

@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.UUID;
 /**
@@ -6,6 +7,7 @@ import java.util.UUID;
 public class Advisor extends User{
     private ArrayList<UUID> students;
     private int NumberofStudents;
+    private ArrayList<Student> listOfStudents;
     
 
     /**
@@ -30,12 +32,15 @@ public class Advisor extends User{
      * @param idNumber the idnumber to be looked for
      * @return the student that matches that id number
      */ 
-    public Student searchForStudent(String idNumber){
-        
-        
-        return new Student(idNumber, null, null, null, null, 0, 0, null, 0, null, null, null, null, null, null);
-       
-    }
+    public Student searchForStudent(UUID idNumber){
+        for(int i = 0; i < listOfStudents.size(); i++){
+             if(listOfStudents.get(i).getUUID().equals(idNumber)){
+                 return listOfStudents.get(i);
+             }
+        }
+        return 
+     }
+ 
 
     /**
      * Search for a student by the first name and the last name
@@ -43,8 +48,12 @@ public class Advisor extends User{
      * @param lastName the last name to be looked for
      * @return the student that matches that id number
      */
-    public Student searchForStudent( String firstName, String lastName){
-        return new Student(lastName, lastName, lastName, lastName, null, 0, 0, null, 0, null, lastName, null, null, null, null);
+    public Student searchForStudent(String firstName, String lastName){
+        for(int i = 0; i < listOfStudents.size(); i++){
+            if(listOfStudents.getFirstName().equals(firstName) && listOfStudents.getLastName().equals(lastName)){
+
+            }
+        }
     }
 
     /**
@@ -63,5 +72,21 @@ public class Advisor extends User{
     public ArrayList<UUID> viewAdvisingStudents(){
         return this.students;
         
+    }
+
+    public ArrayList<UUID> getStudents() {
+        return students;
+    }
+
+    public void addAdvisingStudent(Student student){
+        students.add(student.getUUID());
+    }
+
+    public void removeAdvisingStudent(Student student){
+        for(UUID uuid : students){
+            if(student.getUUID().equals(uuid)){
+                students.remove(uuid);
+            }
+        }
     }
 }
