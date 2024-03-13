@@ -17,18 +17,15 @@
     "completedCourses" : [
       {
         "courseId": "a5722aa5-ec7e-4bea-a526-a916bb80506d",
-        "letterGrade": "A",
-        "qualityPoints": 0.5
+        "letterGrade": "A"
       },
       {
         "courseId": "a5722aa5-ec7e-4bea-a526-a916bb80506d",
-        "letterGrade": "A",
-        "qualityPoints": 0.5
+        "letterGrade": "A"
       },
       {
         "courseId": "a5722aa5-ec7e-4bea-a526-a916bb80506d",
-        "letterGrade": "A",
-        "qualityPoints": 0.5
+        "letterGrade": "A"
       }
     ],
     "eightSemesterPlan" : [

@@ -39,7 +39,7 @@ public class Student extends User{
 
     // why is there two constructors?
     public Student(String username, String password, String firstname, String lastname, String classification2,
-            long completedCreditHours2, long remainingCreditHours2, boolean flag2, double overallGPA2, UUID majorId,
+            long completedCreditHours2, long remainingCreditHours2, String flag2, double overallGPA2, UUID majorId,
             String minor2, boolean fERPA, UUID advisorId, EightSemesterPlan eightSemesterPlan2, UUID currentCoursesIDs,
             List<CompletedCourse> completedCourses2) {
                 super(username, password, firstname, lastname);
