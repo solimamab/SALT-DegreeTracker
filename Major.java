@@ -4,15 +4,25 @@ import java.util.UUID;
 public class Major {
     private UUID id;
     private String majorName;
-    private ArrayList<UUID> requiredCourses;
+    private ArrayList<Course> requiredCourses;
     private EightSemesterPlan majorMap;
 
-    public Major(UUID id, String majorName, ArrayList<UUID> requiredCourses, EightSemesterPlan majorMap) {
+    
+    public Major(UUID id, String majorName, ArrayList<Course> requiredCourses, EightSemesterPlan majorMap) {
         this.id = id;
         this.majorName = majorName;
         this.requiredCourses = requiredCourses;
         this.majorMap = majorMap;
     }
+
+
+    //ask abhinav about data defaultplan in dataloader
+    public Major(UUID id2, String majorName2, ArrayList<UUID> requiredCoursesIDs,
+            ArrayList<EightSemesterPlan> defaultPlan) {
+        //TODO Auto-generated constructor stub
+    }
+
+
 
     /**
      * Getters for the artibutes of the major class
@@ -26,7 +36,7 @@ public class Major {
         return this.majorName;
     }
 
-    public ArrayList<UUID> getRequiredCourses()
+    public ArrayList<Course> getRequiredCourses()
     {
         return this.requiredCourses;
     }
