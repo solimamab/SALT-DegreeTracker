@@ -24,14 +24,13 @@ public class GradeSystemFACADE {
         return facade;
     }
 
-
-
-    public Course findCourse(String number) {
-        return null;
-    }
-
-    public ArrayList<Course> findCourse() {
-        return new ArrayList<Course>();
+    /**
+     * 
+     * @param number
+     * @return
+     */
+    public Course findCourse(String department, String number) {
+        return courseList.getCourseByNumber(department, number);
     }
 
     public boolean login(String username, String password) {
@@ -52,15 +51,15 @@ public class GradeSystemFACADE {
     }
 
     public User findUser(String username) {
-        return currentUser.getUser();
+        return userList.getUser(username);
     }
 
     public ArrayList<Course> getCourseDetails(Course course) {
         return new ArrayList<Course>();
     }
 
-    public boolean getUserDetails(User user) {
-        return true;
+    public String getUserDetails(String username) {
+        return userList.toString();
     }
 
     public boolean notOfferCourse(Course course) {
