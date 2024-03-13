@@ -1,23 +1,24 @@
 [
     {
-       "id" : "b2085769-86f2-4393-8437-3cac7daf3079",
-       "name" : "Basic College Mathmatics",
-       "department" : "MATH",
-       "number" : "111",
-       "description" : "Basic college algebra; linear and quadratic equations, inequalities, functions and graphs of functions, exponential and logarithmic functionns, systems of equations",
-       "creditHours" : 3,
-       "availability" : ["Fall", "Spring"],
-       "prerequisiteID" : "None",
-       "corequisiteID" : "None"
-    }, {
-        "id" : "5aec97b9-191c-4e3c-b528-9f5cd4316067",
-        "name" : "PreCalculus Mathematics",
-        "department" : "MATH",
-        "number" : "115",
-        "description" : "Topics in algebra specifically needed for MATH 141 MATH 142 and MATH 241. Circular functions analytic trigonometry applicatoins of triginometry, Credit may not be received for both MATH 122 and MATH 115",
-        "creditHours" : 4,
-        "availability" : ["Fall", "Spring"],
-        "prerequisiteID" : ["b2085769-86f2-4393-8437-3cac7daf3079", "C"],
-        "corequisiteID" : "None"
+       "id": "b2085769-86f2-4393-8437-3cac7daf3079",
+       "name": "Basic College Mathematics",
+       "department": "MATH",
+       "number": "111",
+       "description": "Basic college algebra; linear and quadratic equations, inequalities, functions and graphs of functions, exponential and logarithmic functions, systems of equations",
+       "creditHours": 3,
+       "availability": ["Fall", "Spring"],
+       "prerequisites": [],
+       "corequisites": []
+    },
+    {
+       "id": "5aec97b9-191c-4e3c-b528-9f5cd4316067",
+       "name": "PreCalculus Mathematics",
+       "department": "MATH",
+       "number": "115",
+       "description": "Topics in algebra specifically needed for MATH 141 MATH 142 and MATH 241. Circular functions, analytic trigonometry, applications of trigonometry. Credit may not be received for both MATH 122 and MATH 115",
+       "creditHours": 4,
+       "availability": ["Fall", "Spring"],
+       "prerequisites": [["b2085769-86f2-4393-8437-3cac7daf3079", "C"]],
+       "corequisites": []
     }
 ]

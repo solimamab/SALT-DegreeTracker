@@ -155,7 +155,7 @@ public class DataWriter {
         planJSON.put("majorProgress", eightSemesterPlan.getMajorProgress());
     
         JSONArray electiveChoicesArray = new JSONArray();
-        for (ElectiveChoices choice : eightSemesterPlan.getElectiveChoices()) {
+        for (Course choice : eightSemesterPlan.getElectiveChoices()) {
             electiveChoicesArray.add(choice.toString()); 
         }
         planJSON.put("electiveChoice", electiveChoicesArray);

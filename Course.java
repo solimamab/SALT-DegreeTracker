@@ -40,6 +40,11 @@ public class Course {
         + description + " " + creditHours + " " + availablity + " " 
         + prerequisite + " " + corequisite;
     }
+
+    @Override
+    public String toString() {
+        return department + " " + number;
+    }
     
     // Getters
     public UUID getId() {
@@ -100,7 +105,7 @@ public class Course {
         this.description = description;
     }
     
-    public void setCreditHours(int creditHours) {
+    public void setCreditHours(long creditHours) {
         this.creditHours = creditHours;
     }
     

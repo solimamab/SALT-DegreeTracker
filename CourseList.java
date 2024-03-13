@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.UUID;
 
 /**
  * 
@@ -7,17 +9,17 @@ public class CourseList {
 
     private static CourseList courseList;
     // private Course courseTest; //just here for a filler 
-    private ArrayList<Course> listOfCourses;
+    private HashMap<UUID, Course> listOfCourses;
 
     /**
      * 
      */
     private CourseList()
     {
-        listOfCourses = (DataLoader.loadCourses() == null ? new ArrayList<>() : DataLoader.loadCourses());
+        listOfCourses = (DataLoader.loadCourses() == null ? new HashMap<>() : DataLoader.loadCourses());
     }
 
-    private CourseList(ArrayList<Course> courses) {
+    private CourseList(HashMap<UUID, Course> courses) {
         listOfCourses = courses;
     }
 
@@ -56,7 +58,7 @@ public class CourseList {
         return new Course(null, null, null, null, null, 0, null, null, null);
     }
 
-    public void saveCourses() {
-        DataWriter.saveCourses(listOfCourses);
-    }
+    // public void saveCourses() {
+    //     DataWriter.saveCourses(listOfCourses);
+    // }
 }

@@ -42,8 +42,8 @@ public class DataConstants {
     protected static final String COURSE_DESCRIPTION = "description";
     protected static final String COURSE_CREDIT_HOURS = "creditHours";
     protected static final String COURSE_AVAILABILITY = "availability";
-    protected static final String COURSE_PREREQUISITES_ID = "prerequisiteID";
-    protected static final String COURSE_COREQUISITE_ID = "corequisiteID";
+    protected static final String COURSE_PREREQUISITES = "prerequisites";
+    protected static final String COURSE_COREQUISITES = "corequisites";
 
     /**
      * Major data constants

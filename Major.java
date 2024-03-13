@@ -15,15 +15,6 @@ public class Major {
         this.majorMap = majorMap;
     }
 
-
-    //ask abhinav about data defaultplan in dataloader
-    public Major(UUID id2, String majorName2, ArrayList<UUID> requiredCoursesIDs,
-            ArrayList<EightSemesterPlan> defaultPlan) {
-        //TODO Auto-generated constructor stub
-    }
-
-
-
     /**
      * Getters for the artibutes of the major class
      */
