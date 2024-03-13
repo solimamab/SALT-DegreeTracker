@@ -13,10 +13,15 @@ public class UserList {
      * Constructor to initialize students and advisors list
      */
     private UserList() {
-        listOfStudents = (DataLoader.loadStudents() == null ? new ArrayList<>() : DataLoader.loadStudents());
-        listOfAdvisors = (DataLoader.loadAdvisors() == null ? new ArrayList<>() : DataLoader.loadAdvisors());
+        listOfStudents = (DataLoader.loadStudents() != null ? DataLoader.loadStudents() : new ArrayList<>());
+        listOfAdvisors = (DataLoader.loadAdvisors() != null ? DataLoader.loadAdvisors() : new ArrayList<>());
     }
 
+    /**
+     * 
+     * @param students
+     * @param advisors
+     */
     private UserList(ArrayList<Student> students, ArrayList<Advisor> advisors) {
         listOfStudents = students;
         listOfAdvisors = advisors;
@@ -24,13 +29,13 @@ public class UserList {
 
     /**
      * Gets the instance to make the userlist static
-     * @return the user list
+     * @return the userlist
      */
-    public static UserList getInstance() {
+    public static synchronized UserList getInstance() {
         if (userList == null) {
             userList = new UserList();
         }
-        return userList;    
+        return userList;
     }
 
     /**
@@ -38,19 +43,16 @@ public class UserList {
      * @return the user
      */
     public User getUser(String username) {
-        // Search in students list
-        for (User user : listOfStudents) {
-            if (user.getUsername().equals(username)) {
-                return user;
+        for (Student student : listOfStudents) {
+            if (student.getUsername().equals(username)) {
+                return student;
             }
         }
-        // Search in advisors list
-        for (User user : listOfAdvisors) {
-            if (user.getUsername().equals(username)) {
-                return user;
+        for (Advisor advisor : listOfAdvisors) {
+            if (advisor.getUsername().equals(username)) {
+                return advisor;
             }
         }
-        // If user is not found in both lists
         return null;
     }
 
@@ -58,6 +60,9 @@ public class UserList {
         DataWriter.saveStudentList(listOfStudents);
     }
 
+    public void saveAdvisors() {
+        DataWriter.saveAdvisorList(listOfAdvisors);  // waiting on datawriter method for this
+    }
 }
 
 
