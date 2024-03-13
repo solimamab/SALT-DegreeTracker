@@ -13,7 +13,7 @@
     "majorId": "a5722aa5-ec7e-4bea-a526-a916bb80506d",
     "minor" : "Math",
     "FERPA" : false, 
-    "advisorId" : 1,
+    "advisorId" : "88fd4cb0-6232-4891-a944-94ea8fe952c1",
     "completedCourses" : [
       {
         "courseId": "a5722aa5-ec7e-4bea-a526-a916bb80506d",
@@ -39,6 +39,6 @@
         "majorProgress" : 0.05
       }
     ],
-    "currentCoursesIDs" : [1,2,3,4]
+    "currentCoursesIDs" : ["e78f58c2-f07d-4b32-a6d3-141d63c329d5","5018afd6-00ff-482e-a12a-52211130e496","88fd4cb0-6232-4891-a944-94ea8fe952c1"]
   }
 ]
