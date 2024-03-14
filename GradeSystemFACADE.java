@@ -97,8 +97,12 @@ public class GradeSystemFACADE {
         // placeholder above, but I think it should be something like the thing below
         //return Advisor.searchForStudent(studentID);
     }
+    
     // use view student details with the student being tawnie hill instead of brax west
 
+    public EightSemesterPlan viewStudentsEightSemesterPlan(Student student) {
+        return new EightSemesterPlan();
+    }
 
 
 
