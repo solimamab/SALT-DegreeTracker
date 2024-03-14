@@ -51,8 +51,7 @@ public class Advisor extends User{
      */
     public Student searchForStudent(String firstName, String lastName){
         for(int i = 0; i < listOfStudents.size(); i++){
-            if(listOfStudents.get(i).getFirstName().equals(firstName) && listOfStudents.get(i).getLastName().equals(lastName))
-            {
+            if(listOfStudents.get(i).getFirstName().equals(firstName) && listOfStudents.get(i).getLastName().equals(lastName)){
                 return listOfStudents.get(i);
             }
         }
@@ -80,11 +79,17 @@ public class Advisor extends User{
     public ArrayList<UUID> getStudents() {
         return students;
     }
-
+    /*
+     * Add student to list of students advisor is responsible for advising
+     * @param student - The student to be added to the list
+     */
     public void addAdvisingStudent(Student student){
         students.add(student.getUUID());
     }
-
+    /*
+     * Remove student from list of students advisor is responsible for advising
+     * @param student
+     */
     public void removeAdvisingStudent(Student student){
         for(UUID uuid : students){
             if(student.getUUID().equals(uuid)){
