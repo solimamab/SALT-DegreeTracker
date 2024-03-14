@@ -45,7 +45,7 @@ public class GradeSystemFACADE {
         return true;    
     }
 
-    private void setCurrentUser(User user) {
+    public void setCurrentUser(User user) {
         this.currentUser = user;
     }
 
@@ -87,7 +87,8 @@ public class GradeSystemFACADE {
 
     // Methods below are for scenario 2
     public Advisor createAdvisorAccount(Advisor advisor) {
-        return new Advisor(null, null, null, null);
+        userList.addAdvisor(advisor);
+        return advisor;
     }
     public String viewAdvisorDetails(Advisor advisor) {
         return userList.toString();

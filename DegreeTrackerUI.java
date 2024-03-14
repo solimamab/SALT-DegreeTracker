@@ -18,17 +18,23 @@ public class DegreeTrackerUI
 
     public void scenerio1() {
 
-        if(!gradeSystemFACADE.login("asmith", "12345"))
+        if(!gradeSystemFACADE.login("BWEST", "12345"))
         {
             System.out.println("Sorry we couldn't login");
             return;
         }
 
-        System.out.println("Amy Smith is now logged in");
+        System.out.println("Brax West is now logged in");
+        gradeSystemFACADE.setCurrentUser(gradeSystemFACADE.findUser("BWEST"));
+
     }
 
     public void scenario2()
     {
+        Advisor Odden = new Advisor("OOdden","12345","Obsert","Odden");
+        gradeSystemFACADE.createAdvisorAccount(Odden);
+        System.out.println("New advisor account created for Obsert Odden");
+        gradeSystemFACADE.setCurrentUser(Odden);
         
     }
 

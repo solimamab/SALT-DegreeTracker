@@ -62,6 +62,16 @@ public class UserList {
         return null;
     }
 
+    public void addAdvisor(Advisor advisor)
+    {
+        listOfAdvisors.add(advisor);
+    }
+
+    public void addStudent(Student student)
+    {
+        listOfStudents.add(student);
+    }
+
     /*public void saveStudents() {
         DataWriter.saveStudents(listOfStudents);
     }
