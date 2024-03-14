@@ -7,25 +7,24 @@ import java.util.UUID;
 public class Advisor extends User{
     private ArrayList<UUID> students;
     private int NumberofStudents;
+    private UserList users;
     private ArrayList<Student> listOfStudents;
-    
 
     /**
      * Constructor for advisor
      * @param students a list of students the advisor is responsible for
      */
-    public Advisor(String username, String password, String firstName, String lastName ){
+    public Advisor(String username, String password, String firstName, String lastName){
         super(username, password, firstName, lastName);
-
-        
+        listOfStudents = users.getStudents();  
     }
-
     
     public Advisor(UUID id, String username, String password, String firstname, String lastname,
             ArrayList<UUID> studentIDs) {
             super(username, password, firstname, lastname);
             this.students = studentIDs;
             NumberofStudents = studentIDs.size();
+            listOfStudents = users.getStudents();
     }
     /** 
      * Search for student by the id number of the student
