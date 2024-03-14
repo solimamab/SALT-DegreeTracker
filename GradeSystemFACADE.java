@@ -72,6 +72,7 @@ public class GradeSystemFACADE {
         return true;
     }
 
+
     public void StartingOptions()
     {
         System.out.println("Hello welcome to the Degree progress tracker \n What would you like to do today?"
@@ -92,6 +93,10 @@ public class GradeSystemFACADE {
                     {
                         currentUser = findUser(username);
                     }
+                else 
+                {
+                    System.out.println("Sorry, could not login in");
+                }
             }
         else if (userInput == 2)
         {
