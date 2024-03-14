@@ -5,16 +5,16 @@ import java.util.ArrayList;
  * @author abhinavk
  */
 public class UserList {
-    private static UserList userList;
-    private ArrayList<Student> listOfStudents;
-    private ArrayList<Advisor> listOfAdvisors;
+    private static UserList userList = null;
+    private static ArrayList<Student> listOfStudents;
+    private static ArrayList<Advisor> listOfAdvisors;
 
     /**
      * Constructor to initialize students and advisors list
      */
     private UserList() {
         try {
-            listOfStudents = (DataLoader.loadStudents() != null ? DataLoader.loadStudents() : new ArrayList<>());
+            listOfStudents = (DataLoader.loadStudents(null) != null ? DataLoader.loadStudents(null) : new ArrayList<>());
             listOfAdvisors = (DataLoader.loadAdvisors() != null ? DataLoader.loadAdvisors() : new ArrayList<>());
         } catch (Exception e) {
             e.printStackTrace();
@@ -68,6 +68,10 @@ public class UserList {
 
     public void saveAdvisors() {
         DataWriter.saveAdvisors(listOfAdvisors);  // waiting on datawriter method for this
+    }
+
+    public ArrayList<Student> getStudents(){
+        return listOfStudents;
     }
 }
 
