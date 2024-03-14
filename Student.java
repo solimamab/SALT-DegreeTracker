@@ -144,7 +144,18 @@ public class Student extends User{
         this.classification = Classification.SENIOR;
     }
     
-    
+    public Major setMajor(UUID majorUuid)
+    {
+        if (MajorList.findMajor(majorUuid) != null)
+        {
+            return MajorList.findMajor(majorUuid);
+        }
+    }
+
+    public Advisor setAdvisor(UUID advisorUuid)
+    {
+        
+    }
     /**
     * This method loops through the list of completed courses to calculate the number of completed cerdit hours
     * and sets the completed cerdit hours to the number calculated

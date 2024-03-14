@@ -69,6 +69,10 @@ public class UserList {
     public void saveAdvisors() {
         DataWriter.saveAdvisors(listOfAdvisors);  // waiting on datawriter method for this
     }
+
+    public ArrayList<Student> getStudents(){
+        return listOfStudents;
+    }
 }
 
 
