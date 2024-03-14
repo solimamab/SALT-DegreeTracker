@@ -83,16 +83,16 @@ public class Advisor extends User{
      * Add student to list of students advisor is responsible for advising
      * @param student - The student to be added to the list
      */
-    public void addAdvisingStudent(Student student){
-        students.add(student.getUUID());
+    public void addAdvisingStudent(UUID student){
+        students.add(student);
     }
     /*
      * Remove student from list of students advisor is responsible for advising
-     * @param student
+     * @param student - the student to be removed from the list 
      */
-    public void removeAdvisingStudent(Student student){
+    public void removeAdvisingStudent(UUID student){
         for(UUID uuid : students){
-            if(student.getUUID().equals(uuid)){
+            if(student.equals(uuid)){
                 students.remove(uuid);
             }
         }
