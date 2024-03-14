@@ -152,7 +152,7 @@ public class Student extends User{
         }
     }
 
-    public Major setAdvisor(UUID advisorUuid)
+    public Advisor setAdvisor(UUID advisorUuid)
     {
         
     }
