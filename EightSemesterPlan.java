@@ -48,15 +48,15 @@ class EightSemesterPlan {
     public void viewPlan() {
         System.out.println("Classes in Plan:");
         for (Course course : classesInPlan) {
-            System.out.println(course);
+            System.out.println(course.toString());
         }
         System.out.println("Application Area Courses:");
         for (Course course : applicationArea) {
-            System.out.println(course);
+            System.out.println(course.toString());
         }
         System.out.println("Elective Choices:");
         for (Course course : electiveChoices) {
-            System.out.println(course);
+            System.out.println(course.toString());
         }
     }
 
@@ -78,5 +78,30 @@ class EightSemesterPlan {
 
     public void setMajorProgress(double majorProgress) {
         this.majorProgress = majorProgress;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("\nClasses in Plan:\n");
+        if (!classesInPlan.isEmpty()) {
+            for (Course course : classesInPlan) {
+                stringBuilder.append(course.toString()).append("\n");
+            }
+        }
+        stringBuilder.append("Application Area:\n");
+        if (!applicationArea.isEmpty()) {
+            for (Course course : applicationArea) {
+                stringBuilder.append(course.toString()).append("\n");
+            }
+        }
+        stringBuilder.append("Elective Choices:\n");
+        if (!electiveChoices.isEmpty()) {
+            for (Course course : electiveChoices) {
+                stringBuilder.append(course.toString()).append("\n");
+            }
+        }
+        stringBuilder.append("Major Progress: ").append(majorProgress).append("\n");
+        return stringBuilder.toString();
     }
 }

@@ -40,4 +40,17 @@ public class Major {
     public void setDefaultPlan(EightSemesterPlan defaultPlan) {
         this.defaultPlan = defaultPlan;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Major ID: ").append(id).append("\n");
+        sb.append("Major Name: ").append(majorName).append("\n");
+        sb.append("Required Courses:\n");
+        for (Course course : requiredCourses) {
+            sb.append(course).append("\n");
+        }
+        sb.append("Default Plan:\n").append(defaultPlan).append("\n");
+        return sb.toString();
+    }
 }

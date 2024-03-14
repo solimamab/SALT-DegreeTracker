@@ -243,13 +243,19 @@ public class Student extends User{
         sb.append("FERPA: ").append(FERPA).append("\n");
         sb.append("Advisor ID: ").append(getAdvisor()).append("\n");
         sb.append("Eight Semester Plan: ").append(eightSemesterPlan).append("\n");
-        sb.append("Completed Courses: \n");
-        for (CompletedCourse course : completedCourses) {
-            sb.append("\t").append(course).append("\n");
+        sb.append("Completed Courses: ");
+        if (!completedCourses.isEmpty()) {
+            for (CompletedCourse course : completedCourses) {
+                sb.append(course).append(", ");
+            }
+            sb.delete(sb.length() - 2, sb.length()); // Remove trailing comma and space
         }
-        sb.append("Current Courses: \n");
-        for (Course course : currentCourses) {
-            sb.append("\t").append(course).append("\n");
+        sb.append("\nCurrent Courses: ");
+        if (!currentCourses.isEmpty()) {
+            for (Course course : currentCourses) {
+                sb.append(course).append(", ");
+            }
+            sb.delete(sb.length() - 2, sb.length()); // Remove trailing comma and space
         }
         return sb.toString();
     }

@@ -23,14 +23,14 @@ public class DataLoader extends DataConstants {
     */
     public static ArrayList<Student> loadStudents(HashMap<UUID, Course> coursesMap) {
         ArrayList<Student> students = new ArrayList<>();
-
+        
         try {
             FileReader reader = new FileReader(STUDENT_FILE_NAME);
             JSONArray studentsJSON = (JSONArray) new JSONParser().parse(reader);
-
+            
             for (Object studentObj : studentsJSON) {
                 JSONObject studentJSON = (JSONObject) studentObj;
-
+                
                 UUID id = UUID.fromString((String) studentJSON.get("id"));
                 String username = (String) studentJSON.get("username");
                 String password = (String) studentJSON.get("password");
@@ -45,36 +45,36 @@ public class DataLoader extends DataConstants {
                 String minor = (String) studentJSON.get("minor");
                 boolean FERPA = (boolean) studentJSON.get("FERPA");
                 UUID advisorId = UUID.fromString((String) studentJSON.get("advisorId"));
-
+                
                 JSONArray completedCoursesJSON = (JSONArray) studentJSON.get("completedCourses");
                 ArrayList<CompletedCourse> completedCourses = parseCompletedCourses(completedCoursesJSON, coursesMap);
-
+                
                 JSONArray eightSemesterPlanJSON = (JSONArray) studentJSON.get("eightSemesterPlan");
                 EightSemesterPlan eightSemesterPlan = parseEightSemesterPlan(eightSemesterPlanJSON, coursesMap);
-
+                
                 JSONArray currentCoursesJSON = (JSONArray) studentJSON.get("currentCourses");
                 ArrayList<Course> currentCourses = parseCurrentCourses(currentCoursesJSON, coursesMap);
-
+                
                 Student student = new Student(id, username, password, firstname, lastname,
-                        classification, completedCreditHours, remainingCreditHours, flag,
-                        overallGPA, majorId, minor, FERPA, advisorId, eightSemesterPlan,
-                        currentCourses, completedCourses, coursesMap);
+                classification, completedCreditHours, remainingCreditHours, flag,
+                overallGPA, majorId, minor, FERPA, advisorId, eightSemesterPlan,
+                currentCourses, completedCourses, coursesMap);
                 students.add(student);
             }
             reader.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        
         return students;
     }
-
+    
     /**
-     * Helper method to parse completedCourses
-     * @param completedCoursesJSON
-     * @param coursesMap
-     * @return
-     */
+    * Helper method to parse completedCourses
+    * @param completedCoursesJSON
+    * @param coursesMap
+    * @return
+    */
     private static ArrayList<CompletedCourse> parseCompletedCourses(JSONArray completedCoursesJSON, HashMap<UUID, Course> coursesMap) {
         ArrayList<CompletedCourse> completedCourses = new ArrayList<>();
         for (Object courseObj : completedCoursesJSON) {
@@ -90,13 +90,13 @@ public class DataLoader extends DataConstants {
         }
         return completedCourses;
     }
-
+    
     /**
-     * Helper method to parse currentCourses
-     * @param currentCoursesJSON
-     * @param coursesMap
-     * @return
-     */
+    * Helper method to parse currentCourses
+    * @param currentCoursesJSON
+    * @param coursesMap
+    * @return
+    */
     private static ArrayList<Course> parseCurrentCourses(JSONArray currentCoursesJSON, HashMap<UUID, Course> coursesMap) {
         ArrayList<Course> currentCourses = new ArrayList<>();
         for (Object courseObj : currentCoursesJSON) {
@@ -113,11 +113,11 @@ public class DataLoader extends DataConstants {
     }
     
     /**
-     * Helper method to parse eightSemesterPlan
-     * @param eightSemesterPlanJSON
-     * @param coursesMap
-     * @return
-     */
+    * Helper method to parse eightSemesterPlan
+    * @param eightSemesterPlanJSON
+    * @param coursesMap
+    * @return
+    */
     private static EightSemesterPlan parseEightSemesterPlan(JSONArray eightSemesterPlanJSON, HashMap<UUID, Course> coursesMap) {
         EightSemesterPlan eightSemesterPlan = new EightSemesterPlan();
         
@@ -277,26 +277,9 @@ public class DataLoader extends DataConstants {
                 JSONArray applicationAreaJSON = (JSONArray) defaultPlanJSON.get(MAJOR_APPLICATION_AREA);
                 JSONArray electiveChoicesJSON = (JSONArray) defaultPlanJSON.get(MAJOR_ELECTIVE_CHOICES);
                 
-                ArrayList<Course> classesInPlan = new ArrayList<>();
-                for (Object courseObj : classesInPlanJSON) {
-                    JSONObject courseJSON = (JSONObject) courseObj;
-                    UUID courseId = UUID.fromString((String) courseJSON.get(COURSE_ID));
-                    classesInPlan.add(coursesMap.get(courseId));
-                }
-                
-                ArrayList<Course> applicationArea = new ArrayList<>();
-                for (Object courseObj : applicationAreaJSON) {
-                    JSONObject courseJSON = (JSONObject) courseObj;
-                    UUID courseId = UUID.fromString((String) courseJSON.get(COURSE_ID));
-                    applicationArea.add(coursesMap.get(courseId));
-                }
-                
-                ArrayList<Course> electiveChoices = new ArrayList<>();
-                for (Object courseObj : electiveChoicesJSON) {
-                    JSONObject courseJSON = (JSONObject) courseObj;
-                    UUID courseId = UUID.fromString((String) courseJSON.get(COURSE_ID));
-                    electiveChoices.add(coursesMap.get(courseId));
-                }
+                ArrayList<Course> classesInPlan = parseCoursesFromJSONArray(classesInPlanJSON, coursesMap);
+                ArrayList<Course> applicationArea = parseCoursesFromJSONArray(applicationAreaJSON, coursesMap);
+                ArrayList<Course> electiveChoices = parseCoursesFromJSONArray(electiveChoicesJSON, coursesMap);
                 
                 double majorProgress = Double.parseDouble(defaultPlanJSON.get("majorProgress").toString());
                 // Create EightSemesterPlan object with majorProgress
@@ -312,6 +295,19 @@ public class DataLoader extends DataConstants {
         }
         
         return majors;
+    }
+    
+    /**
+    * Helper method to parse courses from JSONArray
+    */
+    private static ArrayList<Course> parseCoursesFromJSONArray(JSONArray coursesJSON, HashMap<UUID, Course> coursesMap) {
+        ArrayList<Course> courses = new ArrayList<>();
+        for (Object courseObj : coursesJSON) {
+            JSONObject courseJSON = (JSONObject) courseObj;
+            UUID courseId = UUID.fromString((String) courseJSON.get(COURSE_ID));
+            courses.add(coursesMap.get(courseId));
+        }
+        return courses;
     }
     
     /**
@@ -368,7 +364,7 @@ public class DataLoader extends DataConstants {
         // Printing courses
         System.out.println("\nCourses:");
         for (Course course : courses.values()) {
-            System.out.println(course);
+            System.out.println(course.viewCourseDetails());
         }
         
         // Printing advisors
@@ -380,7 +376,7 @@ public class DataLoader extends DataConstants {
         // Printing majors
         System.out.println("\nMajors:");
         for (Major major : majors) {
-            System.out.println(major);
+            System.out.println(major.toString());
         }
     }
     
