@@ -50,11 +50,11 @@ public class DataConstants {
      */
     protected static final String MAJOR_ID = "id";
     protected static final String MAJOR_NAME = "majorName";
-    protected static final String MAJOR_REQUIRED_COURSE_IDS = "requiredCoursesIDs";
-    protected static final String MAJOR_DEFAULT_PLAN = "DefaultPlan";
-    protected static final String MAJOR_CLASSES_IN_PLAN_IDS = "classesInPlanIDs";
-    protected static final String MAJOR_APPLICATION_AREAS_IDS = "applicationAreaIDs";
-    protected static final String MAJOR_ELECTIVE_CHOICE_IDS = "electiveChoiceIDs";
+    protected static final String MAJOR_REQUIRED_COURSES = "requiredCourses";
+    protected static final String MAJOR_DEFAULT_PLAN = "defaultPlan";
+    protected static final String MAJOR_CLASSES_IN_PLAN = "classesInPlan";
+    protected static final String MAJOR_APPLICATION_AREA = "applicationArea";
+    protected static final String MAJOR_ELECTIVE_CHOICES = "electiveChoices";
 
     /**
      * Advisor data constants

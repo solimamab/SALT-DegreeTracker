@@ -5,14 +5,14 @@ public class Major {
     private UUID id;
     private String majorName;
     private ArrayList<Course> requiredCourses;
-    private EightSemesterPlan majorMap;
+    private EightSemesterPlan defaultPlan;
 
     
-    public Major(UUID id, String majorName, ArrayList<Course> requiredCourses, EightSemesterPlan majorMap) {
+    public Major(UUID id, String majorName, ArrayList<Course> requiredCourses, EightSemesterPlan defaultPlan) {
         this.id = id;
         this.majorName = majorName;
         this.requiredCourses = requiredCourses;
-        this.majorMap = majorMap;
+        this.defaultPlan = defaultPlan;
     }
 
     /**
@@ -32,8 +32,12 @@ public class Major {
         return this.requiredCourses;
     }
 
-    public EightSemesterPlan getMajorMap()
+    public EightSemesterPlan getDefaultPlan()
     {
-        return this.majorMap;
+        return this.defaultPlan;
+    }
+
+    public void setDefaultPlan(EightSemesterPlan defaultPlan) {
+        this.defaultPlan = defaultPlan;
     }
 }

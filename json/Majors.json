@@ -1,14 +1,498 @@
 [
   {
-  	"id":"a5722aa5-ec7e-4bea-a526-a916bb80506d",
-  	"majorName":"CSCE",
-  	"requiredCoursesIDs": ["e78f58c2-f07d-4b32-a6d3-141d63c329d5","5018afd6-00ff-482e-a12a-52211130e496","88fd4cb0-6232-4891-a944-94ea8fe952c1","f4e20828-6af9-4594-ac9e-60d3ae4e7df0","a5722aa5-ec7e-4bea-a526-a916bb80506d"],
-    "DefaultPlan" : [
+    "id": "a5722aa5-ec7e-4bea-a526-a916bb80506d",
+    "majorName": "CSCE",
+    "requiredCourses": [
       {
-        "classesInPlanIDs" : ["e78f58c2-f07d-4b32-a6d3-141d63c329d5","5018afd6-00ff-482e-a12a-52211130e496","88fd4cb0-6232-4891-a944-94ea8fe952c1","f4e20828-6af9-4594-ac9e-60d3ae4e7df0","a5722aa5-ec7e-4bea-a526-a916bb80506d"],
-        "applicationAreaIDs" : ["88fd4cb0-6232-4891-a944-94ea8fe952c1","f4e20828-6af9-4594-ac9e-60d3ae4e7df0","a5722aa5-ec7e-4bea-a526-a916bb80506d"],
-        "electiveChoiceIDs" : ["e78f58c2-f07d-4b32-a6d3-141d63c329d5","5018afd6-00ff-482e-a12a-52211130e496","88fd4cb0-6232-4891-a944-94ea8fe952c1"]
+        "id": "e78f58c2-f07d-4b32-a6d3-141d63c329d5",
+        "name": "Course Name 1",
+        "department": "DEPT",
+        "number": "101",
+        "description": "Course description 1",
+        "creditHours": 3,
+        "availability": ["Fall", "Spring"],
+        "prerequisites": [],
+        "corequisites": []
+      },
+      {
+        "id": "5018afd6-00ff-482e-a12a-52211130e496",
+        "name": "Course Name 2",
+        "department": "DEPT",
+        "number": "102",
+        "description": "Course description 2",
+        "creditHours": 4,
+        "availability": ["Fall", "Spring"],
+        "prerequisites": [],
+        "corequisites": []
+      },
+      {
+        "id": "88fd4cb0-6232-4891-a944-94ea8fe952c1",
+        "name": "Course Name 3",
+        "department": "DEPT",
+        "number": "103",
+        "description": "Course description 3",
+        "creditHours": 3,
+        "availability": ["Fall", "Spring"],
+        "prerequisites": [],
+        "corequisites": []
+      },
+      {
+        "id": "f4e20828-6af9-4594-ac9e-60d3ae4e7df0",
+        "name": "Course Name 4",
+        "department": "DEPT",
+        "number": "104",
+        "description": "Course description 4",
+        "creditHours": 3,
+        "availability": ["Fall", "Spring"],
+        "prerequisites": [],
+        "corequisites": []
+      },
+      {
+        "id": "a5722aa5-ec7e-4bea-a526-a916bb80506d",
+        "name": "Course Name 5",
+        "department": "DEPT",
+        "number": "105",
+        "description": "Course description 5",
+        "creditHours": 4,
+        "availability": ["Fall", "Spring"],
+        "prerequisites": [],
+        "corequisites": []
+      }
+    ],
+    "defaultPlan": [
+      {
+        "classesInPlan": [
+          {
+            "id": "e78f58c2-f07d-4b32-a6d3-141d63c329d5",
+            "name": "Course Name 1",
+            "department": "DEPT",
+            "number": "101",
+            "description": "Course description 1",
+            "creditHours": 3,
+            "availability": ["Fall", "Spring"],
+            "prerequisites": [],
+            "corequisites": []
+          },
+          {
+            "id": "5018afd6-00ff-482e-a12a-52211130e496",
+            "name": "Course Name 2",
+            "department": "DEPT",
+            "number": "102",
+            "description": "Course description 2",
+            "creditHours": 4,
+            "availability": ["Fall", "Spring"],
+            "prerequisites": [],
+            "corequisites": []
+          },
+          {
+            "id": "88fd4cb0-6232-4891-a944-94ea8fe952c1",
+            "name": "Course Name 3",
+            "department": "DEPT",
+            "number": "103",
+            "description": "Course description 3",
+            "creditHours": 3,
+            "availability": ["Fall", "Spring"],
+            "prerequisites": [],
+            "corequisites": []
+          },
+          {
+            "id": "f4e20828-6af9-4594-ac9e-60d3ae4e7df0",
+            "name": "Course Name 4",
+            "department": "DEPT",
+            "number": "104",
+            "description": "Course description 4",
+            "creditHours": 3,
+            "availability": ["Fall", "Spring"],
+            "prerequisites": [],
+            "corequisites": []
+          },
+          {
+            "id": "a5722aa5-ec7e-4bea-a526-a916bb80506d",
+            "name": "Course Name 5",
+            "department": "DEPT",
+            "number": "105",
+            "description": "Course description 5",
+            "creditHours": 4,
+            "availability": ["Fall", "Spring"],
+            "prerequisites": [],
+            "corequisites": []
+          },
+          {
+            "id": "e78f58c2-f07d-4b32-a6d3-141d63c329d5",
+            "name": "Course Name 1",
+            "department": "DEPT",
+            "number": "101",
+            "description": "Course description 1",
+            "creditHours": 3,
+            "availability": ["Fall", "Spring"],
+            "prerequisites": [],
+            "corequisites": []
+          },
+          {
+            "id": "5018afd6-00ff-482e-a12a-52211130e496",
+            "name": "Course Name 2",
+            "department": "DEPT",
+            "number": "102",
+            "description": "Course description 2",
+            "creditHours": 4,
+            "availability": ["Fall", "Spring"],
+            "prerequisites": [],
+            "corequisites": []
+          },
+          {
+            "id": "88fd4cb0-6232-4891-a944-94ea8fe952c1",
+            "name": "Course Name 3",
+            "department": "DEPT",
+            "number": "103",
+            "description": "Course description 3",
+            "creditHours": 3,
+            "availability": ["Fall", "Spring"],
+            "prerequisites": [],
+            "corequisites": []
+          },
+          {
+            "id": "f4e20828-6af9-4594-ac9e-60d3ae4e7df0",
+            "name": "Course Name 4",
+            "department": "DEPT",
+            "number": "104",
+            "description": "Course description 4",
+            "creditHours": 3,
+            "availability": ["Fall", "Spring"],
+            "prerequisites": [],
+            "corequisites": []
+          },
+          {
+            "id": "a5722aa5-ec7e-4bea-a526-a916bb80506d",
+            "name": "Course Name 5",
+            "department": "DEPT",
+            "number": "105",
+            "description": "Course description 5",
+            "creditHours": 4,
+            "availability": ["Fall", "Spring"],
+            "prerequisites": [],
+            "corequisites": []
+          }
+        ],
+        "applicationArea": [
+          {
+            "id": "88fd4cb0-6232-4891-a944-94ea8fe952c1",
+            "name": "Course Name 4",
+            "department": "DEPT",
+            "number": "104",
+            "description": "Course description 4",
+            "creditHours": 3,
+            "availability": ["Fall", "Spring"],
+            "prerequisites": [],
+            "corequisites": []
+          },
+          {
+            "id": "f4e20828-6af9-4594-ac9e-60d3ae4e7df0",
+            "name": "Course Name 5",
+            "department": "DEPT",
+            "number": "105",
+            "description": "Course description 5",
+            "creditHours": 4,
+            "availability": ["Fall", "Spring"],
+            "prerequisites": [],
+            "corequisites": []
+          },
+          {
+            "id": "a5722aa5-ec7e-4bea-a526-a916bb80506d",
+            "name": "Course Name 6",
+            "department": "DEPT",
+            "number": "106",
+            "description": "Course description 6",
+            "creditHours": 3,
+            "availability": ["Fall", "Spring"],
+            "prerequisites": [],
+            "corequisites": []
+          }
+        ],
+        "electiveChoices": [
+          {
+            "id": "e78f58c2-f07d-4b32-a6d3-141d63c329d5",
+            "name": "Course Name 7",
+            "department": "DEPT",
+            "number": "107",
+            "description": "Course description 7",
+            "creditHours": 3,
+            "availability": ["Fall", "Spring"],
+            "prerequisites": [],
+            "corequisites": []
+          },
+          {
+            "id": "5018afd6-00ff-482e-a12a-52211130e496",
+            "name": "Course Name 8",
+            "department": "DEPT",
+            "number": "108",
+            "description": "Course description 8",
+            "creditHours": 4,
+            "availability": ["Fall", "Spring"],
+            "prerequisites": [],
+            "corequisites": []
+          },
+          {
+            "id": "88fd4cb0-6232-4891-a944-94ea8fe952c1",
+            "name": "Course Name 9",
+            "department": "DEPT",
+            "number": "109",
+            "description": "Course description 9",
+            "creditHours": 3,
+            "availability": ["Fall", "Spring"],
+            "prerequisites": [],
+            "corequisites": []
+          }
+        ]
       }
     ]
-  }
+  },
+  [
+    {
+      "id": "a5722aa5-ec7e-4bea-a526-a916bb80506f",
+      "majorName": "CIS",
+      "requiredCourses": [
+        {
+          "id": "e78f58c2-f07d-4b32-a6d3-141d63c329d5",
+          "name": "Course Name 1",
+          "department": "DEPT",
+          "number": "101",
+          "description": "Course description 1",
+          "creditHours": 3,
+          "availability": ["Fall", "Spring"],
+          "prerequisites": [],
+          "corequisites": []
+        },
+        {
+          "id": "5018afd6-00ff-482e-a12a-52211130e496",
+          "name": "Course Name 2",
+          "department": "DEPT",
+          "number": "102",
+          "description": "Course description 2",
+          "creditHours": 4,
+          "availability": ["Fall", "Spring"],
+          "prerequisites": [],
+          "corequisites": []
+        },
+        {
+          "id": "88fd4cb0-6232-4891-a944-94ea8fe952c1",
+          "name": "Course Name 3",
+          "department": "DEPT",
+          "number": "103",
+          "description": "Course description 3",
+          "creditHours": 3,
+          "availability": ["Fall", "Spring"],
+          "prerequisites": [],
+          "corequisites": []
+        },
+        {
+          "id": "f4e20828-6af9-4594-ac9e-60d3ae4e7df0",
+          "name": "Course Name 4",
+          "department": "DEPT",
+          "number": "104",
+          "description": "Course description 4",
+          "creditHours": 3,
+          "availability": ["Fall", "Spring"],
+          "prerequisites": [],
+          "corequisites": []
+        },
+        {
+          "id": "a5722aa5-ec7e-4bea-a526-a916bb80506d",
+          "name": "Course Name 5",
+          "department": "DEPT",
+          "number": "105",
+          "description": "Course description 5",
+          "creditHours": 4,
+          "availability": ["Fall", "Spring"],
+          "prerequisites": [],
+          "corequisites": []
+        }
+      ],
+      "defaultPlan": [
+        {
+          "classesInPlan": [
+            {
+              "id": "e78f58c2-f07d-4b32-a6d3-141d63c329d5",
+              "name": "Course Name 1",
+              "department": "DEPT",
+              "number": "101",
+              "description": "Course description 1",
+              "creditHours": 3,
+              "availability": ["Fall", "Spring"],
+              "prerequisites": [],
+              "corequisites": []
+            },
+            {
+              "id": "5018afd6-00ff-482e-a12a-52211130e496",
+              "name": "Course Name 2",
+              "department": "DEPT",
+              "number": "102",
+              "description": "Course description 2",
+              "creditHours": 4,
+              "availability": ["Fall", "Spring"],
+              "prerequisites": [],
+              "corequisites": []
+            },
+            {
+              "id": "88fd4cb0-6232-4891-a944-94ea8fe952c1",
+              "name": "Course Name 3",
+              "department": "DEPT",
+              "number": "103",
+              "description": "Course description 3",
+              "creditHours": 3,
+              "availability": ["Fall", "Spring"],
+              "prerequisites": [],
+              "corequisites": []
+            },
+            {
+              "id": "f4e20828-6af9-4594-ac9e-60d3ae4e7df0",
+              "name": "Course Name 4",
+              "department": "DEPT",
+              "number": "104",
+              "description": "Course description 4",
+              "creditHours": 3,
+              "availability": ["Fall", "Spring"],
+              "prerequisites": [],
+              "corequisites": []
+            },
+            {
+              "id": "a5722aa5-ec7e-4bea-a526-a916bb80506d",
+              "name": "Course Name 5",
+              "department": "DEPT",
+              "number": "105",
+              "description": "Course description 5",
+              "creditHours": 4,
+              "availability": ["Fall", "Spring"],
+              "prerequisites": [],
+              "corequisites": []
+            },
+            {
+              "id": "e78f58c2-f07d-4b32-a6d3-141d63c329d5",
+              "name": "Course Name 1",
+              "department": "DEPT",
+              "number": "101",
+              "description": "Course description 1",
+              "creditHours": 3,
+              "availability": ["Fall", "Spring"],
+              "prerequisites": [],
+              "corequisites": []
+            },
+            {
+              "id": "5018afd6-00ff-482e-a12a-52211130e496",
+              "name": "Course Name 2",
+              "department": "DEPT",
+              "number": "102",
+              "description": "Course description 2",
+              "creditHours": 4,
+              "availability": ["Fall", "Spring"],
+              "prerequisites": [],
+              "corequisites": []
+            },
+            {
+              "id": "88fd4cb0-6232-4891-a944-94ea8fe952c1",
+              "name": "Course Name 3",
+              "department": "DEPT",
+              "number": "103",
+              "description": "Course description 3",
+              "creditHours": 3,
+              "availability": ["Fall", "Spring"],
+              "prerequisites": [],
+              "corequisites": []
+            },
+            {
+              "id": "f4e20828-6af9-4594-ac9e-60d3ae4e7df0",
+              "name": "Course Name 4",
+              "department": "DEPT",
+              "number": "104",
+              "description": "Course description 4",
+              "creditHours": 3,
+              "availability": ["Fall", "Spring"],
+              "prerequisites": [],
+              "corequisites": []
+            },
+            {
+              "id": "a5722aa5-ec7e-4bea-a526-a916bb80506d",
+              "name": "Course Name 5",
+              "department": "DEPT",
+              "number": "105",
+              "description": "Course description 5",
+              "creditHours": 4,
+              "availability": ["Fall", "Spring"],
+              "prerequisites": [],
+              "corequisites": []
+            }
+          ],
+          "applicationArea": [
+            {
+              "id": "88fd4cb0-6232-4891-a944-94ea8fe952c1",
+              "name": "Course Name 4",
+              "department": "DEPT",
+              "number": "104",
+              "description": "Course description 4",
+              "creditHours": 3,
+              "availability": ["Fall", "Spring"],
+              "prerequisites": [],
+              "corequisites": []
+            },
+            {
+              "id": "f4e20828-6af9-4594-ac9e-60d3ae4e7df0",
+              "name": "Course Name 5",
+              "department": "DEPT",
+              "number": "105",
+              "description": "Course description 5",
+              "creditHours": 4,
+              "availability": ["Fall", "Spring"],
+              "prerequisites": [],
+              "corequisites": []
+            },
+            {
+              "id": "a5722aa5-ec7e-4bea-a526-a916bb80506d",
+              "name": "Course Name 6",
+              "department": "DEPT",
+              "number": "106",
+              "description": "Course description 6",
+              "creditHours": 3,
+              "availability": ["Fall", "Spring"],
+              "prerequisites": [],
+              "corequisites": []
+            }
+          ],
+          "electiveChoices": [
+            {
+              "id": "e78f58c2-f07d-4b32-a6d3-141d63c329d5",
+              "name": "Course Name 7",
+              "department": "DEPT",
+              "number": "107",
+              "description": "Course description 7",
+              "creditHours": 3,
+              "availability": ["Fall", "Spring"],
+              "prerequisites": [],
+              "corequisites": []
+            },
+            {
+              "id": "5018afd6-00ff-482e-a12a-52211130e496",
+              "name": "Course Name 8",
+              "department": "DEPT",
+              "number": "108",
+              "description": "Course description 8",
+              "creditHours": 4,
+              "availability": ["Fall", "Spring"],
+              "prerequisites": [],
+              "corequisites": []
+            },
+            {
+              "id": "88fd4cb0-6232-4891-a944-94ea8fe952c1",
+              "name": "Course Name 9",
+              "department": "DEPT",
+              "number": "109",
+              "description": "Course description 9",
+              "creditHours": 3,
+              "availability": ["Fall", "Spring"],
+              "prerequisites": [],
+              "corequisites": []
+            }
+          ]
+        }
+      ]
+    }
+  ]  
 ]

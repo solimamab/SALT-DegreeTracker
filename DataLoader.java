@@ -23,14 +23,14 @@ public class DataLoader extends DataConstants {
     */
     public static ArrayList<Student> loadStudents(HashMap<UUID, Course> coursesMap) {
         ArrayList<Student> students = new ArrayList<>();
-        
+
         try {
             FileReader reader = new FileReader(STUDENT_FILE_NAME);
             JSONArray studentsJSON = (JSONArray) new JSONParser().parse(reader);
-            
+
             for (Object studentObj : studentsJSON) {
                 JSONObject studentJSON = (JSONObject) studentObj;
-                
+
                 UUID id = UUID.fromString((String) studentJSON.get("id"));
                 String username = (String) studentJSON.get("username");
                 String password = (String) studentJSON.get("password");
@@ -45,112 +45,130 @@ public class DataLoader extends DataConstants {
                 String minor = (String) studentJSON.get("minor");
                 boolean FERPA = (boolean) studentJSON.get("FERPA");
                 UUID advisorId = UUID.fromString((String) studentJSON.get("advisorId"));
-                
-                // Parse completed courses
+
                 JSONArray completedCoursesJSON = (JSONArray) studentJSON.get("completedCourses");
-                ArrayList<CompletedCourse> completedCourses = new ArrayList<>();
-                for (Object courseObj : completedCoursesJSON) {
-                    JSONObject courseJSON = (JSONObject) courseObj;
-                    UUID courseId = UUID.fromString((String) courseJSON.get("courseId"));
-                    Grade letterGrade = Grade.valueOf((String) courseJSON.get("letterGrade"));
-                    Course course = coursesMap.get(courseId);
-                    if (course != null) {
-                        completedCourses.add(new CompletedCourse(course, letterGrade));
-                    } else {
-                        System.err.println("Course with ID " + courseId + " not found.");
-                    }
-                }
-                
-                // Parse eight semester plan
-                JSONObject eightSemesterPlanJSON = (JSONObject) studentJSON.get("eightSemesterPlan");
+                ArrayList<CompletedCourse> completedCourses = parseCompletedCourses(completedCoursesJSON, coursesMap);
+
+                JSONArray eightSemesterPlanJSON = (JSONArray) studentJSON.get("eightSemesterPlan");
                 EightSemesterPlan eightSemesterPlan = parseEightSemesterPlan(eightSemesterPlanJSON, coursesMap);
-                
-                // Parse current courses
+
                 JSONArray currentCoursesJSON = (JSONArray) studentJSON.get("currentCourses");
-                ArrayList<Course> currentCourses = new ArrayList<>();
-                for (Object courseObj : currentCoursesJSON) {
-                    JSONObject courseJSON = (JSONObject) courseObj;
-                    UUID courseId = UUID.fromString((String) courseJSON.get("id"));
-                    Course course = coursesMap.get(courseId);
-                    if (course != null) {
-                        currentCourses.add(course);
-                    } else {
-                        System.err.println("Course with ID " + courseId + " not found.");
-                    }
-                }
-                
+                ArrayList<Course> currentCourses = parseCurrentCourses(currentCoursesJSON, coursesMap);
+
                 Student student = new Student(id, username, password, firstname, lastname,
-                classification, completedCreditHours, remainingCreditHours, flag,
-                overallGPA, majorId, minor, FERPA, advisorId, eightSemesterPlan,
-                currentCourses, completedCourses, coursesMap);
+                        classification, completedCreditHours, remainingCreditHours, flag,
+                        overallGPA, majorId, minor, FERPA, advisorId, eightSemesterPlan,
+                        currentCourses, completedCourses, coursesMap);
                 students.add(student);
             }
             reader.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
         return students;
+    }
+
+    /**
+     * Helper method to parse completedCourses
+     * @param completedCoursesJSON
+     * @param coursesMap
+     * @return
+     */
+    private static ArrayList<CompletedCourse> parseCompletedCourses(JSONArray completedCoursesJSON, HashMap<UUID, Course> coursesMap) {
+        ArrayList<CompletedCourse> completedCourses = new ArrayList<>();
+        for (Object courseObj : completedCoursesJSON) {
+            JSONObject courseJSON = (JSONObject) courseObj;
+            UUID courseId = UUID.fromString((String) courseJSON.get("courseId"));
+            Grade letterGrade = Grade.valueOf((String) courseJSON.get("letterGrade"));
+            Course course = coursesMap.get(courseId);
+            if (course != null) {
+                completedCourses.add(new CompletedCourse(course, letterGrade));
+            } else {
+                System.err.println("Course with ID " + courseId + " not found.");
+            }
+        }
+        return completedCourses;
+    }
+
+    /**
+     * Helper method to parse currentCourses
+     * @param currentCoursesJSON
+     * @param coursesMap
+     * @return
+     */
+    private static ArrayList<Course> parseCurrentCourses(JSONArray currentCoursesJSON, HashMap<UUID, Course> coursesMap) {
+        ArrayList<Course> currentCourses = new ArrayList<>();
+        for (Object courseObj : currentCoursesJSON) {
+            JSONObject courseJSON = (JSONObject) courseObj;
+            UUID courseId = UUID.fromString((String) courseJSON.get("id"));
+            Course course = coursesMap.get(courseId);
+            if (course != null) {
+                currentCourses.add(course);
+            } else {
+                System.err.println("Course with ID " + courseId + " not found.");
+            }
+        }
+        return currentCourses;
     }
     
     /**
-    * Helper method to parse the eightsemesterplan
-    * @param eightSemesterPlanJSON
-    * @param coursesMap
-    * @return
-    */
-    private static EightSemesterPlan parseEightSemesterPlan(JSONObject eightSemesterPlanJSON, HashMap<UUID, Course> coursesMap) {
+     * Helper method to parse eightSemesterPlan
+     * @param eightSemesterPlanJSON
+     * @param coursesMap
+     * @return
+     */
+    private static EightSemesterPlan parseEightSemesterPlan(JSONArray eightSemesterPlanJSON, HashMap<UUID, Course> coursesMap) {
         EightSemesterPlan eightSemesterPlan = new EightSemesterPlan();
         
-        // Parse classes in plan
-        JSONArray classesInPlanJSON = (JSONArray) eightSemesterPlanJSON.get("classesInPlan");
-        for (Object classObj : classesInPlanJSON) {
-            JSONObject classJSON = (JSONObject) classObj;
-            UUID classId = UUID.fromString((String) classJSON.get("id"));
-            Course course = coursesMap.get(classId);
-            if (course != null) {
-                eightSemesterPlan.addClassToPlan(course);
-            } else {
-                System.err.println("Course with ID " + classId + " not found.");
+        for (Object planObj : eightSemesterPlanJSON) {
+            JSONObject semesterJSON = (JSONObject) planObj;
+            
+            // Parse classes in plan
+            JSONArray classesInPlanJSON = (JSONArray) semesterJSON.get("classesInPlan");
+            for (Object classObj : classesInPlanJSON) {
+                JSONObject classJSON = (JSONObject) classObj;
+                UUID classId = UUID.fromString((String) classJSON.get("id"));
+                Course course = coursesMap.get(classId);
+                if (course != null) {
+                    eightSemesterPlan.addClassToPlan(course);
+                } else {
+                    System.err.println("Course with ID " + classId + " not found.");
+                }
             }
-        }
-        
-        // Parse application area
-        JSONArray applicationAreaJSON = (JSONArray) eightSemesterPlanJSON.get("applicationArea");
-        for (Object areaObj : applicationAreaJSON) {
-            JSONObject areaJSON = (JSONObject) areaObj;
-            UUID areaId = UUID.fromString((String) areaJSON.get("id"));
-            Course course = coursesMap.get(areaId);
-            if (course != null) {
-                eightSemesterPlan.addApplicationAreaCourse(course);
-            } else {
-                System.err.println("Course with ID " + areaId + " not found.");
+            
+            // Parse application area
+            JSONArray applicationAreaJSON = (JSONArray) semesterJSON.get("applicationArea");
+            for (Object areaObj : applicationAreaJSON) {
+                JSONObject areaJSON = (JSONObject) areaObj;
+                UUID areaId = UUID.fromString((String) areaJSON.get("id"));
+                Course course = coursesMap.get(areaId);
+                if (course != null) {
+                    eightSemesterPlan.addApplicationAreaCourse(course);
+                } else {
+                    System.err.println("Course with ID " + areaId + " not found.");
+                }
             }
-        }
-        
-        // Parse elective choices
-        JSONArray electiveChoicesJSON = (JSONArray) eightSemesterPlanJSON.get("electiveChoices");
-        for (Object choiceObj : electiveChoicesJSON) {
-            JSONObject choiceJSON = (JSONObject) choiceObj;
-            UUID choiceId = UUID.fromString((String) choiceJSON.get("id"));
-            Course course = coursesMap.get(choiceId);
-            if (course != null) {
-                eightSemesterPlan.addElectiveChoice(course);
-            } else {
-                System.err.println("Course with ID " + choiceId + " not found.");
+            
+            // Parse elective choices
+            JSONArray electiveChoicesJSON = (JSONArray) semesterJSON.get("electiveChoices");
+            for (Object choiceObj : electiveChoicesJSON) {
+                JSONObject choiceJSON = (JSONObject) choiceObj;
+                UUID choiceId = UUID.fromString((String) choiceJSON.get("id"));
+                Course course = coursesMap.get(choiceId);
+                if (course != null) {
+                    eightSemesterPlan.addElectiveChoice(course);
+                } else {
+                    System.err.println("Course with ID " + choiceId + " not found.");
+                }
             }
+            
+            // Parse major progress
+            double majorProgress = Double.parseDouble(semesterJSON.get("majorProgress").toString());
+            eightSemesterPlan.setMajorProgress(majorProgress);
         }
-        
-        // Parse major progress
-        double majorProgress = (double) eightSemesterPlanJSON.get("majorProgress");
-        eightSemesterPlan.setMajorProgress(majorProgress);
         
         return eightSemesterPlan;
-    }
-    
-    // Placeholder for getCourseById method
-    private static Course getCourseById(String courseId) {
-        return null; // Placeholder return
     }
     
     /**
@@ -228,14 +246,6 @@ public class DataLoader extends DataConstants {
         return courseMap;
     }
     
-    // Helper method to parse UUID from JSON value
-    private static UUID parseUUID(Object value) {
-        if (value == null || value.toString().equals("None")) {
-            return null;
-        }
-        return UUID.fromString(value.toString());
-    }   
-    
     /**
     * Loads majors from a JSON file.
     * @return A list of Major objects.
@@ -252,46 +262,49 @@ public class DataLoader extends DataConstants {
                 UUID id = UUID.fromString((String) majorJSON.get(MAJOR_ID));
                 String majorName = (String) majorJSON.get(MAJOR_NAME);
                 
-                // Updated section for requiredCourses
-                JSONArray requiredCoursesIDsJSON = (JSONArray) majorJSON.get(MAJOR_REQUIRED_COURSE_IDS);
+                // Parse required courses
+                JSONArray requiredCoursesJSON = (JSONArray) majorJSON.get(MAJOR_REQUIRED_COURSES);
                 ArrayList<Course> requiredCourses = new ArrayList<>();
-                for (Object courseIDObj : requiredCoursesIDsJSON) {
-                    UUID courseId = UUID.fromString((String) courseIDObj);
-                    if (coursesMap.containsKey(courseId)) {
-                        requiredCourses.add(coursesMap.get(courseId));
-                    } else {
-                        // Handle error or log missing course
-                    }
+                for (Object courseObj : requiredCoursesJSON) {
+                    JSONObject courseJSON = (JSONObject) courseObj;
+                    UUID courseId = UUID.fromString((String) courseJSON.get(COURSE_ID));
+                    requiredCourses.add(coursesMap.get(courseId));
                 }
                 
-                // Parse eightsemesterplan as a single obj
+                // Parse default plan
                 JSONObject defaultPlanJSON = (JSONObject) majorJSON.get(MAJOR_DEFAULT_PLAN);
-                JSONArray classesInPlanIDsJSON = (JSONArray) defaultPlanJSON.get(MAJOR_CLASSES_IN_PLAN_IDS);
-                JSONArray applicationAreaIDsJSON = (JSONArray) defaultPlanJSON.get(MAJOR_APPLICATION_AREAS_IDS);
-                JSONArray electiveChoiceIDsJSON = (JSONArray) defaultPlanJSON.get(MAJOR_ELECTIVE_CHOICE_IDS);
+                JSONArray classesInPlanJSON = (JSONArray) defaultPlanJSON.get(MAJOR_CLASSES_IN_PLAN);
+                JSONArray applicationAreaJSON = (JSONArray) defaultPlanJSON.get(MAJOR_APPLICATION_AREA);
+                JSONArray electiveChoicesJSON = (JSONArray) defaultPlanJSON.get(MAJOR_ELECTIVE_CHOICES);
                 
-                ArrayList<Course> classesInPlanIDs = new ArrayList<>();
-                for (Object classIDObj : classesInPlanIDsJSON) {
-                    classesInPlanIDs.add(UUID.fromString((String) classIDObj));
+                ArrayList<Course> classesInPlan = new ArrayList<>();
+                for (Object courseObj : classesInPlanJSON) {
+                    JSONObject courseJSON = (JSONObject) courseObj;
+                    UUID courseId = UUID.fromString((String) courseJSON.get(COURSE_ID));
+                    classesInPlan.add(coursesMap.get(courseId));
                 }
                 
-                ArrayList<Course> applicationAreaIDs = new ArrayList<>();
-                for (Object areaIDObj : applicationAreaIDsJSON) {
-                    applicationAreaIDs.add(UUID.fromString((String) areaIDObj));
+                ArrayList<Course> applicationArea = new ArrayList<>();
+                for (Object courseObj : applicationAreaJSON) {
+                    JSONObject courseJSON = (JSONObject) courseObj;
+                    UUID courseId = UUID.fromString((String) courseJSON.get(COURSE_ID));
+                    applicationArea.add(coursesMap.get(courseId));
                 }
                 
-                ArrayList<Course> electiveChoiceIDs = new ArrayList<>();
-                for (Object choiceIDObj : electiveChoiceIDsJSON) {
-                    electiveChoiceIDs.add(UUID.fromString((String) choiceIDObj));
+                ArrayList<Course> electiveChoices = new ArrayList<>();
+                for (Object courseObj : electiveChoicesJSON) {
+                    JSONObject courseJSON = (JSONObject) courseObj;
+                    UUID courseId = UUID.fromString((String) courseJSON.get(COURSE_ID));
+                    electiveChoices.add(coursesMap.get(courseId));
                 }
                 
-                // Create a single EightSemesterPlan object
-                EightSemesterPlan plan = new EightSemesterPlan(classesInPlanIDs, applicationAreaIDs, electiveChoiceIDs);
+                double majorProgress = Double.parseDouble(defaultPlanJSON.get("majorProgress").toString());
+                // Create EightSemesterPlan object with majorProgress
+                EightSemesterPlan plan = new EightSemesterPlan(classesInPlan, applicationArea, electiveChoices, majorProgress);
                 
-                // Create Major object with the single EightSemesterPlan
+                // Create the major object using the correct EightSemesterPlan object
                 Major major = new Major(id, majorName, requiredCourses, plan);
                 majors.add(major);
-                
             }    
             reader.close();
         } catch (Exception e) {

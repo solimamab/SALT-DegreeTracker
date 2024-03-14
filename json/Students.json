@@ -5,7 +5,7 @@
     "password": "12345",
     "firstname": "John",
     "lastname": "sul",
-    "classification": "Freshman",
+    "classification": "JUNIOR",
     "completedCreditHours": 12,
     "remainingCreditHours": 113,
     "flag": "None",
@@ -135,7 +135,7 @@
             "corequisites": []
           }
         ],
-        "majorProgress": 0.05
+        "majorProgress": 32.5
       }
     ],
     "currentCourses": [

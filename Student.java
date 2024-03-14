@@ -135,13 +135,13 @@ public class Student extends User{
     public void setClassifcation()
     {
         if (completedCreditHours < 30 )
-        this.classification = Classification.Freshmen;
+        this.classification = Classification.FRESHMAN;
         else if (completedCreditHours >= 30 && completedCreditHours < 60)
-        this.classification = Classification.Sophomore;
+        this.classification = Classification.SOPHOMORE;
         else if (completedCreditHours >= 60 && completedCreditHours < 90)
-        this.classification = Classification.Junior;
+        this.classification = Classification.JUNIOR;
         else
-        this.classification = Classification.Senior;
+        this.classification = Classification.SENIOR;
     }
     
     
@@ -223,6 +223,35 @@ public class Student extends User{
     // need to implement logic here?
     public Course courseSearch(String department, String number) {
         return null;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Student ID: ").append(id).append("\n");
+        sb.append("Username: ").append(getUsername()).append("\n");
+        sb.append("Password: ").append(getPassword()).append("\n");
+        sb.append("First Name: ").append(getFirstName()).append("\n");
+        sb.append("Last Name: ").append(getLastName()).append("\n");
+        sb.append("Classification: ").append(classification).append("\n");
+        sb.append("Completed Credit Hours: ").append(completedCreditHours).append("\n");
+        sb.append("Remaining Credit Hours: ").append(remainingCreditHours).append("\n");
+        sb.append("Flag: ").append(flag).append("\n");
+        sb.append("Overall GPA: ").append(overallGPA).append("\n");
+        sb.append("Major ID: ").append(getMajor()).append("\n");
+        sb.append("Minor: ").append(minor).append("\n");
+        sb.append("FERPA: ").append(FERPA).append("\n");
+        sb.append("Advisor ID: ").append(getAdvisor()).append("\n");
+        sb.append("Eight Semester Plan: ").append(eightSemesterPlan).append("\n");
+        sb.append("Completed Courses: \n");
+        for (CompletedCourse course : completedCourses) {
+            sb.append("\t").append(course).append("\n");
+        }
+        sb.append("Current Courses: \n");
+        for (Course course : currentCourses) {
+            sb.append("\t").append(course).append("\n");
+        }
+        return sb.toString();
     }
     
 }

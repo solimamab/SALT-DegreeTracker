@@ -2,8 +2,8 @@
  * 
  */
 public enum Classification {
-    Freshmen,
-    Sophomore,
-    Junior,
-    Senior
+    FRESHMAN,
+    SOPHOMORE,
+    JUNIOR,
+    SENIOR
 }
