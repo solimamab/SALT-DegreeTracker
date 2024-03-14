@@ -5,7 +5,7 @@ import java.util.ArrayList;
  * @author abhinavk
  */
 public class UserList {
-    private static UserList userList = null;
+    private static UserList userList;
     private static ArrayList<Student> listOfStudents;
     private static ArrayList<Advisor> listOfAdvisors;
 
@@ -37,7 +37,7 @@ public class UserList {
      * Gets the instance to make the userlist static
      * @return the userlist
      */
-    public static synchronized UserList getInstance() {
+    public static UserList getInstance() {
         if (userList == null) {
             userList = new UserList();
         }
@@ -62,13 +62,14 @@ public class UserList {
         return null;
     }
 
-    public void saveStudents() {
+    /*public void saveStudents() {
         DataWriter.saveStudents(listOfStudents);
     }
 
     public void saveAdvisors() {
         DataWriter.saveAdvisors(listOfAdvisors);  // waiting on datawriter method for this
     }
+    */
 
     public ArrayList<Student> getStudents(){
         return listOfStudents;
