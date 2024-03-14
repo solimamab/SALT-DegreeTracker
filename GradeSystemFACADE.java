@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.UUID;
 public class GradeSystemFACADE {
 
     private static GradeSystemFACADE facade;
@@ -72,7 +73,36 @@ public class GradeSystemFACADE {
         return true;
     }
 
+    // HIGHES PRIORITY METHODS TO COMPLETE
+    // Methods below are for scenario 1
+    public String viewStudentDetails(Student student) {
+        return userList.toString();
+    }
+    public EightSemesterPlan viewEightSemesterPlan(EightSemesterPlan eightSemesterPlan) {
+        return new EightSemesterPlan();
+    }
+    public ArrayList<Course> chooseApplicationArea(ArrayList<Course> applicationArea) {
+        return new ArrayList<>();
+    }
 
+    // Methods below are for scenario 2
+    public Advisor createAdvisorAccount(Advisor advisor) {
+        return new Advisor(null, null, null, null);
+    }
+    public String viewAdvisorDetails(Advisor advisor) {
+        return userList.toString();
+    }
+    public Student findStudent(UUID studentID) {
+        return new Student(studentID, null, null, null, null, null, 0, 0, null, 0, studentID, null, false, studentID, null, null, null, null);
+        // placeholder above, but I think it should be something like the thing below
+        //return Advisor.searchForStudent(studentID);
+    }
+    // use view student details with the student being tawnie hill instead of brax west
+
+
+
+
+    // this method isn't needed for Sprint 1 but maybe Sprint 2
     public void StartingOptions()
     {
         System.out.println("Hello welcome to the Degree progress tracker \n What would you like to do today?"
