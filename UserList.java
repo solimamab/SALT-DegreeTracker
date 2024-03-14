@@ -73,6 +73,10 @@ public class UserList {
     public ArrayList<Student> getStudents(){
         return listOfStudents;
     }
+
+    public ArrayList<Advisor> getAdvisors(){
+        return listOfAdvisors;
+    }
 }
 
 
