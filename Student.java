@@ -51,10 +51,10 @@ public class Student extends User{
         this.remainingCreditHours = remainingCreditHours;
         this.flag = Flag.valueOf(flag);
         this.overallGPA = overallGPA;
-        this.major = getMajor();
+        this.major = setMajor(majorId);
         this.minor = minor;
         this.FERPA = FERPA;
-        this.advisor = getAdvisor();
+        this.advisor = setAdvisor(advisorId);
         this.eightSemesterPlan = eightSemesterPlan;
         this.currentCourses = new ArrayList<>();
         this.completedCourses = completedCourses;
@@ -144,7 +144,18 @@ public class Student extends User{
         this.classification = Classification.SENIOR;
     }
     
-    
+    public Major setMajor(UUID majorUuid)
+    {
+        if (MajorList.findMajor(majorUuid) != null)
+        {
+            return MajorList.findMajor(majorUuid);
+        }
+    }
+
+    public Major setAdvisor(UUID advisorUuid)
+    {
+        
+    }
     /**
     * This method loops through the list of completed courses to calculate the number of completed cerdit hours
     * and sets the completed cerdit hours to the number calculated

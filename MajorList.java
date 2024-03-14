@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class MajorList {
     private static MajorList majorList;
@@ -13,5 +14,17 @@ public class MajorList {
             majorList = new MajorList();
         }
         return majorList;    
+    }
+
+    public Major findMajor(UUID majorId)
+    {
+        for( int i =0; i < availableMajors.size();i++)
+        {
+            if (availableMajors.get(i).getId().equals(majorId))
+            {
+                return availableMajors.get(i);
+            }
+        }
+        return null;
     }
 }
