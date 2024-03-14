@@ -27,6 +27,11 @@ public class DegreeTrackerUI
         System.out.println("Amy Smith is now logged in");
     }
 
+    public void scenario2()
+    {
+        
+    }
+
     public static void main(String args[]) {
         DegreeTrackerUI UI = new DegreeTrackerUI();
         UI.run();
