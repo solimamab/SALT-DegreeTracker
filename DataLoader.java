@@ -376,7 +376,7 @@ public class DataLoader extends DataConstants {
         // Printing majors
         System.out.println("\nMajors:");
         for (Major major : majors) {
-            System.out.println(major.toString());
+            System.out.println(major);
         }
     }
     
