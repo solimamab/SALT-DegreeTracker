@@ -10,12 +10,14 @@ public class EightSemesterPlan {
     private ArrayList<Course> applicationArea;
     private ArrayList<Course> electiveChoices;
     private double majorProgress;
+    private int NumberofClassesinPlan;
 
     public EightSemesterPlan(ArrayList<Course> classesInPlan, ArrayList<Course> applicationArea, ArrayList<Course> electiveChoices, double majorProgress) {
         this.classesInPlan = classesInPlan;
         this.applicationArea = applicationArea;
         this.electiveChoices = electiveChoices;
         this.majorProgress = majorProgress;
+        this.NumberofClassesinPlan = classesInPlan.size();
     }
 
     public EightSemesterPlan() {
@@ -65,6 +67,20 @@ public class EightSemesterPlan {
         System.out.println("Elective Choices:");
         for (Course course : electiveChoices) {
             System.out.println(course.toString());
+        }
+    }
+
+    public void viewSemesterlayout()
+    {
+        for (int i =0; i < NumberofClassesinPlan+1; i++)
+        {
+            int semesterNumber = 1;
+            System.out.println("Semester " + semesterNumber + ": \n");
+            for ( int j = 0; j < NumberofClassesinPlan/8; j++)
+            {
+                System.out.println(classesInPlan.get(i) + "\n");
+            }
+            semesterNumber++;
         }
     }
 
