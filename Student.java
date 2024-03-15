@@ -51,10 +51,10 @@ public class Student extends User{
         this.remainingCreditHours = remainingCreditHours;
         this.flag = Flag.valueOf(flag);
         this.overallGPA = overallGPA;
-        this.major = getMajor();
+        this.major = MajorList.getInstance().findMajor(majorId);
         this.minor = minor;
         this.FERPA = FERPA;
-        this.advisor = getAdvisor();
+        this.advisor = UserList.getInstance().findAdvisor(advisorId);
         this.eightSemesterPlan = eightSemesterPlan;
         this.currentCourses = new ArrayList<>();
         this.completedCourses = completedCourses;
@@ -146,15 +146,14 @@ public class Student extends User{
     
     public Major setMajor(UUID majorUuid)
     {
-        if (MajorList.findMajor(majorUuid) != null)
-        {
-            return MajorList.findMajor(majorUuid);
-        }
+        this.major = MajorList.getInstance().findMajor(majorUuid);
+        return this.major;
     }
 
     public Advisor setAdvisor(UUID advisorUuid)
     {
-        
+        this.advisor = UserList.getInstance().findAdvisor(advisorUuid);
+        return this.advisor;
     }
     /**
     * This method loops through the list of completed courses to calculate the number of completed cerdit hours
@@ -211,20 +210,45 @@ public class Student extends User{
     
     
     public void viewCompletedCourses(ArrayList<Course> completedCourses) {
-        System.out.println(completedCourses);   
-    }
+        if (completedCourses.isEmpty()) {
+            System.out.println("No completed courses.");
+            return;
+        }
+        System.out.println("Completed Courses:");
+        for (Course course : completedCourses) {
+            System.out.println(course.toString());
+        }    }
     
     
     public void viewEightSemesterPlan(EightSemesterPlan eightSemesterPlan) {
-        System.out.println(eightSemesterPlan);       
+        if (eightSemesterPlan == null) {
+            System.out.println("Eight Semester Plan is not available.");
+            return;
+        }
+        System.out.println("Eight Semester Plan:");
+        System.out.println(eightSemesterPlan);
     }
     
     public void viewCurrentCourses(ArrayList<Course> currentCourses) {
-        System.out.println(currentCourses);
+        if (currentCourses.isEmpty()) {
+            System.out.println("No current courses.");
+            return;
+        }
+        System.out.println("Current Courses:");
+        for (Course course : currentCourses) {
+            System.out.println(course);
+        }
     }
     
     public void viewAvailableCourses(ArrayList<Course> availableCourses) {
-        System.out.println(availableCourses); 
+        if (availableCourses.isEmpty()) {
+            System.out.println("No available courses.");
+            return;
+        }
+        System.out.println("Available Courses:");
+        for (Course course : availableCourses) {
+            System.out.println(course);
+        }
     }
     
     public void chooseApplicationArea(ArrayList<Course> applicationArea) {

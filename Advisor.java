@@ -34,7 +34,7 @@ public class Advisor extends User{
             this.students = studentIDs;
             NumberofStudents = studentIDs.size();
             NumberofStudents = studentIDs.size();
-            users = UserList.getInstance();
+            //users = UserList.getInstance();
             listOfALLStudents = users.getStudents();
     }
     /** 

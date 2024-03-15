@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * User list of all users in the system
@@ -88,6 +89,16 @@ public class UserList {
     public ArrayList<Advisor> getAdvisors(){
         return listOfAdvisors;
     }
+
+    public Advisor findAdvisor(UUID advisorId) {
+        for (Advisor advisor : listOfAdvisors) {
+            if (advisor.getUserId().equals(advisorId)) {
+                return advisor;
+            }
+        }
+        return null; // Return null if no advisor is found with the given ID
+    }
+    
 }
 
 
