@@ -25,9 +25,9 @@ public class UserList {
     }
 
     /**
-     * 
-     * @param students
-     * @param advisors
+     * This is a constructor with a Array of student and advisors already established
+     * @param students the list of students
+     * @param advisors the list of advisors
      */
     private UserList(ArrayList<Student> students, ArrayList<Advisor> advisors) {
         listOfStudents = students;
@@ -63,11 +63,19 @@ public class UserList {
         return null;
     }
 
+    /**
+     * Adds an advisor to the list of advisors 
+     * @param advisor the advisor to be added
+     */
     public void addAdvisor(Advisor advisor)
     {
         listOfAdvisors.add(advisor);
     }
 
+    /**
+     * Adds a student to the list of students
+     * @param student the student to be added
+     */
     public void addStudent(Student student)
     {
         listOfStudents.add(student);

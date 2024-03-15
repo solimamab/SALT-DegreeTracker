@@ -1,9 +1,10 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
-
-
-
+/**
+ * This is the student class that holds all the relevant information for each student
+ * @author Team SALT
+ */
 public class Student extends User{
     private Classification classification;
     private UUID id;
@@ -18,7 +19,7 @@ public class Student extends User{
     private ArrayList<CompletedCourse> completedCourses;
     private EightSemesterPlan eightSemesterPlan;
     private ArrayList<Course> currentCourses;
-    private HashMap<UUID, Course> coursesMap;
+    private HashMap<UUID, Course> coursesMap; // this is here but not used anywhere??
     private String AdvisorNote;
     
     /**
@@ -262,6 +263,7 @@ public class Student extends User{
         }
     }
     
+    // do we need this method?
     public void chooseApplicationArea(ArrayList<Course> applicationArea) {
         System.out.println(applicationArea); 
     }

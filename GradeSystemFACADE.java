@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.UUID;
 public class GradeSystemFACADE {
 
@@ -8,7 +7,7 @@ public class GradeSystemFACADE {
     private User currentUser;
     private CourseList courseList = CourseList.getInstance();
     private MajorList majorList = MajorList.getInstance();
-    Scanner scanner = new Scanner(System.in);
+    
 
     /**
      * Private constructor to prevent direct instantiation
@@ -28,14 +27,21 @@ public class GradeSystemFACADE {
     }
 
     /**
-     * 
-     * @param number
-     * @return
+     * This method is to search through the course list and find a course by department and number
+     * @param number - the course number as in 247 in CSCE 247
+     * @param department - the department of the course as in the CSCE in CSCE 247
+     * @return - the course with the matching department and number
      */
     public Course findCourse(String department, String number) {
         return courseList.getCourseByNumber(department, number);
     }
 
+    /**
+     * This method is to login to the system when given the username and password
+     * @param username - the user's entered username
+     * @param password - the user's entered password
+     * @return - A boolean on wether the login was successful or not
+     */
     public boolean login(String username, String password) {
         User user = userList.getUser(username);
         if (user == null || !user.getUsername().equals(username) || !user.getPassword().equals(password))
@@ -49,28 +55,21 @@ public class GradeSystemFACADE {
         this.currentUser = user;
     }
 
-    public boolean addCourse(Course course) {
-        return true;
+
+    public void addCourse(Course course) {
+        courseList.addCourse(course);
     }
 
     public User findUser(String username) {
         return userList.getUser(username);
     }
 
-    public ArrayList<Course> getCourseDetails(Course course) {
-        return new ArrayList<Course>();
+    public String getCourseDetails(Course course) {
+        return course.viewCourseDetails();
     }
 
     public String getUserDetails(String username) {
-        return userList.toString();
-    }
-
-    public boolean notOfferCourse(Course course) {
-        return false;
-    }
-
-    public boolean advisorReassignment(Student student) {
-        return true;
+        return userList.getUser(username).toString();
     }
 
     // HIGHES PRIORITY METHODS TO COMPLETE
@@ -115,51 +114,6 @@ public class GradeSystemFACADE {
 
     public EightSemesterPlan viewStudentsEightSemesterPlan(Student student) {
         return student.getEightSemesterPlan();
-    }
-
-
-
-    // this method isn't needed for Sprint 1 but maybe Sprint 2
-    public void StartingOptions()
-    {
-        System.out.println("Hello welcome to the Degree progress tracker \n What would you like to do today?"
-        + "\n 1. Login in as existing user"
-        + "\n 2. Create new student account"
-        + "\n 3. Create new advisor account"
-        + "\n 4. Exit the program");
-
-        int userInput = scanner.nextInt();
-
-        if (userInput == 1)
-            {
-                System.out.println("What is your username?");
-                String username = scanner.nextLine();
-                System.out.println("What is your password?");
-                String password = scanner.nextLine();
-                if (login(username, password) == true)
-                    {
-                        currentUser = findUser(username);
-                    }
-                else 
-                {
-                    System.out.println("Sorry, could not login in");
-                }
-            }
-        else if (userInput == 2)
-        {
-
-        }
-        else if (userInput == 3)
-        {
-
-        }
-        else if (userInput == 4)
-        {
-            System.out.println("GoodBye!");
-            System.exit(0);
-        }
-        else 
-            System.out.println("Enter valid option");
     }
 
 }
