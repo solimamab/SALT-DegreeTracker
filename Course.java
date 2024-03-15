@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -41,14 +42,12 @@ public class Course {
         + prerequisite + " " + corequisite;
     }
 
-    /**
-     * This method changes just the department and number to a string 
-     * @return a String similar to CSCE 247
-     */
     @Override
     public String toString() {
-        return department + " " + number + " " + prerequisite;
+        return department + " " + number + " " + availablity+ " " + prerequisite;
     }
+    
+    
     
     // Getters
     public UUID getId() {
@@ -80,7 +79,7 @@ public class Course {
         return availablity;
     }
     
-    public HashMap<UUID,String> getPrerequisite() {
+    public HashMap<UUID, String> getPrerequisite() {
         return prerequisite;
     }
     

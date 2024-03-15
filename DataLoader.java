@@ -26,9 +26,8 @@ public class DataLoader extends DataConstants {
             FileReader reader = new FileReader(COURSE_FILE_NAME);
             JSONArray coursesJSON = (JSONArray) new JSONParser().parse(reader);
             
-            // First pass: create all courses without prerequisites and corequisites
+            // Step 1: Load all courses first
             for (Object courseObj : coursesJSON) {
-                // Parse course information, excluding prerequisites and corequisites
                 JSONObject courseJSON = (JSONObject) courseObj;
                 UUID id = UUID.fromString((String) courseJSON.get(COURSE_ID));
                 String name = (String) courseJSON.get(COURSE_NAME);
@@ -36,7 +35,6 @@ public class DataLoader extends DataConstants {
                 String number = (String) courseJSON.get(COURSE_NUMBER);
                 String description = (String) courseJSON.get(COURSE_DESCRIPTION);
                 long creditHours = Long.parseLong((String) courseJSON.get(COURSE_CREDIT_HOURS));
-                // long creditHours = (long) courseJSON.get(COURSE_CREDIT_HOURS);
                 
                 // Parse availability
                 JSONArray availabilityJSON = (JSONArray) courseJSON.get(COURSE_AVAILABILITY);
@@ -45,63 +43,40 @@ public class DataLoader extends DataConstants {
                     String availabilityStr = (String) availabilityObj;
                     Availablity availability = Availablity.valueOf(availabilityStr); // Convert string to enum
                     availabilityList.add(availability);
-                }
+                }                
                 
-                Course course = new Course(id, name, department, number, description, creditHours, availabilityList, null, null);
-                courseMap.put(course.getId(), course);
-            }
-            
-            // Second pass: update courses with prerequisites and corequisites
-            for (Object courseObj : coursesJSON) {
-                JSONObject courseJSON = (JSONObject) courseObj;
-                UUID id = UUID.fromString((String) courseJSON.get(COURSE_ID));
-                Course course = courseMap.get(id);
-                
-                // Handle prerequisites
-                Object prereqObj = courseJSON.get(COURSE_PREREQUISITES);
-                if (prereqObj instanceof JSONArray) {
-                    HashMap<UUID, String> prerequisites = new HashMap<>();
-                    for (Object item : (JSONArray) prereqObj) {
-                        String prereqStr = (String) item;
-                        String[] prereqParts = prereqStr.split(",");
-                        String uuidStr = prereqParts[0].trim();
-                        String gradeReq = prereqParts[1].trim();
-                        
-                        UUID prereqId = UUID.fromString(uuidStr);
-                        Course prereqCourse = courseMap.get(prereqId);
-                        String prereqCourseName = prereqCourse != null ? prereqCourse.getName() : "Unknown";
-                        
-                        prerequisites.put(prereqId, gradeReq);
-                        System.out.println("Prerequisite: " + prereqId + " (" + prereqCourseName + ") - Grade Required: " + gradeReq);
+                // Parse prerequisites
+                JSONArray prereqArray = (JSONArray) courseJSON.get(COURSE_PREREQUISITES);
+                HashMap<UUID, String> prerequisites = new HashMap<>();
+                if (prereqArray != null) {
+                    for (Object prereqObj : prereqArray) {
+                        // Check if prereqObj is indeed an instance of JSONArray
+                        if (prereqObj instanceof JSONArray) {
+                            JSONArray prereqInnerArray = (JSONArray) prereqObj;
+                            if (prereqInnerArray.size() == 2) { // Assuming each inner array has 2 elements
+                                String prereqUuidStr = (String) prereqInnerArray.get(0);
+                                String gradeReq = (String) prereqInnerArray.get(1);
+                                UUID prereqId = UUID.fromString(prereqUuidStr);
+                                prerequisites.put(prereqId, gradeReq);
+                            }
+                        } else {
+                            // Log or handle the case where prereqObj is not a JSONArray as expected
+                            System.out.println("Unexpected data type in prerequisites: " + prereqObj.getClass().getName());
+                        }
                     }
-                    course.setPrerequisite(prerequisites);
                 }
                 
-                // Handle corequisites
-                Object coreqObj = courseJSON.get(COURSE_COREQUISITES);
-                if (coreqObj instanceof JSONArray) {
-                    ArrayList<UUID> corequisites = new ArrayList<>();
-                    for (Object item : (JSONArray) coreqObj) {
-                        String uuidStr = (String) item;
-                        corequisites.add(UUID.fromString(uuidStr));
-                    }
-                    course.setCorequisite(corequisites);
-                } else if (coreqObj instanceof String) {
-                    // If there is only one corequisite
-                    String uuidStr = (String) coreqObj;
-                    ArrayList<UUID> corequisites = new ArrayList<>();
-                    corequisites.add(UUID.fromString(uuidStr));
-                    course.setCorequisite(corequisites);
-                } else {
-                    // No corequisites
-                    course.setCorequisite(null);
-                }
+                Course course = new Course(id, name, department, number, description, creditHours, availabilityList, prerequisites, null);
+                courseMap.put(id, course);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
         return courseMap;
     }
+    
+    
     
     /**
     * Loads students from a JSON file.
@@ -368,7 +343,7 @@ public class DataLoader extends DataConstants {
         ArrayList<Major> majors = DataLoader.loadMajors(coursesMap);
         ArrayList<Student> students = DataLoader.loadStudents(coursesMap);
         
-        // Printing students
+        // // Printing students
         System.out.println("Students:");
         for (Student student : students) {
             System.out.println(student);
