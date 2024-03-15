@@ -16,6 +16,94 @@ import org.json.simple.parser.JSONParser;
 public class DataLoader extends DataConstants {
     
     /**
+    * Loads courses from a JSON file.
+    * @return A list of Course objects.
+    */
+    public static HashMap<UUID, Course> loadCourses() {
+        HashMap<UUID, Course> courseMap = new HashMap<>();
+        
+        try {
+            FileReader reader = new FileReader(COURSE_FILE_NAME);
+            JSONArray coursesJSON = (JSONArray) new JSONParser().parse(reader);
+            
+            // First pass: create all courses without prerequisites and corequisites
+            for (Object courseObj : coursesJSON) {
+                // Parse course information, excluding prerequisites and corequisites
+                JSONObject courseJSON = (JSONObject) courseObj;
+                UUID id = UUID.fromString((String) courseJSON.get(COURSE_ID));
+                String name = (String) courseJSON.get(COURSE_NAME);
+                String department = (String) courseJSON.get(COURSE_DEPARTMENT);
+                String number = (String) courseJSON.get(COURSE_NUMBER);
+                String description = (String) courseJSON.get(COURSE_DESCRIPTION);
+                long creditHours = Long.parseLong((String) courseJSON.get(COURSE_CREDIT_HOURS));
+                // long creditHours = (long) courseJSON.get(COURSE_CREDIT_HOURS);
+                
+                // Parse availability
+                JSONArray availabilityJSON = (JSONArray) courseJSON.get(COURSE_AVAILABILITY);
+                ArrayList<Availablity> availabilityList = new ArrayList<>();
+                for (Object availabilityObj : availabilityJSON) {
+                    String availabilityStr = (String) availabilityObj;
+                    Availablity availability = Availablity.valueOf(availabilityStr); // Convert string to enum
+                    availabilityList.add(availability);
+                }
+                
+                Course course = new Course(id, name, department, number, description, creditHours, availabilityList, null, null);
+                courseMap.put(course.getId(), course);
+            }
+            
+            // Second pass: update courses with prerequisites and corequisites
+            for (Object courseObj : coursesJSON) {
+                JSONObject courseJSON = (JSONObject) courseObj;
+                UUID id = UUID.fromString((String) courseJSON.get(COURSE_ID));
+                Course course = courseMap.get(id);
+                
+                // Handle prerequisites
+                Object prereqObj = courseJSON.get(COURSE_PREREQUISITES);
+                if (prereqObj instanceof JSONArray) {
+                    HashMap<UUID, String> prerequisites = new HashMap<>();
+                    for (Object item : (JSONArray) prereqObj) {
+                        String prereqStr = (String) item;
+                        String[] prereqParts = prereqStr.split(",");
+                        String uuidStr = prereqParts[0].trim();
+                        String gradeReq = prereqParts[1].trim();
+                        
+                        UUID prereqId = UUID.fromString(uuidStr);
+                        Course prereqCourse = courseMap.get(prereqId);
+                        String prereqCourseName = prereqCourse != null ? prereqCourse.getName() : "Unknown";
+                        
+                        prerequisites.put(prereqId, gradeReq);
+                        System.out.println("Prerequisite: " + prereqId + " (" + prereqCourseName + ") - Grade Required: " + gradeReq);
+                    }
+                    course.setPrerequisite(prerequisites);
+                }
+                
+                // Handle corequisites
+                Object coreqObj = courseJSON.get(COURSE_COREQUISITES);
+                if (coreqObj instanceof JSONArray) {
+                    ArrayList<UUID> corequisites = new ArrayList<>();
+                    for (Object item : (JSONArray) coreqObj) {
+                        String uuidStr = (String) item;
+                        corequisites.add(UUID.fromString(uuidStr));
+                    }
+                    course.setCorequisite(corequisites);
+                } else if (coreqObj instanceof String) {
+                    // If there is only one corequisite
+                    String uuidStr = (String) coreqObj;
+                    ArrayList<UUID> corequisites = new ArrayList<>();
+                    corequisites.add(UUID.fromString(uuidStr));
+                    course.setCorequisite(corequisites);
+                } else {
+                    // No corequisites
+                    course.setCorequisite(null);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return courseMap;
+    }
+    
+    /**
     * Loads students from a JSON file.
     *
     * @param coursesMap A HashMap containing Course objects mapped by their UUIDs.
@@ -118,7 +206,7 @@ public class DataLoader extends DataConstants {
     * @param coursesMap
     * @return
     */
-    private static EightSemesterPlan parseEightSemesterPlan(JSONArray eightSemesterPlanJSON, HashMap<UUID, Course> coursesMap) {
+    private static EightSemesterPlan parseEightSemesterPlan(JSONArray eightSemesterPlanJSON, HashMap<UUID, Course> courseMap) {
         EightSemesterPlan eightSemesterPlan = new EightSemesterPlan();
         
         for (Object planObj : eightSemesterPlanJSON) {
@@ -129,7 +217,7 @@ public class DataLoader extends DataConstants {
             for (Object classObj : classesInPlanJSON) {
                 JSONObject classJSON = (JSONObject) classObj;
                 UUID classId = UUID.fromString((String) classJSON.get("id"));
-                Course course = coursesMap.get(classId);
+                Course course = courseMap.get(classId);
                 if (course != null) {
                     eightSemesterPlan.addClassToPlan(course);
                 } else {
@@ -142,7 +230,7 @@ public class DataLoader extends DataConstants {
             for (Object areaObj : applicationAreaJSON) {
                 JSONObject areaJSON = (JSONObject) areaObj;
                 UUID areaId = UUID.fromString((String) areaJSON.get("id"));
-                Course course = coursesMap.get(areaId);
+                Course course = courseMap.get(areaId);
                 if (course != null) {
                     eightSemesterPlan.addApplicationAreaCourse(course);
                 } else {
@@ -155,7 +243,7 @@ public class DataLoader extends DataConstants {
             for (Object choiceObj : electiveChoicesJSON) {
                 JSONObject choiceJSON = (JSONObject) choiceObj;
                 UUID choiceId = UUID.fromString((String) choiceJSON.get("id"));
-                Course course = coursesMap.get(choiceId);
+                Course course = courseMap.get(choiceId);
                 if (course != null) {
                     eightSemesterPlan.addElectiveChoice(course);
                 } else {
@@ -172,85 +260,10 @@ public class DataLoader extends DataConstants {
     }
     
     /**
-    * Loads courses from a JSON file.
-    * @return A list of Course objects.
-    */
-    public static HashMap<UUID, Course> loadCourses() {
-        HashMap<UUID, Course> courseMap = new HashMap<>();
-        
-        try {
-            FileReader reader = new FileReader(COURSE_FILE_NAME);
-            JSONArray coursesJSON = (JSONArray) new JSONParser().parse(reader);
-            
-            // First pass: create all courses without prerequisites and corequisites
-            for (Object courseObj : coursesJSON) {
-                // Parse course information, excluding prerequisites and corequisites
-                JSONObject courseJSON = (JSONObject) courseObj;
-                UUID id = UUID.fromString((String) courseJSON.get(COURSE_ID));
-                String name = (String) courseJSON.get(COURSE_NAME);
-                String department = (String) courseJSON.get(COURSE_DEPARTMENT);
-                String number = (String) courseJSON.get(COURSE_NUMBER);
-                String description = (String) courseJSON.get(COURSE_DESCRIPTION);
-                long creditHours = (long) courseJSON.get(COURSE_CREDIT_HOURS);
-                
-                // Parse availability
-                JSONArray availabilityJSON = (JSONArray) courseJSON.get(COURSE_AVAILABILITY);
-                ArrayList<Availablity> availabilityList = new ArrayList<>();
-                for (Object availabilityObj : availabilityJSON) {
-                    String availabilityStr = (String) availabilityObj;
-                    Availablity availability = Availablity.valueOf(availabilityStr); // Convert string to enum
-                    availabilityList.add(availability);
-                }
-                
-                Course course = new Course(id, name, department, number, description, creditHours, availabilityList, null, null);
-                courseMap.put(course.getId(), course);
-            }
-            
-            // Second pass: update courses with prerequisites and corequisites
-            for (Object courseObj : coursesJSON) {
-                JSONObject courseJSON = (JSONObject) courseObj;
-                UUID id = UUID.fromString((String) courseJSON.get(COURSE_ID));
-                Course course = courseMap.get(id);
-                
-                // Handle prerequisites
-                Object prereqObj = courseJSON.get(COURSE_PREREQUISITES);
-                if (prereqObj instanceof JSONArray) {
-                    HashMap<UUID, String> prerequisites = new HashMap<>();
-                    for (Object item : (JSONArray) prereqObj) {
-                        // Assume format is ["UUID", "gradeReq"]
-                        String uuidStr = (String) ((JSONArray) item).get(0);
-                        String gradeReq = (String) ((JSONArray) item).get(1);
-                        prerequisites.put(UUID.fromString(uuidStr), gradeReq);
-                    }
-                    course.setPrerequisite(prerequisites);
-                }
-                
-                // Handle corequisites
-                Object coreqObj = courseJSON.get(COURSE_COREQUISITES);
-                if (coreqObj instanceof JSONArray) {
-                    ArrayList<UUID> corequisites = new ArrayList<>();
-                    for (Object item : (JSONArray) coreqObj) {
-                        String uuidStr = (String) item;
-                        corequisites.add(UUID.fromString(uuidStr));
-                    }
-                    course.setCorequisite(corequisites); // need to handle/fix this still
-                } else {
-                    // No corequisites
-                    course.setCorequisite(null);
-                }
-            }
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return courseMap;
-    }
-    
-    /**
     * Loads majors from a JSON file.
     * @return A list of Major objects.
     */
-    public static ArrayList<Major> loadMajors(HashMap<UUID, Course> coursesMap) {
+    public static ArrayList<Major> loadMajors(HashMap<UUID, Course> courseMap) {
         ArrayList<Major> majors = new ArrayList<>();
         
         try {
@@ -268,7 +281,7 @@ public class DataLoader extends DataConstants {
                 for (Object courseObj : requiredCoursesJSON) {
                     JSONObject courseJSON = (JSONObject) courseObj;
                     UUID courseId = UUID.fromString((String) courseJSON.get(COURSE_ID));
-                    requiredCourses.add(coursesMap.get(courseId));
+                    requiredCourses.add(courseMap.get(courseId));
                 }
                 
                 // Parse default plan
@@ -277,9 +290,9 @@ public class DataLoader extends DataConstants {
                 JSONArray applicationAreaJSON = (JSONArray) defaultPlanJSON.get(MAJOR_APPLICATION_AREA);
                 JSONArray electiveChoicesJSON = (JSONArray) defaultPlanJSON.get(MAJOR_ELECTIVE_CHOICES);
                 
-                ArrayList<Course> classesInPlan = parseCoursesFromJSONArray(classesInPlanJSON, coursesMap);
-                ArrayList<Course> applicationArea = parseCoursesFromJSONArray(applicationAreaJSON, coursesMap);
-                ArrayList<Course> electiveChoices = parseCoursesFromJSONArray(electiveChoicesJSON, coursesMap);
+                ArrayList<Course> classesInPlan = parseCoursesFromJSONArray(classesInPlanJSON, courseMap);
+                ArrayList<Course> applicationArea = parseCoursesFromJSONArray(applicationAreaJSON, courseMap);
+                ArrayList<Course> electiveChoices = parseCoursesFromJSONArray(electiveChoicesJSON, courseMap);
                 
                 double majorProgress = Double.parseDouble(defaultPlanJSON.get("majorProgress").toString());
                 // Create EightSemesterPlan object with majorProgress
@@ -350,10 +363,10 @@ public class DataLoader extends DataConstants {
     }
     
     public static void main(String[] args) {
-        HashMap<UUID, Course> courses = DataLoader.loadCourses();
+        HashMap<UUID, Course> coursesMap = DataLoader.loadCourses();
         ArrayList<Advisor> advisors = DataLoader.loadAdvisors();
-        ArrayList<Major> majors = DataLoader.loadMajors(courses);
-        ArrayList<Student> students = DataLoader.loadStudents(courses);
+        ArrayList<Major> majors = DataLoader.loadMajors(coursesMap);
+        ArrayList<Student> students = DataLoader.loadStudents(coursesMap);
         
         // Printing students
         System.out.println("Students:");
@@ -363,7 +376,7 @@ public class DataLoader extends DataConstants {
         
         // Printing courses
         System.out.println("\nCourses:");
-        for (Course course : courses.values()) {
+        for (Course course : coursesMap.values()) {
             System.out.println(course.toString());
         }
         

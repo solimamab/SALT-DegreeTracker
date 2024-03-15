@@ -13,8 +13,9 @@ public class DegreeTrackerUI
     }
     
     public void run() {
-        scenerio1();
-        scenario2();
+        // scenerio1();
+        // scenario2();
+        testingCourses();
         
     }
     
@@ -69,6 +70,12 @@ public class DegreeTrackerUI
         } else {
             System.out.println("Student not found.");
         }
+    }
+
+    // Method for testing courses
+    public void testingCourses() {
+        Course course = gradeSystemFACADE.findCourse("CSCE", "247");
+        System.out.println(course.toString());
     }
     
     public static void main(String args[]) {

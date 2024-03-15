@@ -47,7 +47,7 @@ public class Course {
      */
     @Override
     public String toString() {
-        return department + " " + number;
+        return department + " " + number + " " + prerequisite;
     }
     
     // Getters

@@ -11,25 +11,14 @@ public class CourseList {
     private static CourseList courseList;
     private HashMap<UUID, Course> listOfCourses;
 
-    /**
-     * 
-     */
-    private CourseList()
-    {
-        listOfCourses = (DataLoader.loadCourses() == null ? new HashMap<>() : DataLoader.loadCourses());
-        
+    private CourseList() {
+        listOfCourses = DataLoader.loadCourses();
+        if (listOfCourses == null) {
+            listOfCourses = new HashMap<>();
+        }
     }
 
-    private CourseList(HashMap<UUID,Course> courses) {
-        listOfCourses = courses;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    public static CourseList getInstance()
-    {
+    public static CourseList getInstance() {
         if (courseList == null) {
             courseList = new CourseList();
         }
@@ -42,18 +31,26 @@ public class CourseList {
      * @param number the number of the ourse to be searched the 247 in CSCE 247
      * @return the course that matches the department and number being search or returns null if class is not found
      */
-    public Course getCourseByNumber(String department, String number)
-    {
-        for(int i = 0; i < listOfCourses.size(); i++)
-        {
-            if (listOfCourses.get(i).getDepartment().equals(department) && listOfCourses.get(i).getNumber().equals(number))
-            {
-                return listOfCourses.get(i);
+    public Course getCourseByNumber(String department, String number) {
+        for (Course course : listOfCourses.values()) {
+            if (course.getDepartment().equals(department) && course.getNumber().equals(number)) {
+                return course;
             }
-            i++;
         }
         return null;
     }
+    // public Course getCourseByNumber(String department, String number)
+    // {
+    //     for(int i = 0; i < listOfCourses.size(); i++)
+    //     {
+    //         if (listOfCourses.get(i).getDepartment().equals(department) && listOfCourses.get(i).getNumber().equals(number))
+    //         {
+    //             return listOfCourses.get(i);
+    //         }
+    //         i++;
+    //     }
+    //     return null;
+    // }
 
     public Course addCourse(Course course) {
         return new Course(null, null, null, null, null, 0, null, null, null);
