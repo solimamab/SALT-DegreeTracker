@@ -76,11 +76,23 @@ public class GradeSystemFACADE {
     // HIGHES PRIORITY METHODS TO COMPLETE
     // Methods below are for scenario 1
     public String viewStudentDetails(Student student) {
-        return userList.toString();
+        return student.toString();
     }
+
+    public Student findStudent(String username) {
+        // Assuming userList is an instance of UserList class
+        User user = userList.getUser(username);
+        if (user instanceof Student) {
+            return (Student) user;
+        } else {
+            return null;
+        }
+    }    
+
     public EightSemesterPlan viewEightSemesterPlan(EightSemesterPlan eightSemesterPlan) {
-        return new EightSemesterPlan();
+        return eightSemesterPlan;
     }
+
     public ArrayList<Course> chooseApplicationArea(ArrayList<Course> applicationArea) {
         return new ArrayList<>();
     }
@@ -90,19 +102,19 @@ public class GradeSystemFACADE {
         userList.addAdvisor(advisor);
         return advisor;
     }
+
     public String viewAdvisorDetails(Advisor advisor) {
-        return userList.toString();
+        return advisor.toString();
     }
+    
     public Student findStudent(UUID studentID) {
-        return new Student(studentID, null, null, null, null, null, 0, 0, null, 0, studentID, null, false, studentID, null, null, null, null);
-        // placeholder above, but I think it should be something like the thing below
-        //return Advisor.searchForStudent(studentID);
+        return UserList.getInstance().findStudentById(studentID);
     }
     
     // use view student details with the student being tawnie hill instead of brax west
 
     public EightSemesterPlan viewStudentsEightSemesterPlan(Student student) {
-        return new EightSemesterPlan();
+        return student.getEightSemesterPlan();
     }
 
 

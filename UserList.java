@@ -98,6 +98,20 @@ public class UserList {
         }
         return null; // Return null if no advisor is found with the given ID
     }
+
+    /**
+     * Find a student by their ID.
+     * @param studentID The ID of the student to find.
+     * @return The found student, or null if not found.
+     */
+    public Student findStudentById(UUID studentID) {
+        for (Student student : listOfStudents) {
+            if (student.getUUID().equals(studentID)) {
+                return student;
+            }
+        }
+        return null; // Student not found
+    }
     
 }
 
