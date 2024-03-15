@@ -1,7 +1,7 @@
-import java.util.Scanner;
 import java.util.UUID;
 /**
-* 
+* The UI for the scenerios provided 
+* @author Team SALT
 */
 public class DegreeTrackerUI
 {
@@ -44,7 +44,7 @@ public class DegreeTrackerUI
     
     public void scenario2() {
         // Create an advisor account
-        Advisor advisor = new Advisor(UUID.randomUUID(), "OOdden", "12345", "Obsert", "Odden", null);
+        Advisor advisor = new Advisor("OOdden", "12345", "Obsert", "Odden");
         gradeSystemFACADE.createAdvisorAccount(advisor);
         System.out.println("New Advisor Account made for Obsert Odden");
         
@@ -65,7 +65,7 @@ public class DegreeTrackerUI
             System.out.println("Student's Eight Semester Plan:\n" + studentEightSemesterPlan);
             
             // Add a note for the student (pending implementation)
-            // advisor.addNoteForStudent(student, "Note content");
+            advisor.setStudentNote(student, "advise to take blah blah");
         } else {
             System.out.println("Student not found.");
         }

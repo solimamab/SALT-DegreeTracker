@@ -1,5 +1,6 @@
 /**
- * 
+ * This class is an enumeration of the possible flags that an advisor can add to a students account
+ * @author Team SALT
  */
 public enum Flag {
     None,

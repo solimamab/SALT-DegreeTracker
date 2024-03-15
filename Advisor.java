@@ -110,4 +110,9 @@ public class Advisor extends User{
             }
         }
     }
+
+    public void setStudentNote(Student student, String note)
+    {
+        student.setAdvisorNote(note);
+    }
 }

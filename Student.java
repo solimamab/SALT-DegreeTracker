@@ -19,6 +19,7 @@ public class Student extends User{
     private EightSemesterPlan eightSemesterPlan;
     private ArrayList<Course> currentCourses;
     private HashMap<UUID, Course> coursesMap;
+    private String AdvisorNote;
     
     /**
     * Constructor for Student
@@ -58,6 +59,7 @@ public class Student extends User{
         this.eightSemesterPlan = eightSemesterPlan;
         this.currentCourses = new ArrayList<>();
         this.completedCourses = completedCourses;
+        this.AdvisorNote = " ";
     }
     
     /**
@@ -126,6 +128,11 @@ public class Student extends User{
     public ArrayList<Course> getCurrentCourses()
     {
         return this.currentCourses;
+    }
+
+    public String getNote()
+    {
+        return this.AdvisorNote;
     }
     
     /**
@@ -198,6 +205,10 @@ public class Student extends User{
         this.overallGPA = qualityPoints/this.completedCreditHours;
     }
     
+    public void setAdvisorNote(String note)
+    {
+        this.AdvisorNote = note;
+    }
     /**
     * This method adds a course to the list of completed courses once the student finishes a class
     * and is assigned a final grade for the course
@@ -277,6 +288,7 @@ public class Student extends User{
         sb.append("Minor: ").append(minor).append("\n");
         sb.append("FERPA: ").append(FERPA).append("\n");
         sb.append("Advisor ID: ").append(getAdvisor()).append("\n");
+        sb.append("Advisor Note:").append(AdvisorNote).append("\n");
         
         return sb.toString();
     }

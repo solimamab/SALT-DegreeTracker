@@ -35,33 +35,21 @@ public class User {
     }
 
     /**
-     * Gets user's id
-     * @return
+     * Getters for the User Class
+     * @return Strings that respresent the appropriate attribute
      */
     public String getUserId() {
         return id.toString();
     }
 
-    /**
-     * Gets user's password
-     * @return
-     */
     public String getPassword() {
         return password;
     }
 
-    /**
-     * Gets user's firstname
-     * @return
-     */
     public String getFirstName() {
         return firstName;
     }
 
-    /**
-     * Get's users lastname
-     * @return
-     */
     public String getLastName() {
         return lastName;
     }
@@ -73,6 +61,7 @@ public class User {
         return "username:" + username + "\n" + "password:" + password + "\n" + "firstname:" + firstName + "\n"
                 + "lastname: " + lastName;
     }
+
 
     /**
      * Login method for the facade that logs a user in if their username and password match

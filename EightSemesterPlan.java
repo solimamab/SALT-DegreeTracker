@@ -1,17 +1,23 @@
 import java.util.ArrayList;
-import java.util.UUID;
 
-class EightSemesterPlan {
+/**
+ *  This class holds all of the information for the EightSemesterPlan 
+ * @author Team SALT
+ */
+
+public class EightSemesterPlan {
     private ArrayList<Course> classesInPlan;
     private ArrayList<Course> applicationArea;
     private ArrayList<Course> electiveChoices;
     private double majorProgress;
+    private int NumberofClassesinPlan;
 
     public EightSemesterPlan(ArrayList<Course> classesInPlan, ArrayList<Course> applicationArea, ArrayList<Course> electiveChoices, double majorProgress) {
         this.classesInPlan = classesInPlan;
         this.applicationArea = applicationArea;
         this.electiveChoices = electiveChoices;
         this.majorProgress = majorProgress;
+        this.NumberofClassesinPlan = classesInPlan.size();
     }
 
     public EightSemesterPlan() {
@@ -45,6 +51,10 @@ class EightSemesterPlan {
         electiveChoices.remove(course);
     }
 
+    /*does this need to be broken down by semester
+    like semester 1: list classes to take 
+    semester two : and so one
+    */
     public void viewPlan() {
         System.out.println("Classes in Plan:");
         for (Course course : classesInPlan) {
@@ -57,6 +67,20 @@ class EightSemesterPlan {
         System.out.println("Elective Choices:");
         for (Course course : electiveChoices) {
             System.out.println(course.toString());
+        }
+    }
+
+    public void viewSemesterlayout()
+    {
+        for (int i =0; i < NumberofClassesinPlan+1; i++)
+        {
+            int semesterNumber = 1;
+            System.out.println("Semester " + semesterNumber + ": \n");
+            for ( int j = 0; j < NumberofClassesinPlan/8; j++)
+            {
+                System.out.println(classesInPlan.get(i) + "\n");
+            }
+            semesterNumber++;
         }
     }
 

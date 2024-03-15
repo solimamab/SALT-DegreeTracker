@@ -4,5 +4,4 @@
 public enum Availablity {
     Fall,
     Spring,
-    Both_Semesters
 }
