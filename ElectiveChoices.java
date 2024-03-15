@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class ElectiveChoices {
     private ArrayList<Course> electiveChoices;
     private int numCredits;
+    
 
     public ElectiveChoices(ArrayList<Course> electiveChoices, int numCredits) {
         this.electiveChoices = electiveChoices;
