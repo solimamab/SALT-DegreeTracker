@@ -364,7 +364,7 @@ public class DataLoader extends DataConstants {
         // Printing courses
         System.out.println("\nCourses:");
         for (Course course : courses.values()) {
-            System.out.println(course.viewCourseDetails());
+            System.out.println(course.toString());
         }
         
         // Printing advisors
