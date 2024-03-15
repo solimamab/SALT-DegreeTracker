@@ -36,4 +36,9 @@ public class ApplicationArea {
             System.out.println("The type of application is not offered at the time");
         }
     }
+
+    public ArrayList<Course> getApplicationArea()
+    {
+        return this.applicationArea;
+    }
 }

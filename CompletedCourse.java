@@ -15,31 +15,33 @@ public class CompletedCourse extends Course {
         super(course.getId(),course.getName(),course.getDepartment(),course.getNumber(),course.getDescription(),
         course.getCreditHours(),course.getAvailablity(),course.getPrerequisite(),course.getCorequisite());
         this.letterGrade = letterGrade;
+        this.qualityPoints = setQualityPoints(course, letterGrade);
     }
     
     /**
-    * Setter for quality points based on the USC GPA scale
+    * helper method for quality points based on the USC GPA scale
+     * @return the double that represents the amount of quailty points based on grade recieved
     */
-    public void setQualityPoints() {
+    private double setQualityPoints(Course course, Grade grade) {
         double points = 0;
-        if (letterGrade.equals(Grade.A))
+        if (grade.equals(Grade.A))
             points = 4;
-        else if (letterGrade.equals(Grade.B_PLUS))
+        else if (grade.equals(Grade.B_PLUS))
             points = 3.5;
-        else if (letterGrade.equals(Grade.B))
+        else if (grade.equals(Grade.B))
             points = 3;
-        else if (letterGrade.equals(Grade.C_PLUS))
+        else if (grade.equals(Grade.C_PLUS))
             points = 2.5;
-        else if (letterGrade.equals(Grade.C))
+        else if (grade.equals(Grade.C))
             points = 2;
-        else if (letterGrade.equals(Grade.D_PLUS))
+        else if (grade.equals(Grade.D_PLUS))
             points = 1.5;
-        else if (letterGrade.equals(Grade.D))
+        else if (grade.equals(Grade.D))
             points = 1;
         else
             points = 0;
         
-        this.qualityPoints = points * super.getCreditHours();
+        return points * course.getCreditHours();
     }
 
     /**

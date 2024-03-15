@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
-import java.util.Iterator;
 
 /**
-*
+* This class is the Course class that holds all the relevent information for each course
+* @author Team SALT
 */
 public class Course {
     private UUID id;
@@ -18,14 +18,14 @@ public class Course {
     private ArrayList<UUID> corequisite;
     
     public Course(UUID id, String name, String department, String number, String description, long creditHours,
-    ArrayList<Availablity> availability, HashMap<UUID, String> prerequisites, ArrayList<UUID> corequisiteIDs) {
+    ArrayList<Availablity> Providedavailability, HashMap<UUID, String> prerequisites, ArrayList<UUID> corequisiteIDs) {
         this.id = id;
         this.name = name;
         this.department = department;
         this.number = number;
         this.description = description;
         this.creditHours = creditHours;
-        this.availablity = availablity; 
+        this.availablity = Providedavailability; 
         this.prerequisite = prerequisites;
         this.corequisite = corequisiteIDs;
     }
@@ -41,6 +41,10 @@ public class Course {
         + prerequisite + " " + corequisite;
     }
 
+    /**
+     * This method changes just the department and number to a string 
+     * @return a String similar to CSCE 247
+     */
     @Override
     public String toString() {
         return department + " " + number;
