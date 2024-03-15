@@ -1,7 +1,11 @@
 import java.util.ArrayList;
-import java.util.UUID;
 
-class EightSemesterPlan {
+/**
+ *  This class holds all of the information for the EightSemesterPlan 
+ * @author Team SALT
+ */
+
+public class EightSemesterPlan {
     private ArrayList<Course> classesInPlan;
     private ArrayList<Course> applicationArea;
     private ArrayList<Course> electiveChoices;

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -16,9 +17,10 @@ public class CourseList {
     private CourseList()
     {
         listOfCourses = (DataLoader.loadCourses() == null ? new HashMap<>() : DataLoader.loadCourses());
+        
     }
 
-    private CourseList(HashMap<UUID, Course> courses) {
+    private CourseList(HashMap<UUID,Course> courses) {
         listOfCourses = courses;
     }
 
