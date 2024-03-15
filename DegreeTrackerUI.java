@@ -65,7 +65,7 @@ public class DegreeTrackerUI
             System.out.println("Student's Eight Semester Plan:\n" + studentEightSemesterPlan);
             
             // Add a note for the student (pending implementation)
-            // advisor.addNoteForStudent(student, "Note content");
+            advisor.setStudentNote(student, "advise to take blah blah");
         } else {
             System.out.println("Student not found.");
         }

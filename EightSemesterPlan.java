@@ -49,6 +49,10 @@ public class EightSemesterPlan {
         electiveChoices.remove(course);
     }
 
+    /*does this need to be broken down by semester
+    like semester 1: list classes to take 
+    semester two : and so one
+    */
     public void viewPlan() {
         System.out.println("Classes in Plan:");
         for (Course course : classesInPlan) {
