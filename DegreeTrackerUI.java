@@ -39,7 +39,13 @@ public class DegreeTrackerUI
         EightSemesterPlan eightSemesterPlan = gradeSystemFACADE.viewEightSemesterPlan(loggedInStudent.getEightSemesterPlan());
         System.out.println("Eight Semester Plan:\n" + eightSemesterPlan);
         
-        // code for choosing an application area and printing out the schedule
+        // code for looking at elective requirements and picking a class to staify
+
+
+        // code for choosing an application area 
+
+        // code for printing schedule to a text file 
+
         
     }
     
@@ -65,8 +71,8 @@ public class DegreeTrackerUI
             EightSemesterPlan studentEightSemesterPlan = gradeSystemFACADE.viewStudentsEightSemesterPlan(student);
             System.out.println("Student's Eight Semester Plan:\n" + studentEightSemesterPlan);
             
-            // Add a note for the student (pending implementation)
-            advisor.setStudentNote(student, "advise to take blah blah");
+            // Add a note for the student 
+            advisor.setStudentNote(student, "advise to take the underwater basketweaving class");
         } else {
             System.out.println("Student not found.");
         }
