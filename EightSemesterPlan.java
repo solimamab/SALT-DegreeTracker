@@ -149,7 +149,7 @@ public class EightSemesterPlan {
     //             System.out.println("There is not a semester " + semesterNum);
     //             break;
     //     }
-    }
+    // }
 
 
     public ArrayList<ArrayList<Course>> getSemesters() {
