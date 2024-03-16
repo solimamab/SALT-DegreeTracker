@@ -18,7 +18,7 @@ public class UserList {
     private UserList() {
         try {
             courseMap = DataLoader.loadCourses();
-            listOfStudents = (DataLoader.loadStudents(courseMap) != null ? DataLoader.loadStudents(courseMap) : new ArrayList<>());
+            listOfStudents = (DataLoader.loadStudents(null) != null ? DataLoader.loadStudents(null) : new ArrayList<>());
             listOfAdvisors = (DataLoader.loadAdvisors() != null ? DataLoader.loadAdvisors() : new ArrayList<>());
         } catch (Exception e) {
             e.printStackTrace();
