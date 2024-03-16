@@ -61,7 +61,7 @@ public class DataLoader extends DataConstants {
                             }
                         } else {
                             // Log or handle the case where prereqObj is not a JSONArray as expected
-                            System.out.println("Unexpected data type in prerequisites: " + prereqObj.getClass().getName());
+                            //System.out.println("Unexpected data type in prerequisites: " + prereqObj.getClass().getName());
                         }
                     }
                 }
@@ -75,7 +75,6 @@ public class DataLoader extends DataConstants {
         
         return courseMap;
     }
-    
     
     
     /**
@@ -346,14 +345,14 @@ public class DataLoader extends DataConstants {
         // // Printing students
         System.out.println("Students:");
         for (Student student : students) {
-            System.out.println(student);
+            System.out.println(student.toString());
         }
         
-        // Printing courses
-        System.out.println("\nCourses:");
-        for (Course course : coursesMap.values()) {
-            System.out.println(course.toString());
-        }
+        // // Printing courses
+        // System.out.println("\nCourses:");
+        // for (Course course : coursesMap.values()) {
+        //     System.out.println(course.toString());
+        // }
         
         // Printing advisors
         System.out.println("\nAdvisors:");

@@ -60,6 +60,7 @@ public class Student extends User{
         this.eightSemesterPlan = eightSemesterPlan;
         this.currentCourses = new ArrayList<>();
         this.completedCourses = completedCourses;
+        this.coursesMap = DataLoader.loadCourses();
         this.AdvisorNote = " ";
     }
     
@@ -269,6 +270,7 @@ public class Student extends User{
     }
     
     // need to implement logic here?
+    // i dont think we need to, we have a method similar to this in courselist
     public Course courseSearch(String department, String number) {
         return null;
     }
