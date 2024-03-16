@@ -7,10 +7,10 @@ import java.util.UUID;
  * @author abhinavk
  */
 public class UserList {
-    private static UserList userList;
-    private ArrayList<Student> listOfStudents;
-    private ArrayList<Advisor> listOfAdvisors;
-    private HashMap<UUID, Course> courseMap;
+    private static UserList userList = null;
+    private static ArrayList<Student> listOfStudents;
+    private static ArrayList<Advisor> listOfAdvisors;
+    private static HashMap<UUID, Course> courseMap;
 
     /**
      * 
@@ -18,13 +18,13 @@ public class UserList {
     private UserList() {
         try {
             courseMap = DataLoader.loadCourses();
-            listOfStudents = (DataLoader.loadStudents(null) != null ? DataLoader.loadStudents(null) : new ArrayList<>());
-            listOfAdvisors = (DataLoader.loadAdvisors() != null ? DataLoader.loadAdvisors() : new ArrayList<>());
+            listOfStudents = (DataLoader.loadStudents(null) == null ? new ArrayList<>() : DataLoader.loadStudents(null));
+            listOfAdvisors = (DataLoader.loadAdvisors() == null ? new ArrayList<>(): DataLoader.loadAdvisors());
         } catch (Exception e) {
             e.printStackTrace();
-            listOfStudents = new ArrayList<>();
-            listOfAdvisors = new ArrayList<>();
-            courseMap = new HashMap<>();
+            // listOfStudents = new ArrayList<>();
+            // listOfAdvisors = new ArrayList<>();
+            // courseMap = new HashMap<>();
         }
     }
 

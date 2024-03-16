@@ -89,16 +89,16 @@ public class DataLoader extends DataConstants {
         try {
             FileReader reader = new FileReader(STUDENT_FILE_NAME);
             JSONArray studentsJSON = (JSONArray) new JSONParser().parse(reader);
-
+            
             // for testing
             System.out.println("Number of students in JSON file: " + studentsJSON.size());
-
+            
             for (Object studentObj : studentsJSON) {
                 JSONObject studentJSON = (JSONObject) studentObj;
-
+                
                 // for testing
                 //System.out.println("Student JSON: " + studentJSON);
-
+                
                 UUID id = UUID.fromString((String) studentJSON.get(STUDENT_ID));
                 String username = (String) studentJSON.get(STUDENT_USERNAME);
                 String password = (String) studentJSON.get(STUDENT_PASSWORD);
@@ -128,7 +128,7 @@ public class DataLoader extends DataConstants {
                 
                 // Log each student's information as it's parsed
                 System.out.println("Parsed student: " + firstname + " " + lastname);
-
+                
                 Student student = new Student(id, username, password, firstname, lastname,
                 classification, completedCreditHours, remainingCreditHours, flag,
                 overallGPA, majorId, minor, FERPA, advisorId, eightSemesterPlan,
@@ -240,14 +240,14 @@ public class DataLoader extends DataConstants {
         try {
             FileReader reader = new FileReader(MAJOR_FILE_NAME);
             JSONArray majorsJSON = (JSONArray) new JSONParser().parse(reader);
-
+            
             System.out.println("Number of majors in JSON file: " + majorsJSON.size());
-
+            
             for (Object majorObj : majorsJSON) {
-
+                
                 // for testing
                 //System.out.println("Major JSON: " + majorsJSON);
-
+                
                 JSONObject majorJSON = (JSONObject) majorObj;
                 UUID id = UUID.fromString((String) majorJSON.get(MAJOR_ID));
                 String majorName = (String) majorJSON.get(MAJOR_NAME);
@@ -376,8 +376,8 @@ public class DataLoader extends DataConstants {
         // // Printing courses
         // System.out.println("\nCourses:");
         // for (Course course : coursesMap.values()) {
-        //                 System.out.println(course.toString());
-        //     }
+            //                 System.out.println(course.toString());
+            //     }
             
             // Printing advisors
             System.out.println("\nAdvisors:");

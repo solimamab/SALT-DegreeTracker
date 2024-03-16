@@ -5,10 +5,6 @@
       "password": "12345678",
       "firstname": "Osbert",
       "lastname": "Odden",
-      "studentIDs" : ["d51dac01-272d-4779-8f0e-5b151b70fec6",
-        "d7f98382-4f45-4a9c-8ff1-d6e3babd6c0b",
-        "dbcf891d-c69c-40a4-a40b-2bde41a240fb",
-        "b6089151-a9a9-493e-bf12-7c2fd6dd20be",
-        "9103f01d-b40c-42cb-9c06-7448d9913532"]
+      "studentIDs" : ["88fd4cb0-6232-4891-a944-94ea8fe952c1"]
     }
 ]

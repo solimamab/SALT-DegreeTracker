@@ -2,9 +2,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 /**
- * This is the student class that holds all the relevant information for each student
- * @author Team SALT
- */
+* This is the student class that holds all the relevant information for each student
+* @author Team SALT
+*/
 public class Student extends User{
     private Classification classification;
     private UUID id;
@@ -134,7 +134,7 @@ public class Student extends User{
     {
         return this.currentCourses;
     }
-
+    
     public String getNote()
     {
         return this.AdvisorNote;
@@ -161,7 +161,7 @@ public class Student extends User{
         this.major = MajorList.getInstance().findMajor(majorUuid);
         return this.major;
     }
-
+    
     public Advisor setAdvisor(UUID advisorUuid)
     {
         this.advisor = UserList.getInstance().findAdvisor(advisorUuid);
@@ -234,71 +234,80 @@ public class Student extends User{
         for (Course course : completedCourses) {
             System.out.println(course.toString());
         }    }
-    
-    
-    public void viewEightSemesterPlan(EightSemesterPlan eightSemesterPlan) {
-        if (eightSemesterPlan == null) {
-            System.out.println("Eight Semester Plan is not available.");
-            return;
-        }
-        System.out.println("Eight Semester Plan:");
-        System.out.println(eightSemesterPlan);
-    }
-    
-    public void viewCurrentCourses(ArrayList<Course> currentCourses) {
-        if (currentCourses.isEmpty()) {
-            System.out.println("No current courses.");
-            return;
-        }
-        System.out.println("Current Courses:");
-        for (Course course : currentCourses) {
-            System.out.println(course);
-        }
-    }
-    
-    public void viewAvailableCourses(ArrayList<Course> availableCourses) {
-        if (availableCourses.isEmpty()) {
-            System.out.println("No available courses.");
-            return;
-        }
-        System.out.println("Available Courses:");
-        for (Course course : availableCourses) {
-            System.out.println(course);
-        }
-    }
-    
-    // do we need this method?
-    public void chooseApplicationArea(ArrayList<Course> applicationArea) {
-        System.out.println(applicationArea); 
-    }
-    
-    // need to implement logic here?
-    // i dont think we need to, we have a method similar to this in courselist
-    public Course courseSearch(String department, String number) {
-        return null;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Student ID: ").append(id).append("\n");
-        sb.append("Username: ").append(getUsername()).append("\n");
-        sb.append("Password: ").append(getPassword()).append("\n");
-        sb.append("First Name: ").append(getFirstName()).append("\n");
-        sb.append("Last Name: ").append(getLastName()).append("\n");
-        sb.append("Classification: ").append(classification).append("\n");
-        sb.append("Completed Credit Hours: ").append(completedCreditHours).append("\n");
-        sb.append("Remaining Credit Hours: ").append(remainingCreditHours).append("\n");
-        sb.append("Flag: ").append(flag).append("\n");
-        sb.append("Overall GPA: ").append(overallGPA).append("\n");
-        sb.append("Major ID: ").append(getMajor()).append("\n");
-        sb.append("Minor: ").append(minor).append("\n");
-        sb.append("FERPA: ").append(FERPA).append("\n");
-        sb.append("Advisor ID: ").append(getAdvisor()).append("\n");
-        sb.append("Major Progress: ").append(majorProgress).append("\n");
-        sb.append("Advisor Note:").append(AdvisorNote).append("\n");
         
-        return sb.toString();
+        
+        public void viewEightSemesterPlan(EightSemesterPlan eightSemesterPlan) {
+            if (eightSemesterPlan == null) {
+                System.out.println("Eight Semester Plan is not available.");
+                return;
+            }
+            System.out.println("Eight Semester Plan:");
+            System.out.println(eightSemesterPlan);
+        }
+        
+        public void viewCurrentCourses(ArrayList<Course> currentCourses) {
+            if (currentCourses.isEmpty()) {
+                System.out.println("No current courses.");
+                return;
+            }
+            System.out.println("Current Courses:");
+            for (Course course : currentCourses) {
+                System.out.println(course);
+            }
+        }
+        
+        public void viewAvailableCourses(ArrayList<Course> availableCourses) {
+            if (availableCourses.isEmpty()) {
+                System.out.println("No available courses.");
+                return;
+            }
+            System.out.println("Available Courses:");
+            for (Course course : availableCourses) {
+                System.out.println(course);
+            }
+        }
+        
+        // do we need this method?
+        public void chooseApplicationArea(ArrayList<Course> applicationArea) {
+            System.out.println(applicationArea); 
+        }
+        
+        // need to implement logic here?
+        // i dont think we need to, we have a method similar to this in courselist
+        public Course courseSearch(String department, String number) {
+            return null;
+        }
+        
+        @Override
+        public String toString() {
+            StringBuilder sb = new StringBuilder();
+            sb.append("Student ID: ").append(id).append("\n");
+            sb.append("Username: ").append(getUsername()).append("\n");
+            sb.append("Password: ").append(getPassword()).append("\n");
+            sb.append("First Name: ").append(getFirstName()).append("\n");
+            sb.append("Last Name: ").append(getLastName()).append("\n");
+            sb.append("Classification: ").append(classification).append("\n");
+            sb.append("Completed Credit Hours: ").append(completedCreditHours).append("\n");
+            sb.append("Remaining Credit Hours: ").append(remainingCreditHours).append("\n");
+            sb.append("Flag: ").append(flag).append("\n");
+            sb.append("Overall GPA: ").append(overallGPA).append("\n");
+            sb.append("Major ID: ").append(getMajor()).append("\n");
+            sb.append("Minor: ").append(minor).append("\n");
+            sb.append("FERPA: ").append(FERPA).append("\n");
+            sb.append("Advisor ID: ").append(getAdvisor()).append("\n");
+            sb.append("Major Progress: ").append(majorProgress).append("\n");
+            sb.append("Advisor Note:").append(AdvisorNote).append("\n");
+            
+            // Including the Eight Semester Plan
+            sb.append("Eight Semester Plan:\n");
+            if (this.eightSemesterPlan != null) {
+                sb.append(this.eightSemesterPlan.toString());
+            } else {
+                sb.append("No Eight Semester Plan available.\n");
+            }
+            
+            return sb.toString();
+        }
+        
     }
     
-}

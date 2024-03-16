@@ -4,20 +4,11 @@ import java.util.UUID;
  * The class that has the advisor methods and logic
  */
 public class Advisor extends User{
+    private UUID id;
     private ArrayList<UUID> students;
     private int NumberofStudents;
-    private UserList users;
+    private static UserList users = UserList.getInstance();
     private ArrayList<Student> listOfALLStudents;
-
-    /**
-     * Constructor for advisor
-     * @param students a list of students the advisor is responsible for
-     */
-    public Advisor(String username, String password, String firstName, String lastName){
-        super(username, password, firstName, lastName);
-        users = UserList.getInstance();
-        listOfALLStudents = users.getStudents();  
-    }
     
     /**
      * The Constructor used for the JSON files to enter advisors
@@ -28,13 +19,11 @@ public class Advisor extends User{
      * @param lastname - the advisors last name
      * @param studentIDs - the ids of the students that the advisor is responsible
      */
-    public Advisor(UUID id, String username, String password, String firstname, String lastname,
-            ArrayList<UUID> studentIDs) {
+    public Advisor(UUID id, String username, String password, String firstname, String lastname, ArrayList<UUID> studentIDs) {
             super(username, password, firstname, lastname);
+            this.id = id;
             this.students = studentIDs;
             NumberofStudents = studentIDs.size();
-            NumberofStudents = studentIDs.size();
-            //users = UserList.getInstance();
             listOfALLStudents = users.getStudents();
     }
     /** 
@@ -81,13 +70,14 @@ public class Advisor extends User{
      * @return the list of students that they are advising
      */
     public ArrayList<Student> viewAdvisingStudents() {
-        ArrayList<Student> student = new ArrayList<>();
-        for (int i = 0; i < NumberofStudents; i++)
-        {
-            student.add(searchForStudent(students.get(i)));
+        ArrayList<Student> advisingStudents = new ArrayList<>();
+        for (UUID studentId : students) {
+            Student student = searchForStudent(studentId);
+            if (student != null) {
+                advisingStudents.add(student);
+            }
         }
-        return student;
-        
+        return advisingStudents;
     }
 
     /**
@@ -115,5 +105,22 @@ public class Advisor extends User{
     public void setStudentNote(Student student, String note)
     {
         student.setAdvisorNote(note);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Advisor ID: ").append(getUserId()).append("\n");
+        sb.append("Username: ").append(getUsername()).append("\n");
+        sb.append("Password: ").append(getPassword()).append("\n");
+        sb.append("First Name: ").append(getFirstName()).append("\n");
+        sb.append("Last Name: ").append(getLastName()).append("\n");
+        sb.append("Number of Students Advised: ").append(NumberofStudents).append("\n");
+        sb.append("Students Advised:\n");
+        ArrayList<Student> advisedStudents = viewAdvisingStudents();
+        for (Student student : advisedStudents) {
+            sb.append(student.toString()).append("\n");
+        }
+        return sb.toString();
     }
 }
