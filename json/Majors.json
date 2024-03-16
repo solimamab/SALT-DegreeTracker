@@ -252,57 +252,112 @@
       "majorName": "CIS",
       "requiredCourses": [
         {
-          "id": "e78f58c2-f07d-4b32-a6d3-141d63c329d5",
-          "name": "Course Name 1",
-          "department": "DEPT",
-          "number": "101",
-          "description": "Course description 1",
-          "creditHours": 3,
-          "availability": ["Fall", "Spring"],
-          "prerequisites": [],
+          "id": "9583ee33-5e0b-43fe-9bc7-7ef3816da225",
+          "name": "Business Applications Programming",
+          "department": "CSCE",
+          "number": "205",
+          "description": "Introduction to computer applications in business. Programming exercises in COBOL.   CL: 2020.",
+          "creditHours": "3",
+          "availability": ["SPRING", "FALL"],
+          "prerequisites": [
+            ["377ddfb9-de27-4996-8f72-c86999f08c03", "D"],
+            ["0ee3fc1c-ec19-4637-aeb5-614577b6d22f", "D"]
+          ],
           "corequisites": []
         },
         {
-          "id": "5018afd6-00ff-482e-a12a-52211130e496",
-          "name": "Course Name 2",
-          "department": "DEPT",
-          "number": "102",
-          "description": "Course description 2",
-          "creditHours": 4,
-          "availability": ["Fall", "Spring"],
-          "prerequisites": [],
+          "id": "6c8202fd-b31b-4647-b551-b7f4dbf007a0",
+          "name": "Data Structures and Algorithms",
+          "department": "CSCE",
+          "number": "350",
+          "description": "Techniques for representing and processing information, including the use of lists, trees, and graphs; analysis of algorithms; sorting, searching, and hashing techniques.   FS: 12/07/2016.   CL: 2020.",
+          "creditHours": "3",
+          "availability": ["SPRING", "FALL"],
+          "prerequisites": [
+            ["39046cda-f913-4f9b-a002-f06e7c59f235", "D"],
+            ["a014f77a-2ac5-4f22-87d7-f0ab623dce64", "D"],
+            ["928eb174-dea9-4b98-80b1-ac594c4360f8", "D"],
+            ["27ade31b-23da-4c70-8b94-b73f5242229e", "D"]
+          ],
           "corequisites": []
         },
         {
-          "id": "88fd4cb0-6232-4891-a944-94ea8fe952c1",
-          "name": "Course Name 3",
-          "department": "DEPT",
-          "number": "103",
-          "description": "Course description 3",
-          "creditHours": 3,
-          "availability": ["Fall", "Spring"],
-          "prerequisites": [],
+          "id": "f16c3f7d-4f83-4a11-8b47-632572514136",
+          "name": "Introduction to Computer Networks",
+          "department": "CSCE",
+          "number": "416",
+          "description": "Concepts and components of computer networks and the Internet; network applications; network protocol stack.   FS: 10/5/2016.   CL: 2020.",
+          "creditHours": "3",
+          "availability": ["SPRING", "FALL"],
+          "prerequisites": [["57eaa5d5-a439-43b1-87fc-2d3a4c0b9cd6", "D"]],
           "corequisites": []
         },
         {
-          "id": "f4e20828-6af9-4594-ac9e-60d3ae4e7df0",
-          "name": "Course Name 4",
-          "department": "DEPT",
-          "number": "104",
-          "description": "Course description 4",
-          "creditHours": 3,
-          "availability": ["Fall", "Spring"],
-          "prerequisites": [],
+          "id": "42288ffd-4ead-4718-b840-4be2894d8f30",
+          "name": "Capstone Computing Project I",
+          "department": "CSCE",
+          "number": "490",
+          "description": "Major team-based software design project to be undertaken in a student’s final year of study; project planning, software requirements analysis, design, and specification. Written reports and oral presentations in a technical setting.   FS: 09/09/2020.   CL: 2020.",
+          "creditHours": "3",
+          "availability": ["SPRING", "FALL"],
+          "prerequisites": [
+            ["39046cda-f913-4f9b-a002-f06e7c59f235", "D"],
+            ["6c8202fd-b31b-4647-b551-b7f4dbf007a0", "D"]
+          ],
           "corequisites": []
         },
         {
-          "id": "a5722aa5-ec7e-4bea-a526-a916bb80506d",
-          "name": "Course Name 5",
-          "department": "DEPT",
-          "number": "105",
-          "description": "Course description 5",
-          "creditHours": 4,
-          "availability": ["Fall", "Spring"],
+          "id": "f425f91f-92da-4261-be45-347d81b6ab9d",
+          "name": "Capstone Computing Project II",
+          "department": "CSCE",
+          "number": "492",
+          "description": "Continuation of CSCE 490. Computer system implementation, testing, verification and validation of results. Written reports and oral presentations in a technical setting.   FS: 12/07/2022.",
+          "creditHours": "3",
+          "availability": ["SPRING", "FALL"],
+          "prerequisites": [
+            ["39046cda-f913-4f9b-a002-f06e7c59f235", "D"],
+            ["6c8202fd-b31b-4647-b551-b7f4dbf007a0", "D"],
+            ["42288ffd-4ead-4718-b840-4be2894d8f30", "D"]
+          ],
+          "corequisites": []
+        },
+        {
+          "id": "86229990-45b3-48e6-b444-0b9db99e8a8c",
+          "name": "Database System Design",
+          "department": "CSCE",
+          "number": "520",
+          "description": "Database management systems; database design and implementation; security, integrity, and privacy.   CL: 2020.",
+          "creditHours": "3",
+          "availability": ["SPRING", "FALL"],
+          "prerequisites": [
+            ["39046cda-f913-4f9b-a002-f06e7c59f235", "D"],
+            ["0eed3ca4-5047-4cb0-8f44-d5d2a502e991", "D"]
+          ],
+          "corequisites": []
+        },
+        {
+          "id": "5dfb6a47-ff2c-4977-ab64-588da4f687a4",
+          "name": "Information Security Principles",
+          "department": "CSCE",
+          "number": "522",
+          "description": "Threats to information resources and appropriate countermeasures. Cryptography, identification and authentication, access control models and mechanisms, multilevel database security, steganography, Internet security, and intrusion detection and prevention.   FS: 09/14/2016.   CL: 2020.",
+          "creditHours": "3",
+          "availability": ["SPRING", "FALL"],
+          "prerequisites": [
+            ["57eaa5d5-a439-43b1-87fc-2d3a4c0b9cd6", "D"],
+            ["928eb174-dea9-4b98-80b1-ac594c4360f8", "D"],
+            ["a014f77a-2ac5-4f22-87d7-f0ab623dce64", "D"]
+          ],
+          "corequisites": []
+        },
+        {
+          "id": "fdf13bc5-f270-4c26-a749-720a50d0b00a",
+          "name": "Strategic Management of Information Systems",
+          "department": "CSCE",
+          "number": "594",
+          "description": "Strategic management and use of information systems in organizations.   FS: 12/05/2018.   CL: 2020.",
+          "creditHours": "3",
+          "availability": ["SPRING", "FALL"],
           "prerequisites": [],
           "corequisites": []
         }
@@ -311,182 +366,587 @@
         {
           "classesInPlan": [
             {
-              "id": "e78f58c2-f07d-4b32-a6d3-141d63c329d5",
-              "name": "Course Name 1",
-              "department": "DEPT",
+              "id": "12224407-e656-4fe7-9078-88f1d9dc8325",
+              "name": "Critical Reading and Composition",
+              "department": "ENGL",
               "number": "101",
-              "description": "Course description 1",
-              "creditHours": 3,
-              "availability": ["Fall", "Spring"],
+              "description": "Instruction in strategies for critically reading and analyzing literature and non-literary texts; structured, sustained practice in composing expository and analytical essays.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
               "prerequisites": [],
               "corequisites": []
             },
             {
-              "id": "5018afd6-00ff-482e-a12a-52211130e496",
-              "name": "Course Name 2",
-              "department": "DEPT",
+              "id": "4bd274cb-260e-47a5-9893-203a3943d704",
+              "name": "Calculus I",
+              "department": "MATH",
+              "number": "141",
+              "description": "Functions, limits, derivatives, introduction to integrals, the Fundamental Theorem of Calculus, applications of derivatives and integrals. Four classroom hours and one laboratory hour per week.    CL: 2020.",
+              "creditHours": "4",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [
+                ["2f85f19f-f6ba-490f-9bb2-a41b9199d74f", "C"],
+                ["84b21549-16e9-4117-978c-39a43fb665b2", "C"],
+                ["0c9c5c16-a478-44eb-89a1-1589750b8604", "C"],
+                "C"
+              ],
+              "corequisites": []
+            },
+            {
+              "id": "2e2ebf3f-c4d3-4dae-956b-d8afa7fca627",
+              "name": "Algorithmic Design I",
+              "department": "CSCE",
+              "number": "145",
+              "description": "Problem-solving, algorithmic design, and programming. Three lectures and two laboratory hours per week.   FS: 12/04/2013.   CL: 2020.",
+              "creditHours": "4",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [
+                ["669e88d5-9009-4f74-85aa-e675ffaaaf12", "D"],
+                ["84b21549-16e9-4117-978c-39a43fb665b2", "D"]
+              ],
+              "corequisites": []
+            },
+            {
+              "id": "3cca9c4e-a195-4759-a761-cfe09adb20b8",
+              "name": "Computing in the Modern World",
+              "department": "CSCE",
+              "number": "190",
+              "description": "An introduction to the field of computing: trends in computing technology, the profession, and careers; subdisciplines in computing; the nature of research and development.   CL: 2020.",
+              "creditHours": "1",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [],
+              "corequisites": ["2e2ebf3f-c4d3-4dae-956b-d8afa7fca627"]
+            },
+            {
+              "id": "980e1056-4ed2-4459-b0e7-56d78eca5d73",
+              "name": "Rhetoric and Composition",
+              "department": "ENGL",
               "number": "102",
-              "description": "Course description 2",
-              "creditHours": 4,
-              "availability": ["Fall", "Spring"],
+              "description": "Instruction and intensive practice in researching, analyzing, and composing written arguments about academic and public issues.   FS: 12/7/2016.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [["12224407-e656-4fe7-9078-88f1d9dc8325", "C"]],
+              "corequisites": []
+            },
+            {
+              "id": "c85eb519-e97b-488b-ba02-2947764cfe92",
+              "name": "Introduction to Astronomy",
+              "department": "ASTR",
+              "number": "101",
+              "description": "An introduction to the solar system and universe accomplished with interactive lectures, demonstrations, and laboratory experience.  Designed primarily for the non-science major.    FS: 11/04/2020.   CL: 2020.",
+              "creditHours": "4",
+              "availability": ["SPRING", "FALL"],
               "prerequisites": [],
               "corequisites": []
             },
             {
-              "id": "88fd4cb0-6232-4891-a944-94ea8fe952c1",
-              "name": "Course Name 3",
-              "department": "DEPT",
-              "number": "103",
-              "description": "Course description 3",
-              "creditHours": 3,
-              "availability": ["Fall", "Spring"],
+              "id": "57eaa5d5-a439-43b1-87fc-2d3a4c0b9cd6",
+              "name": "Algorithmic Design II",
+              "department": "CSCE",
+              "number": "146",
+              "description": "Continuation of CSCE 145. Rigorous development of algorithms and computer programs; elementary data structures. Three lecture hours and two laboratory hours per week.   FS: 12/04/2013.   CL: 2020.",
+              "creditHours": "4",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [
+                ["2e2ebf3f-c4d3-4dae-956b-d8afa7fca627", "C"],
+                ["f8e10b3a-146b-4d43-a3d8-647028c98641", "C"],
+                ["4bd274cb-260e-47a5-9893-203a3943d704", "D"]
+              ],
+              "corequisites": []
+            },
+            {
+              "id": "9b9ea0d0-3574-44be-b6cf-1ef50ce2aa23",
+              "name": "UNIX/Linux Fundamentals",
+              "department": "CSCE",
+              "number": "215",
+              "description": "UNIX operating system, user-level system commands, and programming tools. UNIX scripting languages.   CL: 2020.",
+              "creditHours": "1",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [["2e2ebf3f-c4d3-4dae-956b-d8afa7fca627", "D"]],
+              "corequisites": []
+            },
+            {
+              "id": "732e0849-4531-43d5-ae8e-363b59958631",
+              "name": "Biological Principles I",
+              "department": "BIOL",
+              "number": "101",
+              "description": "Introductory survey of macromolecules, cell structure and function, genetics, and molecular biology.   FS: 10/07/2020.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
               "prerequisites": [],
               "corequisites": []
             },
             {
-              "id": "f4e20828-6af9-4594-ac9e-60d3ae4e7df0",
-              "name": "Course Name 4",
-              "department": "DEPT",
-              "number": "104",
-              "description": "Course description 4",
-              "creditHours": 3,
-              "availability": ["Fall", "Spring"],
+              "id": "5844e157-e966-4ca8-a60b-a86f76903c6d",
+              "name": "Introduction to Art",
+              "department": "ARTE",
+              "number": "101",
+              "description": "Introduction to art appreciation. Elements and principles of the visual arts, with examples from the history of art.   FS: 09/09/2020.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [],
+              "corequisites": []
+            },
+            {
+              "id": "9583ee33-5e0b-43fe-9bc7-7ef3816da225",
+              "name": "Business Applications Programming",
+              "department": "CSCE",
+              "number": "205",
+              "description": "Introduction to computer applications in business. Programming exercises in COBOL.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [
+                ["377ddfb9-de27-4996-8f72-c86999f08c03", "D"],
+                ["0ee3fc1c-ec19-4637-aeb5-614577b6d22f", "D"]
+              ],
+              "corequisites": []
+            },
+            {
+              "id": "f9bc9ca2-9fe9-43eb-8444-2f0fc53da6c3",
+              "name": "Computer Hardware Foundations",
+              "department": "CSCE",
+              "number": "210",
+              "description": "Number representation, data formats, CPU and memory organization, assembly language, I/O and peripherals, computer networks. Students may not apply both CSCE 210 and CSCE 212 to any minor or major program of study.   FS: 11/04/2020.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [
+                ["2e2ebf3f-c4d3-4dae-956b-d8afa7fca627", "D"],
+                ["0ac7ca78-5ead-4438-ba85-3e0259eed7a8", "D"],
+                ["9583ee33-5e0b-43fe-9bc7-7ef3816da225", "D"],
+                ["8c8ef867-0825-4c06-a444-f44e633f5337", "D"],
+                ["65e390e4-6e40-464f-a5b2-05a27cce7111", "D"]
+              ],
+              "corequisites": []
+            },
+            {
+              "id": "730005f1-113d-446e-865c-31b46dfbc924",
+              "name": "Software Engineering",
+              "department": "CSCE",
+              "number": "247",
+              "description": "Fundamentals of software design and development; software implementation strategies; object-oriented design techniques; functional design techniques; design patterns; design process; source control; testing.    FS: 12/6/2017.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [["57eaa5d5-a439-43b1-87fc-2d3a4c0b9cd6", "C"]],
+              "corequisites": []
+            },
+            {
+              "id": "04c17131-ab1f-45f7-ac5e-a7d0091f41c7",
+              "name": "Introduction to Economics",
+              "department": "ECON",
+              "number": "223",
+              "description": "Introduction to economics principles for non-majors. Basics of supply and demand and government and monetary policy are covered in a non-technical manner. Not open to business or economics students. Credit not granted for both ECON 223 and ECON 221 or ECON 222.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [],
+              "corequisites": []
+            },
+            {
+              "id": "20cef024-e96e-48a6-b9f1-ed1dd1657c63",
+              "name": "Online Public Communication",
+              "department": "SPCH",
+              "number": "145",
+              "description": "Introduction to theory and practice of live and recorded online spoken communication in public, social, and institutional contexts. Training in invention, performance, and critical analysis of online spoken communication, including audience analysis, persuasion, delivery, and ethical engagement. Includes significant practice in preparing and presenting live online public communication.   FS: 12/7/2016.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [],
+              "corequisites": []
+            },
+            {
+              "id": "cecc9003-5bf5-4d17-b01d-895f24ea03a2",
+              "name": "Introduction to Computer Security",
+              "department": "CSCE",
+              "number": "201",
+              "description": "Introduction to the theory and practice of computer security, including security policies, authentification, digital certificates, firewalls, malicious code, legal and ethical issues, and incident handling.   FS:  4/5/2017.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [
+                ["0ee3fc1c-ec19-4637-aeb5-614577b6d22f", "D"],
+                ["ceb7cd60-abcc-4bc1-a3b1-a30b81a824cd", "D"],
+                ["2e2ebf3f-c4d3-4dae-956b-d8afa7fca627", "D"]
+              ],
+              "corequisites": []
+            },
+            {
+              "id": "39046cda-f913-4f9b-a002-f06e7c59f235",
+              "name": "Advanced Programming Techniques",
+              "department": "CSCE",
+              "number": "240",
+              "description": "Pointers; memory management; advanced programming language structures: operator overloading, iterators, multiple inheritance, polymorphism, templates, virtual functions; Unix programming environment.   FS: 12/6/2017.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [
+                ["9b9ea0d0-3574-44be-b6cf-1ef50ce2aa23", "D"],
+                ["57eaa5d5-a439-43b1-87fc-2d3a4c0b9cd6", "C"]
+              ],
+              "corequisites": []
+            },
+            {
+              "id": "a014f77a-2ac5-4f22-87d7-f0ab623dce64",
+              "name": "Discrete Mathematics for Computer Science",
+              "department": "MATH",
+              "number": "174",
+              "description": "Logic, number theory, sequences, series, recursion, mathematical induction, set theory, enumeration, functions, relations, graphs and trees. Connections to computers and to programming are emphasized when possible.   FS: 11/04/2020.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [
+                ["84b21549-16e9-4117-978c-39a43fb665b2", "C"],
+                ["0c9c5c16-a478-44eb-89a1-1589750b8604", "C"],
+                ["f8e10b3a-146b-4d43-a3d8-647028c98641", "C"],
+                ["4bd274cb-260e-47a5-9893-203a3943d704", "C"]
+              ],
+              "corequisites": []
+            },
+            {
+              "id": "377ddfb9-de27-4996-8f72-c86999f08c03",
+              "name": "Computer Information Systems in Business",
+              "department": "MGSC",
+              "number": "290",
+              "description": "An introduction to the effective use of information systems tools in day-to-day business communications, analysis, and decision making.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
               "prerequisites": [],
               "corequisites": []
             },
             {
               "id": "a5722aa5-ec7e-4bea-a526-a916bb80506d",
-              "name": "Course Name 5",
-              "department": "DEPT",
-              "number": "105",
-              "description": "Course description 5",
-              "creditHours": 4,
+              "name": "Introduction to African-American Studies",
+              "department": "AFAM",
+              "number": "202",
+              "description": "Introduction to the analysis and discussion of creative works and traditions by and about African Americans through folklore, music, art, dance, and literature.",
+              "creditHours": 3,
               "availability": ["Fall", "Spring"],
               "prerequisites": [],
               "corequisites": []
             },
             {
-              "id": "e78f58c2-f07d-4b32-a6d3-141d63c329d5",
-              "name": "Course Name 1",
-              "department": "DEPT",
+              "id": "6c8202fd-b31b-4647-b551-b7f4dbf007a0",
+              "name": "Data Structures and Algorithms",
+              "department": "CSCE",
+              "number": "350",
+              "description": "Techniques for representing and processing information, including the use of lists, trees, and graphs; analysis of algorithms; sorting, searching, and hashing techniques.   FS: 12/07/2016.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [
+                ["39046cda-f913-4f9b-a002-f06e7c59f235", "D"],
+                ["a014f77a-2ac5-4f22-87d7-f0ab623dce64", "D"],
+                ["928eb174-dea9-4b98-80b1-ac594c4360f8", "D"],
+                ["27ade31b-23da-4c70-8b94-b73f5242229e", "D"]
+              ],
+              "corequisites": []
+            },
+            {
+              "id": "96cd3d5d-590a-4567-9cc3-787e03cc5140",
+              "name": "Professional Issues in Computer Science and Engineering",
+              "department": "CSCE",
+              "number": "390",
+              "description": "Professional issues in the information technology professions; history and social context of computing; professional responsibilities; privacy; intellectual property; risks and liabilities of computer-based systems.   FS: 04/02/2014.   CL: 2020.",
+              "creditHours": "1",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [],
+              "corequisites": []
+            },
+            {
+              "id": "a442d36a-1afb-4864-83f7-e1bb46a29f6d",
+              "name": "Statistical Methods I",
+              "department": "STAT",
+              "number": "515",
+              "description": "Applications and principles of elementary probability, essential discrete and continuous probability distributions, sampling distributions, estimation, and hypothesis testing. Inference for means, variances, proportions, one-way ANOVA, simple linear regression, and contingency tables. Statistical packages such as SAS or R.  May not be taken concurrently with or after STAT 509, STAT 513, or STAT 516. Not for CAS, MAS, MS, or PhD credit in Statistics.    FS: 12/02/2015.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [["4bd274cb-260e-47a5-9893-203a3943d704", "C"], ["f8e10b3a-146b-4d43-a3d8-647028c98641", "C"]],
+              "corequisites": []
+            },
+            {
+              "id": "554472ab-c7cb-4ac6-bf69-0d8b58a99d3d",
+              "name": "Survey of Accounting",
+              "department": "ACCT",
+              "number": "222",
+              "description": "Survey of accounting topics related to business decisions including financial reporting, managerial accounting, and other special topics.   FS: 09/10/2014.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [["f8e10b3a-146b-4d43-a3d8-647028c98641", "D"]],
+              "corequisites": []
+            },
+            {
+              "id": "01f15c99-15af-4569-8cf0-4fe263053ed8",
+              "name": "Principles of Management",
+              "department": "MGMT",
+              "number": "371",
+              "description": "A comprehensive survey of the basic principles of management applicable to all forms of business. The course provides the student with a basis for thinking about complex business situations in the framework of analysis of the management process.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [],
+              "corequisites": []
+            },
+            {
+              "id": "c30f5f36-fc9c-49d4-b5c4-baec9cc82194",
+              "name": "Business Writing",
+              "department": "ENGL",
+              "number": "463",
+              "description": "Extensive practice in different types of business writing, from brief letters to formal articles and reports.   FS: 06/06/2018.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [
+                ["12224407-e656-4fe7-9078-88f1d9dc8325", "D"],
+                ["980e1056-4ed2-4459-b0e7-56d78eca5d73", "D"]
+              ],
+              "corequisites": []
+            },
+            {
+              "id": "86229990-45b3-48e6-b444-0b9db99e8a8c",
+              "name": "Database System Design",
+              "department": "CSCE",
+              "number": "520",
+              "description": "Database management systems; database design and implementation; security, integrity, and privacy.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [
+                ["39046cda-f913-4f9b-a002-f06e7c59f235", "D"],
+                ["0eed3ca4-5047-4cb0-8f44-d5d2a502e991", "D"]
+              ],
+              "corequisites": []
+            },
+            {
+              "id": "fdf13bc5-f270-4c26-a749-720a50d0b00a",
+              "name": "Strategic Management of Information Systems",
+              "department": "CSCE",
+              "number": "594",
+              "description": "Strategic management and use of information systems in organizations.   FS: 12/05/2018.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [],
+              "corequisites": []
+            },
+            {
+              "id": "274f0d39-2889-48c6-8bef-ec460e958414",
+              "name": "Statistical Methods II",
+              "department": "STAT",
+              "number": "516",
+              "description": "Applications and principles of linear models. Simple and multiple linear regression, analysis of variance for basic designs, multiple comparisons, random effects, and analysis of covariance. Statistical packages such as SAS. Not for CAS, MAS, MS, or PhD credit in Statistics.   FS: 12/02/2015.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [
+                ["a442d36a-1afb-4864-83f7-e1bb46a29f6d", "C"],
+                ["f4b55e57-6034-4462-81ca-13c559697988", "C"],
+                ["29274077-e419-40d8-9212-d17d834326c3", "C"]
+              ],
+              "corequisites": []
+            },
+            {
+              "id": "6390e71f-3219-4036-8347-5f8545de9a32",
+              "name": "Survey of Commercial Law",
+              "department": "ACCT",
+              "number": "324",
+              "description": "Basic legal concepts and the judicial system, with emphasis on business law.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [],
+              "corequisites": []
+            },
+            {
+              "id": "3ad398a2-c2b4-438a-ac0a-b0525030bf9d",
+              "name": "United States History to 1865",
+              "department": "HIST",
+              "number": "111",
+              "description": "A general survey of the United States from the era of discovery to 1865, emphasizing major political, economic, social, and intellectual developments.     FS: 06/02/2021.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [],
+              "corequisites": []
+            },
+            {
+              "id": "42288ffd-4ead-4718-b840-4be2894d8f30",
+              "name": "Capstone Computing Project I",
+              "department": "CSCE",
+              "number": "490",
+              "description": "Major team-based software design project to be undertaken in a student’s final year of study; project planning, software requirements analysis, design, and specification. Written reports and oral presentations in a technical setting.   FS: 09/09/2020.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [
+                ["39046cda-f913-4f9b-a002-f06e7c59f235", "D"],
+                ["6c8202fd-b31b-4647-b551-b7f4dbf007a0", "D"]
+              ],
+              "corequisites": []
+            },
+            {
+              "id": "f16c3f7d-4f83-4a11-8b47-632572514136",
+              "name": "Introduction to Computer Networks",
+              "department": "CSCE",
+              "number": "416",
+              "description": "Concepts and components of computer networks and the Internet; network applications; network protocol stack.   FS: 10/5/2016.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [["57eaa5d5-a439-43b1-87fc-2d3a4c0b9cd6", "D"]],
+              "corequisites": []
+            },
+            {
+              "id": "5dfb6a47-ff2c-4977-ab64-588da4f687a4",
+              "name": "Information Security Principles",
+              "department": "CSCE",
+              "number": "522",
+              "description": "Threats to information resources and appropriate countermeasures. Cryptography, identification and authentication, access control models and mechanisms, multilevel database security, steganography, Internet security, and intrusion detection and prevention.   FS: 09/14/2016.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [
+                ["57eaa5d5-a439-43b1-87fc-2d3a4c0b9cd6", "D"],
+                ["928eb174-dea9-4b98-80b1-ac594c4360f8", "D"],
+                ["a014f77a-2ac5-4f22-87d7-f0ab623dce64", "D"]
+              ],
+              "corequisites": []
+            },
+            {
+              "id": "95e7009a-e959-4a3d-a546-293748d5d4f0",
+              "name": "Issues in Economics",
+              "department": "ECON",
+              "number": "311",
+              "description": "The nature and causes of major economic problems facing the nation and its communities, and policy alternatives designed to solve them. The philosophy and methodology of economics in social problem solving.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [],
+              "corequisites": []
+            },
+            {
+              "id": "e0ffb4fd-f232-4106-859d-23fa91d31d52",
+              "name": "Introduction to Classical Mythology",
+              "department": "CLAS",
+              "number": "220",
+              "description": "Major gods, goddesses, heroes, and heroines of classical mythology as portrayed in major literary works; the function of myth in society and its relevance to modern life.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [],
+              "corequisites": []
+            },
+            {
+              "id": "f425f91f-92da-4261-be45-347d81b6ab9d",
+              "name": "Capstone Computing Project II",
+              "department": "CSCE",
+              "number": "492",
+              "description": "Continuation of CSCE 490. Computer system implementation, testing, verification and validation of results. Written reports and oral presentations in a technical setting.   FS: 12/07/2022.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [
+                ["39046cda-f913-4f9b-a002-f06e7c59f235", "D"],
+                ["6c8202fd-b31b-4647-b551-b7f4dbf007a0", "D"],
+                ["42288ffd-4ead-4718-b840-4be2894d8f30", "D"]
+              ],
+              "corequisites": []
+            },
+            {
+              "id": "a67e8606-4253-4960-a68a-008efcc844c2",
+              "name": "Management of Information Technology",
+              "department": "ITEC",
+              "number": "447",
+              "description": "Overview of current practices and trends in end-user technology and information system management.   FS: 10/03/2018.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [
+                ["b165928f-3a05-49dd-ba22-95c2292c42ec", "C"],
+                ["38673aaa-5d5c-43f9-9383-d476afca223e", "C"]
+              ],
+              "corequisites": []
+            },
+            {
+              "id": "8ceabae0-d528-420b-a789-2260d7744811",
+              "name": "World Literature",
+              "department": "ENGL",
+              "number": "270",
+              "description": "Selected masterpieces of world literature from antiquity to present.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [
+                ["12224407-e656-4fe7-9078-88f1d9dc8325", "D"],
+                ["980e1056-4ed2-4459-b0e7-56d78eca5d73", "D"]
+              ],
+              "corequisites": []
+            },
+            {
+              "id": "aa297d70-ee34-4cfa-b4a5-22e3a022c800",
+              "name": "Exploring Religion",
+              "department": "RELG",
               "number": "101",
-              "description": "Course description 1",
-              "creditHours": 3,
-              "availability": ["Fall", "Spring"],
-              "prerequisites": [],
-              "corequisites": []
-            },
-            {
-              "id": "5018afd6-00ff-482e-a12a-52211130e496",
-              "name": "Course Name 2",
-              "department": "DEPT",
-              "number": "102",
-              "description": "Course description 2",
-              "creditHours": 4,
-              "availability": ["Fall", "Spring"],
-              "prerequisites": [],
-              "corequisites": []
-            },
-            {
-              "id": "88fd4cb0-6232-4891-a944-94ea8fe952c1",
-              "name": "Course Name 3",
-              "department": "DEPT",
-              "number": "103",
-              "description": "Course description 3",
-              "creditHours": 3,
-              "availability": ["Fall", "Spring"],
-              "prerequisites": [],
-              "corequisites": []
-            },
-            {
-              "id": "f4e20828-6af9-4594-ac9e-60d3ae4e7df0",
-              "name": "Course Name 4",
-              "department": "DEPT",
-              "number": "104",
-              "description": "Course description 4",
-              "creditHours": 3,
-              "availability": ["Fall", "Spring"],
-              "prerequisites": [],
-              "corequisites": []
-            },
-            {
-              "id": "a5722aa5-ec7e-4bea-a526-a916bb80506d",
-              "name": "Course Name 5",
-              "department": "DEPT",
-              "number": "105",
-              "description": "Course description 5",
-              "creditHours": 4,
-              "availability": ["Fall", "Spring"],
+              "description": "Beliefs and practices of the world\u0027s religions and the methods scholars use to study them.   FS: 02/03/2016.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
               "prerequisites": [],
               "corequisites": []
             }
           ],
           "applicationArea": [
             {
-              "id": "88fd4cb0-6232-4891-a944-94ea8fe952c1",
-              "name": "Course Name 4",
-              "department": "DEPT",
-              "number": "104",
-              "description": "Course description 4",
-              "creditHours": 3,
-              "availability": ["Fall", "Spring"],
-              "prerequisites": [],
+              "id": "86229990-45b3-48e6-b444-0b9db99e8a8c",
+              "name": "Database System Design",
+              "department": "CSCE",
+              "number": "520",
+              "description": "Database management systems; database design and implementation; security, integrity, and privacy.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [
+                ["39046cda-f913-4f9b-a002-f06e7c59f235", "D"],
+                ["0eed3ca4-5047-4cb0-8f44-d5d2a502e991", "D"]
+              ],
               "corequisites": []
             },
             {
-              "id": "f4e20828-6af9-4594-ac9e-60d3ae4e7df0",
-              "name": "Course Name 5",
-              "department": "DEPT",
-              "number": "105",
-              "description": "Course description 5",
-              "creditHours": 4,
-              "availability": ["Fall", "Spring"],
-              "prerequisites": [],
+              "id": "8e63a870-d35b-4970-b62a-c0274d8a6d97",
+              "name": "Artificial Intelligence",
+              "department": "CSCE",
+              "number": "580",
+              "description": "Heuristic problem solving, theorem proving, and knowledge representation, including the use of appropriate programming languages and tools.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": ["6c8202fd-b31b-4647-b551-b7f4dbf007a0", "D"],
               "corequisites": []
             },
             {
-              "id": "a5722aa5-ec7e-4bea-a526-a916bb80506d",
-              "name": "Course Name 6",
-              "department": "DEPT",
-              "number": "106",
-              "description": "Course description 6",
-              "creditHours": 3,
-              "availability": ["Fall", "Spring"],
-              "prerequisites": [],
+              "id": "b447804a-971b-4d1c-86f4-ea6da7802804",
+              "name": "Big Data Analytics",
+              "department": "CSCE",
+              "number": "587",
+              "description": "Foundational techniques and tools required for data science and big data analytics.  Concepts, principles, and techniques applicable to any technology and industry for establishing a baseline that can be enhanced by future study.   FS: 12/03/2014.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [
+                ["f4b55e57-6034-4462-81ca-13c559697988", "D"],
+                ["23fe1f18-ff42-4200-a854-0dce979c0ff1", "D"],
+                ["a442d36a-1afb-4864-83f7-e1bb46a29f6d", "D"]
+              ],
               "corequisites": []
             }
           ],
           "electiveChoices": [
             {
-              "id": "e78f58c2-f07d-4b32-a6d3-141d63c329d5",
-              "name": "Course Name 7",
-              "department": "DEPT",
-              "number": "107",
-              "description": "Course description 7",
-              "creditHours": 3,
-              "availability": ["Fall", "Spring"],
+              "id": "e0ffb4fd-f232-4106-859d-23fa91d31d52",
+              "name": "Introduction to Classical Mythology",
+              "department": "CLAS",
+              "number": "220",
+              "description": "Major gods, goddesses, heroes, and heroines of classical mythology as portrayed in major literary works; the function of myth in society and its relevance to modern life.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
               "prerequisites": [],
               "corequisites": []
             },
             {
-              "id": "5018afd6-00ff-482e-a12a-52211130e496",
-              "name": "Course Name 8",
-              "department": "DEPT",
-              "number": "108",
-              "description": "Course description 8",
-              "creditHours": 4,
-              "availability": ["Fall", "Spring"],
-              "prerequisites": [],
+              "id": "8ceabae0-d528-420b-a789-2260d7744811",
+              "name": "World Literature",
+              "department": "ENGL",
+              "number": "270",
+              "description": "Selected masterpieces of world literature from antiquity to present.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [
+                ["12224407-e656-4fe7-9078-88f1d9dc8325", "D"],
+                ["980e1056-4ed2-4459-b0e7-56d78eca5d73", "D"]
+              ],
               "corequisites": []
             },
             {
-              "id": "88fd4cb0-6232-4891-a944-94ea8fe952c1",
-              "name": "Course Name 9",
-              "department": "DEPT",
-              "number": "109",
-              "description": "Course description 9",
-              "creditHours": 3,
-              "availability": ["Fall", "Spring"],
+              "id": "aa297d70-ee34-4cfa-b4a5-22e3a022c800",
+              "name": "Exploring Religion",
+              "department": "RELG",
+              "number": "101",
+              "description": "Beliefs and practices of the world\u0027s religions and the methods scholars use to study them.   FS: 02/03/2016.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
               "prerequisites": [],
               "corequisites": []
             }

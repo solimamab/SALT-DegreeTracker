@@ -40,6 +40,7 @@ public class DegreeTrackerUI
         System.out.println("Eight Semester Plan:\n" + eightSemesterPlan);
         
         // code for choosing an application area and printing out the schedule
+        
     }
     
     public void scenario2() {

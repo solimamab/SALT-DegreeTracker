@@ -107,6 +107,7 @@ public class Advisor extends User{
         for(UUID uuid : students){
             if(student.equals(uuid)){
                 students.remove(uuid);
+                NumberofStudents--;
             }
         }
     }
