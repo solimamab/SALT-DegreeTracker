@@ -97,7 +97,7 @@ public class DataLoader extends DataConstants {
                 JSONObject studentJSON = (JSONObject) studentObj;
 
                 // for testing
-                System.out.println("Student JSON: " + studentJSON);
+                //System.out.println("Student JSON: " + studentJSON);
 
                 UUID id = UUID.fromString((String) studentJSON.get("id"));
                 String username = (String) studentJSON.get("username");
@@ -240,8 +240,14 @@ public class DataLoader extends DataConstants {
         try {
             FileReader reader = new FileReader(MAJOR_FILE_NAME);
             JSONArray majorsJSON = (JSONArray) new JSONParser().parse(reader);
-            
+
+            System.out.println("Number of majors in JSON file: " + majorsJSON.size());
+
             for (Object majorObj : majorsJSON) {
+
+                // for testing
+                //System.out.println("Major JSON: " + majorsJSON);
+
                 JSONObject majorJSON = (JSONObject) majorObj;
                 UUID id = UUID.fromString((String) majorJSON.get("id"));
                 String majorName = (String) majorJSON.get("majorName");
