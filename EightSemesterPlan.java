@@ -18,6 +18,7 @@ public class EightSemesterPlan {
     private ArrayList<Course> semester6;
     private ArrayList<Course> semester7;
     private ArrayList<Course> semester8;
+    private ArrayList<Course> currentSemester;
     private double majorProgress;
     private int NumberofClassesinPlan;
 
@@ -89,6 +90,54 @@ public class EightSemesterPlan {
         "Semester Seven: \n " + semester7 + "Semester Eigth: \n"
         + semester8);
     }
+
+    public void setCurrentSemester(int semesterNum)
+    {
+        switch(semesterNum)
+        {
+            case 1:
+                currentSemester = semester1;
+                System.out.println("current semester set to semester 1");
+                break;
+            case 2:
+                currentSemester = semester2;
+                System.out.println("current semester set to semester 2");
+                break;
+            case 3:
+                currentSemester = semester3;
+                System.out.println("current semester set to semester 3");
+                break;
+            case 4:
+                currentSemester = semester4;
+                System.out.println("current semester set to semester 4");
+                break;
+            case 5:
+                currentSemester = semester5;
+                System.out.println("current semester set to semester 5");
+                break;
+            case 6:
+                currentSemester = semester6;
+                System.out.println("current semester set to semester 6");
+                break;
+            case 7:
+                currentSemester = semester7;
+                System.out.println("Current semester set to semester 7");
+            case 8:
+                currentSemester = semester8;
+                System.out.println("Current semester set to semester 8");
+                break;
+            default:
+                System.out.println("There is not a semester " + semesterNum);
+                break;
+        }
+    }
+
+    public ArrayList<Course> getCurrentSemester()
+    {
+        return currentSemester;
+    }
+
+
 
     public double getMajorProgress() {
         return majorProgress;
