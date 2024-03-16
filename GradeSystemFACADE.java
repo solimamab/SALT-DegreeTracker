@@ -92,6 +92,8 @@ public class GradeSystemFACADE {
         return eightSemesterPlan;
     }
 
+
+
     public ArrayList<Course> chooseApplicationArea(ArrayList<Course> applicationArea) {
         return new ArrayList<>();
     }

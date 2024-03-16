@@ -22,6 +22,7 @@ public class Student extends User{
     private HashMap<UUID, Course> coursesMap; // this is here but not used anywhere??
     private String AdvisorNote;
     
+    
     /**
     * Constructor for Student
     * @param username
