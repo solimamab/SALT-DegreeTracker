@@ -21,6 +21,7 @@ public class Student extends User{
     private ArrayList<Course> currentCourses;
     private HashMap<UUID, Course> coursesMap; // this is here but not used anywhere??
     private String AdvisorNote;
+    private double majorProgress;
     
     
     /**
@@ -44,15 +45,15 @@ public class Student extends User{
     */
     public Student(UUID id, String username, String password, String firstname, String lastname, 
     Classification classification, long completedCreditHours, long remainingCreditHours,
-    String flag, double overallGPA, UUID majorId, String minor, 
+    Flag flag, double overallGPA, UUID majorId, String minor, 
     boolean FERPA, UUID advisorId, EightSemesterPlan eightSemesterPlan,
-    ArrayList<Course> currentCourses, ArrayList<CompletedCourse> completedCourses, HashMap<UUID, Course> coursesMap) {
+    ArrayList<Course> currentCourses, ArrayList<CompletedCourse> completedCourses, double majorProgress, HashMap<UUID, Course> coursesMap) {
         super(username, password, firstname, lastname);
         this.id = id;
         this.classification = classification;
         this.completedCreditHours = completedCreditHours;
         this.remainingCreditHours = remainingCreditHours;
-        this.flag = Flag.valueOf(flag);
+        this.flag = flag;
         this.overallGPA = overallGPA;
         this.major = MajorList.getInstance().findMajor(majorId);
         this.minor = minor;
@@ -61,6 +62,7 @@ public class Student extends User{
         this.eightSemesterPlan = eightSemesterPlan;
         this.currentCourses = new ArrayList<>();
         this.completedCourses = completedCourses;
+        this.majorProgress = majorProgress;
         this.coursesMap = DataLoader.loadCourses();
         this.AdvisorNote = " ";
     }
@@ -293,6 +295,7 @@ public class Student extends User{
         sb.append("Minor: ").append(minor).append("\n");
         sb.append("FERPA: ").append(FERPA).append("\n");
         sb.append("Advisor ID: ").append(getAdvisor()).append("\n");
+        sb.append("Major Progress: ").append(majorProgress).append("\n");
         sb.append("Advisor Note:").append(AdvisorNote).append("\n");
         
         return sb.toString();

@@ -193,6 +193,22 @@ public class EightSemesterPlan {
         this.electiveChoices = courses;
     }
 
+    public void addSemesterCourses(int semester, ArrayList<Course> courses) {
+        if (semester >= 1 && semester <= 8) {
+            this.semesters.get(semester - 1).addAll(courses);
+        } else {
+            System.err.println("Invalid semester number: " + semester);
+        }
+    }
+
+    public void setApplicationAreaCourses(ArrayList<Course> courses) {
+        this.applicationArea = courses;
+    }
+
+    public void setElectiveCourses(ArrayList<Course> courses) {
+        this.electiveChoices = courses;
+    }
+
 
     @Override
     public String toString() {
