@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.UUID;
 
 /**
@@ -7,31 +8,36 @@ import java.util.UUID;
  */
 public class UserList {
     private static UserList userList;
-    private static ArrayList<Student> listOfStudents;
-    private static ArrayList<Advisor> listOfAdvisors;
+    private ArrayList<Student> listOfStudents;
+    private ArrayList<Advisor> listOfAdvisors;
+    private HashMap<UUID, Course> courseMap;
 
     /**
-     * Constructor to initialize students and advisors list
+     * 
      */
     private UserList() {
         try {
-            listOfStudents = (DataLoader.loadStudents(null) != null ? DataLoader.loadStudents(null) : new ArrayList<>());
+            courseMap = DataLoader.loadCourses();
+            listOfStudents = (DataLoader.loadStudents(courseMap) != null ? DataLoader.loadStudents(courseMap) : new ArrayList<>());
             listOfAdvisors = (DataLoader.loadAdvisors() != null ? DataLoader.loadAdvisors() : new ArrayList<>());
         } catch (Exception e) {
             e.printStackTrace();
-            listOfStudents = new ArrayList<>(); // Ensure the list is initialized even if error
+            listOfStudents = new ArrayList<>();
             listOfAdvisors = new ArrayList<>();
+            courseMap = new HashMap<>();
         }
     }
 
     /**
-     * This is a constructor with a Array of student and advisors already established
-     * @param students the list of students
-     * @param advisors the list of advisors
+     * 
+     * @param students
+     * @param advisors
+     * @param courseMap
      */
-    private UserList(ArrayList<Student> students, ArrayList<Advisor> advisors) {
+    private UserList(ArrayList<Student> students, ArrayList<Advisor> advisors, HashMap<UUID, Course> courseMap) {
         listOfStudents = students;
         listOfAdvisors = advisors;
+        this.courseMap = courseMap;
     }
 
     /**
