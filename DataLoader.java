@@ -272,70 +272,11 @@ public class DataLoader extends DataConstants {
     
         return plan;
     }
-    // public static ArrayList<Major> loadMajors(HashMap<UUID, Course> courseMap) {
-    //     ArrayList<Major> majors = new ArrayList<>();
-
-    //     try {
-    //         FileReader reader = new FileReader(MAJOR_FILE_NAME);
-    //         JSONArray majorsJSON = (JSONArray) new JSONParser().parse(reader);
-
-    //         for (Object majorObj : majorsJSON) {
-    //             JSONObject majorJSON = (JSONObject) majorObj;
-    //             UUID id = UUID.fromString((String) majorJSON.get("id"));
-    //             String majorName = (String) majorJSON.get("majorName");
-
-    //             // Parse required courses
-    //             JSONArray requiredCoursesJSON = (JSONArray) majorJSON.get("requiredCourses");
-    //             ArrayList<Course> requiredCourses = parseCoursesFromJSONArray(requiredCoursesJSON, courseMap);
-
-    //             // Parse default plan
-    //             JSONArray defaultPlanJSON = (JSONArray) majorJSON.get("defaultPlan");
-    //             JSONObject defaultPlanObj = (JSONObject) defaultPlanJSON.get(0); // Assuming there's only one default plan
-
-    //             EightSemesterPlan plan = parseDefaultPlan(defaultPlanObj, courseMap);
-
-    //             Major major = new Major(id, majorName, requiredCourses, plan);
-    //             majors.add(major);
-    //         }
-    //         reader.close();
-    //     } catch (Exception e) {
-    //         e.printStackTrace();
-    //     }
-
-    //     return majors;
-    // }
-
-    // /**
-    //  * Helper method to parse the default plan.
-    //  */
-    // private static EightSemesterPlan parseDefaultPlan(JSONObject defaultPlanObj, HashMap<UUID, Course> courseMap) {
-    //     EightSemesterPlan plan = new EightSemesterPlan();
-
-    //     for (int i = 1; i <= 8; i++) {
-    //         String semesterKey = "semester" + i;
-    //         JSONArray semesterJSON = (JSONArray) defaultPlanObj.get(semesterKey);
-
-    //         ArrayList<Course> semesterCourses = parseCoursesFromJSONArray(semesterJSON, courseMap);
-    //         plan.setSemesterCourses(i - 1, semesterCourses);
-    //     }
-
-    //     JSONArray applicationAreaJSON = (JSONArray) defaultPlanObj.get("applicationArea");
-    //     JSONArray electiveChoicesJSON = (JSONArray) defaultPlanObj.get("electiveChoices");
-
-    //     ArrayList<Course> applicationArea = parseCoursesFromJSONArray(applicationAreaJSON, courseMap);
-    //     ArrayList<Course> electiveChoices = parseCoursesFromJSONArray(electiveChoicesJSON, courseMap);
-
-    //     plan.setApplicationArea(applicationArea);
-    //     plan.setElectiveChoices(electiveChoices);
-
-    //     return plan;
-    // }
 
     /**
      * Helper method to parse courses from JSONArray
      */
-    private static ArrayList<Course> parseCoursesFromJSONArray(JSONArray coursesJSON,
-                                                               HashMap<UUID, Course> coursesMap) {
+    private static ArrayList<Course> parseCoursesFromJSONArray(JSONArray coursesJSON, HashMap<UUID, Course> coursesMap) {
         ArrayList<Course> courses = new ArrayList<>();
         for (Object courseObj : coursesJSON) {
             JSONObject courseJSON = (JSONObject) courseObj;
@@ -404,19 +345,19 @@ public class DataLoader extends DataConstants {
         // // Printing courses
         // System.out.println("\nCourses:");
         // for (Course course : coursesMap.values()) {
-            //         System.out.println(course.toString());
-            //     }
+        //             System.out.println(course.toString());
+        // }
             
-            // Printing advisors
-            System.out.println("\nAdvisors:");
-            for (Advisor advisor : advisors) {
-                System.out.println(advisor);
-            }
+        // Printing advisors
+        System.out.println("\nAdvisors:");
+        for (Advisor advisor : advisors) {
+            System.out.println(advisor);
+        }
             
-            // Printing majors
-            System.out.println("\nMajors:");
-            for (Major major : majors) {
-                System.out.println(major);
-            }
+        // Printing majors
+        System.out.println("\nMajors:");
+        for (Major major : majors) {
+            System.out.println(major);
         }
     }
+}
