@@ -43,6 +43,11 @@ public class Major {
 
     @Override
     public String toString() {
-        return majorName;
+        StringBuilder sb = new StringBuilder();
+        sb.append("Major ID: ").append(id).append("\n");
+        sb.append("Major Name: ").append(majorName).append("\n");
+        sb.append("Required Courses: ").append(requiredCourses).append("\n");
+        sb.append("Default Plan: ").append(defaultPlan).append("\n");
+        return sb.toString();
     }
 }

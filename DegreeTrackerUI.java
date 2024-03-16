@@ -13,18 +13,17 @@ public class DegreeTrackerUI
     }
     
     public void run() {
-        // scenerio1();
-        // scenario2();
-        testingCourses();
-        
+        scenerio1();
+        scenario2();
+        //testingCourses();
     }
     
     public void scenerio1() {
         // Attempt to login as the student
-        if (!gradeSystemFACADE.login("BWEST", "12345")) {
-            System.out.println("Sorry, we couldn't log in.");
-            return;
-        }
+        // if (!gradeSystemFACADE.login("BWEST", "12345")) {
+        //     System.out.println("Sorry, we couldn't log in.");
+        //     return;
+        // }
         
         // Display login success message
         System.out.println("Brax West is now logged in.");
