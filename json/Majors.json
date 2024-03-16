@@ -64,9 +64,7 @@
         "availability": ["SPRING", "FALL"],
         "prerequisites": [
           ["789c6ed0-53e3-476c-8761-f08bf727d08c", "D"],
-    
           ["dd218911-2c00-46b4-99fc-0aa909331369", "D"],
-    
           ["6c8202fd-b31b-4647-b551-b7f4dbf007a0", "D"]
         ],
         "corequisites": []
@@ -108,8 +106,7 @@
           ["39046cda-f913-4f9b-a002-f06e7c59f235", "D"],
           ["6c8202fd-b31b-4647-b551-b7f4dbf007a0", "D"],
           ["42288ffd-4ead-4718-b840-4be2894d8f30", "D"]
-        ],
-        "corequisites": []
+        ]
       }
     ],
     "defaultPlan": [
@@ -152,7 +149,10 @@
             "availability": ["SPRING", "FALL"],
             "prerequisites": [
               ["669e88d5-9009-4f74-85aa-e675ffaaaf12", "D"],
-              ["84b21549-16e9-4117-978c-39a43fb665b2", "D"]
+              ["84b21549-16e9-4117-978c-39a43fb665b2", "D"],
+              "669e88d5-9009-4f74-85aa-e675ffaaaf12",
+              "84b21549-16e9-4117-978c-39a43fb665b2",
+              "D"
             ],
             "corequisites": []
           },
@@ -168,13 +168,12 @@
             "corequisites": ["2e2ebf3f-c4d3-4dae-956b-d8afa7fca627"]
           },
           {
-            "id": "5844e157-e966-4ca8-a60b-a86f76903c6d",
-            "name": "Introduction to Art",
-            "department": "ARTE",
-            "number": "101",
-            "description": "Introduction to art appreciation. Elements and principles of the visual arts, with examples from the history of art.   FS: 09/09/2020.   CL: 2020.",
-            "creditHours": "3",
-            "availability": ["SPRING", "FALL"],
+            "name": "Introduction to African-American Studies",
+            "department": "AFAM",
+            "number": "202",
+            "description": "Introduction to the analysis and discussion of creative works and traditions by and about African Americans through folklore, music, art, dance, and literature.",
+            "creditHours": 3,
+            "availability": ["Fall", "Spring"],
             "prerequisites": [],
             "corequisites": []
           }
@@ -192,18 +191,14 @@
             "corequisites": []
           },
           {
-            "id": "57eaa5d5-a439-43b1-87fc-2d3a4c0b9cd6",
-            "name": "Algorithmic Design II",
-            "department": "CSCE",
-            "number": "146",
-            "description": "Continuation of CSCE 145. Rigorous development of algorithms and computer programs; elementary data structures. Three lecture hours and two laboratory hours per week.   FS: 12/04/2013.   CL: 2020.",
+            "id": "3d7aa3f8-bfb0-4f9e-af57-49818eacf9a6",
+            "department": "MATH",
+            "number": "142",
+            "name": "Calculus II",
+            "description": "Methods of integration, sequences and series, approximations.   Four classroom hours and one laboratory hour per week.   FS: 12/03/2014.   CL: 2020.",
             "creditHours": "4",
             "availability": ["SPRING", "FALL"],
-            "prerequisites": [
-              ["2e2ebf3f-c4d3-4dae-956b-d8afa7fca627", "C"],
-              ["f8e10b3a-146b-4d43-a3d8-647028c98641", "C"],
-              ["4bd274cb-260e-47a5-9893-203a3943d704", "D"]
-            ],
+            "prerequisites": [["4bd274cb-260e-47a5-9893-203a3943d704", "C"], "C"],
             "corequisites": []
           },
           {
@@ -230,9 +225,9 @@
           },
           {
             "id": "57eaa5d5-a439-43b1-87fc-2d3a4c0b9cd6",
-            "name": "Algorithmic Design II",
             "department": "CSCE",
             "number": "146",
+            "name": "Algorithmic Design II",
             "description": "Continuation of CSCE 145. Rigorous development of algorithms and computer programs; elementary data structures. Three lecture hours and two laboratory hours per week.   FS: 12/04/2013.   CL: 2020.",
             "creditHours": "4",
             "availability": ["SPRING", "FALL"],
@@ -401,7 +396,6 @@
             "availability": ["SPRING", "FALL"],
             "prerequisites": [
               ["39046cda-f913-4f9b-a002-f06e7c59f235", "D"],
-        
               "f9bc9ca2-9fe9-43eb-8444-2f0fc53da6c3",
               "dd218911-2c00-46b4-99fc-0aa909331369",
               "D"
@@ -418,7 +412,6 @@
             "availability": ["SPRING", "FALL"],
             "prerequisites": [
               ["39046cda-f913-4f9b-a002-f06e7c59f235", "D"],
-        
               "a014f77a-2ac5-4f22-87d7-f0ab623dce64",
               "928eb174-dea9-4b98-80b1-ac594c4360f8",
               "27ade31b-23da-4c70-8b94-b73f5242229e",
@@ -717,42 +710,27 @@
             "description": "Origin and development of criminal law in America. Basic elements of crimes and defenses.",
             "creditHours": "3",
             "availability": ["SPRING", "FALL"],
-            "prerequisites": [],
-            "corequisites": []
+            "prerequisites": []
           }
         ],
         "electiveChoices": [
           {
-            "id": "e0ffb4fd-f232-4106-859d-23fa91d31d52",
-            "name": "Introduction to Classical Mythology",
-            "department": "CLAS",
-            "number": "220",
-            "description": "Major gods, goddesses, heroes, and heroines of classical mythology as portrayed in major literary works; the function of myth in society and its relevance to modern life.   CL: 2020.",
+            "id": "4038e4be-d18e-4287-8938-16341579d5a1",
+            "department": "SPAN",
+            "number": "109",
+            "name": "Beginning Spanish I",
+            "description": "Introduction to grammar and practical vocabulary necessary for fundamental communication skills. Restricted to those who have never studied Spanish or placed by examination into SPAN 109.  Credit may be received only for one of the following: SPAN 109, SPAN 110; SPAN 111;   or SPAN 121.    FS: 12/7/2016.   CL: 2020.",
             "creditHours": "3",
             "availability": ["SPRING", "FALL"],
             "prerequisites": [],
             "corequisites": []
           },
           {
-            "id": "8ceabae0-d528-420b-a789-2260d7744811",
-            "name": "World Literature",
-            "department": "ENGL",
-            "number": "270",
-            "description": "Selected masterpieces of world literature from antiquity to present.   CL: 2020.",
-            "creditHours": "3",
-            "availability": ["SPRING", "FALL"],
-            "prerequisites": [
-              ["12224407-e656-4fe7-9078-88f1d9dc8325", "D"],
-              ["980e1056-4ed2-4459-b0e7-56d78eca5d73", "D"]
-            ],
-            "corequisites": []
-          },
-          {
-            "id": "aa297d70-ee34-4cfa-b4a5-22e3a022c800",
-            "name": "Exploring Religion",
-            "department": "RELG",
-            "number": "101",
-            "description": "Beliefs and practices of the world\u0027s religions and the methods scholars use to study them.   FS: 02/03/2016.   CL: 2020.",
+            "id": "d7ba67f4-be30-43bf-bdd2-eaa3ee4df143",
+            "department": "SPAN",
+            "number": "110",
+            "name": "Beginning Spanish II",
+            "description": "Introduction to grammar and practical vocabulary necessary for fundamental communication skills.   Restricted to those who have completed    SPAN 109. Credit may be received only for one of the following: SPAN 109, SPAN 110; SPAN 111; or SPAN 121.    FS: 12/7/2016.   CL: 220.",
             "creditHours": "3",
             "availability": ["SPRING", "FALL"],
             "prerequisites": [],
@@ -1130,7 +1108,7 @@
               "corequisites": []
             },
             {
-              "id": "a5722aa5-ec7e-4bea-a526-a916bb80506d",
+              "id": "277c57bf-d5b8-4a69-941f-0f494c30d99e",
               "name": "Introduction to African-American Studies",
               "department": "AFAM",
               "number": "202",
