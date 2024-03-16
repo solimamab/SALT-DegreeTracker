@@ -418,17 +418,6 @@
               "corequisites": ["2e2ebf3f-c4d3-4dae-956b-d8afa7fca627"]
             },
             {
-              "id": "980e1056-4ed2-4459-b0e7-56d78eca5d73",
-              "name": "Rhetoric and Composition",
-              "department": "ENGL",
-              "number": "102",
-              "description": "Instruction and intensive practice in researching, analyzing, and composing written arguments about academic and public issues.   FS: 12/7/2016.   CL: 2020.",
-              "creditHours": "3",
-              "availability": ["SPRING", "FALL"],
-              "prerequisites": [["12224407-e656-4fe7-9078-88f1d9dc8325", "C"]],
-              "corequisites": []
-            },
-            {
               "id": "c85eb519-e97b-488b-ba02-2947764cfe92",
               "name": "Introduction to Astronomy",
               "department": "ASTR",
@@ -437,6 +426,17 @@
               "creditHours": "4",
               "availability": ["SPRING", "FALL"],
               "prerequisites": [],
+              "corequisites": []
+            },
+            {
+              "id": "980e1056-4ed2-4459-b0e7-56d78eca5d73",
+              "name": "Rhetoric and Composition",
+              "department": "ENGL",
+              "number": "102",
+              "description": "Instruction and intensive practice in researching, analyzing, and composing written arguments about academic and public issues.   FS: 12/7/2016.   CL: 2020.",
+              "creditHours": "3",
+              "availability": ["SPRING", "FALL"],
+              "prerequisites": [["12224407-e656-4fe7-9078-88f1d9dc8325", "C"]],
               "corequisites": []
             },
             {

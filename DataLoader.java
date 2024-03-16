@@ -246,53 +246,97 @@ public class DataLoader extends DataConstants {
             
             for (Object majorObj : majorsJSON) {
                 JSONObject majorJSON = (JSONObject) majorObj;
-                UUID id = UUID.fromString((String) majorJSON.get(MAJOR_ID));
-                String majorName = (String) majorJSON.get(MAJOR_NAME);
+                UUID id = UUID.fromString((String) majorJSON.get("id"));
+                String majorName = (String) majorJSON.get("majorName");
                 
                 // Parse required courses
-                JSONArray requiredCoursesJSON = (JSONArray) majorJSON.get(MAJOR_REQUIRED_COURSES);
-                ArrayList<Course> requiredCourses = new ArrayList<>();
-                for (Object courseObj : requiredCoursesJSON) {
-                    JSONObject courseJSON = (JSONObject) courseObj;
-                    UUID courseId = UUID.fromString((String) courseJSON.get(COURSE_ID));
-                    requiredCourses.add(courseMap.get(courseId));
-                }
+                JSONArray requiredCoursesJSON = (JSONArray) majorJSON.get("requiredCourses");
+                ArrayList<Course> requiredCourses = parseCoursesFromJSONArray(requiredCoursesJSON, courseMap);
                 
                 // Parse default plan
-                JSONObject defaultPlanJSON = (JSONObject) majorJSON.get(MAJOR_DEFAULT_PLAN);
-                JSONArray classesInPlanJSON = (JSONArray) defaultPlanJSON.get(MAJOR_CLASSES_IN_PLAN);
-                JSONArray applicationAreaJSON = (JSONArray) defaultPlanJSON.get(MAJOR_APPLICATION_AREA);
-                JSONArray electiveChoicesJSON = (JSONArray) defaultPlanJSON.get(MAJOR_ELECTIVE_CHOICES);
-                
+                JSONArray defaultPlanJSON = (JSONArray) majorJSON.get("defaultPlan");
+                JSONObject semesterJSON = (JSONObject) defaultPlanJSON.get(0); // Assuming there's only one semester
+                JSONArray classesInPlanJSON = (JSONArray) semesterJSON.get("classesInPlan");
+                JSONArray applicationAreaJSON = (JSONArray) semesterJSON.get("applicationArea");
+                JSONArray electiveChoicesJSON = (JSONArray) semesterJSON.get("electiveChoices");
+
                 ArrayList<Course> classesInPlan = parseCoursesFromJSONArray(classesInPlanJSON, courseMap);
                 ArrayList<Course> applicationArea = parseCoursesFromJSONArray(applicationAreaJSON, courseMap);
                 ArrayList<Course> electiveChoices = parseCoursesFromJSONArray(electiveChoicesJSON, courseMap);
-                
-                double majorProgress = Double.parseDouble(defaultPlanJSON.get("majorProgress").toString());
-                // Create EightSemesterPlan object with majorProgress
-                EightSemesterPlan plan = new EightSemesterPlan(classesInPlan, applicationArea, electiveChoices, majorProgress);
-                
-                // Create the major object using the correct EightSemesterPlan object
+
+                EightSemesterPlan plan = new EightSemesterPlan(classesInPlan, applicationArea, electiveChoices, 0);
                 Major major = new Major(id, majorName, requiredCourses, plan);
                 majors.add(major);
-            }    
+            }
             reader.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
         return majors;
     }
+    
+    // public static ArrayList<Major> loadMajors(HashMap<UUID, Course> courseMap) {
+    //     ArrayList<Major> majors = new ArrayList<>();
+        
+    //     try {
+    //         FileReader reader = new FileReader(MAJOR_FILE_NAME);
+    //         JSONArray majorsJSON = (JSONArray) new JSONParser().parse(reader);
+            
+    //         for (Object majorObj : majorsJSON) {
+    //             JSONObject majorJSON = (JSONObject) majorObj;
+    //             UUID id = UUID.fromString((String) majorJSON.get(MAJOR_ID));
+    //             String majorName = (String) majorJSON.get(MAJOR_NAME);
+                
+    //             // Parse required courses
+    //             JSONArray requiredCoursesJSON = (JSONArray) majorJSON.get(MAJOR_REQUIRED_COURSES);
+    //             ArrayList<Course> requiredCourses = new ArrayList<>();
+    //             for (Object courseObj : requiredCoursesJSON) {
+    //                 JSONObject courseJSON = (JSONObject) courseObj;
+    //                 UUID courseId = UUID.fromString((String) courseJSON.get(COURSE_ID));
+    //                 requiredCourses.add(courseMap.get(courseId));
+    //             }
+                
+    //             // Parse default plan
+    //             JSONObject defaultPlanJSON = (JSONObject) majorJSON.get(MAJOR_DEFAULT_PLAN);
+    //             JSONArray classesInPlanJSON = (JSONArray) defaultPlanJSON.get(MAJOR_CLASSES_IN_PLAN);
+    //             JSONArray applicationAreaJSON = (JSONArray) defaultPlanJSON.get(MAJOR_APPLICATION_AREA);
+    //             JSONArray electiveChoicesJSON = (JSONArray) defaultPlanJSON.get(MAJOR_ELECTIVE_CHOICES);
+                
+    //             ArrayList<Course> classesInPlan = parseCoursesFromJSONArray(classesInPlanJSON, courseMap);
+    //             ArrayList<Course> applicationArea = parseCoursesFromJSONArray(applicationAreaJSON, courseMap);
+    //             ArrayList<Course> electiveChoices = parseCoursesFromJSONArray(electiveChoicesJSON, courseMap);
+                
+    //             double majorProgress = Double.parseDouble(defaultPlanJSON.get("majorProgress").toString());
+    //             // Create EightSemesterPlan object with majorProgress
+    //             EightSemesterPlan plan = new EightSemesterPlan(classesInPlan, applicationArea, electiveChoices, majorProgress);
+                
+    //             // Create the major object using the correct EightSemesterPlan object
+    //             Major major = new Major(id, majorName, requiredCourses, plan);
+    //             majors.add(major);
+    //         }    
+    //         reader.close();
+    //     } catch (Exception e) {
+    //         e.printStackTrace();
+    //     }
+        
+    //     return majors;
+    // }
     
     /**
     * Helper method to parse courses from JSONArray
     */
-    private static ArrayList<Course> parseCoursesFromJSONArray(JSONArray coursesJSON, HashMap<UUID, Course> coursesMap) {
+    private static ArrayList<Course> parseCoursesFromJSONArray(JSONArray coursesJSON,
+            HashMap<UUID, Course> coursesMap) {
         ArrayList<Course> courses = new ArrayList<>();
         for (Object courseObj : coursesJSON) {
-            JSONObject courseJSON = (JSONObject) courseObj;
-            UUID courseId = UUID.fromString((String) courseJSON.get(COURSE_ID));
-            courses.add(coursesMap.get(courseId));
+            UUID courseId = UUID.fromString((String) courseObj);
+            Course course = coursesMap.get(courseId);
+            if (course != null) {
+                courses.add(course);
+            } else {
+                System.err.println("Course with ID " + courseId + " not found.");
+            }
         }
         return courses;
     }
@@ -351,20 +395,19 @@ public class DataLoader extends DataConstants {
         // // Printing courses
         // System.out.println("\nCourses:");
         // for (Course course : coursesMap.values()) {
-        //     System.out.println(course.toString());
-        // }
-        
-        // Printing advisors
-        System.out.println("\nAdvisors:");
-        for (Advisor advisor : advisors) {
-            System.out.println(advisor);
-        }
-        
-        // Printing majors
-        System.out.println("\nMajors:");
-        for (Major major : majors) {
-            System.out.println(major);
+            //         System.out.println(course.toString());
+            //     }
+            
+            // Printing advisors
+            System.out.println("\nAdvisors:");
+            for (Advisor advisor : advisors) {
+                System.out.println(advisor);
+            }
+            
+            // Printing majors
+            System.out.println("\nMajors:");
+            for (Major major : majors) {
+                System.out.println(major);
+            }
         }
     }
-    
-}

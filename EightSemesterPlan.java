@@ -168,19 +168,7 @@ public class EightSemesterPlan {
                 stringBuilder.append(course.toString()).append("\n");
             }
         }
-        stringBuilder.append("Application Area:\n");
-        if (!applicationArea.isEmpty()) {
-            for (Course course : applicationArea) {
-                stringBuilder.append(course.toString()).append("\n");
-            }
-        }
-        stringBuilder.append("Elective Choices:\n");
-        if (!electiveChoices.isEmpty()) {
-            for (Course course : electiveChoices) {
-                stringBuilder.append(course.toString()).append("\n");
-            }
-        }
-        stringBuilder.append("Major Progress: ").append(majorProgress).append("\n");
+
         return stringBuilder.toString();
     }
 }
