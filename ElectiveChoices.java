@@ -5,12 +5,12 @@ public class ElectiveChoices {
     private ArrayList<Course> elecetivesChoosen;
     private int numCredits;
     private ArrayList<String> RequirementsNeeded;
-    private ArrayList<String> ReguirementsDone;
+    private ArrayList<String> RequirementsDone;
     private ArrayList<String> RequirementsToDo;
     
 
     public ElectiveChoices(ArrayList<String> requirementsDone) {
-        this.ReguirementsDone = requirementsDone;
+        this.RequirementsDone = requirementsDone;
         setRequirementsNeeded();
         setRequirementsToDO();
     }
@@ -42,12 +42,11 @@ public class ElectiveChoices {
     public void setRequirementsToDO()
     {
         this.RequirementsToDo = this.RequirementsNeeded;
-        for (int i = 0; i < this.ReguirementsDone.size(); i++)
+        for (int i = 0; i < this.RequirementsDone.size(); i++)
         {
-            RequirementsToDo.remove(ReguirementsDone.get(i));
+            RequirementsToDo.remove(RequirementsDone.get(i));
         }
     }
-
   
     public ArrayList<Course> listClassesForRequirement(String requirement)
     {
@@ -119,7 +118,7 @@ public class ElectiveChoices {
     public void chooseClass(Course course, String requirement)
     {
         this.elecetivesChoosen.add(course);
-        this.ReguirementsDone.add(requirement);
+        this.RequirementsDone.add(requirement);
         
     }
 
