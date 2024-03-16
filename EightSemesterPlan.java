@@ -6,8 +6,8 @@ import java.util.ArrayList;
  */
 
 public class EightSemesterPlan {
+    private CourseList courseList = CourseList.getInstance();
     private ArrayList<Course> classesInPlan;
-    //private ArrayList<Course> majorRequirements; Should something like this be help to include
     private ArrayList<Course> applicationArea;
     private ArrayList<Course> electiveChoices;
     private ArrayList<Course> semester1;
@@ -20,14 +20,25 @@ public class EightSemesterPlan {
     private ArrayList<Course> semester8;
     private ArrayList<Course> currentSemester;
     private double majorProgress;
-    private int NumberofClassesinPlan;
 
     public EightSemesterPlan(ArrayList<Course> classesInPlan, ArrayList<Course> applicationArea,ArrayList<Course> electiveChoices, double majorProgress) {
         this.classesInPlan = classesInPlan;
         this.applicationArea = applicationArea;
         this.electiveChoices = electiveChoices;
         this.majorProgress = majorProgress;
-        this.NumberofClassesinPlan = classesInPlan.size();
+    }
+
+    public EightSemesterPlan(Major majorName)
+    {
+        if (majorName.getMajorName().equals("CSCE"))
+        {
+            this.semester1 = new ArrayList<Course>();
+            semester1.add(courseList.getCourseByNumber("ENGL", "101"));
+            semester1.add(courseList.getCourseByNumber("MATH","141"));
+            semester1.add(courseList.getCourseByNumber("CSCE", "145"));
+            semester1.add(courseList.getCourseByNumber("CSCE", "190"));
+            semester1.add(courseList.getCourseByNumber("ASTR", "101"));
+        }
     }
 
     public EightSemesterPlan() {

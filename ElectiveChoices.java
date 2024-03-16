@@ -34,7 +34,6 @@ public class ElectiveChoices {
         this.RequirementsNeeded.add("GSS");
         this.RequirementsNeeded.add("GHS");
         this.RequirementsNeeded.add("CMW");
-        this.RequirementsNeeded.add("ARP");
         this.RequirementsNeeded.add("SCI");
         this.RequirementsNeeded.add("VSR");
         this.RequirementsNeeded.add("CMS");
@@ -85,13 +84,6 @@ public class ElectiveChoices {
         else if (requirement.equals("CMW"))
         {
             List.add(electiveChoices.getCourseByNumber("ENGL", "101"));
-            return List;
-        }
-        else if (requirement.equals("ARP"))
-        {
-            List.add(electiveChoices.getCourseByNumber("GEOG", "105"));
-            List.add(electiveChoices.getCourseByNumber("CSCE", "102"));
-            List.add(electiveChoices.getCourseByNumber("STAT", "201"));
             return List;
         }
         else if (requirement.equals("SCI"))
