@@ -15,6 +15,7 @@ public class ElectiveChoices {
         setRequirementsToDO();
     }
 
+
     public ArrayList<Course> getElectiveChoosen()
     {
         return this.elecetivesChoosen;
@@ -49,7 +50,7 @@ public class ElectiveChoices {
     }
 
   
-    private ArrayList<Course> listClassesForRequirement(String requirement)
+    public ArrayList<Course> listClassesForRequirement(String requirement)
     {
         ArrayList<Course> List = new ArrayList<Course>();
         if (requirement.equals("GFL"))
@@ -119,6 +120,20 @@ public class ElectiveChoices {
             //requirement not valid
             return null;
         }
+
+        
+    }
+
+    public void chooseClass(Course course, String requirement)
+    {
+        this.elecetivesChoosen.add(course);
+        this.ReguirementsDone.add(requirement);
+        
+    }
+
+    public void fulfilledRequirement(String requirement)
+    {
+        this.RequirementsToDo.remove(requirement);
     }
     
 }
