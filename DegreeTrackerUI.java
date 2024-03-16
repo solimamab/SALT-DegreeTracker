@@ -20,10 +20,10 @@ public class DegreeTrackerUI
     
     public void scenerio1() {
         // Attempt to login as the student
-        // if (!gradeSystemFACADE.login("BWEST", "12345")) {
-        //     System.out.println("Sorry, we couldn't log in.");
-        //     return;
-        // }
+        if (!gradeSystemFACADE.login("BWEST", "12345")) {
+            System.out.println("Sorry, we couldn't log in.");
+            return;
+        }
         
         // Display login success message
         System.out.println("Brax West is now logged in.");
@@ -60,8 +60,8 @@ public class DegreeTrackerUI
         System.out.println("Advisor Details:\n" + advisorDetails);
         
         // Look up a student by their ID
-        UUID studentID = UUID.randomUUID(); // UPDATE THIS WHEN WE IMPORT STUDENT'S DATA IN JSON FILE
-        Student student = gradeSystemFACADE.findStudent(studentID);
+        // UUID studentID = gradeSystemFACADE.findStudent("HTawnie"); // UPDATE THIS WHEN WE IMPORT STUDENT'S DATA IN JSON FILE
+        Student student = gradeSystemFACADE.findStudent("HTawnie");
         
         if (student != null) {
             // Add the student to the advisor's list of students

@@ -1,12 +1,15 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.UUID;
 
 public class MajorList {
     private static MajorList majorList;
     private ArrayList<Major> availableMajors;
+    private HashMap<UUID, Major> majorMap;
 
     private MajorList() {
         this.availableMajors = new ArrayList<>();
+        this.majorMap = new HashMap<>();
     }
 
     public static MajorList getInstance() {

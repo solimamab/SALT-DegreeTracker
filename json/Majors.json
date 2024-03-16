@@ -1502,7 +1502,7 @@
       ],
       "defaultPlan": [
         {
-          "classesInPlan": [
+          "semester1": [
             {
               "id": "12224407-e656-4fe7-9078-88f1d9dc8325",
               "name": "Critical Reading and Composition",
@@ -1565,7 +1565,9 @@
               "availability": ["SPRING", "FALL"],
               "prerequisites": [],
               "corequisites": []
-            },
+            }
+          ],
+          "semester2" : [
             {
               "id": "980e1056-4ed2-4459-b0e7-56d78eca5d73",
               "name": "Rhetoric and Composition",
@@ -1613,7 +1615,9 @@
               "availability": ["SPRING", "FALL"],
               "prerequisites": [],
               "corequisites": []
-            },
+            }
+          ],
+          "semester3" : [
             {
               "id": "5844e157-e966-4ca8-a60b-a86f76903c6d",
               "name": "Introduction to Art",
@@ -1688,7 +1692,9 @@
               "availability": ["SPRING", "FALL"],
               "prerequisites": [],
               "corequisites": []
-            },
+            }
+          ],
+          "semester4" : [
             {
               "id": "cecc9003-5bf5-4d17-b01d-895f24ea03a2",
               "name": "Introduction to Computer Security",
@@ -1755,7 +1761,9 @@
               "availability": ["Fall", "Spring"],
               "prerequisites": [],
               "corequisites": []
-            },
+            }
+          ],
+          "semester5" : [
             {
               "id": "6c8202fd-b31b-4647-b551-b7f4dbf007a0",
               "name": "Data Structures and Algorithms",
@@ -1829,7 +1837,9 @@
                 ["980e1056-4ed2-4459-b0e7-56d78eca5d73", "D"]
               ],
               "corequisites": []
-            },
+            }
+          ],
+          "semester6" : [
             {
               "id": "86229990-45b3-48e6-b444-0b9db99e8a8c",
               "name": "Database System Design",
@@ -1891,7 +1901,9 @@
               "availability": ["SPRING", "FALL"],
               "prerequisites": [],
               "corequisites": []
-            },
+            }
+          ],
+          "semester7" : [
             {
               "id": "42288ffd-4ead-4718-b840-4be2894d8f30",
               "name": "Capstone Computing Project I",
@@ -1953,7 +1965,9 @@
               "availability": ["SPRING", "FALL"],
               "prerequisites": [],
               "corequisites": []
-            },
+            }
+          ],
+          "semester8" : [
             {
               "id": "f425f91f-92da-4261-be45-347d81b6ab9d",
               "name": "Capstone Computing Project II",
