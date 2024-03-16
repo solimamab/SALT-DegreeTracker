@@ -24,13 +24,19 @@ public class DataConstants {
     protected static final String STUDENT_COMPLETED_COURSES = "completedCourses";
     protected static final String STUDENT_COURSE_ID = "courseId";
     protected static final String STUDENT_LETTER_GRADE = "letterGrade";
-    protected static final String STUDENT_QUALITY_POINTS = "quialityPoints";
     protected static final String STUDENT_EIGHT_SEMESTER_PLAN = "eightSemesterPlan";
-    protected static final String STUDENT_CLASSES_IN_PLAN_IDS = "classesInPlanIDs";
-    protected static final String STUDENT_APPLICATION_AREA_IDS = "applicationAreaIDs";
-    protected static final String STUDENT_ELECTIVE_CHOICE_IDS = "electiveChoiceIDs";
+    protected static final String STUDENT_SEMESTER_1 = "semester1";
+    protected static final String STUDENT_SEMESTER_2 = "semester2";
+    protected static final String STUDENT_SEMESTER_3 = "semester3";
+    protected static final String STUDENT_SEMESTER_4 = "semester4";
+    protected static final String STUDENT_SEMESTER_5 = "semester5";
+    protected static final String STUDENT_SEMESTER_6 = "semester6";
+    protected static final String STUDENT_SEMESTER_7 = "semester7";
+    protected static final String STUDENT_SEMESTER_8 = "semester8";
+    protected static final String STUDENT_APPLICATION_AREA = "applicationArea";
+    protected static final String STUDENT_ELECTIVE_CHOICES = "electiveChoices";
     protected static final String STUDENT_MAJOR_PROGRESS = "majorProgress";
-    protected static final String STUDENT_CURRENT_COURSES_IDS = "currentCoursesIDs";
+    protected static final String STUDENT_CURRENT_COURSES = "currentCourses";
 
     /**
      * Course data constants
