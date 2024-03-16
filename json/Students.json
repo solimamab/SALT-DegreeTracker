@@ -648,36 +648,43 @@
       ],
         "applicationArea": [
           {
-            "id": "88fd4cb0-6232-4891-a944-94ea8fe952c1",
-            "name": "Course Name 4",
-            "department": "DEPT",
-            "number": "104",
-            "description": "Course description 4",
-            "creditHours": 3,
-            "availability": ["Fall", "Spring"],
-            "prerequisites": [],
+            "id": "86229990-45b3-48e6-b444-0b9db99e8a8c",
+            "name": "Database System Design",
+            "department": "CSCE",
+            "number": "520",
+            "description": "Database management systems; database design and implementation; security, integrity, and privacy.   CL: 2020.",
+            "creditHours": "3",
+            "availability": ["SPRING", "FALL"],
+            "prerequisites": [
+              ["39046cda-f913-4f9b-a002-f06e7c59f235", "D"],
+              ["0eed3ca4-5047-4cb0-8f44-d5d2a502e991", "D"]
+            ],
             "corequisites": []
           },
           {
-            "id": "f4e20828-6af9-4594-ac9e-60d3ae4e7df0",
-            "name": "Course Name 5",
-            "department": "DEPT",
-            "number": "105",
-            "description": "Course description 5",
-            "creditHours": 4,
-            "availability": ["Fall", "Spring"],
-            "prerequisites": [],
+            "id": "8e63a870-d35b-4970-b62a-c0274d8a6d97",
+            "name": "Artificial Intelligence",
+            "department": "CSCE",
+            "number": "580",
+            "description": "Heuristic problem solving, theorem proving, and knowledge representation, including the use of appropriate programming languages and tools.   CL: 2020.",
+            "creditHours": "3",
+            "availability": ["SPRING", "FALL"],
+            "prerequisites": ["6c8202fd-b31b-4647-b551-b7f4dbf007a0", "D"],
             "corequisites": []
           },
           {
-            "id": "a5722aa5-ec7e-4bea-a526-a916bb80506d",
-            "name": "Course Name 6",
-            "department": "DEPT",
-            "number": "106",
-            "description": "Course description 6",
-            "creditHours": 3,
-            "availability": ["Fall", "Spring"],
-            "prerequisites": [],
+            "id": "b447804a-971b-4d1c-86f4-ea6da7802804",
+            "name": "Big Data Analytics",
+            "department": "CSCE",
+            "number": "587",
+            "description": "Foundational techniques and tools required for data science and big data analytics.  Concepts, principles, and techniques applicable to any technology and industry for establishing a baseline that can be enhanced by future study.   FS: 12/03/2014.   CL: 2020.",
+            "creditHours": "3",
+            "availability": ["SPRING", "FALL"],
+            "prerequisites": [
+              ["f4b55e57-6034-4462-81ca-13c559697988", "D"],
+              ["23fe1f18-ff42-4200-a854-0dce979c0ff1", "D"],
+              ["a442d36a-1afb-4864-83f7-e1bb46a29f6d", "D"]
+            ],
             "corequisites": []
           }
         ],
