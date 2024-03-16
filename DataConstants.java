@@ -52,7 +52,14 @@ public class DataConstants {
     protected static final String MAJOR_NAME = "majorName";
     protected static final String MAJOR_REQUIRED_COURSES = "requiredCourses";
     protected static final String MAJOR_DEFAULT_PLAN = "defaultPlan";
-    protected static final String MAJOR_CLASSES_IN_PLAN = "classesInPlan";
+    protected static final String MAJOR_SEMESTER_1 = "semester1";
+    protected static final String MAJOR_SEMESTER_2 = "semester2";
+    protected static final String MAJOR_SEMESTER_3 = "semester3";
+    protected static final String MAJOR_SEMESTER_4 = "semester4";
+    protected static final String MAJOR_SEMESTER_5 = "semester5";
+    protected static final String MAJOR_SEMESTER_6 = "semester6";
+    protected static final String MAJOR_SEMESTER_7 = "semester7";
+    protected static final String MAJOR_SEMESTER_8 = "semester8";
     protected static final String MAJOR_APPLICATION_AREA = "applicationArea";
     protected static final String MAJOR_ELECTIVE_CHOICES = "electiveChoices";
 
