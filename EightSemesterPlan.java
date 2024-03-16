@@ -22,7 +22,7 @@ public class EightSemesterPlan {
     private double majorProgress;
     private int NumberofClassesinPlan;
 
-    public EightSemesterPlan(ArrayList<Course> classesInPlan, ArrayList<Course> applicationArea, ArrayList<Course> electiveChoices, double majorProgress) {
+    public EightSemesterPlan(ArrayList<Course> classesInPlan, ArrayList<Course> applicationArea,ArrayList<Course> electiveChoices, double majorProgress) {
         this.classesInPlan = classesInPlan;
         this.applicationArea = applicationArea;
         this.electiveChoices = electiveChoices;
@@ -32,7 +32,7 @@ public class EightSemesterPlan {
 
     public EightSemesterPlan() {
         this.classesInPlan = new ArrayList<>();
-        this.applicationArea = new ArrayList<>();
+        this.applicationArea = new ArrayList<Course>();
         this.electiveChoices = new ArrayList<>();
         this.majorProgress = 0.0;
     }
