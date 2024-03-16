@@ -99,31 +99,31 @@ public class DataLoader extends DataConstants {
                 // for testing
                 //System.out.println("Student JSON: " + studentJSON);
 
-                UUID id = UUID.fromString((String) studentJSON.get("id"));
-                String username = (String) studentJSON.get("username");
-                String password = (String) studentJSON.get("password");
-                String firstname = (String) studentJSON.get("firstname");
-                String lastname = (String) studentJSON.get("lastname");
-                Classification classification = Classification.valueOf((String) studentJSON.get("classification"));
-                long completedCreditHours = (long) studentJSON.get("completedCreditHours");
-                long remainingCreditHours = (long) studentJSON.get("remainingCreditHours");
-                Flag flag = (Flag) Flag.valueOf((String) studentJSON.get("flag"));
-                double overallGPA = (double) studentJSON.get("overallGPA");
-                UUID majorId = UUID.fromString((String) studentJSON.get("majorId"));
-                String minor = (String) studentJSON.get("minor");
-                boolean FERPA = (boolean) studentJSON.get("FERPA");
-                UUID advisorId = UUID.fromString((String) studentJSON.get("advisorId"));
-                double majorProgress = (double) studentJSON.get("majorProgress");
+                UUID id = UUID.fromString((String) studentJSON.get(STUDENT_ID));
+                String username = (String) studentJSON.get(STUDENT_USERNAME);
+                String password = (String) studentJSON.get(STUDENT_PASSWORD);
+                String firstname = (String) studentJSON.get(STUDENT_FIRSTNAME);
+                String lastname = (String) studentJSON.get(STUDENT_LASTNAME);
+                Classification classification = Classification.valueOf((String) studentJSON.get(STUDENT_CLASSIFICATION));
+                long completedCreditHours = (long) studentJSON.get(STUDENT_COMPLETED_CREDIT_HOURS);
+                long remainingCreditHours = (long) studentJSON.get(STUDENT_REMAINING_CREDIT_HOURS);
+                Flag flag = (Flag) Flag.valueOf((String) studentJSON.get(STUDENT_FLAG));
+                double overallGPA = (double) studentJSON.get(STUDENT_OVERALL_GPA);
+                UUID majorId = UUID.fromString((String) studentJSON.get(STUDENT_MAJOR_ID));
+                String minor = (String) studentJSON.get(STUDENT_MINOR);
+                boolean FERPA = (boolean) studentJSON.get(STUDENT_FERPA);
+                UUID advisorId = UUID.fromString((String) studentJSON.get(STUDENT_ADVISOR_ID));
+                double majorProgress = (double) studentJSON.get(STUDENT_MAJOR_PROGRESS);
                 
                 
                 // Parsing course-related arrays
-                JSONArray completedCoursesJSON = (JSONArray) studentJSON.get("completedCourses");
+                JSONArray completedCoursesJSON = (JSONArray) studentJSON.get(STUDENT_COMPLETED_COURSES);
                 ArrayList<CompletedCourse> completedCourses = parseCompletedCourses(completedCoursesJSON, coursesMap);
                 
-                JSONArray currentCoursesJSON = (JSONArray) studentJSON.get("currentCourses");
+                JSONArray currentCoursesJSON = (JSONArray) studentJSON.get(STUDENT_CURRENT_COURSES);
                 ArrayList<Course> currentCourses = parseCurrentCourses(currentCoursesJSON, coursesMap);
                 
-                JSONArray eightSemesterPlanJSON = (JSONArray) studentJSON.get("eightSemesterPlan");
+                JSONArray eightSemesterPlanJSON = (JSONArray) studentJSON.get(STUDENT_EIGHT_SEMESTER_PLAN);
                 EightSemesterPlan eightSemesterPlan = parseEightSemesterPlan(eightSemesterPlanJSON, coursesMap);
                 
                 // Log each student's information as it's parsed
@@ -249,15 +249,15 @@ public class DataLoader extends DataConstants {
                 //System.out.println("Major JSON: " + majorsJSON);
 
                 JSONObject majorJSON = (JSONObject) majorObj;
-                UUID id = UUID.fromString((String) majorJSON.get("id"));
-                String majorName = (String) majorJSON.get("majorName");
+                UUID id = UUID.fromString((String) majorJSON.get(MAJOR_ID));
+                String majorName = (String) majorJSON.get(MAJOR_NAME);
                 
                 // Parse required courses
-                JSONArray requiredCoursesJSON = (JSONArray) majorJSON.get("requiredCourses");
+                JSONArray requiredCoursesJSON = (JSONArray) majorJSON.get(MAJOR_REQUIRED_COURSES);
                 ArrayList<Course> requiredCourses = parseCoursesFromJSONArray(requiredCoursesJSON, courseMap);
                 
                 // Parse default plan
-                JSONArray defaultPlanJSON = (JSONArray) majorJSON.get("defaultPlan");
+                JSONArray defaultPlanJSON = (JSONArray) majorJSON.get(MAJOR_DEFAULT_PLAN);
                 JSONObject defaultPlanObj = (JSONObject) defaultPlanJSON.get(0); // Assuming there's only one default plan
                 
                 EightSemesterPlan plan = parseDefaultPlan(defaultPlanObj, courseMap);
