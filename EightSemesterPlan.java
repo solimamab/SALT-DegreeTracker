@@ -7,8 +7,17 @@ import java.util.ArrayList;
 
 public class EightSemesterPlan {
     private ArrayList<Course> classesInPlan;
+    //private ArrayList<Course> majorRequirements; Should something like this be help to include
     private ArrayList<Course> applicationArea;
     private ArrayList<Course> electiveChoices;
+    private ArrayList<Course> semester1;
+    private ArrayList<Course> semester2;
+    private ArrayList<Course> semester3;
+    private ArrayList<Course> semester4;
+    private ArrayList<Course> semester5;
+    private ArrayList<Course> semester6;
+    private ArrayList<Course> semester7;
+    private ArrayList<Course> semester8;
     private double majorProgress;
     private int NumberofClassesinPlan;
 
@@ -72,16 +81,13 @@ public class EightSemesterPlan {
 
     public void viewSemesterlayout()
     {
-        for (int i =0; i < NumberofClassesinPlan+1; i++)
-        {
-            int semesterNumber = 1;
-            System.out.println("Semester " + semesterNumber + ": \n");
-            for ( int j = 0; j < NumberofClassesinPlan/8; j++)
-            {
-                System.out.println(classesInPlan.get(i) + "\n");
-            }
-            semesterNumber++;
-        }
+        System.out.println("Semester One:\n" +
+        semester1 + "Semester 2:\n" + semester2 +
+        "Semester 3: \n " + semester3 + "Semester 4: \n"
+        + semester4 + "Semester Five:\n" +
+        semester5 + "Semester Six:\n" + semester6 +
+        "Semester Seven: \n " + semester7 + "Semester Eigth: \n"
+        + semester8);
     }
 
     public double getMajorProgress() {
