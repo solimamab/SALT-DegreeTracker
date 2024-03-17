@@ -4,7 +4,6 @@ import java.util.UUID;
  * The class that has the advisor methods and logic
  */
 public class Advisor extends User{
-    private UUID id;
     private ArrayList<UUID> students;
     private int NumberofStudents;
     private static UserList users = UserList.getInstance();
@@ -20,8 +19,7 @@ public class Advisor extends User{
      * @param studentIDs - the ids of the students that the advisor is responsible
      */
     public Advisor(UUID id, String username, String password, String firstname, String lastname, ArrayList<UUID> studentIDs) {
-            super(username, password, firstname, lastname);
-            this.id = id;
+            super(id,username, password, firstname, lastname);
             this.students = studentIDs;
             NumberofStudents = studentIDs.size();
             listOfALLStudents = users.getStudents();

@@ -118,4 +118,8 @@ public class GradeSystemFACADE {
         return student.getEightSemesterPlan();
     }
 
+    public void writePlantoTextFile(Student student)
+    {
+        student.writePlantoText(student);
+    }
 }

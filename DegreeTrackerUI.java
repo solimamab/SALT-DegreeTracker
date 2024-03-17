@@ -45,6 +45,7 @@ public class DegreeTrackerUI
         // code for choosing an application area 
 
         // code for printing schedule to a text file 
+        gradeSystemFACADE.writePlantoTextFile(loggedInStudent);
 
         
     }
@@ -65,7 +66,7 @@ public class DegreeTrackerUI
         
         if (student != null) {
             // Add the student to the advisor's list of students
-            // advisor.addStudent(student); <--- WILL IMPLEMENT THIS TMRW
+            advisor.addAdvisingStudent(student.getUUID());/// <--- WILL IMPLEMENT THIS TMRW
             
             // View the student's eight semester plan
             EightSemesterPlan studentEightSemesterPlan = gradeSystemFACADE.viewStudentsEightSemesterPlan(student);
