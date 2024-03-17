@@ -7,11 +7,13 @@ import java.util.ArrayList;
 
 public class EightSemesterPlan {
     private ArrayList<ArrayList<Course>> semesters;
-    //private static CourseList courseList = CourseList.getInstance();
     private ArrayList<Course> applicationArea;
     private ArrayList<Course> electiveChoices;
     private double majorProgress;
 
+    /**
+     * 
+     */
     public EightSemesterPlan() {
         this.semesters = new ArrayList<>();
         for (int i = 0; i < 8; i++) {
@@ -21,37 +23,12 @@ public class EightSemesterPlan {
         this.electiveChoices = new ArrayList<>();
         this.majorProgress = 0.0;
     }
-    // private ArrayList<Course> classesInPlan;
-    // //private ArrayList<Course> majorRequirements; Should something like this be help to include
-    // private ArrayList<Course> applicationArea;
-    // private ArrayList<Course> electiveChoices;
-    // private ArrayList<Course> semester1;
-    // private ArrayList<Course> semester2;
-    // private ArrayList<Course> semester3;
-    // private ArrayList<Course> semester4;
-    // private ArrayList<Course> semester5;
-    // private ArrayList<Course> semester6;
-    // private ArrayList<Course> semester7;
-    // private ArrayList<Course> semester8;
-    // private ArrayList<Course> currentSemester;
-    // private double majorProgress;
-    // private int NumberofClassesinPlan;
 
-    // public EightSemesterPlan(ArrayList<Course> classesInPlan, ArrayList<Course> applicationArea,ArrayList<Course> electiveChoices, double majorProgress) {
-    //     this.classesInPlan = classesInPlan;
-    //     this.applicationArea = applicationArea;
-    //     this.electiveChoices = electiveChoices;
-    //     this.majorProgress = majorProgress;
-    //     this.NumberofClassesinPlan = classesInPlan.size();
-    // }
-
-    // public EightSemesterPlan() {
-    //     this.classesInPlan = new ArrayList<>();
-    //     this.applicationArea = new ArrayList<Course>();
-    //     this.electiveChoices = new ArrayList<>();
-    //     this.majorProgress = 0.0;
-    // }
-
+    /**
+     * 
+     * @param semester
+     * @param course
+     */
     public void addCourseToSemester(int semester, Course course) {
         if (semester >= 1 && semester <= 8) {
             this.semesters.get(semester - 1).add(course);
@@ -60,7 +37,10 @@ public class EightSemesterPlan {
         }
     }
 
-
+    /**
+     * 
+     * @return
+     */
     public ArrayList<Course> getAllCoursesInPlan() {
         ArrayList<Course> allCourses = new ArrayList<>();
 
@@ -98,90 +78,13 @@ public class EightSemesterPlan {
         electiveChoices.remove(course);
     }
 
-    // /*does this need to be broken down by semester
-    // like semester 1: list classes to take 
-    // semester two : and so one
-    // */
-    // public void viewPlan() {
-    //     System.out.println("Classes in Plan:");
-    //     for (Course course : classesInPlan) {
-    //         System.out.println(course.toString());
-    //     }
-    //     System.out.println("Application Area Courses:");
-    //     for (Course course : applicationArea) {
-    //         System.out.println(course.toString());
-    //     }
-    //     System.out.println("Elective Choices:");
-    //     for (Course course : electiveChoices) {
-    //         System.out.println(course.toString());
-    //     }
-    // }
-
-    // public void viewSemesterlayout()
-    // {
-    //     System.out.println("Semester One:\n" +
-    //     semester1 + "Semester 2:\n" + semester2 +
-    //     "Semester 3: \n " + semester3 + "Semester 4: \n"
-    //     + semester4 + "Semester Five:\n" +
-    //     semester5 + "Semester Six:\n" + semester6 +
-    //     "Semester Seven: \n " + semester7 + "Semester Eigth: \n"
-    //     + semester8);
-    // }
-
-    // public void setCurrentSemester(int semesterNum)
-    // {
-    //     switch(semesterNum)
-    //     {
-    //         case 1:
-    //             currentSemester = semester1;
-    //             System.out.println("current semester set to semester 1");
-    //             break;
-    //         case 2:
-    //             currentSemester = semester2;
-    //             System.out.println("current semester set to semester 2");
-    //             break;
-    //         case 3:
-    //             currentSemester = semester3;
-    //             System.out.println("current semester set to semester 3");
-    //             break;
-    //         case 4:
-    //             currentSemester = semester4;
-    //             System.out.println("current semester set to semester 4");
-    //             break;
-    //         case 5:
-    //             currentSemester = semester5;
-    //             System.out.println("current semester set to semester 5");
-    //             break;
-    //         case 6:
-    //             currentSemester = semester6;
-    //             System.out.println("current semester set to semester 6");
-    //             break;
-    //         case 7:
-    //             currentSemester = semester7;
-    //             System.out.println("Current semester set to semester 7");
-    //         case 8:
-    //             currentSemester = semester8;
-    //             System.out.println("Current semester set to semester 8");
-    //             break;
-    //         default:
-    //             System.out.println("There is not a semester " + semesterNum);
-    //             break;
-    //     }
-    // }
-
-
     public ArrayList<ArrayList<Course>> getSemesters() {
         return semesters;
     }
 
-
     public double getMajorProgress() {
         return majorProgress;
     }
-
-    // public ArrayList<Course> getClassesInPlan() {
-    //     return classesInPlan;
-    // }
 
     public ArrayList<Course> getApplicationArea() {
         return applicationArea;

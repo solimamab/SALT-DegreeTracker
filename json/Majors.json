@@ -1424,39 +1424,29 @@
           ],
           "electiveChoices": [
             {
-              "id": "e0ffb4fd-f232-4106-859d-23fa91d31d52",
-              "name": "Introduction to Classical Mythology",
-              "department": "CLAS",
-              "number": "220",
-              "description": "Major gods, goddesses, heroes, and heroines of classical mythology as portrayed in major literary works; the function of myth in society and its relevance to modern life.   CL: 2020.",
-              "creditHours": "3",
-              "availability": ["SPRING", "FALL"],
-              "prerequisites": [],
-              "corequisites": []
-            },
-            {
-              "id": "8ceabae0-d528-420b-a789-2260d7744811",
-              "name": "World Literature",
-              "department": "ENGL",
-              "number": "270",
-              "description": "Selected masterpieces of world literature from antiquity to present.   CL: 2020.",
+              "id": "42256eb3-038c-4641-8182-7c466661e0f0",
+              "department": "STAT",
+              "number": "201",
+              "name": "Elementary Statistics",
+              "description": "Introduction to the fundamentals of modern statistical methods, including descriptive statistics, probability, random sampling, simple linear regression, correlation, tests of hypotheses, and estimation.   CL: 2020.",
               "creditHours": "3",
               "availability": ["SPRING", "FALL"],
               "prerequisites": [
-                ["12224407-e656-4fe7-9078-88f1d9dc8325", "D"],
-                ["980e1056-4ed2-4459-b0e7-56d78eca5d73", "D"]
+                ["669e88d5-9009-4f74-85aa-e675ffaaaf12", "D"],
+                ["84b21549-16e9-4117-978c-39a43fb665b2", "D"],
+                ["c0ad2023-389d-443b-b300-d9b0e6c69ac3", "D"]
               ],
               "corequisites": []
             },
             {
-              "id": "aa297d70-ee34-4cfa-b4a5-22e3a022c800",
-              "name": "Exploring Religion",
-              "department": "RELG",
-              "number": "101",
-              "description": "Beliefs and practices of the world\u0027s religions and the methods scholars use to study them.   FS: 02/03/2016.   CL: 2020.",
+              "id": "f4b55e57-6034-4462-81ca-13c559697988",
+              "department": "STAT",
+              "number": "509",
+              "name": "Statistics for Engineers",
+              "description": "Basic probability and statistics with applications and examples in engineering. Elementary probability, random variables and their distribution, random processes, statistical inference, linear regression, correlation and basic design of experiments with application to quality assurance, reliability, and life testing. May not be taken concurrently with or after STAT 513, STAT 515, or STAT 516. Not for C.A.S., M.A.S., or Ph.D credit in Statistics.    FS: 12/02/2015.   CL: 2020.",
               "creditHours": "3",
               "availability": ["SPRING", "FALL"],
-              "prerequisites": [],
+              "prerequisites[": [["3d7aa3f8-bfb0-4f9e-af57-49818", "C"]],
               "corequisites": []
             }
           ]
