@@ -14,7 +14,7 @@ public class DegreeTrackerUI
     
     public void run() {
         scenerio1();
-        scenario2();
+       scenario2();
         //testingCourses();
     }
     
