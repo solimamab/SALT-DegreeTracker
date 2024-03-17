@@ -58,7 +58,8 @@ public class Student extends User{
         this.remainingCreditHours = remainingCreditHours;
         this.flag = flag;
         this.overallGPA = overallGPA;
-        this.major = MajorList.getInstance().findMajor(majorId);
+        this.major = major;
+        // this.major = MajorList.getInstance().findMajor(majorId);
         this.minor = minor;
         this.FERPA = FERPA;
         this.advisor = advisor;

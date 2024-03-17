@@ -194,22 +194,22 @@ public class DataLoader extends DataConstants {
     */
     private static EightSemesterPlan parseEightSemesterPlan(JSONArray eightSemesterPlanJSON, HashMap<UUID, Course> coursesMap) {
         EightSemesterPlan plan = new EightSemesterPlan();
-        for (Object planObj : eightSemesterPlanJSON) {
-            JSONObject planJSON = (JSONObject) planObj;
-            for (int i = 1; i <= 8; i++) {
-                JSONArray semesterCoursesJSON = (JSONArray) planJSON.get("semester" + i);
-                ArrayList<Course> semesterCourses = parseCoursesArray(semesterCoursesJSON, coursesMap);
-                plan.addSemesterCourses(i, semesterCourses);
-            }
-            
-            JSONArray applicationAreaJSON = (JSONArray) planJSON.get("applicationArea");
-            ArrayList<Course> applicationAreaCourses = parseCoursesArray(applicationAreaJSON, coursesMap);
-            plan.setApplicationAreaCourses(applicationAreaCourses);
-            
-            JSONArray electiveChoicesJSON = (JSONArray) planJSON.get("electiveChoices");
-            ArrayList<Course> electiveCourses = parseCoursesArray(electiveChoicesJSON, coursesMap);
-            plan.setElectiveCourses(electiveCourses);
+        JSONObject planJSON = (JSONObject) eightSemesterPlanJSON.get(0); // Assuming only one plan per student
+        
+        for (int i = 1; i <= 8; i++) {
+            JSONArray semesterCoursesJSON = (JSONArray) planJSON.get("semester" + i);
+            ArrayList<Course> semesterCourses = parseCoursesArray(semesterCoursesJSON, coursesMap);
+            plan.addSemesterCourses(i, semesterCourses);
         }
+        
+        JSONArray applicationAreaJSON = (JSONArray) planJSON.get("applicationArea");
+        ArrayList<Course> applicationAreaCourses = parseCoursesArray(applicationAreaJSON, coursesMap);
+        plan.setApplicationAreaCourses(applicationAreaCourses);
+        
+        JSONArray electiveChoicesJSON = (JSONArray) planJSON.get("electiveChoices");
+        ArrayList<Course> electiveCourses = parseCoursesArray(electiveChoicesJSON, coursesMap);
+        plan.setElectiveCourses(electiveCourses);
+    
         return plan;
     }
     
@@ -370,6 +370,9 @@ public class DataLoader extends DataConstants {
             System.out.println(student.toString());
             System.out.println();
         }
+         // Verify the size of the student list
+         int numberOfStudents = students.size();
+         System.out.println("Number of students loaded: " + numberOfStudents);
         
         // // Printing courses
         // System.out.println("\nCourses:");

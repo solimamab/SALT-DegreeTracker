@@ -1124,6 +1124,73 @@
     "FERPA": false,
     "advisorId": "d6939162-ca59-4c24-9bfa-d499f2eb9a89",
     "majorProgress": 25.5,
+    "currentCourses" : [
+      {
+        "id": "9583ee33-5e0b-43fe-9bc7-7ef3816da225",
+        "name": "Business Applications Programming",
+        "department": "CSCE",
+        "number": "205",
+        "description": "Introduction to computer applications in business. Programming exercises in COBOL.   CL: 2020.",
+        "creditHours": "3",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": [
+          ["377ddfb9-de27-4996-8f72-c86999f08c03", "D"],
+          ["0ee3fc1c-ec19-4637-aeb5-614577b6d22f", "D"]
+        ],
+        "corequisites": []
+      },
+      {
+        "id": "f9bc9ca2-9fe9-43eb-8444-2f0fc53da6c3",
+        "name": "Computer Hardware Foundations",
+        "department": "CSCE",
+        "number": "210",
+        "description": "Number representation, data formats, CPU and memory organization, assembly language, I/O and peripherals, computer networks. Students may not apply both CSCE 210 and CSCE 212 to any minor or major program of study.   FS: 11/04/2020.   CL: 2020.",
+        "creditHours": "3",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": [
+          ["2e2ebf3f-c4d3-4dae-956b-d8afa7fca627", "D"],
+          ["0ac7ca78-5ead-4438-ba85-3e0259eed7a8", "D"],
+          ["9583ee33-5e0b-43fe-9bc7-7ef3816da225", "D"],
+          ["8c8ef867-0825-4c06-a444-f44e633f5337", "D"],
+          ["65e390e4-6e40-464f-a5b2-05a27cce7111", "D"]
+        ],
+        "corequisites": []
+      },
+      {
+        "id": "730005f1-113d-446e-865c-31b46dfbc924",
+        "name": "Software Engineering",
+        "department": "CSCE",
+        "number": "247",
+        "description": "Fundamentals of software design and development; software implementation strategies; object-oriented design techniques; functional design techniques; design patterns; design process; source control; testing.    FS: 12/6/2017.   CL: 2020.",
+        "creditHours": "3",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": [["57eaa5d5-a439-43b1-87fc-2d3a4c0b9cd6", "C"]],
+        "corequisites": []
+      },
+      {
+        "id": "04c17131-ab1f-45f7-ac5e-a7d0091f41c7",
+        "name": "Introduction to Economics",
+        "department": "ECON",
+        "number": "224",
+        "description": "Introduction to economics principles for non-majors. Basics of supply and demand and government and monetary policy are covered in a non-technical manner. Not open to business or economics students. Credit not granted for both ECON 223 and ECON 221 or ECON 222.   CL: 2020.",
+        "creditHours": "3",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": [],
+        "corequisites": []
+      },
+      {
+        "id": "6091a7af-5cc3-4ef8-9061-a7ec4e996dcc",
+        "department": "SPCH",
+        "number": "140",
+        "name": "Public Communication",
+        "description": "Introduction to theory and practice of oral communication in public, social, and institutional contexts. Includes foundational and cumulative training in the invention, performance, and critical analysis of oral communication, with emphasis on argumentation, persuasion, audience analysis, delivery, and ethical forms of engagement.   CL: 2020.",
+        "creditHours": "3",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": [],
+        "corequisites": [],
+        "letterGrade": "A"
+      }
+    ],
     "completedCourses": [
       {
         "id": "12224407-e656-4fe7-9078-88f1d9dc8325",
@@ -1419,7 +1486,7 @@
             "id": "04c17131-ab1f-45f7-ac5e-a7d0091f41c7",
             "name": "Introduction to Economics",
             "department": "ECON",
-            "number": "223",
+            "number": "224",
             "description": "Introduction to economics principles for non-majors. Basics of supply and demand and government and monetary policy are covered in a non-technical manner. Not open to business or economics students. Credit not granted for both ECON 223 and ECON 221 or ECON 222.   CL: 2020.",
             "creditHours": "3",
             "availability": ["SPRING", "FALL"],
