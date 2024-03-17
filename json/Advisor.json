@@ -1,10 +1,10 @@
 [
     {
       "id" : "d6939162-ca59-4c24-9bfa-d499f2eb9a89",
-      "username": "OddenO1",
+      "username": "Bsmith",
       "password": "12345678",
-      "firstname": "Osbert",
-      "lastname": "Odden",
+      "firstname": "Bob",
+      "lastname": "Smith",
       "studentIDs" : ["88fd4cb0-6232-4891-a944-94ea8fe952c1"]
     }
 ]

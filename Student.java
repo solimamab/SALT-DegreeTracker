@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 /**
 * This is the student class that holds all the relevant information for each student
 * @author Team SALT
@@ -327,6 +330,30 @@ public class Student extends User{
             }
             
             return sb.toString();
+        }
+
+        //This method writes the eight semester plan of a student to a text file
+        public void writePlantoText(Student student)
+        {
+            try 
+            {
+                File myFile = new File("SemesterPlan.txt");
+                if (myFile.createNewFile()) 
+                {
+                    FileWriter myWriter = new FileWriter("SemesterPlan.txt");
+                    myWriter.write(student.getEightSemesterPlan().toString());
+                    myWriter.close();
+                } 
+                else 
+                {
+                    System.out.println("File already exists.");
+                }
+            } 
+            catch (IOException e) 
+            {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
         }
         
     }
