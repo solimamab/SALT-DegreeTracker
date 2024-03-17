@@ -60,6 +60,24 @@ public class EightSemesterPlan {
         }
     }
 
+
+    public ArrayList<Course> getAllCoursesInPlan() {
+        ArrayList<Course> allCourses = new ArrayList<>();
+
+        // Add all semester courses
+        for (ArrayList<Course> semesterCourses : semesters) {
+            allCourses.addAll(semesterCourses);
+        }
+
+        // Add application area courses
+        allCourses.addAll(applicationArea);
+
+        // Add elective choices
+        allCourses.addAll(electiveChoices);
+
+        return allCourses;
+    }
+
     // public void removeClassFromPlan(Course course) {
     //     classesInPlan.remove(course);
     // }
