@@ -120,6 +120,20 @@ public class UserList {
         return null; // Student not found
     }
     
+    /**
+     * Find a student by their first name and last name.
+     * @param firstName The first name of the student.
+     * @param lastName The last name of the student.
+     * @return The Student object if found, or null if not found.
+     */
+    public Student findStudentByName(String firstName, String lastName) {
+        for (Student student : listOfStudents) {
+            if (student.getFirstName().equals(firstName) && student.getLastName().equals(lastName)) {
+                return student;
+            }
+        }
+        return null; // Student not found
+    }
 }
 
 

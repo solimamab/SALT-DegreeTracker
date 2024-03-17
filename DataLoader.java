@@ -69,6 +69,7 @@ public class DataLoader extends DataConstants {
                 Course course = new Course(id, name, department, number, description, creditHours, availabilityList, prerequisites, null);
                 courseMap.put(id, course);
             }
+            reader.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -376,8 +377,8 @@ public class DataLoader extends DataConstants {
         // // Printing courses
         // System.out.println("\nCourses:");
         // for (Course course : coursesMap.values()) {
-        //                     System.out.println(course.toString());
-        //         }
+            //                     System.out.println(course.toString());
+            //         }
             
             // Printing advisors
             System.out.println("\nAdvisors:");
