@@ -148,7 +148,7 @@ public class DataWriter {
     private static JSONObject getEightSemesterPlanJSON(EightSemesterPlan eightSemesterPlan) {
         JSONObject planJSON = new JSONObject();
         JSONArray classesInPlanArray = new JSONArray();
-        for (Course course : eightSemesterPlan.getClassesInPlan()) {
+        for (Course course : eightSemesterPlan.getAllCoursesInPlan()) {
             JSONObject courseJSON = new JSONObject();
             courseJSON.put("id", course.getId().toString());
             courseJSON.put("name", course.getName());
