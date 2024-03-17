@@ -28,7 +28,7 @@ public class DataWriter {
 
     private static JSONObject getAdvisorJSON(Advisor advisor) {
         JSONObject jsonAdvisor = new JSONObject();
-        jsonAdvisor.put("id", advisor.getUserId().toString());
+        jsonAdvisor.put("id", advisor.getAdvisorID().toString());
         jsonAdvisor.put("username", advisor.getUsername());
         jsonAdvisor.put("password", advisor.getPassword());
         jsonAdvisor.put("firstname", advisor.getFirstName());
@@ -116,7 +116,7 @@ public class DataWriter {
 
     private static JSONObject getStudentJSON(Student student) {
         JSONObject jsonStudent = new JSONObject();
-        jsonStudent.put("id", student.getUserId().toString());
+        jsonStudent.put("id", student.getUUID().toString());
         jsonStudent.put("username", student.getUsername());
         jsonStudent.put("password", student.getPassword());
         jsonStudent.put("firstname", student.getFirstName());
@@ -129,7 +129,7 @@ public class DataWriter {
         jsonStudent.put("majorId", student.getMajor().getId().toString());
         jsonStudent.put("minor", student.getMinor());
         jsonStudent.put("FERPA", student.getFEPRA());
-        jsonStudent.put("advisorId", student.getAdvisor().getUserId().toString());
+        jsonStudent.put("advisorId", student.getAdvisor().getAdvisorID().toString());
 
         JSONArray completedCoursesArray = new JSONArray();
         for (CompletedCourse cc : student.getCompletedCourses()) {

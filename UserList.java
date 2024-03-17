@@ -106,7 +106,7 @@ public class UserList {
 
     public Advisor findAdvisor(UUID advisorId) {
         for (Advisor advisor : listOfAdvisors) {
-            if (advisor.getUserId().equals(advisorId)) {
+            if (advisor.getAdvisorID().equals(advisorId)) {
                 return advisor;
             }
         }

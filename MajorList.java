@@ -30,4 +30,5 @@ public class MajorList {
         }
         return null;
     }
+    
 }

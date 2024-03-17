@@ -275,11 +275,6 @@ public class Student extends User{
             System.out.println(applicationArea); 
         }
         
-        // need to implement logic here?
-        // i dont think we need to, we have a method similar to this in courselist
-        public Course courseSearch(String department, String number) {
-            return null;
-        }
         
         @Override
         public String toString() {
