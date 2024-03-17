@@ -1,3 +1,4 @@
+import java.util.UUID;
 
 /**
 * The UI for the scenerios provided 
@@ -52,7 +53,7 @@ public class DegreeTrackerUI
     
     public void scenario2() {
         // Create an advisor account
-        Advisor advisor = new Advisor(null, null, null, null, null, null);
+        Advisor advisor = new Advisor(UUID.randomUUID(),"OOdden","12345","Obsert","Odden",null);
         gradeSystemFACADE.createAdvisorAccount(advisor);
         System.out.println("New Advisor Account made for Obsert Odden");
         

@@ -22,8 +22,8 @@ public class Advisor extends User{
     public Advisor(UUID Advisorid, String username, String password, String firstname, String lastname, ArrayList<UUID> studentIDs) {
             super(username, password, firstname, lastname);
             this.id = Advisorid;
-            this.students = new ArrayList<>(studentIDs);
-            NumberofStudents = studentIDs.size();
+            this.students = studentIDs;
+            NumberofStudents = setNumofStudents(studentIDs);
             listOfALLStudents = users.getStudents();
             // if (users == null) {
             //     users = UserList.getInstance();
@@ -75,17 +75,28 @@ public class Advisor extends User{
         student.setFlag(flag);
     }
 
+    public int setNumofStudents(ArrayList<UUID> students)
+    {
+        if (students == null)
+            return 0;
+        else
+            return students.size();
+    }
+
     /**
      * To view the list of students that advisor is responsible for advising
      * @return the list of students that they are advising
      */
     public ArrayList<Student> viewAdvisingStudents() {
         ArrayList<Student> advisingStudents = new ArrayList<>();
+        if (students !=null)
+        {
         for (UUID studentId : students) {
             Student student = searchForStudent(studentId);
             if (student != null) {
                 advisingStudents.add(student);
             }
+        }
         }
         return advisingStudents;
     }
