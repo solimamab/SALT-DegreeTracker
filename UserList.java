@@ -15,7 +15,7 @@ public class UserList {
     /**
      * 
      */
-    private UserList() {
+    UserList() {
         try {
             courseMap = DataLoader.loadCourses();
             listOfStudents = (DataLoader.loadStudents(null) == null ? new ArrayList<>() : DataLoader.loadStudents(null));

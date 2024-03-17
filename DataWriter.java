@@ -1,5 +1,8 @@
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -103,7 +106,7 @@ public class DataWriter {
             jsonStudents.add(getStudentJSON(student));
         }
 
-        try (FileWriter file = new FileWriter(DataConstants.STUDENT_FILE_NAME)) {
+        try (FileWriter file = new FileWriter("tester.json")) { //DataConstants.STUDENT_FILE_NAME
             file.write(jsonStudents.toJSONString());
             file.flush();
         } catch (IOException e) {
@@ -173,5 +176,4 @@ public class DataWriter {
         }
         return coursesArray;
     }
-
 }
