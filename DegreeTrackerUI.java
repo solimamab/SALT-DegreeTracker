@@ -70,8 +70,8 @@ public class DegreeTrackerUI
             System.out.println("Student's Eight Semester Plan:\n" + studentEightSemesterPlan);
             
             // Add a note for the student 
-            advisor.setStudentNote(student, "advise to take the underwater basketweaving class");
-            System.out.println("Added note to students account to take this ultra spefic class that will not help them at all");
+            advisor.setStudentNote(student, "advise to declare STATS as student's application area");
+            //System.out.println("Added note to students account to take this ultra spefic class that will not help them at all");
         } else {
             System.out.println("Student not found.");
         }
