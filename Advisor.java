@@ -25,6 +25,9 @@ public class Advisor extends User{
             this.students = new ArrayList<>(studentIDs);
             NumberofStudents = studentIDs.size();
             listOfALLStudents = users.getStudents();
+            // if (users == null) {
+            //     users = UserList.getInstance();
+            // }
     }
 
     public UUID getAdvisorID()
@@ -37,12 +40,13 @@ public class Advisor extends User{
      * @return the student that matches that id number
      */ 
     public Student searchForStudent(UUID idNumber){
-        for(int i = 0; i < listOfALLStudents.size(); i++){
-             if(listOfALLStudents.get(i).getUUID().equals(idNumber)){
-                 return listOfALLStudents.get(i);
-             }
-        }
-        return null;
+        return users.findStudentById(idNumber);
+        // for(int i = 0; i < listOfALLStudents.size(); i++){
+        //      if(listOfALLStudents.get(i).getUUID().equals(idNumber)){
+        //          return listOfALLStudents.get(i);
+        //      }
+        // }
+        // return null;
      }
  
 
@@ -53,12 +57,13 @@ public class Advisor extends User{
      * @return the student that matches that id number
      */
     public Student searchForStudent(String firstName, String lastName){
-        for(int i = 0; i < listOfALLStudents.size(); i++){
-            if(listOfALLStudents.get(i).getFirstName().equals(firstName) && listOfALLStudents.get(i).getLastName().equals(lastName)){
-                return listOfALLStudents.get(i);
-            }
-        }
-        return null;
+        return users.findStudentByName(firstName, lastName);
+        // for(int i = 0; i < listOfALLStudents.size(); i++){
+        //     if(listOfALLStudents.get(i).getFirstName().equals(firstName) && listOfALLStudents.get(i).getLastName().equals(lastName)){
+        //         return listOfALLStudents.get(i);
+        //     }
+        // }
+        // return null;
     }
 
     /**

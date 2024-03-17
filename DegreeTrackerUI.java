@@ -13,17 +13,17 @@ public class DegreeTrackerUI
     }
     
     public void run() {
-        scenerio1();
-        //scenario2();
+        //scenerio1();
+        scenario2();
         //testingCourses();
     }
     
     public void scenerio1() {
         // Attempt to login as the student
-        // if (!gradeSystemFACADE.login("BWEST", "12345")) {
-        //     System.out.println("Sorry, we couldn't log in.");
-        //     return;
-        // }
+        if (!gradeSystemFACADE.login("BWest", "12345")) {
+            System.out.println("Sorry, we couldn't log in.");
+            return;
+        }
         
         // Display login success message
         System.out.println("Brax West is now logged in.");
@@ -52,7 +52,7 @@ public class DegreeTrackerUI
     
     public void scenario2() {
         // Create an advisor account
-        Advisor advisor = new Advisor(null, "OOdden", "12345", "Obsert", "Odden", null);
+        Advisor advisor = new Advisor(null, null, null, null, null, null);
         gradeSystemFACADE.createAdvisorAccount(advisor);
         System.out.println("New Advisor Account made for Obsert Odden");
         
@@ -62,11 +62,11 @@ public class DegreeTrackerUI
         
         // Look up a student by their ID
         // UUID studentID = gradeSystemFACADE.findStudent("HTawnie"); // UPDATE THIS WHEN WE IMPORT STUDENT'S DATA IN JSON FILE
-        Student student = gradeSystemFACADE.findStudent("HTawnie");
+        Student student = gradeSystemFACADE.findStudent("BWest");
         
         if (student != null) {
-            // Add the student to the advisor's list of students
-            advisor.addAdvisingStudent(student.getUUID());/// <--- WILL IMPLEMENT THIS TMRW
+            // // Add the student to the advisor's list of students
+            // advisor.addAdvisingStudent(student.getUUID());/// <--- WILL IMPLEMENT THIS TMRW
             
             // View the student's eight semester plan
             EightSemesterPlan studentEightSemesterPlan = gradeSystemFACADE.viewStudentsEightSemesterPlan(student);
