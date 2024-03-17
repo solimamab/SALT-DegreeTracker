@@ -63,7 +63,7 @@ public class DegreeTrackerUI
         
         // Look up a student by their ID
         // UUID studentID = gradeSystemFACADE.findStudent("HTawnie"); // UPDATE THIS WHEN WE IMPORT STUDENT'S DATA IN JSON FILE
-        Student student = gradeSystemFACADE.findStudent("BWest");
+        Student student = gradeSystemFACADE.findStudent("HTawnie");
         
         if (student != null) {
             // // Add the student to the advisor's list of students
