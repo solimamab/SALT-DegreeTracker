@@ -153,7 +153,7 @@ public class DataLoader extends DataConstants {
         ArrayList<CompletedCourse> completedCourses = new ArrayList<>();
         for (Object courseObj : completedCoursesJSON) {
             JSONObject courseJSON = (JSONObject) courseObj;
-            UUID courseId = UUID.fromString((String) courseJSON.get("courseId"));
+            UUID courseId = UUID.fromString((String) courseJSON.get("id"));
             Grade letterGrade = Grade.valueOf((String) courseJSON.get("letterGrade"));
             Course course = coursesMap.get(courseId);
             if (course != null) {

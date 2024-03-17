@@ -179,7 +179,7 @@ public class EightSemesterPlan {
 
     public void setSemesterCourses(int semester, ArrayList<Course> courses) {
         if (semester >= 1 && semester <= 8) {
-            this.semesters.set(semester - 1, courses);
+            this.semesters.set(semester, courses);
         } else {
             System.err.println("Invalid semester number: " + semester);
         }
@@ -219,7 +219,7 @@ public class EightSemesterPlan {
         }
         stringBuilder.append("Application Area Courses: ").append(applicationArea).append("\n");
         stringBuilder.append("Elective Choices: ").append(electiveChoices).append("\n");
-        stringBuilder.append("Major Progress: ").append(majorProgress).append("\n");
+        //stringBuilder.append("Major Progress: ").append(majorProgress).append("\n");
 
         return stringBuilder.toString();
     }

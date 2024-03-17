@@ -15,17 +15,399 @@
     "FERPA": false,
     "advisorId": "88fd4cb0-6232-4891-a944-94ea8fe952c1",
     "majorProgress": 32.5,
+    "currentCourses" : [
+      {
+        "id": "684f6d78-9f42-4e22-b447-7b15782007b3",
+        "department": "CSCE",
+        "number": "311",
+        "name": "Operating Systems",
+        "description": "Operating system structure and function; process implementation, scheduling, and synchronization; memory management; security; naming protection; resource allocation; network file systems.   FS:  12/02/2015.   CL: 2020.",
+        "creditHours": "3",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": [
+          ["39046cda-f913-4f9b-a002-f06e7c59f235", "D"],
+    
+          "f9bc9ca2-9fe9-43eb-8444-2f0fc53da6c3",
+          "dd218911-2c00-46b4-99fc-0aa909331369",
+          "D"
+        ],
+        "corequisites": []
+      },
+      {
+        "id": "d71f3a41-5b83-40b6-94a7-609b01ca2caa",
+        "department": "CSCE",
+        "number": "330",
+        "name": "Programming Language Structures",
+        "description": "Formal specification of syntax and semantics; structure of algorithms; list processing and string manipulation languages; statement types, control structures, and interfacing procedures.   FS: 09/14/2016.   CL: 2020.",
+        "creditHours": "3",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": [
+          ["39046cda-f913-4f9b-a002-f06e7c59f235", "D"],
+    
+          "a014f77a-2ac5-4f22-87d7-f0ab623dce64",
+          "928eb174-dea9-4b98-80b1-ac594c4360f8",
+          "27ade31b-23da-4c70-8b94-b73f5242229e",
+          "D"
+        ],
+        "corequisites": []
+      },
+      {
+        "id": "6c8202fd-b31b-4647-b551-b7f4dbf007a0",
+        "department": "CSCE",
+        "number": "350",
+        "name": "Data Structures and Algorithms",
+        "description": "Techniques for representing and processing information, including the use of lists, trees, and graphs; analysis of algorithms; sorting, searching, and hashing techniques.   FS: 12/07/2016.   CL: 2020.",
+        "creditHours": "3",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": [
+          ["39046cda-f913-4f9b-a002-f06e7c59f235", "D"],
+    
+          "a014f77a-2ac5-4f22-87d7-f0ab623dce64",
+          "928eb174-dea9-4b98-80b1-ac594c4360f8",
+          "27ade31b-23da-4c70-8b94-b73f5242229e",
+          "D"
+        ],
+        "corequisites": []
+      },
+      {
+        "id": "96cd3d5d-590a-4567-9cc3-787e03cc5140",
+        "department": "CSCE",
+        "number": "390",
+        "name": "Professional Issues in Computer Science and Engineering",
+        "description": "Professional issues in the information technology professions; history and social context of computing; professional responsibilities; privacy; intellectual property; risks and liabilities of computer-based systems.   FS: 04/02/2014.   CL: 2020.",
+        "creditHours": "1",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": [],
+        "corequisites": []
+      },
+      {
+        "id": "7100ca89-33cf-40da-acbe-84af49e92c3c",
+        "department": "ENGL",
+        "number": "462",
+        "name": "Technical Writing",
+        "description": "Preparation for and practice in types of writing important to scientists, engineers, and computer scientists, from brief technical letters to formal articles and reports.   FS: 06/06/2018.   CL: 2020.",
+        "creditHours": "3",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": [
+          ["12224407-e656-4fe7-9078-88f1d9dc8325", "D"],
+    
+          ["980e1056-4ed2-4459-b0e7-56d78eca5d73", "D"]
+        ],
+        "corequisites": []
+      },
+      {
+        "id": "86229990-45b3-48e6-b444-0b9db99e8a8c",
+        "name": "Database System Design",
+        "department": "CSCE",
+        "number": "520",
+        "description": "Database management systems; database design and implementation; security, integrity, and privacy.   CL: 2020.",
+        "creditHours": "3",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": [
+          ["39046cda-f913-4f9b-a002-f06e7c59f235", "D"],
+          ["0eed3ca4-5047-4cb0-8f44-d5d2a502e991", "D"]
+        ],
+        "corequisites": []
+      }
+    ],
     "completedCourses": [
       {
-        "courseId": "a5722aa5-ec7e-4bea-a526-a916bb80506d",
+        "id": "12224407-e656-4fe7-9078-88f1d9dc8325",
+        "department": "ENGL",
+        "number": "101",
+        "name": "Critical Reading and Composition",
+        "description": "Instruction in strategies for critically reading and analyzing literature and non-literary texts; structured, sustained practice in composing expository and analytical essays.   CL: 2020.",
+        "creditHours": "3",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": [],
+        "corequisites": [],
         "letterGrade": "A"
       },
       {
-        "courseId": "a5722aa5-ec7e-4bea-a526-a916bb80506d",
+        "id": "4bd274cb-260e-47a5-9893-203a3943d704",
+        "department": "MATH",
+        "number": "141",
+        "name": "Calculus I",
+        "description": "Functions, limits, derivatives, introduction to integrals, the Fundamental Theorem of Calculus, applications of derivatives and integrals. Four classroom hours and one laboratory hour per week.    CL: 2020.",
+        "creditHours": "4",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": [
+          ["2f85f19f-f6ba-490f-9bb2-a41b9199d74f", "C"],
+          ["84b21549-16e9-4117-978c-39a43fb665b2", "C"],
+          ["0c9c5c16-a478-44eb-89a1-1589750b8604", "C"],
+          "C"
+        ],
+        "corequisites": [],
         "letterGrade": "A"
       },
       {
-        "courseId": "a5722aa5-ec7e-4bea-a526-a916bb80506d",
+        "id": "2e2ebf3f-c4d3-4dae-956b-d8afa7fca627",
+        "department": "CSCE",
+        "number": "145",
+        "name": "Algorithmic Design I",
+        "description": "Problem-solving, algorithmic design, and programming. Three lectures and two laboratory hours per week.   FS: 12/04/2013.   CL: 2020.",
+        "creditHours": "4",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": [
+          "669e88d5-9009-4f74-85aa-e675ffaaaf12",
+          "84b21549-16e9-4117-978c-39a43fb665b2",
+          "D"
+        ],
+        "corequisites": [],
+        "letterGrade": "A"
+      },
+      {
+        "id": "3cca9c4e-a195-4759-a761-cfe09adb20b8",
+        "department": "CSCE",
+        "number": "190",
+        "name": "Computing in the Modern World",
+        "description": "An introduction to the field of computing: trends in computing technology, the profession, and careers; subdisciplines in computing; the nature of research and development.   CL: 2020.",
+        "creditHours": "1",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": [],
+        "corequisites": ["2e2ebf3f-c4d3-4dae-956b-d8afa7fca627"],
+        "letterGrade": "A"
+      },
+      {
+        "id": "277c57bf-d5b8-4a69-941f-0f494c30d99e",
+        "name": "Introduction to African-American Studies",
+        "department": "AFAM",
+        "number": "202",
+        "description": "Introduction to the analysis and discussion of creative works and traditions by and about African Americans through folklore, music, art, dance, and literature.",
+        "creditHours": 3,
+        "availability": ["Fall", "Spring"],
+        "prerequisites": [],
+        "corequisites": [],
+        "letterGrade": "A"
+      },
+      {
+        "id": "980e1056-4ed2-4459-b0e7-56d78eca5d73",
+        "department": "ENGL",
+        "number": "102",
+        "name": "Rhetoric and Composition",
+        "description": "Instruction and intensive practice in researching, analyzing, and composing written arguments about academic and public issues.   FS: 12/7/2016.   CL: 2020.",
+        "creditHours": "3",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": ["12224407-e656-4fe7-9078-88f1d9dc8325", "C"],
+        "corequisites": [],
+        "letterGrade": "A"
+      },
+      {
+        "id": "3d7aa3f8-bfb0-4f9e-af57-49818eacf9a6",
+        "department": "MATH",
+        "number": "142",
+        "name": "Calculus II",
+        "description": "Methods of integration, sequences and series, approximations.   Four classroom hours and one laboratory hour per week.   FS: 12/03/2014.   CL: 2020.",
+        "creditHours": "4",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": [["4bd274cb-260e-47a5-9893-203a3943d704", "C"], "C"],
+        "corequisites": [],
+        "letterGrade": "A"
+      },
+      {
+        "id": "a379a182-57c9-4b28-950d-35903009bce3",
+        "department": "CHEM",
+        "number": "111",
+        "name": "General Chemistry I",
+        "description": "Survey of the principles that underlie all chemistry with applications illustrating these principles.  Three lecture and one recitation hours per week.   FS: 12/02/2020.   CL: 2020.",
+        "creditHours": "3",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": [
+          "669e88d5-9009-4f74-85aa-e675ffaaaf12",
+          "84b21549-16e9-4117-978c-39a43fb665b2",
+          "f8e10b3a-146b-4d43-a3d8-647028c98641",
+          "4bd274cb-260e-47a5-9893-203a3943d704",
+          "D"
+        ],
+        "corequisites": ["b6bf4208-6933-4e10-a961-118f12d7acba"],
+        "letterGrade": "A"
+      },
+      {
+        "id": "b6bf4208-6933-4e10-a961-118f12d7acba",
+        "department": "CHEM",
+        "number": "111L",
+        "name": "General Chemistry I Lab",
+        "description": "Introduction to the principles and techniques of experimental chemistry with emphasis on formula investigations, equations, elementary statistics, and chemical reactivity.   FS: 12/02/2020.   CL: 2020.",
+        "creditHours": "1",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": [
+          "669e88d5-9009-4f74-85aa-e675ffaaaf12",
+          ["84b21549-16e9-4117-978c-39a43fb665b2", "D"],
+    
+          "a379a182-57c9-4b28-950d-35903009bce3",
+          "D"
+        ],
+        "corequisites": [],
+        "letterGrade": "A"
+      },
+      {
+        "id": "57eaa5d5-a439-43b1-87fc-2d3a4c0b9cd6",
+        "department": "CSCE",
+        "number": "146",
+        "name": "Algorithmic Design II",
+        "description": "Continuation of CSCE 145. Rigorous development of algorithms and computer programs; elementary data structures. Three lecture hours and two laboratory hours per week.   FS: 12/04/2013.   CL: 2020.",
+        "creditHours": "4",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": [
+          ["2e2ebf3f-c4d3-4dae-956b-d8afa7fca627", "C"],
+    
+          ["f8e10b3a-146b-4d43-a3d8-647028c98641", "C"],
+          ["4bd274cb-260e-47a5-9893-203a3943d704", "D"]
+        ],
+        "corequisites": [],
+        "letterGrade": "A"
+      },
+      {
+        "id": "9b9ea0d0-3574-44be-b6cf-1ef50ce2aa23",
+        "department": "CSCE",
+        "number": "215",
+        "name": "UNIX/Linux Fundamentals",
+        "description": "UNIX operating system, user-level system commands, and programming tools. UNIX scripting languages.   CL: 2020.",
+        "creditHours": "1",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": ["2e2ebf3f-c4d3-4dae-956b-d8afa7fca627", "D"],
+        "corequisites": [],
+        "letterGrade": "A"
+      },
+      {
+        "id": "789c6ed0-53e3-476c-8761-f08bf727d08c",
+        "department": "CSCE",
+        "number": "211",
+        "name": "Digital Logic Design",
+        "description": "Number systems, Boolean algebra, logic design, sequential machines.   CL: 2020.",
+        "creditHours": "3",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": ["4bd274cb-260e-47a5-9893-203a3943d704", "D"],
+        "corequisites": [],
+        "letterGrade": "A"
+      },
+      {
+        "id": "39046cda-f913-4f9b-a002-f06e7c59f235",
+        "department": "CSCE",
+        "number": "240",
+        "name": "Advanced Programming Techniques",
+        "description": "Pointers; memory management; advanced programming language structures: operator overloading, iterators, multiple inheritance, polymorphism, templates, virtual functions; Unix programming environment.   FS: 12/6/2017.   CL: 2020.",
+        "creditHours": "3",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": [
+          ["9b9ea0d0-3574-44be-b6cf-1ef50ce2aa23", "D"],
+    
+          "57eaa5d5-a439-43b1-87fc-2d3a4c0b9cd6",
+          "C"
+        ],
+        "corequisites": [],
+        "letterGrade": "A"
+      },
+      {
+        "id": "928eb174-dea9-4b98-80b1-ac594c4360f8",
+        "department": "MATH",
+        "number": "374",
+        "name": "Discrete Structures",
+        "description": "Propositional and predicate logic; proof techniques; recursion and recurrence relations; sets, combinatorics, and probability; functions, relations, and matrices; algebraic structures.   FS: 12/03/2014.   CL: 2020.",
+        "creditHours": "3",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": [
+          ["3d7aa3f8-bfb0-4f9e-af57-49818eacf9a6", "C"],
+    
+          ["57eaa5d5-a439-43b1-87fc-2d3a4c0b9cd6", "C"]
+        ],
+        "corequisites": [],
+        "letterGrade": "A"
+      },
+      {
+        "id": "66a95212-0d75-4fae-97ff-c3c76c29d47e",
+        "department": "CHEM",
+        "number": "112",
+        "name": "General Chemistry II",
+        "description": "Continuation of CHEM 111. Special emphasis on chemical equilibrium. Three lecture and one recitation hours per week.   FS: 12/07/2016.   CL: 2020.",
+        "creditHours": "3",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": [],
+        "corequisites": ["75764c82-d463-4fcf-a367-e7f925416456"],
+        "letterGrade": "A"
+      },
+      {
+        "id": "75764c82-d463-4fcf-a367-e7f925416456",
+        "department": "CHEM",
+        "number": "112L",
+        "name": "General Chemistry II Lab",
+        "description": "Continuation of CHEM 111L with emphasis on solution properties, kinetics, equilibrium, acids and bases, and qualitative analysis.   FS: 09/12/2013.   CL: 2020.",
+        "creditHours": "1",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": ["66a95212-0d75-4fae-97ff-c3c76c29d47e", "D"],
+        "corequisites": [],
+        "letterGrade": "A"
+      },
+      {
+        "id": "1e45ee57-74aa-47f0-ae20-46d973457505",
+        "department": "SPCH",
+        "number": "140",
+        "name": "Public Communication",
+        "description": "Introduction to theory and practice of oral communication in public, social, and institutional contexts. Includes foundational and cumulative training in the invention, performance, and critical analysis of oral communication, with emphasis on argumentation, persuasion, audience analysis, delivery, and ethical forms of engagement.   CL: 2020.",
+        "creditHours": "3",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": [],
+        "corequisites": [],
+        "letterGrade": "A"
+      },
+      {
+        "id": "dd218911-2c00-46b4-99fc-0aa909331369",
+        "department": "CSCE",
+        "number": "212",
+        "name": "Introduction to Computer Architecture",
+        "description": "Computer architecture, components. and organization; memory addressing; Input/Output; instruction sets; interrupts; assembly-language programming. Students may not apply both CSCE 210 and CSCE 212 to any minor or major program of study.   FS: 11/04/2020.   CL: 2020.",
+        "creditHours": "3",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": [],
+        "corequisites": [],
+        "letterGrade": "A"
+      },
+      {
+        "id": "730005f1-113d-446e-865c-31b46dfbc924",
+        "department": "CSCE",
+        "number": "247",
+        "name": "Software Engineering",
+        "description": "Fundamentals of software design and development; software implementation strategies; object-oriented design techniques; functional design techniques; design patterns; design process; source control; testing.    FS: 12/6/2017.   CL: 2020.",
+        "creditHours": "3",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": ["57eaa5d5-a439-43b1-87fc-2d3a4c0b9cd6", "C"],
+        "corequisites": [],
+        "letterGrade": "A"
+      },
+      {
+        "id": "07ab147e-a181-405d-aeec-3c153f2fe695",
+        "department": "GEOL",
+        "number": "101",
+        "name": "Introduction to the Earth",
+        "description": "Origin and nature of the earth with emphasis on internal processes and phenomena such as earthquakes, volcanoes, and mountain building; surface processes, including landform evolution.  Three lectures and three laboratory hours each week.   FS: 06/05/2019.   CL: 2020.",
+        "creditHours": "4",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": [],
+        "corequisites": [],
+        "letterGrade": "A"
+      },
+      {
+        "id": "f8b358bf-d69e-4aae-b10c-8dc98f1f651f",
+        "department": "MATH",
+        "number": "241",
+        "name": "Vector Calculus",
+        "description": "Vector algebra, geometry of three-dimensional space; lines, planes, and curves in space; polar, cylindrical, and spherical coordinate systems; partial differentiation, max-min theory; multiple and iterated integration, line integrals, and Green’s theorem in the plane.   FS: 12/03/2014.   CL: 2020.",
+        "creditHours": "3",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": [["3d7aa3f8-bfb0-4f9e-af57-49818eacf9a6", "C"]],
+        "corequisites": [],
+        "letterGrade": "A"
+      },
+      {
+        "id": "aa297d70-ee34-4cfa-b4a5-22e3a022c800",
+        "name": "Exploring Religion",
+        "department": "RELG",
+        "number": "101",
+        "description": "Beliefs and practices of the world\u0027s religions and the methods scholars use to study them.   FS: 02/03/2016.   CL: 2020.",
+        "creditHours": "3",
+        "availability": ["SPRING", "FALL"],
+        "prerequisites": [],
+        "corequisites": [],
         "letterGrade": "A"
       }
     ],
@@ -724,42 +1106,7 @@
           }
         ]
       }
-    ],
-    "currentCourses": [
-      {
-        "id": "e78f58c2-f07d-4b32-a6d3-141d63c329d5",
-        "name": "Course Name 10",
-        "department": "DEPT",
-        "number": "110",
-        "description": "Course description 10",
-        "creditHours": 3,
-        "availability": ["Fall", "Spring"],
-        "prerequisites": [],
-        "corequisites": []
-      },
-      {
-        "id": "5018afd6-00ff-482e-a12a-52211130e496",
-        "name": "Course Name 11",
-        "department": "DEPT",
-        "number": "111",
-        "description": "Course description 11",
-        "creditHours": 4,
-        "availability": ["Fall", "Spring"],
-        "prerequisites": [],
-        "corequisites": []
-      },
-      {
-        "id": "88fd4cb0-6232-4891-a944-94ea8fe952c1",
-        "name": "Course Name 12",
-        "department": "DEPT",
-        "number": "112",
-        "description": "Course description 12",
-        "creditHours": 3,
-        "availability": ["Fall", "Spring"],
-        "prerequisites": [],
-        "corequisites": []
-      }
-    ]    
+    ]  
   },
   {
     "id": "88fd4cb0-6232-4891-a944-94ea8fe952c1",

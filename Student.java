@@ -60,7 +60,7 @@ public class Student extends User{
         this.FERPA = FERPA;
         this.advisor = UserList.getInstance().findAdvisor(advisorId);
         this.eightSemesterPlan = eightSemesterPlan;
-        this.currentCourses = new ArrayList<>();
+        this.currentCourses = currentCourses;
         this.completedCourses = completedCourses;
         this.majorProgress = majorProgress;
         this.coursesMap = DataLoader.loadCourses();
@@ -304,6 +304,26 @@ public class Student extends User{
                 sb.append(this.eightSemesterPlan.toString());
             } else {
                 sb.append("No Eight Semester Plan available.\n");
+            }
+            
+            // Including Current Courses
+            sb.append("Current Courses:\n");
+            if (!currentCourses.isEmpty()) {
+                for (Course course : currentCourses) {
+                    sb.append(course).append("\n");
+                }
+            } else {
+                sb.append("No current courses.\n");
+            }
+            
+            // Including Completed Courses with Letter Grades
+            sb.append("Completed Courses:\n");
+            if (!completedCourses.isEmpty()) {
+                for (CompletedCourse course : completedCourses) {
+                    sb.append(course).append(" (Grade: ").append(course.getLetterGrade()).append(")\n");
+                }
+            } else {
+                sb.append("No completed courses.\n");
             }
             
             return sb.toString();
