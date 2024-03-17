@@ -69,6 +69,7 @@ public class DataLoader extends DataConstants {
                 Course course = new Course(id, name, department, number, description, creditHours, availabilityList, prerequisites, null);
                 courseMap.put(id, course);
             }
+            reader.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -84,7 +85,7 @@ public class DataLoader extends DataConstants {
     * @return A list of Student objects.
     */
     public static ArrayList<Student> loadStudents(HashMap<UUID, Course> coursesMap) {
-        ArrayList<Student> students = new ArrayList<>();
+        ArrayList<Student> students = new ArrayList<Student>();
         
         try {
             FileReader reader = new FileReader(STUDENT_FILE_NAME);
@@ -139,7 +140,6 @@ public class DataLoader extends DataConstants {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
         return students;
     }
     
@@ -351,8 +351,6 @@ public class DataLoader extends DataConstants {
                 Advisor advisor = new Advisor(id, username, password, firstname, lastname, studentIDs);
                 advisors.add(advisor);
             }
-            
-            reader.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

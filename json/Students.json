@@ -1148,8 +1148,7 @@
         "prerequisites": [
           ["2f85f19f-f6ba-490f-9bb2-a41b9199d74f", "C"],
           ["84b21549-16e9-4117-978c-39a43fb665b2", "C"],
-          ["0c9c5c16-a478-44eb-89a1-1589750b8604", "C"],
-          "C"
+          ["0c9c5c16-a478-44eb-89a1-1589750b8604", "C"]
         ],
         "corequisites": [],
         "letterGrade": "A"
@@ -1271,8 +1270,7 @@
             "prerequisites": [
               ["2f85f19f-f6ba-490f-9bb2-a41b9199d74f", "C"],
               ["84b21549-16e9-4117-978c-39a43fb665b2", "C"],
-              ["0c9c5c16-a478-44eb-89a1-1589750b8604", "C"],
-              "C"
+              ["0c9c5c16-a478-44eb-89a1-1589750b8604", "C"]
             ],
             "corequisites": []
           },
@@ -1762,7 +1760,7 @@
             "name": "Exploring Religion",
             "department": "RELG",
             "number": "101",
-            "description": "Beliefs and practices of the world\u0027s religions and the methods scholars use to study them.   FS: 02/03/2016.   CL: 2020.",
+            "description": "Beliefs and practices of the worlds religions and the methods scholars use to study them.   FS: 02/03/2016.   CL: 2020.",
             "creditHours": "3",
             "availability": ["SPRING", "FALL"],
             "prerequisites": [],
