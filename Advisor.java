@@ -22,7 +22,7 @@ public class Advisor extends User{
     public Advisor(UUID Advisorid, String username, String password, String firstname, String lastname, ArrayList<UUID> studentIDs) {
             super(username, password, firstname, lastname);
             this.id = Advisorid;
-            this.students = studentIDs;
+            this.students = new ArrayList<>(studentIDs);
             NumberofStudents = studentIDs.size();
             listOfALLStudents = users.getStudents();
     }

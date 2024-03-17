@@ -81,7 +81,7 @@ public class DegreeTrackerUI
 
     // Method for testing courses
     public void testingCourses() {
-        Course course = gradeSystemFACADE.findCourse("CSCE", "240");
+        Course course = gradeSystemFACADE.findCourse("SPCH", "140");
         System.out.println(course.toString());
     }
     
