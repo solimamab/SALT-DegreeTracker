@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class EightSemesterPlan {
     private ArrayList<ArrayList<Course>> semesters;
-    private static CourseList courseList = CourseList.getInstance();
+    //private static CourseList courseList = CourseList.getInstance();
     private ArrayList<Course> applicationArea;
     private ArrayList<Course> electiveChoices;
     private double majorProgress;

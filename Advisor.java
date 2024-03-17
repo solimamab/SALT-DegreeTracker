@@ -4,6 +4,7 @@ import java.util.UUID;
  * The class that has the advisor methods and logic
  */
 public class Advisor extends User{
+    private UUID id;
     private ArrayList<UUID> students;
     private int NumberofStudents;
     private static UserList users = UserList.getInstance();
@@ -18,11 +19,17 @@ public class Advisor extends User{
      * @param lastname - the advisors last name
      * @param studentIDs - the ids of the students that the advisor is responsible
      */
-    public Advisor(UUID id, String username, String password, String firstname, String lastname, ArrayList<UUID> studentIDs) {
-            super(id,username, password, firstname, lastname);
+    public Advisor(UUID Advisorid, String username, String password, String firstname, String lastname, ArrayList<UUID> studentIDs) {
+            super(username, password, firstname, lastname);
+            this.id = Advisorid;
             this.students = studentIDs;
             NumberofStudents = studentIDs.size();
             listOfALLStudents = users.getStudents();
+    }
+
+    public UUID getAdvisorID()
+    {
+        return this.id;
     }
     /** 
      * Search for student by the id number of the student
@@ -108,7 +115,7 @@ public class Advisor extends User{
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Advisor ID: ").append(getUserId()).append("\n");
+        sb.append("Advisor ID: ").append(getAdvisorID()).append("\n");
         sb.append("Username: ").append(getUsername()).append("\n");
         sb.append("Password: ").append(getPassword()).append("\n");
         sb.append("First Name: ").append(getFirstName()).append("\n");

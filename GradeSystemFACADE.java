@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.UUID;
 public class GradeSystemFACADE {
 
@@ -90,12 +90,6 @@ public class GradeSystemFACADE {
 
     public EightSemesterPlan viewEightSemesterPlan(EightSemesterPlan eightSemesterPlan) {
         return eightSemesterPlan;
-    }
-
-
-
-    public ArrayList<Course> chooseApplicationArea(ArrayList<Course> applicationArea) {
-        return new ArrayList<>();
     }
 
     // Methods below are for scenario 2

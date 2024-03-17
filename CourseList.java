@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -52,8 +52,8 @@ public class CourseList {
     //     return null;
     // }
 
-    public Course addCourse(Course course) {
-        return new Course(null, null, null, null, null, 0, null, null, null);
+    public void addCourse(Course course) {
+        courseList.listOfCourses.put(course.getId(), course);
     }
 
     // public void saveCourses() {

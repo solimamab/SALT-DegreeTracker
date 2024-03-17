@@ -3,7 +3,6 @@ import java.util.ArrayList;
 public class ElectiveChoices {
     private CourseList electiveChoices = CourseList.getInstance();
     private ArrayList<Course> elecetivesChoosen;
-    private int numCredits;
     private ArrayList<String> RequirementsNeeded;
     private ArrayList<String> RequirementsDone;
     private ArrayList<String> RequirementsToDo;

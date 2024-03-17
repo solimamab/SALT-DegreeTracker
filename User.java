@@ -1,4 +1,3 @@
-import java.util.UUID;
 
 /**
  * User class
@@ -8,7 +7,6 @@ public class User {
     private String password;
     private String firstName;
     private String lastName;
-    private UUID id;
     private boolean loggedIn;
 
     /**
@@ -23,17 +21,8 @@ public class User {
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.id = UUID.randomUUID(); // Generate a random UUID
     }
 
-    public User(UUID id,String username,String password,String firstName, String lastName )
-    {
-        this.username = username;
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.id = id;
-    }
     /**
      * Gets user's username
      * @return
@@ -46,10 +35,8 @@ public class User {
      * Getters for the User Class
      * @return Strings that respresent the appropriate attribute
      */
-    public String getUserId() {
-        return id.toString();
-    }
 
+    
     public String getPassword() {
         return password;
     }
