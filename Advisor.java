@@ -106,8 +106,18 @@ public class Advisor extends User{
      * @param student - The student to be added to the list
      */
     public void addAdvisingStudent(UUID student){
-        students.add(student);
-        NumberofStudents++;
+        if(students == null)
+        {
+            students = new ArrayList<UUID>();
+            students.add(student);
+            NumberofStudents++;
+        }
+        else
+        {
+            students.add(student);
+            NumberofStudents++;
+        }
+
     }
 
     /**
@@ -140,7 +150,8 @@ public class Advisor extends User{
         sb.append("Students Advised:\n");
         ArrayList<Student> advisedStudents = viewAdvisingStudents();
         for (Student student : advisedStudents) {
-            sb.append(student.toString()).append("\n");
+            sb.append(student.getFirstName().toString());
+            sb.append(student.getLastName().toString()).append("\n");
         }
         return sb.toString();
     }

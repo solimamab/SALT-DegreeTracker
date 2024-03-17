@@ -59,7 +59,7 @@ public class DegreeTrackerUI
         
         // Display advisor details
         String advisorDetails = gradeSystemFACADE.viewAdvisorDetails(advisor);
-        System.out.println("Advisor Details:\n" + advisorDetails);
+        System.out.println("Before Adding student\n Advisor Details:\n" + advisorDetails);
         
         // Look up a student by their ID
         // UUID studentID = gradeSystemFACADE.findStudent("HTawnie"); // UPDATE THIS WHEN WE IMPORT STUDENT'S DATA IN JSON FILE
@@ -67,7 +67,11 @@ public class DegreeTrackerUI
         
         if (student != null) {
             // // Add the student to the advisor's list of students
-            // advisor.addAdvisingStudent(student.getUUID());/// <--- WILL IMPLEMENT THIS TMRW
+            advisor.addAdvisingStudent(student.getUUID());/// <--- WILL IMPLEMENT THIS TMRW
+
+            // Display advisor details
+            String Details = gradeSystemFACADE.viewAdvisorDetails(advisor);
+            System.out.println("After Adding student\n Advisor Details:\n" + Details);
             
             // View the student's eight semester plan
             EightSemesterPlan studentEightSemesterPlan = gradeSystemFACADE.viewStudentsEightSemesterPlan(student);
@@ -75,6 +79,7 @@ public class DegreeTrackerUI
             
             // Add a note for the student 
             advisor.setStudentNote(student, "advise to take the underwater basketweaving class");
+            System.out.println("Added note to students account to take this ultra spefic class that will not help them at all");
         } else {
             System.out.println("Student not found.");
         }
