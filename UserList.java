@@ -7,46 +7,39 @@ import java.util.UUID;
  * @author abhinavk
  */
 public class UserList {
-    private static UserList userList = null;
+    private static volatile UserList userList = null;
     private static ArrayList<Student> listOfStudents;
     private static ArrayList<Advisor> listOfAdvisors;
     private static HashMap<UUID, Course> courseMap;
 
     /**
-     * 
+     * Constructor to create an Instance of the UserList
      */
-    UserList() {
+    private UserList() {
         try {
             courseMap = DataLoader.loadCourses();
-            listOfStudents = (DataLoader.loadStudents(null) == null ? new ArrayList<>() : DataLoader.loadStudents(null));
-            listOfAdvisors = (DataLoader.loadAdvisors() == null ? new ArrayList<>(): DataLoader.loadAdvisors());
+            listOfStudents = DataLoader.loadStudents(courseMap);
+            listOfAdvisors = DataLoader.loadAdvisors();
         } catch (Exception e) {
+            // Handle exception gracefully
             e.printStackTrace();
-            // listOfStudents = new ArrayList<>();
-            // listOfAdvisors = new ArrayList<>();
-            // courseMap = new HashMap<>();
+            listOfStudents = new ArrayList<>();
+            listOfAdvisors = new ArrayList<>();
+            courseMap = new HashMap<>();
         }
     }
 
     /**
-     * 
-     * @param students
-     * @param advisors
-     * @param courseMap
-     */
-    private UserList(ArrayList<Student> students, ArrayList<Advisor> advisors, HashMap<UUID, Course> courseMap) {
-        listOfStudents = students;
-        listOfAdvisors = advisors;
-        this.courseMap = courseMap;
-    }
-
-    /**
-     * Gets the instance to make the userlist static
-     * @return the userlist
+     * Singleton Instance of UserList
+     * @return the userList
      */
     public static UserList getInstance() {
         if (userList == null) {
-            userList = new UserList();
+            synchronized (UserList.class) {
+                if (userList == null) {
+                    userList = new UserList();
+                }
+            }
         }
         return userList;
     }

@@ -1,6 +1,6 @@
 [
   {
-    "id": "88fd4cb0-6232-4891-a944-94ea8fe952c1",
+    "id": "088079fa-f935-42ad-8de1-c479c7dc40ad",
     "username": "BWest",
     "password": "12345",
     "firstname": "Brax",
@@ -10,10 +10,10 @@
     "remainingCreditHours": 113,
     "flag": "None",
     "overallGPA": 3.0,
-    "majorId": "a5722aa5-ec7e-4bea-a526-a916bb80506d",
+    "majorId": "8c9e49df-95a1-4b7a-a189-02d4d225f10e",
     "minor": "Math",
     "FERPA": false,
-    "advisorId": "88fd4cb0-6232-4891-a944-94ea8fe952c1",
+    "advisorId": "4db3c38f-f8c5-4011-9595-54c9750a4a8c",
     "majorProgress": 32.5,
     "currentCourses" : [
       {
@@ -1109,7 +1109,7 @@
     ]  
   },
   {
-    "id": "88fd4cb0-6232-4891-a944-94ea8fe952c1",
+    "id": "e963a44f-cde6-4ff6-8390-a9da90733325",
     "username": "HTawnie",
     "password": "asdf",
     "firstname": "Tawnie",
@@ -1119,8 +1119,8 @@
     "remainingCreditHours": 113,
     "flag": "None",
     "overallGPA": 3.5,
-    "majorId": "a5722aa5-ec7e-4bea-a526-a916bb80506f",
-    "minor": "Math",
+    "majorId": "058dd72e-36f2-42d3-8e43-70f866e0e9b2",
+    "minor": "Busniness",
     "FERPA": false,
     "advisorId": "d6939162-ca59-4c24-9bfa-d499f2eb9a89",
     "majorProgress": 25.5,

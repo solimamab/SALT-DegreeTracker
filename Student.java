@@ -61,12 +61,12 @@ public class Student extends User{
         this.major = MajorList.getInstance().findMajor(majorId);
         this.minor = minor;
         this.FERPA = FERPA;
-        this.advisor = UserList.getInstance().findAdvisor(advisorId);
+        this.advisor = advisor;
         this.eightSemesterPlan = eightSemesterPlan;
         this.currentCourses = currentCourses;
         this.completedCourses = completedCourses;
         this.majorProgress = majorProgress;
-        this.coursesMap = DataLoader.loadCourses();
+        this.coursesMap = coursesMap;
         this.AdvisorNote = " ";
     }
     

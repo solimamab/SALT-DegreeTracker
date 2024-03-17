@@ -8,7 +8,7 @@ public class MajorList {
     private HashMap<UUID, Major> majorMap;
 
     private MajorList() {
-        this.availableMajors = new ArrayList<>();
+        this.availableMajors = DataLoader.loadMajors(null);
         this.majorMap = new HashMap<>();
     }
 
