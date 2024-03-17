@@ -32,8 +32,11 @@ public class DataWriter {
         jsonAdvisor.put("lastname", advisor.getLastName());
 
         JSONArray studentIDs = new JSONArray();
-        for (UUID studentID : advisor.getStudents()) {
-            studentIDs.add(studentID.toString());
+        for (Student student : advisor.viewAdvisingStudents()) {
+            // Now you can use the student variable, which is of type Student
+            // Example:
+            UUID studentId = student.getUUID(); // Assuming there is a method getUUID() in Student class
+            // Do something with studentId or student
         }
         jsonAdvisor.put("studentIDs", studentIDs);
 
