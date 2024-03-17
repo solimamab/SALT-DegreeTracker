@@ -25,7 +25,6 @@ public class DegreeTrackerUI
             System.out.println("Sorry, we couldn't log in.");
             return;
         }
-        
         // Display login success message
         System.out.println("Brax West is now logged in.");
         
@@ -40,11 +39,6 @@ public class DegreeTrackerUI
         EightSemesterPlan eightSemesterPlan = gradeSystemFACADE.viewEightSemesterPlan(loggedInStudent.getEightSemesterPlan());
         System.out.println("Eight Semester Plan:\n" + eightSemesterPlan);
         
-        // code for looking at elective requirements and picking a class to staify
-
-
-        // code for choosing an application area 
-
         // code for printing schedule to a text file 
         gradeSystemFACADE.writePlantoTextFile(loggedInStudent);
 
@@ -61,14 +55,12 @@ public class DegreeTrackerUI
         String advisorDetails = gradeSystemFACADE.viewAdvisorDetails(advisor);
         System.out.println("Before Adding student\n Advisor Details:\n" + advisorDetails);
         
-        // Look up a student by their ID
-        // UUID studentID = gradeSystemFACADE.findStudent("HTawnie"); // UPDATE THIS WHEN WE IMPORT STUDENT'S DATA IN JSON FILE
+        // Look up a student by username
         Student student = gradeSystemFACADE.findStudent("HTawnie");
         
         if (student != null) {
             // // Add the student to the advisor's list of students
-            advisor.addAdvisingStudent(student.getUUID());/// <--- WILL IMPLEMENT THIS TMRW
-
+            advisor.addAdvisingStudent(student.getUUID());
             // Display advisor details
             String Details = gradeSystemFACADE.viewAdvisorDetails(advisor);
             System.out.println("After Adding student\n Advisor Details:\n" + Details);
