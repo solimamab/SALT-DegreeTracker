@@ -7,29 +7,29 @@ public class DegreeTrackerUI
 {
     private GradeSystemFACADE gradeSystemFACADE;
     
-    public DegreeTrackerUI() {
-        gradeSystemFACADE = GradeSystemFACADE.getFacadeInstance();
+    public DegreeTrackerUI(GradeSystemFACADE gradeSystemFACADE) {
+        this.gradeSystemFACADE = gradeSystemFACADE;
         
     }
     
     public void run() {
         scenerio1();
-       scenario2();
+        //scenario2();
         //testingCourses();
     }
     
     public void scenerio1() {
         // Attempt to login as the student
-        if (!gradeSystemFACADE.login("BWEST", "12345")) {
-            System.out.println("Sorry, we couldn't log in.");
-            return;
-        }
+        // if (!gradeSystemFACADE.login("BWEST", "12345")) {
+        //     System.out.println("Sorry, we couldn't log in.");
+        //     return;
+        // }
         
         // Display login success message
         System.out.println("Brax West is now logged in.");
         
         // Find the logged-in student
-        Student loggedInStudent = gradeSystemFACADE.findStudent("BWEST");
+        Student loggedInStudent = gradeSystemFACADE.findStudent("BWest");
         
         // Display student details
         String studentDetails = gradeSystemFACADE.viewStudentDetails(loggedInStudent);
@@ -86,7 +86,16 @@ public class DegreeTrackerUI
     }
     
     public static void main(String args[]) {
-        DegreeTrackerUI UI = new DegreeTrackerUI();
+        // Instantiate UserList, CourseList, and MajorList
+        UserList userList = UserList.getInstance();
+        CourseList courseList = CourseList.getInstance();
+        MajorList majorList = MajorList.getInstance();
+
+        // Create GradeSystemFACADE instance using constructor injection
+        GradeSystemFACADE gradeSystemFACADE = GradeSystemFACADE.getFacadeInstance(userList, courseList, majorList);
+
+        // Pass GradeSystemFACADE instance to DegreeTrackerUI constructor
+        DegreeTrackerUI UI = new DegreeTrackerUI(gradeSystemFACADE);
         UI.run();
     }
 }

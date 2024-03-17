@@ -76,8 +76,8 @@ public class DataWriter {
         }
         jsonCourse.put("availability", availability);
 
-        jsonCourse.put("prerequisiteID", getPrerequisiteJSON(course.getPrerequisite()));
-        jsonCourse.put("corequisiteID", getCorequisiteJSON(course.getCorequisite()));
+        jsonCourse.put("prerequisites", getPrerequisiteJSON(course.getPrerequisite()));
+        jsonCourse.put("corequisites", getCorequisiteJSON(course.getCorequisite()));
 
         return jsonCourse;
     }
@@ -143,11 +143,12 @@ public class DataWriter {
 
         // Assuming EightSemesterPlan and currentCourses serialization methods are similar and implemented
         jsonStudent.put("eightSemesterPlan", getEightSemesterPlanJSON(student.getEightSemesterPlan()));
-        jsonStudent.put("currentCoursesIDs", getCurrentCoursesIDsJSON(student.getCurrentCourses()));
+        jsonStudent.put("currentCourses", getCurrentCoursesIDsJSON(student.getCurrentCourses()));
 
         return jsonStudent;
     }
 
+    // this method needs to be reworked bc we changed the structure of the ESM
     private static JSONObject getEightSemesterPlanJSON(EightSemesterPlan eightSemesterPlan) {
         JSONObject planJSON = new JSONObject();
         JSONArray classesInPlanArray = new JSONArray();

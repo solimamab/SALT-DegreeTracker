@@ -3,28 +3,54 @@ import java.util.UUID;
 public class GradeSystemFACADE {
 
     private static GradeSystemFACADE facade;
-    private UserList userList = UserList.getInstance();
+    private UserList userList;
     private User currentUser;
-    private CourseList courseList = CourseList.getInstance();
-    private MajorList majorList = MajorList.getInstance();
+    private CourseList courseList;
+    private MajorList majorList;
     
 
-    /**
-     * Private constructor to prevent direct instantiation
-     */
-    private GradeSystemFACADE() {
-        this.currentUser = new User("asmith", "12345", "Amy", "Smith");
+    private GradeSystemFACADE(UserList userList, CourseList courseList, MajorList majorList) {
+        this.userList = userList;
+        this.courseList = courseList;
+        this.majorList = majorList;
+        this.currentUser = new User("BWest", "12345", "Brax", "West");
     }
 
-    /**
-     * Get the singleton instance
-     */
-    public static GradeSystemFACADE getFacadeInstance() {
+    public static GradeSystemFACADE getFacadeInstance(UserList userList, CourseList courseList, MajorList majorList) {
         if (facade == null) {
-            facade = new GradeSystemFACADE();
+            facade = new GradeSystemFACADE(userList, courseList, majorList);
         }
         return facade;
     }
+
+
+    public void setUserList(UserList userList) {
+        this.userList = userList;
+    }
+
+    public void setCourseList(CourseList courseList) {
+        this.courseList = courseList;
+    }
+
+    public void setMajorList(MajorList majorList) {
+        this.majorList = majorList;
+    }
+    // /**
+    //  * Private constructor to prevent direct instantiation
+    //  */
+    // private GradeSystemFACADE() {
+    //     this.currentUser = new User("asmith", "12345", "Amy", "Smith");
+    // }
+
+    // /**
+    //  * Get the singleton instance
+    //  */
+    // public static GradeSystemFACADE getFacadeInstance() {
+    //     if (facade == null) {
+    //         facade = new GradeSystemFACADE();
+    //     }
+    //     return facade;
+    // }
 
     /**
      * This method is to search through the course list and find a course by department and number
@@ -84,6 +110,7 @@ public class GradeSystemFACADE {
         if (user instanceof Student) {
             return (Student) user;
         } else {
+            System.out.println("User with username " + username + " is not a Student or doesn't exist.");
             return null;
         }
     }    
