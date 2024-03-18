@@ -18,7 +18,7 @@ public class DataWriter {
             jsonAdvisors.add(getAdvisorJSON(advisor));
         }
 
-        try (FileWriter file = new FileWriter(DataConstants.ADVISOR_FILE_NAME)) {
+        try (FileWriter file = new FileWriter("tester_advisor.json")) {
             file.write(jsonAdvisors.toJSONString());
             file.flush();
         } catch (IOException e) {
@@ -106,7 +106,7 @@ public class DataWriter {
             jsonStudents.add(getStudentJSON(student));
         }
 
-        try (FileWriter file = new FileWriter("tester.json")) { //DataConstants.STUDENT_FILE_NAME
+        try (FileWriter file = new FileWriter(DataConstants.STUDENT_FILE_NAME)) { //DataConstants.STUDENT_FILE_NAME
             file.write(jsonStudents.toJSONString());
             file.flush();
         } catch (IOException e) {
@@ -177,4 +177,12 @@ public class DataWriter {
         }
         return coursesArray;
     }
+
+    public static void main(String args[]) {
+        // Instantiate UserList, CourseList, and MajorList
+        UserList userList = UserList.getInstance();
+        ArrayList<Advisor> advisors = userList.getAdvisors();
+        saveAdvisors(advisors);
+    }
+
 }
