@@ -8,7 +8,6 @@ public class Advisor extends User{
     private ArrayList<UUID> students;
     private int NumberofStudents;
     private static UserList users = UserList.getInstance();
-   //private ArrayList<Student> listOfALLStudents;
     
     /**
      * The Constructor used for the JSON files to enter advisors
@@ -24,10 +23,6 @@ public class Advisor extends User{
             this.id = Advisorid;
             this.students = studentIDs;
             NumberofStudents = setNumofStudents(studentIDs);
-            //listOfALLStudents = users.getStudents();
-            // if (users == null) {
-            //     users = UserList.getInstance();
-            // }
     }
 
     public UUID getAdvisorID()
@@ -41,12 +36,6 @@ public class Advisor extends User{
      */ 
     public Student searchForStudent(UUID idNumber){
         return users.findStudentById(idNumber);
-        // for(int i = 0; i < listOfALLStudents.size(); i++){
-        //      if(listOfALLStudents.get(i).getUUID().equals(idNumber)){
-        //          return listOfALLStudents.get(i);
-        //      }
-        // }
-        // return null;
      }
  
 
@@ -58,12 +47,6 @@ public class Advisor extends User{
      */
     public Student searchForStudent(String firstName, String lastName){
         return users.findStudentByName(firstName, lastName);
-        // for(int i = 0; i < listOfALLStudents.size(); i++){
-        //     if(listOfALLStudents.get(i).getFirstName().equals(firstName) && listOfALLStudents.get(i).getLastName().equals(lastName)){
-        //         return listOfALLStudents.get(i);
-        //     }
-        // }
-        // return null;
     }
 
     /**
