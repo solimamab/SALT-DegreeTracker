@@ -1,3 +1,4 @@
+import java.util.Scanner;
 import java.util.UUID;
 
 /**
@@ -6,43 +7,39 @@ import java.util.UUID;
 */
 public class DegreeTrackerUI
 {
-    private GradeSystemFACADE gradeSystemFACADE;
-    
+    private static GradeSystemFACADE gradeSystemFACADE;
+    private static Scanner scanner = new Scanner(System.in);
+
     public DegreeTrackerUI(GradeSystemFACADE gradeSystemFACADE) {
         this.gradeSystemFACADE = gradeSystemFACADE;
         
     }
     
     public void run() {
-        //scenerio1();
-        scenario2();
+        scenerio1();
+        //scenario2();
         //testingCourses();
     }
     
-    public void scenerio1() {
-        // Attempt to login as the student
-        if (!gradeSystemFACADE.login("BWest", "12345")) {
-            System.out.println("Sorry, we couldn't log in.");
-            return;
-        }
-        // Display login success message
-        System.out.println("Brax West is now logged in.");
-        
-        // Find the logged-in student
-        Student loggedInStudent = gradeSystemFACADE.findStudent("BWest");
-        
-        // Display student details
-        String studentDetails = gradeSystemFACADE.viewStudentDetails(loggedInStudent);
-        System.out.println("Student Details:\n" + studentDetails);
-        
-        // View the student's eight semester plan
-        EightSemesterPlan eightSemesterPlan = gradeSystemFACADE.viewEightSemesterPlan(loggedInStudent.getEightSemesterPlan());
-        System.out.println("Eight Semester Plan:\n" + eightSemesterPlan);
-        
-        // code for printing schedule to a text file 
-        gradeSystemFACADE.writePlantoTextFile(loggedInStudent);
+    public static void scenerio1() {
+        while (true) {
+            System.out.println("Please choose an option:\n1. Login\n2. Create Account\n3. Exit");
+            String option = scanner.nextLine();
 
-        
+            switch (option) {
+                case "1":
+                    login();
+                    break;
+                case "2":
+                    // Leave this for account creation implementation
+                    break;
+                case "3":
+                    System.exit(0);
+                default:
+                    System.out.println("Invalid option. Please try again.");
+                    break;
+            }
+        } 
     }
     
     public void scenario2() {
@@ -71,7 +68,7 @@ public class DegreeTrackerUI
             
             // Add a note for the student 
             advisor.setStudentNote(student, "advise to declare STATS as student's application area");
-            //System.out.println("Added note to students account to take this ultra spefic class that will not help them at all");
+            System.out.println("Added note to students account to take this ultra spefic class that will not help them at all");
         } else {
             System.out.println("Student not found.");
         }
@@ -82,6 +79,63 @@ public class DegreeTrackerUI
         Course course = gradeSystemFACADE.findCourse("SPCH", "140");
         System.out.println(course.toString());
     }
+
+    private static void login() {
+        System.out.println("Username:");
+        String username = scanner.nextLine();
+        System.out.println("Password:");
+        String password = scanner.nextLine();
+
+        if (!gradeSystemFACADE.login(username, password)) {
+            System.out.println("Sorry, we couldn't log in.");
+            return;
+        }
+
+        System.out.println(username + " is now logged in.");
+        Student loggedInStudent = gradeSystemFACADE.findStudent(username);
+        homeOptions(loggedInStudent);
+    }
+
+    private static void homeOptions(Student loggedInStudent) {
+        while (true) {
+            System.out.println("\nHome Options:\n1. Display Student Information\n2. View Eight Semester Plan\n3. Print Eight Semester Plan\n4. Logout");
+            String option = scanner.nextLine();
+
+            switch (option) {
+                case "1":
+                    displayStudentDetails(loggedInStudent);
+                    break;
+                case "2":
+                    viewEightSemesterPlan(loggedInStudent);
+                    break;
+                case "3":
+                    printEightSemesterPlan(loggedInStudent);
+                    break;
+                case "4":
+                    scenerio1();
+                    break;
+                default:
+                    System.out.println("Invalid option. Please try again.");
+                    break;
+            }
+        }
+    }
+
+    private static void displayStudentDetails(Student student) {
+        String studentDetails = gradeSystemFACADE.viewStudentDetails(student);
+        System.out.println("Student Details:\n" + studentDetails);
+    }
+
+    private static void viewEightSemesterPlan(Student student) {
+        EightSemesterPlan eightSemesterPlan = gradeSystemFACADE.viewEightSemesterPlan(student.getEightSemesterPlan());
+        System.out.println("Eight Semester Plan:\n" + eightSemesterPlan);
+    }
+
+    private static void printEightSemesterPlan(Student student) {
+        gradeSystemFACADE.writePlantoTextFile(student);
+        System.out.println("Eight Semester Plan printed to text file.");
+    }
+
     
     public static void main(String args[]) {
         // Instantiate UserList, CourseList, and MajorList
