@@ -24,7 +24,7 @@ public class Advisor extends User{
             this.id = Advisorid;
             this.students = studentIDs;
             NumberofStudents = setNumofStudents(studentIDs);
-            listOfALLStudents = users.getStudents();
+            //listOfALLStudents = users.getStudents();
             // if (users == null) {
             //     users = UserList.getInstance();
             // }
