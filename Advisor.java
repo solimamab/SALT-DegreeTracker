@@ -8,7 +8,7 @@ public class Advisor extends User{
     private ArrayList<UUID> students;
     private int NumberofStudents;
     private static UserList users = UserList.getInstance();
-    private ArrayList<Student> listOfALLStudents;
+   //private ArrayList<Student> listOfALLStudents;
     
     /**
      * The Constructor used for the JSON files to enter advisors
@@ -24,7 +24,7 @@ public class Advisor extends User{
             this.id = Advisorid;
             this.students = studentIDs;
             NumberofStudents = setNumofStudents(studentIDs);
-            listOfALLStudents = users.getStudents();
+            //listOfALLStudents = users.getStudents();
             // if (users == null) {
             //     users = UserList.getInstance();
             // }
