@@ -62,9 +62,9 @@ public class DegreeTrackerUI
             String Details = gradeSystemFACADE.viewAdvisorDetails(advisor);
             System.out.println("After Adding student\n Advisor Details:\n" + Details);
             
-            // View the student's eight semester plan
-            EightSemesterPlan studentEightSemesterPlan = gradeSystemFACADE.viewStudentsEightSemesterPlan(student);
-            System.out.println("Student's Eight Semester Plan:\n" + studentEightSemesterPlan);
+            // View the student's details
+            String studentDetails = gradeSystemFACADE.viewStudentDetails(student);
+            System.out.println("Student's Details:\n" + studentDetails);
             
             // Add a note for the student 
             advisor.setStudentNote(student, "advise to declare STATS as student's application area");
