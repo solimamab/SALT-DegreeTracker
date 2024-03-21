@@ -8,16 +8,11 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.UUID;
-import java.util.HashMap;
 
-/**
- * Test by Libaan
+/*
+ * Tested by Lee Moorman 
  */
 
-public class MajorListTest {
-
-    @Test
-    public void testConstructorId() {
-        
-    }
+public class CompletedCourseTest {
+    
 }

@@ -1,4 +1,3 @@
-// Assigned to Libaan
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.Before;
@@ -9,17 +8,16 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.UUID;
-/**
- * Test by Libaan
+
+/*
+ * Tested by Lee Moorman
  */
 
-public class MajorTest {
-    private String majorName = new String();
-    private ArrayList<Course> requiredCourses = new ArrayList<Course>();
-    private EightSemesterPlan defaultPlan = new EightSemesterPlan();
-   
+public class CourseTest {
+    private Course course;
+
     @Test
-    public void testConstructorId() {
-        
+    public void test(){
+
     }
 }
