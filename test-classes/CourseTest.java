@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.UUID;
 
 /*
@@ -14,10 +15,27 @@ import java.util.UUID;
  */
 
 public class CourseTest {
-    private Course course;
+    private UUID id;
+    private String name;
+    private String department;
+    private String number;
+    private String description;
+    private long creditHours;
+    private ArrayList<Availablity> availablity;
+    private HashMap<UUID, String> prerequisite;
+    private ArrayList<UUID> corequisite; 
 
     @Test
-    public void test(){
+    public void testConstructor(){
+
+    }
+
+    @Test
+    public void testViewCouseDetails(){
+
+    }
+
+    public void testToString(){
 
     }
 }
