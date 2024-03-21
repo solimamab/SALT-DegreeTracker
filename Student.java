@@ -15,10 +15,10 @@ public class Student extends User{
     private long remainingCreditHours;
     private Flag flag;
     private double overallGPA;
-    private Major major;
+    private UUID major;
     private String minor;
     private Boolean FERPA;
-    private Advisor advisor;
+    private UUID advisor;
     private ArrayList<CompletedCourse> completedCourses;
     private EightSemesterPlan eightSemesterPlan;
     private ArrayList<Course> currentCourses;
@@ -58,11 +58,10 @@ public class Student extends User{
         this.remainingCreditHours = remainingCreditHours;
         this.flag = flag;
         this.overallGPA = overallGPA;
-        this.major = major;
-        // this.major = MajorList.getInstance().findMajor(majorId);
+        this.major = majorId;
         this.minor = minor;
         this.FERPA = FERPA;
-        this.advisor = advisor;
+        this.advisor = advisorId;
         this.eightSemesterPlan = eightSemesterPlan;
         this.currentCourses = currentCourses;
         this.completedCourses = completedCourses;
@@ -106,7 +105,8 @@ public class Student extends User{
     
     public Major getMajor()
     {
-        return this.major;
+        Major major = MajorList.getInstance().findMajor(this.major);
+        return major;
     }
     
     public String getMinor()
@@ -121,7 +121,8 @@ public class Student extends User{
     
     public Advisor getAdvisor()
     {
-        return this.advisor;
+        Advisor advisor = UserList.getInstance().findAdvisor(this.advisor);
+        return advisor;
     }
     
     public ArrayList<CompletedCourse> getCompletedCourses()
@@ -160,16 +161,14 @@ public class Student extends User{
         this.classification = Classification.SENIOR;
     }
     
-    public Major setMajor(UUID majorUuid)
+    public void setMajor(UUID majorUuid)
     {
-        this.major = MajorList.getInstance().findMajor(majorUuid);
-        return this.major;
+        this.major = majorUuid;
     }
     
-    public Advisor setAdvisor(UUID advisorUuid)
+    public void setAdvisor(UUID advisorUuid)
     {
-        this.advisor = UserList.getInstance().findAdvisor(advisorUuid);
-        return this.advisor;
+        this.advisor = advisorUuid;
     }
     /**
     * This method loops through the list of completed courses to calculate the number of completed cerdit hours
