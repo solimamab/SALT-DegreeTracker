@@ -39,18 +39,6 @@ public class CourseList {
         }
         return null;
     }
-    // public Course getCourseByNumber(String department, String number)
-    // {
-    //     for(int i = 0; i < listOfCourses.size(); i++)
-    //     {
-    //         if (listOfCourses.get(i).getDepartment().equals(department) && listOfCourses.get(i).getNumber().equals(number))
-    //         {
-    //             return listOfCourses.get(i);
-    //         }
-    //         i++;
-    //     }
-    //     return null;
-    // }
 
     public void addCourse(Course course) {
         courseList.listOfCourses.put(course.getId(), course);

@@ -14,5 +14,16 @@ import java.util.UUID;
  */
 
 public class CompletedCourseTest {
+    private Grade letterGrade;
+    private double qualityPoints;
     
+    @Test
+    public void testConstructor(){
+
+    }
+
+    @Test 
+    public void testSetQualityPoints(){
+        
+    }
 }
