@@ -12,7 +12,13 @@ import org.junit.jupiter.api.Test;
 public class UserTest {
 
     @Test
-    public void testConstructor()
+    public void testBasicConstructor()
+    {
+
+    }
+
+    @Test
+    public void testForDuplicateUsername()
     {
 
     }

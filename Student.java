@@ -270,7 +270,6 @@ public class Student extends User{
             }
         }
         
-        // do we need this method?
         public void chooseApplicationArea(ArrayList<Course> applicationArea) {
             System.out.println(applicationArea); 
         }

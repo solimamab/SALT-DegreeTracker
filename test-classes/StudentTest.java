@@ -26,5 +26,9 @@ public class StudentTest {
 
     }
 
-    
+    //test setClassificaion
+    //test setCompletedHours
+    //test setOverallGPA
+    //addcompleted course
+    //toString
 }
