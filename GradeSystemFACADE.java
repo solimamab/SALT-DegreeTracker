@@ -143,4 +143,19 @@ public class GradeSystemFACADE {
     {
         student.writePlantoText(student);
     }
+
+    // added a logout mehtod but not confident in the logic behind it
+    public boolean Logout()
+    {
+        if (currentUser != null)
+        {
+            currentUser = null;
+            return true;
+        }
+        else
+        {
+            return true;
+        }
+
+    }
 }
