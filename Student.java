@@ -71,6 +71,19 @@ public class Student extends User{
     }
     
     /**
+     * basic constructor
+     * @param Studentid
+     * @param username
+     * @param password
+     * @param firstName
+     * @param lastName
+     */
+    public Student(UUID Studentid, String username,String password,String firstName, String lastName)
+    {
+        super(username, password, firstName, lastName);
+        this.id = Studentid;
+    }
+    /**
     * The getters for the attributes of the student class
     */
     public Classification getClassification()

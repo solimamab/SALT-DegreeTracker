@@ -16,61 +16,116 @@ import java.util.UUID;
 
 public class UserListTest {
     private UserList userList = UserList.getInstance();
-    @BeforeEach
-    public void setup()
-    {
-        userList.addStudent(null);
-    }
-    @Test
-    public void testConstructor()
-    {
-
-    }
-
+    
     //Testing getUser Method
     @Test
-    public void getUser()
+    public void getValidUser()
     {
+        Student amy = new Student(new UUID(0, 0), "Asmith", "12345", "amy", "smith");
+        userList.addStudent(amy);
+        User getusertest = userList.getUser("Asmith");
+        assertEquals(amy, getusertest);
 
     }
 
-    //testing add student 
-    // null username
-    // null id 
-    // duplicate username
     @Test
-    public void testAddStudent()
+    public void validUserbutWithoutCaseMatching()
     {
+        Student bob = new Student(new UUID(0, 0), "Bsmith", "12345", "bob", "smith");
+        userList.addStudent(bob);
+        User getusertest = userList.getUser("bsmith");
+        assertEquals(null, getusertest);
 
+    }
+
+    @Test
+    public void getNotaUser()
+    {
+        User getUsertest = userList.getUser("Tristen");
+        assertEquals(null, getUsertest);
+    }
+
+    @Test
+    public void nullUsername()
+    {
+        User getUsertest = userList.getUser(null);
+        assertEquals(null, getUsertest);
+    }
+
+    
+    //Testing the findAdvisor method
+    @Test
+    public void findValidAdvisor()
+    {
+        Advisor bobby = new Advisor(UUID.fromString("12345"), "bobbysm", "2345", "bobby", "smithy", null);
+        Advisor test = userList.findAdvisor(UUID.fromString("12345"));
+        assertEquals(bobby, test);
     }
 
     @Test 
-    public void testAddAdvisor()
+    public void notValidAdvisor()
     {
-
+        Advisor test = userList.findAdvisor(UUID.fromString("12345678"));
+        assertEquals(null, test);
     }
 
     @Test
-    public void findAdvisor()
+    public void emptyAdvisorID()
     {
-
+        Advisor test = userList.findAdvisor(null);
+        assertEquals(null, test);
     }
 
-    //wrong id 
-    // no id 
-    // student not in list
+    //Testing the findStudentById method
     @Test 
-    public void testFindstudentbyID()
+    public void testFindVALIDstudentbyID()
     {
-
+        Student BB = new Student(UUID.fromString("0522203"), "BBlilly", "12345678", "BB", "Lilly");
+        Student test = userList.findStudentById(UUID.fromString("0522203"));
+        assertEquals(BB, test);
     }
 
-    // emty first name
-    // empty last name 
-    // student not in the list
     @Test
-    public void testFindStudentbyName()
+    public void findNotValidStudentId()
     {
+        Student test = userList.findStudentById(UUID.fromString("100000000"));
+        assertEquals(null, test);
+    }
 
+    @Test
+    public void NoIdprovided()
+    {
+        Student test = userList.findStudentById(null);
+        assertEquals(null, test);
+    }
+
+    // Testing the findStudentByName method
+    @Test
+    public void testFindValidStudentbyName()
+    {
+        Student JBJ = new Student(new UUID(0, 0), "junieBjones", "12345678", "junie", "jones");
+        Student test = userList.findStudentByName("junie", "jones");
+        assertEquals(JBJ, test);
+    }
+
+    @Test
+    public void emptyFirstName()
+    {
+        Student test = userList.findStudentByName(null, "jones");
+        assertEquals(null, test);
+    }
+
+    @Test
+    public void emptyLastName()
+    {
+        Student test = userList.findStudentByName("junie", null);
+        assertEquals(null, test);
+    }
+
+    @Test
+    public void studentNotinList()
+    {
+        Student test = userList.findStudentByName("Delaine", "Hayden");
+        assertEquals(null, test);
     }
 }
