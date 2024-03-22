@@ -174,7 +174,7 @@
         "department": "AFAM",
         "number": "202",
         "description": "Introduction to the analysis and discussion of creative works and traditions by and about African Americans through folklore, music, art, dance, and literature.",
-        "creditHours": 3,
+        "creditHours": "3",
         "availability": ["Fall", "Spring"],
         "prerequisites": [],
         "corequisites": [],

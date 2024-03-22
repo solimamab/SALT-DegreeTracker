@@ -158,11 +158,15 @@ public class Student extends User{
         return this.AdvisorNote;
     }
     
+    public void setCompletedHours(long completedCreditHours)
+    {
+        this.completedCreditHours = completedCreditHours;
+    }
     /**
     * A setter that uses the number of completed credit hours to determine the classification of the student 
     * based on the USC requirements
     */
-    public void setClassifcation()
+    public void setClassifcation(int completedCreditHours)
     {
         if (completedCreditHours < 30 )
         this.classification = Classification.FRESHMAN;
@@ -188,13 +192,13 @@ public class Student extends User{
     * and sets the completed cerdit hours to the number calculated
     * @param courses the arrayList of completed courses
     */
-    public void setCompletedHours(ArrayList<CompletedCourse> courses) {
+    public long setCompletedHours(ArrayList<CompletedCourse> courses) {
         long completedCredits = 0;
         for (int i = 0;i < courses.size(); i++)
         {
             completedCredits = completedCredits + courses.get(i).getCreditHours();
         }
-        this.completedCreditHours = completedCredits;
+        return completedCredits;
     }
     
     /**
@@ -217,13 +221,13 @@ public class Student extends User{
     * This method calsulates and sets the overall GPA
     * @param completedCourses The list of completed course 
     */
-    public void setOverallGPA(ArrayList<CompletedCourse> completedCourses) {
+    public double setOverallGPA(ArrayList<CompletedCourse> completedCourses) {
         double qualityPoints = 0;
         for ( int i = 0; i < completedCourses.size(); i++)
         {
             qualityPoints =  qualityPoints + completedCourses.get(i).getqualityPoints();
         }
-        this.overallGPA = qualityPoints/this.completedCreditHours;
+        return qualityPoints/this.completedCreditHours;
     }
     
     public void setAdvisorNote(String note)
@@ -283,10 +287,12 @@ public class Student extends User{
             }
         }
         
+        /** 
+         * may or may not use this method 
         public void chooseApplicationArea(ArrayList<Course> applicationArea) {
             System.out.println(applicationArea); 
         }
-        
+        */
         
         @Override
         public String toString() {
