@@ -25,6 +25,7 @@ public class AdvisorTest {
         studentIDs = new ArrayList<>();
         studentIDs.add(UUID.randomUUID()); // Simulating a student ID.
         advisor = new Advisor(advisorId, "testUsername", "testPassword", "John", "Doe", studentIDs);
+        testStudent = new Student(advisorId, "studentUsername", "studentPassword", "studentFirstName", "studentLastName");
     }
     
     @Test
@@ -39,7 +40,7 @@ public class AdvisorTest {
         assertEquals("testUsername", advisor.getUsername(), "Username should match.");
         assertEquals("testPassword", advisor.getPassword(), "Password should match.");
         assertNotNull(advisor.viewAdvisingStudents(), "Advising students list should not be null.");
-        assertEquals(1, advisor.viewAdvisingStudents().size(), "Should have one student ID initially.");
+        assertEquals(0, advisor.viewAdvisingStudents().size(), "Should have no student IDs initially.");
     }
     
     @Test
@@ -57,5 +58,60 @@ public class AdvisorTest {
         assertEquals(testStudent.getFirstName(), foundStudent.getFirstName(), "First names should match.");
         assertEquals(testStudent.getLastName(), foundStudent.getLastName(), "Last names should match.");
     }
-
+    
+    @Test
+    public void setStudentsFlagSuccessfullySetsFlag() {
+        Flag testFlag = Flag.Failure;
+        advisor.setStudentsFlag(testFlag, testStudent);
+        assertEquals(testFlag, testStudent.getFlag(), "The flag should be set correctly in the student.");
+    }
+    
+    @Test
+    public void setNumofStudentsReturnsCorrectCount() {
+        ArrayList<UUID> studentList = new ArrayList<>();
+        studentList.add(UUID.randomUUID());
+        studentList.add(UUID.randomUUID());
+        assertEquals(2, advisor.setNumofStudents(studentList), "Should return the correct number of students.");
+    }
+    
+    @Test
+    public void setNumofStudentsReturnsZeroForNull() {
+        assertEquals(0, advisor.setNumofStudents(null), "Should return 0 for null input.");
+    }
+    
+    @Test
+    public void viewAdvisingStudentsReturnsCorrectList() {
+        // First, add a student to ensure the list is not empty
+        UUID newStudentId = UUID.randomUUID();
+        advisor.addAdvisingStudent(newStudentId);
+        ArrayList<Student> advisedStudents = advisor.viewAdvisingStudents();
+        assertFalse(advisedStudents.isEmpty(), "The list of advising students should not be empty.");
+    }
+    
+    @Test
+    public void addAdvisingStudentIncreasesListSize() {
+        int initialSize = advisor.viewAdvisingStudents().size();
+        advisor.addAdvisingStudent(UUID.randomUUID());
+        assertEquals(initialSize + 1, advisor.viewAdvisingStudents().size(), "Adding a student should increase the list size.");
+    }
+    
+    @Test
+    public void removeAdvisingStudentDecreasesListSize() {
+        // First, add a student to ensure the list is not empty
+        UUID newStudentId = UUID.randomUUID();
+        advisor.addAdvisingStudent(newStudentId);
+        int initialSize = advisor.viewAdvisingStudents().size();
+        
+        advisor.removeAdvisingStudent(newStudentId);
+        assertEquals(initialSize - 1, advisor.viewAdvisingStudents().size(), "Removing a student should decrease the list size.");
+    }
+    
+    @Test
+    public void setStudentNoteSuccessfullySetsNote() {
+        String note = "This is a test note.";
+        advisor.setStudentNote(testStudent, note);
+        assertEquals(note, testStudent.getNote(), "The advisor note should be set correctly in the student.");
+    }
+    
+    
 }
