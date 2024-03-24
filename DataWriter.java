@@ -7,17 +7,21 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map.Entry;
 import java.util.UUID;
 
-public class DataWriter {
+public class DataWriter extends DataConstants {
 
-    // Save Advisors to a JSON file
-    public static void saveAdvisors(ArrayList<Advisor> advisors) {
+    public static void saveAdvisors() {
+        UserList userList = UserList.getInstance();
+        ArrayList<Advisor> advisors = userList.getAdvisors();
         JSONArray jsonAdvisors = new JSONArray();
         for (Advisor advisor : advisors) {
-            jsonAdvisors.add(getAdvisorJSON(advisor));
+            JSONObject advisorJSON = getAdvisorJSON(advisor);
+            jsonAdvisors.add(advisorJSON);
         }
 
+        
         try (FileWriter file = new FileWriter("tester_advisor.json")) {
             file.write(jsonAdvisors.toJSONString());
             file.flush();
@@ -28,32 +32,35 @@ public class DataWriter {
 
     private static JSONObject getAdvisorJSON(Advisor advisor) {
         JSONObject jsonAdvisor = new JSONObject();
-        jsonAdvisor.put("id", advisor.getAdvisorID().toString());
-        jsonAdvisor.put("username", advisor.getUsername());
-        jsonAdvisor.put("password", advisor.getPassword());
-        jsonAdvisor.put("firstname", advisor.getFirstName());
-        jsonAdvisor.put("lastname", advisor.getLastName());
+        jsonAdvisor.put(ADVISOR_ID, advisor.getAdvisorID().toString());
+        jsonAdvisor.put(ADVISOR_USERNAME, advisor.getUsername());
+        jsonAdvisor.put(ADVISOR_PASSWORD, advisor.getPassword());
+        jsonAdvisor.put(ADVISOR_FIRST_NAME, advisor.getFirstName());
+        jsonAdvisor.put(ADVISOR_LAST_NAME, advisor.getLastName());
 
+        //Creating the studentIDs JSON array
         JSONArray studentIDs = new JSONArray();
-        for (Student student : advisor.viewAdvisingStudents()) {
-            // Now you can use the student variable, which is of type Student
-            // Example:
-            UUID studentId = student.getUUID(); // Assuming there is a method getUUID() in Student class
-            // Do something with studentId or student
+        for (UUID studentId : advisor.getStudents()) { 
+            studentIDs.add(studentId.toString());
         }
-        jsonAdvisor.put("studentIDs", studentIDs);
+        jsonAdvisor.put(ADVISOR_STUDENT_IDS, studentIDs);
 
         return jsonAdvisor;
     }
 
     // Save Courses to a JSON file
-    public static void saveCourses(ArrayList<Course> courses) {
+    public static void saveCourses() {
+        CourseList courseList = CourseList.getInstance();
+        HashMap<UUID, Course> courses = courseList.getAllCourses();
         JSONArray jsonCourses = new JSONArray();
-        for (Course course : courses) {
+        
+        // Iterate through the HashMap values and convert each course to a JSONObject
+        for (Course course : courses.values()) {
             jsonCourses.add(getCourseJSON(course));
         }
 
-        try (FileWriter file = new FileWriter(DataConstants.COURSE_FILE_NAME)) {
+        // Writing the JSON array to file
+        try (FileWriter file = new FileWriter("tester_course.json")) {
             file.write(jsonCourses.toJSONString());
             file.flush();
         } catch (IOException e) {
@@ -63,50 +70,54 @@ public class DataWriter {
 
     private static JSONObject getCourseJSON(Course course) {
         JSONObject jsonCourse = new JSONObject();
-        jsonCourse.put("id", course.getId().toString());
-        jsonCourse.put("name", course.getName());
-        jsonCourse.put("department", course.getDepartment());
-        jsonCourse.put("number", course.getNumber());
-        jsonCourse.put("description", course.getDescription());
-        jsonCourse.put("creditHours", course.getCreditHours());
-
+        jsonCourse.put(COURSE_ID, course.getId().toString());
+        jsonCourse.put(COURSE_NAME, course.getName());
+        jsonCourse.put(COURSE_DEPARTMENT, course.getDepartment());
+        jsonCourse.put(COURSE_NUMBER, course.getNumber());
+        jsonCourse.put(COURSE_DESCRIPTION, course.getDescription());
+        jsonCourse.put(COURSE_CREDIT_HOURS, String.valueOf(course.getCreditHours())); // Ensuring creditHours is a String
+        
+        // Convert availability from ArrayList to JSONArray
         JSONArray availability = new JSONArray();
-        for (Availablity avail : course.getAvailablity()) { // Corrected typo here
+        for (Availablity avail : course.getAvailablity()) {
             availability.add(avail.toString());
         }
-        jsonCourse.put("availability", availability);
+        jsonCourse.put(COURSE_AVAILABILITY, availability);
 
-        jsonCourse.put("prerequisites", getPrerequisiteJSON(course.getPrerequisite()));
-        jsonCourse.put("corequisites", getCorequisiteJSON(course.getCorequisite()));
-
+        // Prerequisites and corequisites are ignored as per the current requirement
+        
         return jsonCourse;
     }
 
     private static JSONArray getPrerequisiteJSON(HashMap<UUID, String> prerequisites) {
-        JSONArray prereqArray = new JSONArray();
-        prerequisites.forEach((key, value) -> {
-            JSONObject prereq = new JSONObject();
-            prereq.put("id", key.toString());
-            prereq.put("gradeReq", value);
-            prereqArray.add(prereq);
-        });
-        return prereqArray;
+        JSONArray prerequisitesJSON = new JSONArray();
+        for (Entry<UUID, String> entry : prerequisites.entrySet()) {
+            JSONArray prereqPair = new JSONArray(); // Each prerequisite is an array [UUID, gradeRequirement]
+            prereqPair.add(entry.getKey().toString()); // Convert UUID to String
+            prereqPair.add(entry.getValue()); // Grade requirement
+            prerequisitesJSON.add(prereqPair);
+        }
+        return prerequisitesJSON;
     }
 
     private static JSONArray getCorequisiteJSON(ArrayList<UUID> corequisites) {
-        JSONArray coreqArray = new JSONArray();
-        corequisites.forEach((uuid) -> coreqArray.add(uuid.toString()));
-        return coreqArray;
+        JSONArray corequisitesJSON = new JSONArray();
+        for (UUID coreq : corequisites) {
+            corequisitesJSON.add(coreq.toString()); // Convert UUID to String for each corequisite
+        }
+        return corequisitesJSON;
     }
 
     // Save Students to a JSON file
-    public static void saveStudents(ArrayList<Student> students) {
+    public static void saveStudents() {
+        UserList userList = UserList.getInstance();
+        ArrayList<Student> students = userList.getStudents();
         JSONArray jsonStudents = new JSONArray();
         for (Student student : students) {
             jsonStudents.add(getStudentJSON(student));
         }
 
-        try (FileWriter file = new FileWriter(DataConstants.STUDENT_FILE_NAME)) { //DataConstants.STUDENT_FILE_NAME
+        try (FileWriter file = new FileWriter("tester_students.json")) { //DataConstants.STUDENT_FILE_NAME
             file.write(jsonStudents.toJSONString());
             file.flush();
         } catch (IOException e) {
@@ -116,34 +127,34 @@ public class DataWriter {
 
     private static JSONObject getStudentJSON(Student student) {
         JSONObject jsonStudent = new JSONObject();
-        jsonStudent.put("id", student.getUUID().toString());
-        jsonStudent.put("username", student.getUsername());
-        jsonStudent.put("password", student.getPassword());
-        jsonStudent.put("firstname", student.getFirstName());
-        jsonStudent.put("lastname", student.getLastName());
-        jsonStudent.put("classification", student.getClassification().toString());
-        jsonStudent.put("completedCreditHours", student.getCompletedCreditHours());
-        jsonStudent.put("remainingCreditHours", student.getRemainingCreditHours());
-        jsonStudent.put("flag", student.getFlag().toString());
-        jsonStudent.put("overallGPA", student.getOverallGPA());
-        jsonStudent.put("majorId", student.getMajor().getId().toString());
-        jsonStudent.put("minor", student.getMinor());
-        jsonStudent.put("FERPA", student.getFEPRA());
-        jsonStudent.put("advisorId", student.getAdvisor().getAdvisorID().toString());
+        jsonStudent.put(STUDENT_ID, student.getUUID().toString());
+        jsonStudent.put(STUDENT_USERNAME, student.getUsername());
+        jsonStudent.put(STUDENT_PASSWORD, student.getPassword());
+        jsonStudent.put(STUDENT_FIRSTNAME, student.getFirstName());
+        jsonStudent.put(STUDENT_LASTNAME, student.getLastName());
+        jsonStudent.put(STUDENT_CLASSIFICATION, student.getClassification().toString());
+        jsonStudent.put(STUDENT_COMPLETED_CREDIT_HOURS, student.getCompletedCreditHours());
+        jsonStudent.put(STUDENT_REMAINING_CREDIT_HOURS, student.getRemainingCreditHours());
+        jsonStudent.put(STUDENT_FLAG, student.getFlag().toString());
+        jsonStudent.put(STUDENT_OVERALL_GPA, student.getOverallGPA());
+        jsonStudent.put(STUDENT_MAJOR_ID, student.getMajorID().toString());
+        jsonStudent.put(STUDENT_MINOR, student.getMinor());
+        jsonStudent.put(STUDENT_FERPA, student.getFEPRA());
+        jsonStudent.put(STUDENT_ADVISOR_ID, student.getAdvisor().getAdvisorID().toString());
 
         JSONArray completedCoursesArray = new JSONArray();
         for (CompletedCourse cc : student.getCompletedCourses()) {
             JSONObject completedCourseJSON = new JSONObject();
-            completedCourseJSON.put("courseId", cc.getId().toString());
-            completedCourseJSON.put("letterGrade", cc.getLetterGrade().toString());
+            completedCourseJSON.put(STUDENT_COURSE_ID, cc.getId().toString());
+            completedCourseJSON.put(STUDENT_LETTER_GRADE, cc.getLetterGrade().toString());
             completedCourseJSON.put("qualityPoints", cc.getqualityPoints());
             completedCoursesArray.add(completedCourseJSON);
         }
-        jsonStudent.put("completedCourses", completedCoursesArray);
+        jsonStudent.put(STUDENT_COMPLETED_COURSES, completedCoursesArray);
 
         // Assuming EightSemesterPlan and currentCourses serialization methods are similar and implemented
-        jsonStudent.put("eightSemesterPlan", getEightSemesterPlanJSON(student.getEightSemesterPlan()));
-        jsonStudent.put("currentCourses", getCurrentCoursesIDsJSON(student.getCurrentCourses()));
+        //jsonStudent.put("eightSemesterPlan", getEightSemesterPlanJSON(student.getEightSemesterPlan()));
+        //jsonStudent.put("currentCourses", getCurrentCoursesIDsJSON(student.getCurrentCourses()));
 
         return jsonStudent;
     }
@@ -178,11 +189,58 @@ public class DataWriter {
         return coursesArray;
     }
 
+    public static void saveMajor() {
+        MajorList majorList = MajorList.getInstance();
+        ArrayList<Major> majors = majorList.get();
+        JSONArray jsonStudents = new JSONArray();
+        for (Student student : students) {
+            jsonStudents.add(getStudentJSON(student));
+        }
+
+        try (FileWriter file = new FileWriter("tester_students.json")) { //DataConstants.STUDENT_FILE_NAME
+            file.write(jsonStudents.toJSONString());
+            file.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static JSONObject getMajorJSON(Major major) {
+        JSONObject jsonMajor = new JSONObject();
+        jsonMajor.put(MAJOR_ID, major.getId().toString());
+        jsonMajor.put(MAJOR_NAME, major.getMajorName());
+
+        JSONArray requiredCourses = new JSONArray();
+        for (Course course : major.getRequiredCourses()) {
+            JSONObject requiredCoursesJSON = new JSONObject();
+            requiredCoursesJSON.put(COURSE_ID, course.getId().toString());
+            requiredCoursesJSON.put(COURSE_ID, course.getId().toString());
+            requiredCoursesJSON.put(COURSE_NAME, course.getName());
+            requiredCoursesJSON.put(COURSE_DEPARTMENT, course.getDepartment());
+            requiredCoursesJSON.put(COURSE_NUMBER, course.getNumber());
+            requiredCoursesJSON.put(COURSE_DESCRIPTION, course.getDescription());
+            requiredCoursesJSON.put(COURSE_CREDIT_HOURS, String.valueOf(course.getCreditHours())); // Ensuring creditHours is a String
+            
+            // Convert availability from ArrayList to JSONArray
+            JSONArray availability = new JSONArray();
+            for (Availablity avail : course.getAvailablity()) {
+                availability.add(avail.toString());
+            }
+            requiredCoursesJSON.put(COURSE_AVAILABILITY, availability);
+        }
+        jsonMajor.put(MAJOR_REQUIRED_COURSES, requiredCourses);
+        
+        
+        return jsonMajor;
+    }
+
     public static void main(String args[]) {
         // Instantiate UserList, CourseList, and MajorList
-        UserList userList = UserList.getInstance();
-        ArrayList<Advisor> advisors = userList.getAdvisors();
-        saveAdvisors(advisors);
+        //ArrayList<Student> students = userList.getStudents();
+        //saveStudents(students);
+
+        saveStudents();
+
     }
 
 }

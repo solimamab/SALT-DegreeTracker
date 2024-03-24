@@ -370,26 +370,26 @@ public class DataLoader extends DataConstants {
             System.out.println();
         }
          // Verify the size of the student list
-         int numberOfStudents = students.size();
-         System.out.println("Number of students loaded: " + numberOfStudents);
-        
+        int numberOfStudents = students.size();
+        System.out.println("Number of students loaded: " + numberOfStudents);
+    
         // // Printing courses
-        // System.out.println("\nCourses:");
-        // for (Course course : coursesMap.values()) {
-            //                     System.out.println(course.toString());
-            //         }
+        //System.out.println("\nCourses:");
+        //for (Course course : coursesMap.values()) {
+        //    System.out.println(course.toString());
+        //    }
             
-            // Printing advisors
-            System.out.println("\nAdvisors:");
-            for (Advisor advisor : advisors) {
-                System.out.println(advisor);
-            }
-            
-            // Printing majors
-            System.out.println("\nMajors:");
-            for (Major major : majors) {
-                System.out.println(major);
-                System.out.println();
-            }
+        // Printing advisors
+        System.out.println("\nAdvisors:");
+        for (Advisor advisor : advisors) {
+            System.out.println(advisor);
+        }
+        
+        // Printing majors
+        System.out.println("\nMajors:");
+        for (Major major : majors) {
+            System.out.println(major);
+            System.out.println();
+        }
         }
     }

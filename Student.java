@@ -121,6 +121,11 @@ public class Student extends User{
         Major major = MajorList.getInstance().findMajor(this.major);
         return major;
     }
+
+    public UUID getMajorID()
+    {
+        return this.major;
+    }
     
     public String getMinor()
     {

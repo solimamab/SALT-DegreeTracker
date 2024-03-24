@@ -40,6 +40,10 @@ public class CourseList {
         return null;
     }
 
+    public HashMap<UUID, Course> getAllCourses() {
+        return listOfCourses;
+    }
+
     public void addCourse(Course course) {
         courseList.listOfCourses.put(course.getId(), course);
     }

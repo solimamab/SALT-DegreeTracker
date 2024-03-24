@@ -37,7 +37,11 @@ public class Advisor extends User{
     public Student searchForStudent(UUID idNumber){
         return users.findStudentById(idNumber);
      }
- 
+     
+     public ArrayList<UUID> getStudents()
+     {
+         return students;
+     }
 
     /**
      * Search for a student by the first name and the last name
