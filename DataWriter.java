@@ -30,7 +30,7 @@ public class DataWriter extends DataConstants {
         }
     }
 
-    private static JSONObject getAdvisorJSON(Advisor advisor) {
+    public static JSONObject getAdvisorJSON(Advisor advisor) {
         JSONObject jsonAdvisor = new JSONObject();
         jsonAdvisor.put(ADVISOR_ID, advisor.getAdvisorID().toString());
         jsonAdvisor.put(ADVISOR_USERNAME, advisor.getUsername());
@@ -68,7 +68,7 @@ public class DataWriter extends DataConstants {
         }
     }
 
-    private static JSONObject getCourseJSON(Course course) {
+    public static JSONObject getCourseJSON(Course course) {
         JSONObject jsonCourse = new JSONObject();
         jsonCourse.put(COURSE_ID, course.getId().toString());
         jsonCourse.put(COURSE_NAME, course.getName());
@@ -89,7 +89,8 @@ public class DataWriter extends DataConstants {
         return jsonCourse;
     }
 
-    private static JSONArray getPrerequisiteJSON(HashMap<UUID, String> prerequisites) {
+    /* waiting for inital bugs to be resolved first  
+    public static JSONArray getPrerequisiteJSON(HashMap<UUID, String> prerequisites) {
         JSONArray prerequisitesJSON = new JSONArray();
         for (Entry<UUID, String> entry : prerequisites.entrySet()) {
             JSONArray prereqPair = new JSONArray(); // Each prerequisite is an array [UUID, gradeRequirement]
@@ -100,13 +101,14 @@ public class DataWriter extends DataConstants {
         return prerequisitesJSON;
     }
 
-    private static JSONArray getCorequisiteJSON(ArrayList<UUID> corequisites) {
+    public static JSONArray getCorequisiteJSON(ArrayList<UUID> corequisites) {
         JSONArray corequisitesJSON = new JSONArray();
         for (UUID coreq : corequisites) {
             corequisitesJSON.add(coreq.toString()); // Convert UUID to String for each corequisite
         }
         return corequisitesJSON;
     }
+    */
 
     // Save Students to a JSON file
     public static void saveStudents() {
@@ -125,7 +127,7 @@ public class DataWriter extends DataConstants {
         }
     }
 
-    private static JSONObject getStudentJSON(Student student) {
+    public static JSONObject getStudentJSON(Student student) {
         JSONObject jsonStudent = new JSONObject();
         jsonStudent.put(STUDENT_ID, student.getUUID().toString());
         jsonStudent.put(STUDENT_USERNAME, student.getUsername());
@@ -194,8 +196,7 @@ public class DataWriter extends DataConstants {
         return jsonStudent;
     }
 
-    // this method needs to be reworked bc we changed the structure of the ESM
-    private static JSONObject getEightSemesterPlanJSON(EightSemesterPlan eightSemesterPlan) {
+    public static JSONObject getEightSemesterPlanJSON(EightSemesterPlan eightSemesterPlan) {
         JSONObject eightSemesterPlanJSON = new JSONObject();
         for (int i = 0; i < eightSemesterPlan.getSemesters().size(); i++) {
             JSONArray semesterCoursesArray = new JSONArray();
@@ -258,22 +259,12 @@ public class DataWriter extends DataConstants {
             }
             courseJSON.put("availability", availabilityArray);
 
-            // Add prerequisites and corequisites if needed
-            // Skipping for simplicity as per the initial setup
             
             electiveChoicesArray.add(courseJSON);
         }
         eightSemesterPlanJSON.put("electiveChoices", electiveChoicesArray);
     
         return eightSemesterPlanJSON;
-    }
-
-    private static JSONArray getCurrentCoursesIDsJSON(ArrayList<Course> currentCourses) {
-        JSONArray coursesArray = new JSONArray();
-        for (Course course : currentCourses) {
-            coursesArray.add(course.getId().toString());
-        }
-        return coursesArray;
     }
 
     public static void saveMajor() {
@@ -292,7 +283,7 @@ public class DataWriter extends DataConstants {
         }
     }
 
-    private static JSONObject getMajorJSON(Major major) {
+    public static JSONObject getMajorJSON(Major major) {
         JSONObject jsonMajor = new JSONObject();
         jsonMajor.put(MAJOR_ID, major.getId().toString());
         jsonMajor.put(MAJOR_NAME, major.getMajorName());
@@ -323,15 +314,6 @@ public class DataWriter extends DataConstants {
         
         
         return jsonMajor;
-    }
-
-    public static void main(String args[]) {
-        //Instantiate UserList, CourseList, and MajorList
-        //ArrayList<Student> students = userList.getStudents();
-        //saveStudents(students);
-
-        saveStudents();
-
     }
 
 }
