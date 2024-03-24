@@ -15,24 +15,30 @@ import java.util.HashMap;
 
 public class CourseListTest {
     private CourseList courseList = CourseList.getInstance();
-    private HashMap<UUID, Course> listOfCourses;
-    
-    @BeforeEach
-    public void setup(){
-        courseList.addCourse(null);
+
+    @Test
+    public void testGetCourseByValidNumber(){
+        Course course = new Course(null, "TestName", "TestDept", "111", "TestDesc", 3, null, null, null);
+        courseList.addCourse(course);
+        Course test = courseList.getCourseByNumber("TestDept", "111");
+        assertEquals(test, course);
     }
 
     @Test
-    public void testConstructor(){
-
+    public void testGetCourseByNotValidNumber(){
+        Course course = new Course(null, "TestName", "TestDept", "111", "TestDesc", 3, null, null, null);
+        courseList.addCourse(course);
+        Course test = courseList.getCourseByNumber("TestDept", "112");
+        assertEquals(null, test);
     }
 
     @Test
-    public void testGetCourseByNumber(){
-
+    public void testGetCourseByNotValidDepartment(){
+        Course course = new Course(null, "TestName", "TestDept", "111", "TestDesc", 3, null, null, null);
+        courseList.addCourse(course);
+        Course test = courseList.getCourseByNumber("WrongDept", "112");
+        assertEquals(null, test);
     }
-
-    @Test
 
     public void testAddCourse(){
 
