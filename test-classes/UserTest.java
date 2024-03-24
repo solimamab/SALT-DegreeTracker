@@ -12,7 +12,30 @@ import org.junit.jupiter.api.Test;
 public class UserTest {
     private User currentUser =  new User("Linda", "123456", "Linda", "Blaze");
    
+    //Testing construtor
+    @Test
+    public void testConstructorUsername()
+    {
+        assertEquals("Linda", currentUser.getUsername());
+    }
 
+    @Test
+    public void testConstructorPassword()
+    {
+        assertEquals("123456", currentUser.getPassword());
+    }
+
+    @Test
+    public void testConstructorFN()
+    {
+        assertEquals("Linda", currentUser.getFirstName());
+    }
+
+    @Test
+    public void testConstrutorLN()
+    {
+        assertEquals("Blaze", currentUser.getLastName());
+    }
     // Testing the facadeLogin Method 
     @Test
     public void testValidLogin()
