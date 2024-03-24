@@ -142,43 +142,130 @@ public class DataWriter extends DataConstants {
         jsonStudent.put(STUDENT_FERPA, student.getFEPRA());
         jsonStudent.put(STUDENT_ADVISOR_ID, student.getAdvisor().getAdvisorID().toString());
 
+        // Handling completedCourses
         JSONArray completedCoursesArray = new JSONArray();
-        for (CompletedCourse cc : student.getCompletedCourses()) {
+        for (CompletedCourse course : student.getCompletedCourses()) {
             JSONObject completedCourseJSON = new JSONObject();
-            completedCourseJSON.put(STUDENT_COURSE_ID, cc.getId().toString());
-            completedCourseJSON.put(STUDENT_LETTER_GRADE, cc.getLetterGrade().toString());
-            completedCourseJSON.put("qualityPoints", cc.getqualityPoints());
-            completedCoursesArray.add(completedCourseJSON);
-        }
-        jsonStudent.put(STUDENT_COMPLETED_COURSES, completedCoursesArray);
+            completedCourseJSON.put(COURSE_ID, course.getId().toString());
+            completedCourseJSON.put(COURSE_NAME, course.getName());
+            completedCourseJSON.put(COURSE_DEPARTMENT, course.getDepartment());
+            completedCourseJSON.put(COURSE_NUMBER, course.getNumber());
+            completedCourseJSON.put(COURSE_DESCRIPTION, course.getDescription());
+            completedCourseJSON.put(COURSE_CREDIT_HOURS, String.valueOf(course.getCreditHours())); // Ensuring creditHours is a String
+            
+            // Convert availability from ArrayList to JSONArray
+            JSONArray availability = new JSONArray();
+            for (Availablity avail : course.getAvailablity()) {
+                availability.add(avail.toString());
+            }
+            completedCourseJSON.put(COURSE_AVAILABILITY, availability);
 
-        // Assuming EightSemesterPlan and currentCourses serialization methods are similar and implemented
-        //jsonStudent.put("eightSemesterPlan", getEightSemesterPlanJSON(student.getEightSemesterPlan()));
-        //jsonStudent.put("currentCourses", getCurrentCoursesIDsJSON(student.getCurrentCourses()));
+            
+            // Assuming letterGrade is a property of CompletedCourse
+            completedCourseJSON.put("letterGrade", course.getLetterGrade().toString());
+            completedCoursesArray.add(completedCourseJSON);
+            }
+        jsonStudent.put("completedCourses", completedCoursesArray);
+
+        // Handling currentCourses similar to completedCourses...
+        JSONArray currentCoursesArray = new JSONArray();
+
+        for (Course course : student.getCurrentCourses()) {
+            JSONObject courseJSON = new JSONObject();
+            courseJSON.put(COURSE_ID, course.getId().toString());
+            courseJSON.put(COURSE_NAME, course.getName());
+            courseJSON.put(COURSE_DEPARTMENT, course.getDepartment());
+            courseJSON.put(COURSE_NUMBER, course.getNumber());
+            courseJSON.put(COURSE_DESCRIPTION, course.getDescription());
+            courseJSON.put(COURSE_CREDIT_HOURS, String.valueOf(course.getCreditHours())); // Ensuring creditHours is a String
+
+            JSONArray availability = new JSONArray();
+            for (Availablity avail : course.getAvailablity()) {
+                availability.add(avail.toString());
+            }
+            courseJSON.put(COURSE_AVAILABILITY, availability);
+            currentCoursesArray.add(courseJSON);
+        }
+        jsonStudent.put("currentCourses", currentCoursesArray);
+
+        JSONObject eightSemesterPlanJSON = getEightSemesterPlanJSON(student.getEightSemesterPlan());
+        jsonStudent.put(STUDENT_EIGHT_SEMESTER_PLAN, eightSemesterPlanJSON);
 
         return jsonStudent;
     }
 
     // this method needs to be reworked bc we changed the structure of the ESM
     private static JSONObject getEightSemesterPlanJSON(EightSemesterPlan eightSemesterPlan) {
-        JSONObject planJSON = new JSONObject();
-        JSONArray classesInPlanArray = new JSONArray();
-        for (Course course : eightSemesterPlan.getAllCoursesInPlan()) {
+        JSONObject eightSemesterPlanJSON = new JSONObject();
+        for (int i = 0; i < eightSemesterPlan.getSemesters().size(); i++) {
+            JSONArray semesterCoursesArray = new JSONArray();
+            for (Course course : eightSemesterPlan.getSemesters().get(i)) {
+                JSONObject courseJSON = new JSONObject();
+                /*courseJSON.put(COURSE_ID, course.getId().toString());
+                courseJSON.put(COURSE_NAME, course.getName());
+                courseJSON.put(COURSE_DEPARTMENT, course.getDepartment());
+                courseJSON.put(COURSE_NUMBER, course.getNumber());
+                courseJSON.put(COURSE_DESCRIPTION, course.getDescription());
+                courseJSON.put(COURSE_CREDIT_HOURS, String.valueOf(course.getCreditHours())); // Ensuring creditHours is a String
+    
+                JSONArray availability = new JSONArray();
+                for (Availablity avail : course.getAvailablity()) {
+                    availability.add(avail.toString());
+                }
+                courseJSON.put(COURSE_AVAILABILITY, availability);*/
+                semesterCoursesArray.add(courseJSON);
+            }
+            eightSemesterPlanJSON.put("semester" + (i + 1), semesterCoursesArray);
+        }
+        // Handling applicationArea
+        JSONArray applicationAreaArray = new JSONArray();
+        for (Course course : eightSemesterPlan.getApplicationArea()) {
             JSONObject courseJSON = new JSONObject();
             courseJSON.put("id", course.getId().toString());
             courseJSON.put("name", course.getName());
-            classesInPlanArray.add(courseJSON);
+            courseJSON.put("department", course.getDepartment());
+            courseJSON.put("number", course.getNumber());
+            courseJSON.put("description", course.getDescription());
+            courseJSON.put("creditHours", course.getCreditHours());
+            
+            JSONArray availabilityArray = new JSONArray();
+            for (Availablity avail : course.getAvailablity()) {
+                availabilityArray.add(avail.toString());
+            }
+            courseJSON.put("availability", availabilityArray);
+
+            // Add prerequisites and corequisites if needed
+            // Skipping for simplicity as per the initial setup
+            
+            applicationAreaArray.add(courseJSON);
         }
-        planJSON.put("classesInPlan", classesInPlanArray);
-        planJSON.put("majorProgress", eightSemesterPlan.getMajorProgress());
-    
+        eightSemesterPlanJSON.put("applicationArea", applicationAreaArray);
+
+        // Handling electiveChoices
         JSONArray electiveChoicesArray = new JSONArray();
-        for (Course choice : eightSemesterPlan.getElectiveChoices()) {
-            electiveChoicesArray.add(choice.toString()); 
+        for (Course course : eightSemesterPlan.getElectiveChoices()) {
+            JSONObject courseJSON = new JSONObject();
+            courseJSON.put("id", course.getId().toString());
+            courseJSON.put("name", course.getName());
+            courseJSON.put("department", course.getDepartment());
+            courseJSON.put("number", course.getNumber());
+            courseJSON.put("description", course.getDescription());
+            courseJSON.put("creditHours", course.getCreditHours());
+            
+            JSONArray availabilityArray = new JSONArray();
+            for (Availablity avail : course.getAvailablity()) {
+                availabilityArray.add(avail.toString());
+            }
+            courseJSON.put("availability", availabilityArray);
+
+            // Add prerequisites and corequisites if needed
+            // Skipping for simplicity as per the initial setup
+            
+            electiveChoicesArray.add(courseJSON);
         }
-        planJSON.put("electiveChoice", electiveChoicesArray);
+        eightSemesterPlanJSON.put("electiveChoices", electiveChoicesArray);
     
-        return planJSON;
+        return eightSemesterPlanJSON;
     }
 
     private static JSONArray getCurrentCoursesIDsJSON(ArrayList<Course> currentCourses) {
@@ -191,14 +278,14 @@ public class DataWriter extends DataConstants {
 
     public static void saveMajor() {
         MajorList majorList = MajorList.getInstance();
-        ArrayList<Major> majors = majorList.get();
-        JSONArray jsonStudents = new JSONArray();
-        for (Student student : students) {
-            jsonStudents.add(getStudentJSON(student));
+        ArrayList<Major> majors = majorList.getAvailableMajors();
+        JSONArray jsonMajors = new JSONArray();
+        for (Major major : majors) {
+            jsonMajors.add(getMajorJSON(major));
         }
 
-        try (FileWriter file = new FileWriter("tester_students.json")) { //DataConstants.STUDENT_FILE_NAME
-            file.write(jsonStudents.toJSONString());
+        try (FileWriter file = new FileWriter("tester_major.json")) { //DataConstants.STUDENT_FILE_NAME
+            file.write(jsonMajors.toJSONString());
             file.flush();
         } catch (IOException e) {
             e.printStackTrace();
@@ -229,13 +316,17 @@ public class DataWriter extends DataConstants {
             requiredCoursesJSON.put(COURSE_AVAILABILITY, availability);
         }
         jsonMajor.put(MAJOR_REQUIRED_COURSES, requiredCourses);
+
+        EightSemesterPlan defaultPlan = major.getDefaultPlan();
+        JSONObject defaultPlanJSON = getEightSemesterPlanJSON(defaultPlan);
+        jsonMajor.put(MAJOR_DEFAULT_PLAN, defaultPlanJSON);
         
         
         return jsonMajor;
     }
 
     public static void main(String args[]) {
-        // Instantiate UserList, CourseList, and MajorList
+        //Instantiate UserList, CourseList, and MajorList
         //ArrayList<Student> students = userList.getStudents();
         //saveStudents(students);
 

@@ -19,6 +19,10 @@ public class MajorList {
         return majorList;    
     }
 
+    public ArrayList<Major> getAvailableMajors() {
+        return availableMajors;
+    }
+
     public Major findMajor(UUID majorId)
     {
         for( int i =0; i < availableMajors.size();i++)
