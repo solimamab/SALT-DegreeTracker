@@ -11,13 +11,43 @@ import java.util.UUID;
 import java.util.HashMap;
 
 /**
- * Test by Libaan
+ * Tested by Libaan
  */
 
 public class MajorListTest {
+    @Test
+    public void testGetInstanceNotNull() {
+        MajorList instance = MajorList.getInstance();
+        assertNotNull(instance);
+    }
 
     @Test
-    public void testConstructorId() {
-        
+    public void testSingletonInstance() {
+        MajorList firstInstance = MajorList.getInstance();
+        MajorList secondInstance = MajorList.getInstance();
+        assertSame(firstInstance, secondInstance);
+    }
+
+    @Test
+    public void testFindMajorWithNullId() {
+        MajorList instance = MajorList.getInstance();
+        Major result = instance.findMajor(null);
+        assertNull(result);
+    }
+
+    @Test
+    public void testFindMajorWithNonexistentId() {
+        MajorList instance = MajorList.getInstance();
+        Major result = instance.findMajor(UUID.randomUUID());
+        assertNull(result);
+    }
+
+    @Test
+    public void testFindMajorValidId() {
+        UUID validMajorId = UUID.fromString("8c9e49df-95a1-4b7a-a189-02d4d225f10e");
+        MajorList instance = MajorList.getInstance();
+        Major result = instance.findMajor(validMajorId);
+        assertNotNull(result);
+        assertEquals(validMajorId, result.getId());
     }
 }
