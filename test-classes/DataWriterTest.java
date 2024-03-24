@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.FileReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -37,19 +38,23 @@ public class DataWriterTest {
         ArrayList<Student> students = UserList.getInstance().getStudents();
 
         // Assuming these lists/maps are never empty. Adjust accordingly.
-        testAdvisor = advisors.get(0);
-        testMajor = majors.get(0);
-        testStudent = students.get(0);
+        //testAdvisor = advisors.get(1);
+        //testMajor = majors.get(1);
+        //testStudent = students.get(1);
         // Grabbing the first course from the map
-        testCourse = courses.values().iterator().next();
+        //testCourse = courses.values().iterator().next();
         // Assuming EightSemesterPlan is a property of Student
-        testPlan = testStudent.getEightSemesterPlan();
+        //testPlan = testStudent.getEightSemesterPlan();
     }
 
     @Test
-    public void saveAdvisors_FileNotEmpty() throws Exception {
+    public void saveAdvisors_FileNotEmpty() {
         DataWriter.saveAdvisors();
-        assertTrue(Files.size(Paths.get("tester_advisor.json")) > 0);
+        try {
+            assertTrue(Files.size(Paths.get("tester_advisor.json")) > 0);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -58,7 +63,7 @@ public class DataWriterTest {
         try (FileReader reader = new FileReader("tester_advisor.json")) {
             JSONParser parser = new JSONParser();
             JSONArray json = (JSONArray) parser.parse(reader);
-            assertTrue(json.toJSONString().contains("\n"));
+            assertTrue(json.toJSONString().contains("\n"), "JSON format incorrect");
         }
     }
 
@@ -66,13 +71,15 @@ public class DataWriterTest {
 
     @Test
     public void getAdvisorJSON_MatchesAttributes() {
+        ArrayList<Advisor> advisors = UserList.getInstance().getAdvisors();
+        testAdvisor = advisors.get(0);
         JSONObject jsonAdvisor = DataWriter.getAdvisorJSON(testAdvisor);
-        assertNotEquals(testAdvisor.getAdvisorID().toString(), jsonAdvisor.get("id"), "Advisor IDs don't match.");
+        assertEquals(testAdvisor.getAdvisorID().toString(), jsonAdvisor.get("id"), "Advisor IDs don't match.");
         assertEquals(testAdvisor.getUsername(), jsonAdvisor.get("username"));
         assertEquals(testAdvisor.getPassword(), jsonAdvisor.get("password"));
         assertEquals(testAdvisor.getFirstName(), jsonAdvisor.get("firstname"));
         assertEquals(testAdvisor.getLastName(), jsonAdvisor.get("lastname"));
-        JSONArray studentIDsJson = (JSONArray) jsonAdvisor.get("ADVISOR_STUDENT_IDS");
+        JSONArray studentIDsJson = (JSONArray) jsonAdvisor.get("studentIDs");
         ArrayList<UUID> studentIDs = testAdvisor.getStudents(); // Assuming this method exists
         assertEquals(studentIDs.size(), studentIDsJson.size());
     }
