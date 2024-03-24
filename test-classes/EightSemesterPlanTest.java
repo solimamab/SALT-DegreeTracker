@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
 * Tested by abhinavk
@@ -18,9 +19,9 @@ public class EightSemesterPlanTest {
     @BeforeEach
     void setUp() {
         plan = new EightSemesterPlan();
-        testCourse1 = new Course(null, "Test Course 1", "TC", "101", null, 0, null, null, null);
-        testCourse2 = new Course(null, "Test Course 2", "TC", "102", null, 0, null, null, null);
-        testCourse3 = new Course(null, "Test Course 3", "TC", "103", null, 0, null, null, null);
+        testCourse1 = new Course(UUID.randomUUID(), "Test Course 1", "TC", "101", null, 0, null, null, null);
+        testCourse2 = new Course(UUID.randomUUID(), "Test Course 2", "TC", "102", null, 0, null, null, null);
+        testCourse3 = new Course(UUID.randomUUID(), "Test Course 3", "TC", "103", null, 0, null, null, null);
     }
     
     @Test
