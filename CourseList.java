@@ -25,6 +25,8 @@ public class CourseList {
         return courseList;
     }
 
+    
+
     /**
      * This method is to be able to search for a class in the list of available classses
      * @param department the department of the course to be searched the CSCE in CSCE 247
