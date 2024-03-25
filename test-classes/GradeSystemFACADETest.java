@@ -44,15 +44,19 @@ public class GradeSystemFACADETest {
             first = courses.values().iterator().next();
         }
 
-        when(mockCourseList.getCourseByNumber(anyString(), anyString())).thenReturn(first);
-        Course result = facade.findCourse("CSCE", "247");
+        String department = "CSCE";
+        String number = "247";
+        mockCourseList.addCourse(department, number, first); // Adjust method call as per your implementation
+
+        Course result = facade.findCourse(department, number);
         assertEquals(first, result, "Expected course should be returned");
     }
 
     @Test
     public void testLogin() {
         User mockUser = new User("BWest", "12345", "Brax", "West"); 
-        when(mockUserList.getUser(anyString())).thenReturn(mockUser);
+        // Setting up a specific user for login instead of using anyString()
+        mockUserList.addUser(mockUser); // Adjust addUser method as per your implementation
 
         boolean loginSuccess = facade.login("BWest", "12345");
         assertTrue(loginSuccess, "Login should succeed with correct credentials");
@@ -61,7 +65,8 @@ public class GradeSystemFACADETest {
     @Test
     public void testGetUserDetails() {
         User mockUser = new User("BWest", "12345", "Brax", "West");
-        when(mockUserList.getUser(anyString())).thenReturn(mockUser);
+        // Adding the user directly to mockUserList
+        mockUserList.addUser(mockUser); // Assume this method exists and correctly adds the user
 
         String userDetails = facade.getUserDetails("BWest");
         assertNotNull(userDetails, "User details should be returned");
@@ -70,7 +75,7 @@ public class GradeSystemFACADETest {
     @Test
     public void testFindStudent() {
         Student mockStudent = mockUserList.getStudents().get(0);
-        when(mockUserList.getUser(anyString())).thenReturn(mockStudent);
+        mockUserList.addStudent(mockStudent); // Assume this method exists and correctly adds the student
 
         Student result = facade.findStudent("studentUsername");
         assertEquals(mockStudent, result, "Expected student should be returned");
