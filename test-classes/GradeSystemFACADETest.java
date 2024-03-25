@@ -3,6 +3,9 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.UUID;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GradeSystemFACADETest {
@@ -11,14 +14,14 @@ public class GradeSystemFACADETest {
     private UserList mockUserList;
     private CourseList mockCourseList;
     private MajorList mockMajorList;
-    private final String writePlantoTextFilePath = "SemesterPlan.txt.txt"; // TODO: Define the actual path
+    private final String writePlantoTextFilePath = "SemesterPlan.txt"; // TODO: Define the actual path
 
     @BeforeEach
     public void setUp() throws Exception {
 
-        mockUserList = userList.getInstance();
-        mockCourseList = courseList.getInstance();
-        mockMajorList = majorList.getInstance();
+        mockUserList = UserList.getInstance();
+        mockCourseList = CourseList.getInstance();
+        mockMajorList = MajorList.getInstance();
         facade = GradeSystemFACADE.getFacadeInstance(mockUserList, mockCourseList, mockMajorList);
 
         try {
@@ -35,11 +38,15 @@ public class GradeSystemFACADETest {
 
     @Test
     public void testFindCourse() {
-        Course expectedCourse = new Course(); // Assuming Course constructor exists
-        when(mockCourseList.getCourseByNumber(anyString(), anyString())).thenReturn(expectedCourse);
+        HashMap<UUID, Course> courses = mockCourseList.getAllCourses();
+        Course first = null;
+        if(!courses.isEmpty()){
+            first = courses.values().iterator().next();
+        }
 
+        when(mockCourseList.getCourseByNumber(anyString(), anyString())).thenReturn(first);
         Course result = facade.findCourse("CSCE", "247");
-        assertEquals(expectedCourse, result, "Expected course should be returned");
+        assertEquals(first, result, "Expected course should be returned");
     }
 
     @Test
@@ -62,7 +69,7 @@ public class GradeSystemFACADETest {
 
     @Test
     public void testFindStudent() {
-        Student mockStudent = new Student(); 
+        Student mockStudent = mockUserList.getStudents().get(0);
         when(mockUserList.getUser(anyString())).thenReturn(mockStudent);
 
         Student result = facade.findStudent("studentUsername");
@@ -71,7 +78,7 @@ public class GradeSystemFACADETest {
 
     @Test
     public void testWritePlantoTextFileExists() {
-        Student student = mockUserList.getStudent("BWest");
+        Student student = mockUserList.getStudents().get(0);
         facade.writePlantoTextFile(student);
 
         File file = new File(writePlantoTextFilePath);
