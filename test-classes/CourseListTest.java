@@ -39,8 +39,4 @@ public class CourseListTest {
         Course test = courseList.getCourseByNumber("WrongDept", "112");
         assertEquals(null, test);
     }
-
-    public void testAddCourse(){
-
-    }
 }
