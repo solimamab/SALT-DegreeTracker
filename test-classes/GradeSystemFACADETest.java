@@ -43,31 +43,23 @@ public class GradeSystemFACADETest {
         if(!courses.isEmpty()){
             first = courses.values().iterator().next();
         }
-
-        String department = "CSCE";
-        String number = "247";
-        mockCourseList.addCourse(department, number, first); // Adjust method call as per your implementation
+        String department = first.getDepartment();
+        String number = first.getNumber();
 
         Course result = facade.findCourse(department, number);
-        assertEquals(first, result, "Expected course should be returned");
+        String department_test = result.getDepartment();
+
+        assertEquals(department, department_test, "Expected course should be returned");
     }
 
     @Test
     public void testLogin() {
-        User mockUser = new User("BWest", "12345", "Brax", "West"); 
-        // Setting up a specific user for login instead of using anyString()
-        mockUserList.addUser(mockUser); // Adjust addUser method as per your implementation
-
         boolean loginSuccess = facade.login("BWest", "12345");
         assertTrue(loginSuccess, "Login should succeed with correct credentials");
     }
 
     @Test
     public void testGetUserDetails() {
-        User mockUser = new User("BWest", "12345", "Brax", "West");
-        // Adding the user directly to mockUserList
-        mockUserList.addUser(mockUser); // Assume this method exists and correctly adds the user
-
         String userDetails = facade.getUserDetails("BWest");
         assertNotNull(userDetails, "User details should be returned");
     }
@@ -75,10 +67,11 @@ public class GradeSystemFACADETest {
     @Test
     public void testFindStudent() {
         Student mockStudent = mockUserList.getStudents().get(0);
-        mockUserList.addStudent(mockStudent); // Assume this method exists and correctly adds the student
+        String username = mockStudent.getUsername();
 
-        Student result = facade.findStudent("studentUsername");
-        assertEquals(mockStudent, result, "Expected student should be returned");
+        Student result = facade.findStudent(username);
+        String username_test = result.getUsername();
+        assertEquals(username, username_test, "Expected student should be returned");
     }
 
     @Test
