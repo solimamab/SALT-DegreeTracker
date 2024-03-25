@@ -269,9 +269,9 @@ public class DataWriter extends DataConstants {
 
     public static void saveMajor() {
         MajorList majorList = MajorList.getInstance();
-        ArrayList<Major> majors = majorList.getAvailableMajors();
+        HashMap<UUID, Major> majors = majorList.getMajorMap();
         JSONArray jsonMajors = new JSONArray();
-        for (Major major : majors) {
+        for (Major major : majors.values()) {
             jsonMajors.add(getMajorJSON(major));
         }
 
@@ -314,6 +314,10 @@ public class DataWriter extends DataConstants {
         
         
         return jsonMajor;
+    }
+
+    public static void main(String[] args) {
+        saveMajor();
     }
 
 }

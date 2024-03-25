@@ -23,6 +23,10 @@ public class MajorList {
         return availableMajors;
     }
 
+    public HashMap<UUID, Major> getMajorMap() {
+        return majorMap;
+    } 
+
     public Major findMajor(UUID majorId)
     {
         for( int i =0; i < availableMajors.size();i++)

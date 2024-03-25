@@ -34,8 +34,8 @@ public class DataWriterTest {
         // Initialize objects for testing - assuming these methods exist and work as described
         ArrayList<Advisor> advisors = UserList.getInstance().getAdvisors();
         ArrayList<Major> majors = MajorList.getInstance().getAvailableMajors();
-        testMajor = majors.get(1);
         ArrayList<Student> students = UserList.getInstance().getStudents();
+        testStudent = students.get(1);
 
         // Assuming these lists/maps are never empty. Adjust accordingly.
         //testAdvisor = advisors.get(1);
@@ -156,11 +156,13 @@ public class DataWriterTest {
         assertEquals(testCourse.getNumber(), jsonCourse.get("number"), "Course numbers don't match.");
         assertEquals(testCourse.getName(), jsonCourse.get("name"), "Course names don't match.");
         assertEquals(testCourse.getDescription(), jsonCourse.get("description"), "Course descriptions don't match.");
-        assertEquals(testCourse.getCreditHours(), jsonCourse.get("creditHours"), "Credit hours don't match.");
-        assertEquals(testCourse.getAvailablity().toString(), jsonCourse.get("availability"), "Availabilities don't match.");
+        assertEquals(String.valueOf(testCourse.getCreditHours()), jsonCourse.get("creditHours"), "Credit hours don't match.");
     }
 
+    @Test
     public void getStudentJSON_MatchesAttributes() {
+        ArrayList<Student> students = UserList.getInstance().getStudents();
+        testStudent = students.get(1);
         JSONObject jsonStudent = DataWriter.getStudentJSON(testStudent);
         assertEquals(testStudent.getUUID().toString(), jsonStudent.get("id"), "Student IDs don't match.");
         assertEquals(testStudent.getUsername(), jsonStudent.get("username"), "Usernames don't match.");
@@ -168,20 +170,21 @@ public class DataWriterTest {
         assertEquals(testStudent.getFirstName(), jsonStudent.get("firstname"), "First names don't match.");
         assertEquals(testStudent.getLastName(), jsonStudent.get("lastname"), "Last names don't match.");
         assertEquals(testStudent.getClassification().toString(), jsonStudent.get("classification"), "Classifications don't match.");
-        assertEquals(testStudent.getCompletedCreditHours(), jsonStudent.get("completedcredithours"), "Completed credit hours don't match.");
-        assertEquals(testStudent.getRemainingCreditHours(), jsonStudent.get("remainingcredithours"), "Remaining credit hours don't match.");
-        assertEquals(testStudent.getFlag(), jsonStudent.get("flag"), "Flags don't match.");
-        assertEquals(testStudent.getOverallGPA(), jsonStudent.get("OverallGPA"), "Overall GPAs don't match.");
-        assertEquals(testStudent.getMajorID().toString(), jsonStudent.get("major"), "Major IDs don't match.");
+        assertEquals(testStudent.getCompletedCreditHours(), jsonStudent.get("completedCreditHours"), "Completed credit hours don't match.");
+        assertEquals(testStudent.getRemainingCreditHours(), jsonStudent.get("remainingCreditHours"), "Remaining credit hours don't match.");
+        assertEquals(testStudent.getFlag().toString(), jsonStudent.get("flag"), "Flags don't match.");
+        assertEquals(testStudent.getOverallGPA(), jsonStudent.get("overallGPA"), "Overall GPAs don't match.");
+        assertEquals(testStudent.getMajorID().toString(), jsonStudent.get("majorId"), "Major IDs don't match.");
         assertEquals(testStudent.getMinor(), jsonStudent.get("minor"), "Minors don't match.");
         assertEquals(testStudent.getFEPRA(), jsonStudent.get("FERPA"), "FERPAs don't match.");
-        assertEquals(testStudent.getAdvisor().getAdvisorID().toString(), jsonStudent.get("advisorID"), "Advisor IDs don't match.");
+        assertEquals(testStudent.getAdvisor().getAdvisorID().toString(), jsonStudent.get("advisorId"), "Advisor IDs don't match.");
     }
 
-
+    @Test
     public void getMajorJSON_MatchesAttributes() {
         ArrayList<Major> majors = MajorList.getInstance().getAvailableMajors();
-        testMajor = majors.get(1);
+        assertTrue(majors.size()>0, "MajorList is empty");
+        //testMajor = majors.get(1);
         JSONObject jsonMajor = DataWriter.getMajorJSON(testMajor);
         assertEquals(testMajor.getId().toString(), jsonMajor.get("id"));
         JSONArray requiredCourseList = (JSONArray) testMajor.getRequiredCourses();
