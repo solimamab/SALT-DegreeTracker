@@ -33,8 +33,8 @@ public class DataWriterTest {
 
         // Initialize objects for testing - assuming these methods exist and work as described
         ArrayList<Advisor> advisors = UserList.getInstance().getAdvisors();
-        HashMap<UUID, Course> courses = CourseList.getInstance().getAllCourses();
         ArrayList<Major> majors = MajorList.getInstance().getAvailableMajors();
+        testMajor = majors.get(1);
         ArrayList<Student> students = UserList.getInstance().getStudents();
 
         // Assuming these lists/maps are never empty. Adjust accordingly.
@@ -58,6 +58,36 @@ public class DataWriterTest {
     }
 
     @Test
+    public void saveCourses_FileNotEmpty() {
+        DataWriter.saveCourses();
+        try {
+            assertTrue(Files.size(Paths.get("tester_course.json")) > 0);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void saveStudents_FileNotEmpty() {
+        DataWriter.saveStudents();
+        try {
+            assertTrue(Files.size(Paths.get("tester_students.json")) > 0);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void saveMajor_FileNotEmpty() {
+        DataWriter.saveMajor();
+        try {
+            assertTrue(Files.size(Paths.get("tester_major.json")) > 0);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
     public void saveAdvisors_FileProperlyFormatted() throws Exception {
         DataWriter.saveAdvisors();
         try (FileReader reader = new FileReader("tester_advisor.json")) {
@@ -67,6 +97,38 @@ public class DataWriterTest {
         }
     }
 
+    @Test
+    public void saveCourses_FileProperlyFormatted() throws Exception {
+        DataWriter.saveCourses();
+        try (FileReader reader = new FileReader("tester_course.json")) {
+            JSONParser parser = new JSONParser();
+            JSONArray json = (JSONArray) parser.parse(reader);
+            assertTrue(json.toJSONString().contains("\n"), "JSON format incorrect");
+        }
+    }
+
+    @Test
+    public void saveStudents_FileProperlyFormatted() throws Exception {
+        DataWriter.saveStudents();
+        try (FileReader reader = new FileReader("tester_students.json")) {
+            JSONParser parser = new JSONParser();
+            JSONArray json = (JSONArray) parser.parse(reader);
+            assertTrue(json.toJSONString().contains("\n"), "JSON format incorrect");
+        }
+    }
+
+    @Test
+    public void saveMajor_FileProperlyFormatted() throws Exception {
+        DataWriter.saveMajor();
+        try (FileReader reader = new FileReader("tester_major.json")) {
+            JSONParser parser = new JSONParser();
+            JSONArray json = (JSONArray) parser.parse(reader);
+            assertTrue(json.toJSONString().contains("\n"), "JSON format incorrect");
+        }
+    }
+
+
+
     // Repeat similar structure for saveCourses, saveStudents, saveMajor
 
     @Test
@@ -75,33 +137,56 @@ public class DataWriterTest {
         testAdvisor = advisors.get(0);
         JSONObject jsonAdvisor = DataWriter.getAdvisorJSON(testAdvisor);
         assertEquals(testAdvisor.getAdvisorID().toString(), jsonAdvisor.get("id"), "Advisor IDs don't match.");
-        assertEquals(testAdvisor.getUsername(), jsonAdvisor.get("username"));
-        assertEquals(testAdvisor.getPassword(), jsonAdvisor.get("password"));
-        assertEquals(testAdvisor.getFirstName(), jsonAdvisor.get("firstname"));
-        assertEquals(testAdvisor.getLastName(), jsonAdvisor.get("lastname"));
+        assertEquals(testAdvisor.getUsername(), jsonAdvisor.get("username"), "Usernames don't match.");
+        assertEquals(testAdvisor.getPassword(), jsonAdvisor.get("password"), "Passwords don't match.");
+        assertEquals(testAdvisor.getFirstName(), jsonAdvisor.get("firstname") , "First names don't match.");
+        assertEquals(testAdvisor.getLastName(), jsonAdvisor.get("lastname"), "Last names don't match.");
         JSONArray studentIDsJson = (JSONArray) jsonAdvisor.get("studentIDs");
-        ArrayList<UUID> studentIDs = testAdvisor.getStudents(); // Assuming this method exists
-        assertEquals(studentIDs.size(), studentIDsJson.size());
+        ArrayList<UUID> studentIDs = testAdvisor.getStudents(); 
+        assertEquals(studentIDs.size(), studentIDsJson.size(), "Student ID lists don't match.");
     }
 
     @Test
     public void getCourseJSON_MatchesAttributes() {
+        HashMap<UUID, Course> courses = CourseList.getInstance().getAllCourses();
+        testCourse = courses.values().iterator().next();
         JSONObject jsonCourse = DataWriter.getCourseJSON(testCourse);
-        assertEquals(testCourse.getId().toString(), jsonCourse.get("COURSE_ID"));
-        // do this for COURSE_NAME, COURSE_CREDIT_HOURS, COURSE_DESCRIPTION,COURSE_NUMBER,COURSE_DEPARTMENT
+        assertEquals(testCourse.getId().toString(), jsonCourse.get("id"), "Course IDs don't match.");
+        assertEquals(testCourse.getDepartment(), jsonCourse.get("department"), "Departments don't match.");
+        assertEquals(testCourse.getNumber(), jsonCourse.get("number"), "Course numbers don't match.");
+        assertEquals(testCourse.getName(), jsonCourse.get("name"), "Course names don't match.");
+        assertEquals(testCourse.getDescription(), jsonCourse.get("description"), "Course descriptions don't match.");
+        assertEquals(testCourse.getCreditHours(), jsonCourse.get("creditHours"), "Credit hours don't match.");
+        assertEquals(testCourse.getAvailablity().toString(), jsonCourse.get("availability"), "Availabilities don't match.");
     }
 
     public void getStudentJSON_MatchesAttributes() {
         JSONObject jsonStudent = DataWriter.getStudentJSON(testStudent);
-        assertEquals(testStudent.getUUID().toString(), jsonStudent.get("STUDENT_ID"));
-        // do this for username, password, firstname, lastname, classification, completedcredithours, remainingcredithours, FERPA, MINOR, OverallGPA, flag major, advisorID
+        assertEquals(testStudent.getUUID().toString(), jsonStudent.get("id"), "Student IDs don't match.");
+        assertEquals(testStudent.getUsername(), jsonStudent.get("username"), "Usernames don't match.");
+        assertEquals(testStudent.getPassword(), jsonStudent.get("password"), "Passwords don't match.");
+        assertEquals(testStudent.getFirstName(), jsonStudent.get("firstname"), "First names don't match.");
+        assertEquals(testStudent.getLastName(), jsonStudent.get("lastname"), "Last names don't match.");
+        assertEquals(testStudent.getClassification().toString(), jsonStudent.get("classification"), "Classifications don't match.");
+        assertEquals(testStudent.getCompletedCreditHours(), jsonStudent.get("completedcredithours"), "Completed credit hours don't match.");
+        assertEquals(testStudent.getRemainingCreditHours(), jsonStudent.get("remainingcredithours"), "Remaining credit hours don't match.");
+        assertEquals(testStudent.getFlag(), jsonStudent.get("flag"), "Flags don't match.");
+        assertEquals(testStudent.getOverallGPA(), jsonStudent.get("OverallGPA"), "Overall GPAs don't match.");
+        assertEquals(testStudent.getMajorID().toString(), jsonStudent.get("major"), "Major IDs don't match.");
+        assertEquals(testStudent.getMinor(), jsonStudent.get("minor"), "Minors don't match.");
+        assertEquals(testStudent.getFEPRA(), jsonStudent.get("FERPA"), "FERPAs don't match.");
+        assertEquals(testStudent.getAdvisor().getAdvisorID().toString(), jsonStudent.get("advisorID"), "Advisor IDs don't match.");
     }
 
 
     public void getMajorJSON_MatchesAttributes() {
+        ArrayList<Major> majors = MajorList.getInstance().getAvailableMajors();
+        testMajor = majors.get(1);
         JSONObject jsonMajor = DataWriter.getMajorJSON(testMajor);
-        assertEquals(testMajor.getId().toString(), jsonMajor.get("Major_ID"));
-        // do this for name, requiredCourses, defaultPlan
+        assertEquals(testMajor.getId().toString(), jsonMajor.get("id"));
+        JSONArray requiredCourseList = (JSONArray) testMajor.getRequiredCourses();
+        JSONArray jsonRequiredCourseList = (JSONArray) jsonMajor.get("requiredCourses");
+        assertEquals(requiredCourseList.size(), jsonRequiredCourseList.size(), "Required course lists don't match.");
     }
 
 
