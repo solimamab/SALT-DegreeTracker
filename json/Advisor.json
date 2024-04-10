@@ -1,10 +1,12 @@
 [
-    {
-      "id" : "d6939162-ca59-4c24-9bfa-d499f2eb9a89",
-      "username": "OOdenn",
-      "password": "12345678",
-      "firstname": "Osbert",
-      "lastname": "Odden",
-      "studentIDs" : ["088079fa-f935-42ad-8de1-c479c7dc40ad"]
-    }
+  {
+    "password": "12345678",
+    "firstname": "Osbert",
+    "id": "d6939162-ca59-4c24-9bfa-d499f2eb9a89",
+    "studentIDs": [
+      "088079fa-f935-42ad-8de1-c479c7dc40ad"
+    ],
+    "username": "OOdenn",
+    "lastname": "Odden"
+  }
 ]

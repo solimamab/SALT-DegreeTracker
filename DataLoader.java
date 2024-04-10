@@ -123,7 +123,8 @@ public class DataLoader extends DataConstants {
                 JSONArray currentCoursesJSON = (JSONArray) studentJSON.get(STUDENT_CURRENT_COURSES);
                 ArrayList<Course> currentCourses = parseCurrentCourses(currentCoursesJSON, coursesMap);
                 
-                JSONArray eightSemesterPlanJSON = (JSONArray) studentJSON.get(STUDENT_EIGHT_SEMESTER_PLAN);
+                // Change JSONArray to JSONObject for eightSemesterPlanJSON
+                JSONObject eightSemesterPlanJSON = (JSONObject) studentJSON.get(STUDENT_EIGHT_SEMESTER_PLAN);
                 EightSemesterPlan eightSemesterPlan = parseEightSemesterPlan(eightSemesterPlanJSON, coursesMap);
                 
                 // Log each student's information as it's parsed
@@ -357,6 +358,27 @@ public class DataLoader extends DataConstants {
         return advisors;
     }
     
+    private static EightSemesterPlan parseEightSemesterPlan(JSONObject planJSON, HashMap<UUID, Course> coursesMap) {
+        EightSemesterPlan plan = new EightSemesterPlan();
+    
+        for (int i = 1; i <= 8; i++) {
+            JSONArray semesterCoursesJSON = (JSONArray) planJSON.get("semester" + i);
+            ArrayList<Course> semesterCourses = parseCoursesArray(semesterCoursesJSON, coursesMap);
+            plan.addSemesterCourses(i, semesterCourses);
+        }
+    
+        JSONArray applicationAreaJSON = (JSONArray) planJSON.get("applicationArea");
+        ArrayList<Course> applicationAreaCourses = parseCoursesArray(applicationAreaJSON, coursesMap);
+        plan.setApplicationAreaCourses(applicationAreaCourses);
+    
+        JSONArray electiveChoicesJSON = (JSONArray) planJSON.get("electiveChoices");
+        ArrayList<Course> electiveCourses = parseCoursesArray(electiveChoicesJSON, coursesMap);
+        plan.setElectiveCourses(electiveCourses);
+    
+        return plan;
+    }
+    
+
     public static void main(String[] args) {
         HashMap<UUID, Course> coursesMap = DataLoader.loadCourses();
         ArrayList<Advisor> advisors = DataLoader.loadAdvisors();
@@ -373,11 +395,11 @@ public class DataLoader extends DataConstants {
         int numberOfStudents = students.size();
         System.out.println("Number of students loaded: " + numberOfStudents);
     
-        //Printing courses
+        /*/Printing courses
         System.out.println("\nCourses:");
         for (Course course : coursesMap.values()) {
             System.out.println(course.toString());
-            }
+            }*/
         
         
         // Printing advisors

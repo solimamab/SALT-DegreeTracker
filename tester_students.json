@@ -5,7 +5,22 @@
             "semester8": [
                 {
                     "creditHours": "3",
+                    "prerequisites": [
+                        [
+                            "39046cda-f913-4f9b-a002-f06e7c59f235",
+                            "D"
+                        ],
+                        [
+                            "6c8202fd-b31b-4647-b551-b7f4dbf007a0",
+                            "D"
+                        ],
+                        [
+                            "42288ffd-4ead-4718-b840-4be2894d8f30",
+                            "D"
+                        ]
+                    ],
                     "number": "492",
+                    "corequisites": [],
                     "name": "Capstone Computing Project II",
                     "description": "Continuation of CSCE 490. Computer system implementation, testing, verification and validation of results. Written reports and oral presentations in a technical setting.   FS: 12\/07\/2022.",
                     "id": "f425f91f-92da-4261-be45-347d81b6ab9d",
@@ -17,7 +32,9 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "517",
+                    "corequisites": [],
                     "name": "Computer Crime and Forensics",
                     "description": "Structure, design, and analysis of computer networks; ISO\/OSI network architecture.   FS: 12\/07\/2016.   CL: 2020.",
                     "id": "f5a467c9-8fe7-4654-b43f-dec8146fc6bc",
@@ -29,7 +46,9 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "260",
+                    "corequisites": [],
                     "name": "Interdisciplinary Relationships in the Arts",
                     "description": "The study of relationships among visual arts, music, theatre, and dance.   CL: 2020.",
                     "id": "c08a8c04-7729-401a-820f-6c737c196344",
@@ -41,7 +60,9 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "101",
+                    "corequisites": [],
                     "name": "European Civilization from Ancient Times to the Mid-17th Century",
                     "description": "The rise and development of European civilization from its Mediterranean origins through the Renaissance and Reformation.   CL: 2020.",
                     "id": "d9ee653d-4c4f-4943-857c-9ad95bea5264",
@@ -55,7 +76,9 @@
             "electiveChoices": [
                 {
                     "creditHours": 3,
+                    "prerequisites": [],
                     "number": "260",
+                    "corequisites": [],
                     "name": "Interdisciplinary Relationships in the Arts",
                     "description": "The study of relationships among visual arts, music, theatre, and dance.   CL: 2020.",
                     "id": "c08a8c04-7729-401a-820f-6c737c196344",
@@ -69,7 +92,9 @@
             "semester1": [
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "101",
+                    "corequisites": [],
                     "name": "Critical Reading and Composition",
                     "description": "Instruction in strategies for critically reading and analyzing literature and non-literary texts; structured, sustained practice in composing expository and analytical essays.   CL: 2020.",
                     "id": "12224407-e656-4fe7-9078-88f1d9dc8325",
@@ -81,7 +106,22 @@
                 },
                 {
                     "creditHours": "4",
+                    "prerequisites": [
+                        [
+                            "2f85f19f-f6ba-490f-9bb2-a41b9199d74f",
+                            "C"
+                        ],
+                        [
+                            "84b21549-16e9-4117-978c-39a43fb665b2",
+                            "C"
+                        ],
+                        [
+                            "0c9c5c16-a478-44eb-89a1-1589750b8604",
+                            "C"
+                        ]
+                    ],
                     "number": "141",
+                    "corequisites": [],
                     "name": "Calculus I",
                     "description": "Functions, limits, derivatives, introduction to integrals, the Fundamental Theorem of Calculus, applications of derivatives and integrals. Four classroom hours and one laboratory hour per week.    CL: 2020.",
                     "id": "4bd274cb-260e-47a5-9893-203a3943d704",
@@ -93,7 +133,9 @@
                 },
                 {
                     "creditHours": "4",
+                    "prerequisites": [],
                     "number": "145",
+                    "corequisites": [],
                     "name": "Algorithmic Design I",
                     "description": "Problem-solving, algorithmic design, and programming. Three lectures and two laboratory hours per week.   FS: 12\/04\/2013.   CL: 2020.",
                     "id": "2e2ebf3f-c4d3-4dae-956b-d8afa7fca627",
@@ -105,7 +147,9 @@
                 },
                 {
                     "creditHours": "1",
+                    "prerequisites": [],
                     "number": "190",
+                    "corequisites": [],
                     "name": "Computing in the Modern World",
                     "description": "An introduction to the field of computing: trends in computing technology, the profession, and careers; subdisciplines in computing; the nature of research and development.   CL: 2020.",
                     "id": "3cca9c4e-a195-4759-a761-cfe09adb20b8",
@@ -117,7 +161,9 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "202",
+                    "corequisites": [],
                     "name": "Introduction to African-American Studies",
                     "description": "Introduction to the analysis and discussion of creative works and traditions by and about African Americans through folklore, music, art, dance, and literature.   FS: 11\/04\/2020.   CL: 2020.",
                     "id": "277c57bf-d5b8-4a69-941f-0f494c30d99e",
@@ -131,7 +177,9 @@
             "semester2": [
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "102",
+                    "corequisites": [],
                     "name": "Rhetoric and Composition",
                     "description": "Instruction and intensive practice in researching, analyzing, and composing written arguments about academic and public issues.   FS: 12\/7\/2016.   CL: 2020.",
                     "id": "980e1056-4ed2-4459-b0e7-56d78eca5d73",
@@ -143,7 +191,14 @@
                 },
                 {
                     "creditHours": "4",
+                    "prerequisites": [
+                        [
+                            "4bd274cb-260e-47a5-9893-203a3943d704",
+                            "C"
+                        ]
+                    ],
                     "number": "142",
+                    "corequisites": [],
                     "name": "Calculus II",
                     "description": "Methods of integration, sequences and series, approximations.   Four classroom hours and one laboratory hour per week.   FS: 12\/03\/2014.   CL: 2020.",
                     "id": "3d7aa3f8-bfb0-4f9e-af57-49818eacf9a6",
@@ -155,7 +210,9 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "111",
+                    "corequisites": [],
                     "name": "General Chemistry I",
                     "description": "Survey of the principles that underlie all chemistry with applications illustrating these principles.  Three lecture and one recitation hours per week.   FS: 12\/02\/2020.   CL: 2020.",
                     "id": "a379a182-57c9-4b28-950d-35903009bce3",
@@ -167,7 +224,14 @@
                 },
                 {
                     "creditHours": "1",
+                    "prerequisites": [
+                        [
+                            "84b21549-16e9-4117-978c-39a43fb665b2",
+                            "D"
+                        ]
+                    ],
                     "number": "111L",
+                    "corequisites": [],
                     "name": "General Chemistry I Lab",
                     "description": "Introduction to the principles and techniques of experimental chemistry with emphasis on formula investigations, equations, elementary statistics, and chemical reactivity.   FS: 12\/02\/2020.   CL: 2020.",
                     "id": "b6bf4208-6933-4e10-a961-118f12d7acba",
@@ -179,7 +243,22 @@
                 },
                 {
                     "creditHours": "4",
+                    "prerequisites": [
+                        [
+                            "2e2ebf3f-c4d3-4dae-956b-d8afa7fca627",
+                            "C"
+                        ],
+                        [
+                            "f8e10b3a-146b-4d43-a3d8-647028c98641",
+                            "C"
+                        ],
+                        [
+                            "4bd274cb-260e-47a5-9893-203a3943d704",
+                            "D"
+                        ]
+                    ],
                     "number": "146",
+                    "corequisites": [],
                     "name": "Algorithmic Design II",
                     "description": "Continuation of CSCE 145. Rigorous development of algorithms and computer programs; elementary data structures. Three lecture hours and two laboratory hours per week.   FS: 12\/04\/2013.   CL: 2020.",
                     "id": "57eaa5d5-a439-43b1-87fc-2d3a4c0b9cd6",
@@ -191,7 +270,9 @@
                 },
                 {
                     "creditHours": "1",
+                    "prerequisites": [],
                     "number": "215",
+                    "corequisites": [],
                     "name": "UNIX\/Linux Fundamentals",
                     "description": "UNIX operating system, user-level system commands, and programming tools. UNIX scripting languages.   CL: 2020.",
                     "id": "9b9ea0d0-3574-44be-b6cf-1ef50ce2aa23",
@@ -205,7 +286,9 @@
             "semester3": [
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "211",
+                    "corequisites": [],
                     "name": "Digital Logic Design",
                     "description": "Number systems, Boolean algebra, logic design, sequential machines.   CL: 2020.",
                     "id": "789c6ed0-53e3-476c-8761-f08bf727d08c",
@@ -217,7 +300,14 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [
+                        [
+                            "9b9ea0d0-3574-44be-b6cf-1ef50ce2aa23",
+                            "D"
+                        ]
+                    ],
                     "number": "240",
+                    "corequisites": [],
                     "name": "Advanced Programming Techniques",
                     "description": "Pointers; memory management; advanced programming language structures: operator overloading, iterators, multiple inheritance, polymorphism, templates, virtual functions; Unix programming environment.   FS: 12\/6\/2017.   CL: 2020.",
                     "id": "39046cda-f913-4f9b-a002-f06e7c59f235",
@@ -229,7 +319,18 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [
+                        [
+                            "3d7aa3f8-bfb0-4f9e-af57-49818eacf9a6",
+                            "C"
+                        ],
+                        [
+                            "57eaa5d5-a439-43b1-87fc-2d3a4c0b9cd6",
+                            "C"
+                        ]
+                    ],
                     "number": "374",
+                    "corequisites": [],
                     "name": "Discrete Structures",
                     "description": "Propositional and predicate logic; proof techniques; recursion and recurrence relations; sets, combinatorics, and probability; functions, relations, and matrices; algebraic structures.   FS: 12\/03\/2014.   CL: 2020.",
                     "id": "928eb174-dea9-4b98-80b1-ac594c4360f8",
@@ -241,7 +342,9 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "112",
+                    "corequisites": [],
                     "name": "General Chemistry II",
                     "description": "Continuation of CHEM 111. Special emphasis on chemical equilibrium. Three lecture and one recitation hours per week.   FS: 12\/07\/2016.   CL: 2020.",
                     "id": "66a95212-0d75-4fae-97ff-c3c76c29d47e",
@@ -253,7 +356,9 @@
                 },
                 {
                     "creditHours": "1",
+                    "prerequisites": [],
                     "number": "112L",
+                    "corequisites": [],
                     "name": "General Chemistry II Lab",
                     "description": "Continuation of CHEM 111L with emphasis on solution properties, kinetics, equilibrium, acids and bases, and qualitative analysis.   FS: 09\/12\/2013.   CL: 2020.",
                     "id": "75764c82-d463-4fcf-a367-e7f925416456",
@@ -267,7 +372,9 @@
             "semester4": [
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "212",
+                    "corequisites": [],
                     "name": "Introduction to Computer Architecture",
                     "description": "Computer architecture, components. and organization; memory addressing; Input\/Output; instruction sets; interrupts; assembly-language programming. Students may not apply both CSCE 210 and CSCE 212 to any minor or major program of study.   FS: 11\/04\/2020.   CL: 2020.",
                     "id": "dd218911-2c00-46b4-99fc-0aa909331369",
@@ -279,7 +386,9 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "247",
+                    "corequisites": [],
                     "name": "Software Engineering",
                     "description": "Fundamentals of software design and development; software implementation strategies; object-oriented design techniques; functional design techniques; design patterns; design process; source control; testing.    FS: 12\/6\/2017.   CL: 2020.",
                     "id": "730005f1-113d-446e-865c-31b46dfbc924",
@@ -291,7 +400,9 @@
                 },
                 {
                     "creditHours": "4",
+                    "prerequisites": [],
                     "number": "101",
+                    "corequisites": [],
                     "name": "Introduction to the Earth",
                     "description": "Origin and nature of the earth with emphasis on internal processes and phenomena such as earthquakes, volcanoes, and mountain building; surface processes, including landform evolution.  Three lectures and three laboratory hours each week.   FS: 06\/05\/2019.   CL: 2020.",
                     "id": "07ab147e-a181-405d-aeec-3c153f2fe695",
@@ -303,7 +414,14 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [
+                        [
+                            "3d7aa3f8-bfb0-4f9e-af57-49818eacf9a6",
+                            "C"
+                        ]
+                    ],
                     "number": "241",
+                    "corequisites": [],
                     "name": "Vector Calculus",
                     "description": "Vector algebra, geometry of three-dimensional space; lines, planes, and curves in space; polar, cylindrical, and spherical coordinate systems; partial differentiation, max-min theory; multiple and iterated integration, line integrals, and Green\u2019s theorem in the plane.   FS: 12\/03\/2014.   CL: 2020.",
                     "id": "f8b358bf-d69e-4aae-b10c-8dc98f1f651f",
@@ -317,7 +435,14 @@
             "semester5": [
                 {
                     "creditHours": "3",
+                    "prerequisites": [
+                        [
+                            "39046cda-f913-4f9b-a002-f06e7c59f235",
+                            "D"
+                        ]
+                    ],
                     "number": "311",
+                    "corequisites": [],
                     "name": "Operating Systems",
                     "description": "Operating system structure and function; process implementation, scheduling, and synchronization; memory management; security; naming protection; resource allocation; network file systems.   FS:  12\/02\/2015.   CL: 2020.",
                     "id": "684f6d78-9f42-4e22-b447-7b15782007b3",
@@ -329,7 +454,14 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [
+                        [
+                            "39046cda-f913-4f9b-a002-f06e7c59f235",
+                            "D"
+                        ]
+                    ],
                     "number": "330",
+                    "corequisites": [],
                     "name": "Programming Language Structures",
                     "description": "Formal specification of syntax and semantics; structure of algorithms; list processing and string manipulation languages; statement types, control structures, and interfacing procedures.   FS: 09\/14\/2016.   CL: 2020.",
                     "id": "d71f3a41-5b83-40b6-94a7-609b01ca2caa",
@@ -341,7 +473,14 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [
+                        [
+                            "39046cda-f913-4f9b-a002-f06e7c59f235",
+                            "D"
+                        ]
+                    ],
                     "number": "350",
+                    "corequisites": [],
                     "name": "Data Structures and Algorithms",
                     "description": "Techniques for representing and processing information, including the use of lists, trees, and graphs; analysis of algorithms; sorting, searching, and hashing techniques.   FS: 12\/07\/2016.   CL: 2020.",
                     "id": "6c8202fd-b31b-4647-b551-b7f4dbf007a0",
@@ -353,7 +492,9 @@
                 },
                 {
                     "creditHours": "1",
+                    "prerequisites": [],
                     "number": "390",
+                    "corequisites": [],
                     "name": "Professional Issues in Computer Science and Engineering",
                     "description": "Professional issues in the information technology professions; history and social context of computing; professional responsibilities; privacy; intellectual property; risks and liabilities of computer-based systems.   FS: 04\/02\/2014.   CL: 2020.",
                     "id": "96cd3d5d-590a-4567-9cc3-787e03cc5140",
@@ -365,7 +506,18 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [
+                        [
+                            "12224407-e656-4fe7-9078-88f1d9dc8325",
+                            "D"
+                        ],
+                        [
+                            "980e1056-4ed2-4459-b0e7-56d78eca5d73",
+                            "D"
+                        ]
+                    ],
                     "number": "462",
+                    "corequisites": [],
                     "name": "Technical Writing",
                     "description": "Preparation for and practice in types of writing important to scientists, engineers, and computer scientists, from brief technical letters to formal articles and reports.   FS: 06\/06\/2018.   CL: 2020.",
                     "id": "7100ca89-33cf-40da-acbe-84af49e92c3c",
@@ -377,7 +529,9 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "520",
+                    "corequisites": [],
                     "name": "Database System Design",
                     "description": "Database management systems; database design and implementation; security, integrity, and privacy.   CL: 2020.",
                     "id": "86229990-45b3-48e6-b444-0b9db99e8a8c",
@@ -391,7 +545,9 @@
             "applicationArea": [
                 {
                     "creditHours": 3,
+                    "prerequisites": [],
                     "number": "520",
+                    "corequisites": [],
                     "name": "Database System Design",
                     "description": "Database management systems; database design and implementation; security, integrity, and privacy.   CL: 2020.",
                     "id": "86229990-45b3-48e6-b444-0b9db99e8a8c",
@@ -403,7 +559,9 @@
                 },
                 {
                     "creditHours": 3,
+                    "prerequisites": [],
                     "number": "580",
+                    "corequisites": [],
                     "name": "Artificial Intelligence",
                     "description": "Heuristic problem solving, theorem proving, and knowledge representation, including the use of appropriate programming languages and tools.   CL: 2020.",
                     "id": "8e63a870-d35b-4970-b62a-c0274d8a6d97",
@@ -415,7 +573,9 @@
                 },
                 {
                     "creditHours": 3,
+                    "prerequisites": [],
                     "number": "587",
+                    "corequisites": [],
                     "name": "Big Data Analytics",
                     "description": "Foundational techniques and tools required for data science and big data analytics.  Concepts, principles, and techniques applicable to any technology and industry for establishing a baseline that can be enhanced by future study.   FS: 12\/03\/2014.   CL: 2020.",
                     "id": "b447804a-971b-4d1c-86f4-ea6da7802804",
@@ -429,7 +589,9 @@
             "semester6": [
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "416",
+                    "corequisites": [],
                     "name": "Introduction to Computer Networks",
                     "description": "Concepts and components of computer networks and the Internet; network applications; network protocol stack.   FS: 10\/5\/2016.   CL: 2020.",
                     "id": "f16c3f7d-4f83-4a11-8b47-632572514136",
@@ -441,7 +603,22 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [
+                        [
+                            "f4b55e57-6034-4462-81ca-13c559697988",
+                            "D"
+                        ],
+                        [
+                            "dd218911-2c00-46b4-99fc-0aa909331369",
+                            "D"
+                        ],
+                        [
+                            "2e0285db-981b-4204-87b8-04aa7fab7ed3",
+                            "D"
+                        ]
+                    ],
                     "number": "317",
+                    "corequisites": [],
                     "name": "Computer Systems Engineering",
                     "description": "System-level modeling and evaluation of computer systems: requirements elicitation and specification, architectural design, reliability and performance evaluation, Markov modeling, life-cycle cost analysis, project management.   CL: 2020.",
                     "id": "c92f728c-76a7-4cf4-a220-8d41d5468014",
@@ -453,7 +630,9 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "101",
+                    "corequisites": [],
                     "name": "Introduction to Art",
                     "description": "Introduction to art appreciation. Elements and principles of the visual arts, with examples from the history of art.   FS: 09\/09\/2020.   CL: 2020.",
                     "id": "5844e157-e966-4ca8-a60b-a86f76903c6d",
@@ -465,7 +644,9 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "580",
+                    "corequisites": [],
                     "name": "Artificial Intelligence",
                     "description": "Heuristic problem solving, theorem proving, and knowledge representation, including the use of appropriate programming languages and tools.   CL: 2020.",
                     "id": "8e63a870-d35b-4970-b62a-c0274d8a6d97",
@@ -479,7 +660,14 @@
             "semester7": [
                 {
                     "creditHours": "3",
+                    "prerequisites": [
+                        [
+                            "39046cda-f913-4f9b-a002-f06e7c59f235",
+                            "D"
+                        ]
+                    ],
                     "number": "490",
+                    "corequisites": [],
                     "name": "Capstone Computing Project I",
                     "description": "Major team-based software design project to be undertaken in a student\u2019s final year of study; project planning, software requirements analysis, design, and specification. Written reports and oral presentations in a technical setting.   FS: 09\/09\/2020.   CL: 2020.",
                     "id": "42288ffd-4ead-4718-b840-4be2894d8f30",
@@ -491,7 +679,22 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [
+                        [
+                            "789c6ed0-53e3-476c-8761-f08bf727d08c",
+                            "D"
+                        ],
+                        [
+                            "6c8202fd-b31b-4647-b551-b7f4dbf007a0",
+                            "D"
+                        ],
+                        [
+                            "dd218911-2c00-46b4-99fc-0aa909331369",
+                            "D"
+                        ]
+                    ],
                     "number": "355",
+                    "corequisites": [],
                     "name": "Foundations of Computation",
                     "description": "Basic theoretical principles of computing as modeled by formal languages, grammars, automata, and Turing machines; fundamental limits of computation.   CL: 2020.",
                     "id": "dcf88287-b888-4fe0-949f-1b2ecd8af011",
@@ -503,7 +706,9 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "500",
+                    "corequisites": [],
                     "name": "Computer Programming and Applications",
                     "description": "Concepts and properties of algorithms; programming exercises with emphasis on good programming habits.  Credit may not be received for both CSCE 500 and CSCE 145. Open to all majors. May not be used for major credit by computer science and engineering majors.   CL: 2020.",
                     "id": "6b2b4f06-e88d-433b-a9d4-b8d17098babd",
@@ -515,7 +720,14 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [
+                        [
+                            "3d7aa3f8-bfb0-4f9e-af57-49818eacf9a6",
+                            "C"
+                        ]
+                    ],
                     "number": "344",
+                    "corequisites": [],
                     "name": "Applied Linear Algebra",
                     "description": "General solutions of systems of linear equations, vector spaces and subspaces, linear transformations, determinants, orthogonality, characteristic polynomials, eigenvalues and eigenvectors, singular value decomposition, and generalized inverse.  MATH 344L is an optional laboratory course where additional applications will be discussed.   FS: 12\/03\/2014.   CL: 2020.",
                     "id": "12b2ee6d-d2c5-47fb-93de-08b5950ea2ae",
@@ -527,7 +739,9 @@
                 },
                 {
                     "creditHours": "1",
+                    "prerequisites": [],
                     "number": "344L",
+                    "corequisites": [],
                     "name": "Applied Linear Algebra Lab",
                     "description": "Computer based applications of linear algebra for science and engineering students. Topics include numerical analysis of matrices, direct and indirect methods for solving linear systems, and least squares method (regression). Typical applications include practical issues related to discrete Markov processes, image compression, and linear programming.   FS: 06\/01\/2022.",
                     "id": "944f3d4d-9424-48c0-840e-18a79e18e00b",
@@ -539,7 +753,9 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "587",
+                    "corequisites": [],
                     "name": "Big Data Analytics",
                     "description": "Foundational techniques and tools required for data science and big data analytics.  Concepts, principles, and techniques applicable to any technology and industry for establishing a baseline that can be enhanced by future study.   FS: 12\/03\/2014.   CL: 2020.",
                     "id": "b447804a-971b-4d1c-86f4-ea6da7802804",
@@ -559,7 +775,9 @@
         "completedCourses": [
             {
                 "creditHours": "3",
+                "prerequisites": [],
                 "number": "101",
+                "corequisites": [],
                 "name": "Critical Reading and Composition",
                 "description": "Instruction in strategies for critically reading and analyzing literature and non-literary texts; structured, sustained practice in composing expository and analytical essays.   CL: 2020.",
                 "letterGrade": "A",
@@ -572,7 +790,22 @@
             },
             {
                 "creditHours": "4",
+                "prerequisites": [
+                    [
+                        "2f85f19f-f6ba-490f-9bb2-a41b9199d74f",
+                        "C"
+                    ],
+                    [
+                        "84b21549-16e9-4117-978c-39a43fb665b2",
+                        "C"
+                    ],
+                    [
+                        "0c9c5c16-a478-44eb-89a1-1589750b8604",
+                        "C"
+                    ]
+                ],
                 "number": "141",
+                "corequisites": [],
                 "name": "Calculus I",
                 "description": "Functions, limits, derivatives, introduction to integrals, the Fundamental Theorem of Calculus, applications of derivatives and integrals. Four classroom hours and one laboratory hour per week.    CL: 2020.",
                 "letterGrade": "A",
@@ -585,7 +818,9 @@
             },
             {
                 "creditHours": "4",
+                "prerequisites": [],
                 "number": "145",
+                "corequisites": [],
                 "name": "Algorithmic Design I",
                 "description": "Problem-solving, algorithmic design, and programming. Three lectures and two laboratory hours per week.   FS: 12\/04\/2013.   CL: 2020.",
                 "letterGrade": "A",
@@ -598,7 +833,9 @@
             },
             {
                 "creditHours": "1",
+                "prerequisites": [],
                 "number": "190",
+                "corequisites": [],
                 "name": "Computing in the Modern World",
                 "description": "An introduction to the field of computing: trends in computing technology, the profession, and careers; subdisciplines in computing; the nature of research and development.   CL: 2020.",
                 "letterGrade": "A",
@@ -611,7 +848,9 @@
             },
             {
                 "creditHours": "3",
+                "prerequisites": [],
                 "number": "202",
+                "corequisites": [],
                 "name": "Introduction to African-American Studies",
                 "description": "Introduction to the analysis and discussion of creative works and traditions by and about African Americans through folklore, music, art, dance, and literature.   FS: 11\/04\/2020.   CL: 2020.",
                 "letterGrade": "A",
@@ -624,7 +863,9 @@
             },
             {
                 "creditHours": "3",
+                "prerequisites": [],
                 "number": "102",
+                "corequisites": [],
                 "name": "Rhetoric and Composition",
                 "description": "Instruction and intensive practice in researching, analyzing, and composing written arguments about academic and public issues.   FS: 12\/7\/2016.   CL: 2020.",
                 "letterGrade": "A",
@@ -637,7 +878,14 @@
             },
             {
                 "creditHours": "4",
+                "prerequisites": [
+                    [
+                        "4bd274cb-260e-47a5-9893-203a3943d704",
+                        "C"
+                    ]
+                ],
                 "number": "142",
+                "corequisites": [],
                 "name": "Calculus II",
                 "description": "Methods of integration, sequences and series, approximations.   Four classroom hours and one laboratory hour per week.   FS: 12\/03\/2014.   CL: 2020.",
                 "letterGrade": "A",
@@ -650,7 +898,9 @@
             },
             {
                 "creditHours": "3",
+                "prerequisites": [],
                 "number": "111",
+                "corequisites": [],
                 "name": "General Chemistry I",
                 "description": "Survey of the principles that underlie all chemistry with applications illustrating these principles.  Three lecture and one recitation hours per week.   FS: 12\/02\/2020.   CL: 2020.",
                 "letterGrade": "A",
@@ -663,7 +913,14 @@
             },
             {
                 "creditHours": "1",
+                "prerequisites": [
+                    [
+                        "84b21549-16e9-4117-978c-39a43fb665b2",
+                        "D"
+                    ]
+                ],
                 "number": "111L",
+                "corequisites": [],
                 "name": "General Chemistry I Lab",
                 "description": "Introduction to the principles and techniques of experimental chemistry with emphasis on formula investigations, equations, elementary statistics, and chemical reactivity.   FS: 12\/02\/2020.   CL: 2020.",
                 "letterGrade": "A",
@@ -676,7 +933,22 @@
             },
             {
                 "creditHours": "4",
+                "prerequisites": [
+                    [
+                        "2e2ebf3f-c4d3-4dae-956b-d8afa7fca627",
+                        "C"
+                    ],
+                    [
+                        "f8e10b3a-146b-4d43-a3d8-647028c98641",
+                        "C"
+                    ],
+                    [
+                        "4bd274cb-260e-47a5-9893-203a3943d704",
+                        "D"
+                    ]
+                ],
                 "number": "146",
+                "corequisites": [],
                 "name": "Algorithmic Design II",
                 "description": "Continuation of CSCE 145. Rigorous development of algorithms and computer programs; elementary data structures. Three lecture hours and two laboratory hours per week.   FS: 12\/04\/2013.   CL: 2020.",
                 "letterGrade": "A",
@@ -689,7 +961,9 @@
             },
             {
                 "creditHours": "1",
+                "prerequisites": [],
                 "number": "215",
+                "corequisites": [],
                 "name": "UNIX\/Linux Fundamentals",
                 "description": "UNIX operating system, user-level system commands, and programming tools. UNIX scripting languages.   CL: 2020.",
                 "letterGrade": "A",
@@ -702,7 +976,9 @@
             },
             {
                 "creditHours": "3",
+                "prerequisites": [],
                 "number": "211",
+                "corequisites": [],
                 "name": "Digital Logic Design",
                 "description": "Number systems, Boolean algebra, logic design, sequential machines.   CL: 2020.",
                 "letterGrade": "A",
@@ -715,7 +991,14 @@
             },
             {
                 "creditHours": "3",
+                "prerequisites": [
+                    [
+                        "9b9ea0d0-3574-44be-b6cf-1ef50ce2aa23",
+                        "D"
+                    ]
+                ],
                 "number": "240",
+                "corequisites": [],
                 "name": "Advanced Programming Techniques",
                 "description": "Pointers; memory management; advanced programming language structures: operator overloading, iterators, multiple inheritance, polymorphism, templates, virtual functions; Unix programming environment.   FS: 12\/6\/2017.   CL: 2020.",
                 "letterGrade": "A",
@@ -728,7 +1011,18 @@
             },
             {
                 "creditHours": "3",
+                "prerequisites": [
+                    [
+                        "3d7aa3f8-bfb0-4f9e-af57-49818eacf9a6",
+                        "C"
+                    ],
+                    [
+                        "57eaa5d5-a439-43b1-87fc-2d3a4c0b9cd6",
+                        "C"
+                    ]
+                ],
                 "number": "374",
+                "corequisites": [],
                 "name": "Discrete Structures",
                 "description": "Propositional and predicate logic; proof techniques; recursion and recurrence relations; sets, combinatorics, and probability; functions, relations, and matrices; algebraic structures.   FS: 12\/03\/2014.   CL: 2020.",
                 "letterGrade": "A",
@@ -741,7 +1035,9 @@
             },
             {
                 "creditHours": "3",
+                "prerequisites": [],
                 "number": "112",
+                "corequisites": [],
                 "name": "General Chemistry II",
                 "description": "Continuation of CHEM 111. Special emphasis on chemical equilibrium. Three lecture and one recitation hours per week.   FS: 12\/07\/2016.   CL: 2020.",
                 "letterGrade": "A",
@@ -754,7 +1050,9 @@
             },
             {
                 "creditHours": "1",
+                "prerequisites": [],
                 "number": "112L",
+                "corequisites": [],
                 "name": "General Chemistry II Lab",
                 "description": "Continuation of CHEM 111L with emphasis on solution properties, kinetics, equilibrium, acids and bases, and qualitative analysis.   FS: 09\/12\/2013.   CL: 2020.",
                 "letterGrade": "A",
@@ -767,7 +1065,9 @@
             },
             {
                 "creditHours": "3",
+                "prerequisites": [],
                 "number": "212",
+                "corequisites": [],
                 "name": "Introduction to Computer Architecture",
                 "description": "Computer architecture, components. and organization; memory addressing; Input\/Output; instruction sets; interrupts; assembly-language programming. Students may not apply both CSCE 210 and CSCE 212 to any minor or major program of study.   FS: 11\/04\/2020.   CL: 2020.",
                 "letterGrade": "A",
@@ -780,7 +1080,9 @@
             },
             {
                 "creditHours": "3",
+                "prerequisites": [],
                 "number": "247",
+                "corequisites": [],
                 "name": "Software Engineering",
                 "description": "Fundamentals of software design and development; software implementation strategies; object-oriented design techniques; functional design techniques; design patterns; design process; source control; testing.    FS: 12\/6\/2017.   CL: 2020.",
                 "letterGrade": "A",
@@ -793,7 +1095,9 @@
             },
             {
                 "creditHours": "4",
+                "prerequisites": [],
                 "number": "101",
+                "corequisites": [],
                 "name": "Introduction to the Earth",
                 "description": "Origin and nature of the earth with emphasis on internal processes and phenomena such as earthquakes, volcanoes, and mountain building; surface processes, including landform evolution.  Three lectures and three laboratory hours each week.   FS: 06\/05\/2019.   CL: 2020.",
                 "letterGrade": "A",
@@ -806,7 +1110,14 @@
             },
             {
                 "creditHours": "3",
+                "prerequisites": [
+                    [
+                        "3d7aa3f8-bfb0-4f9e-af57-49818eacf9a6",
+                        "C"
+                    ]
+                ],
                 "number": "241",
+                "corequisites": [],
                 "name": "Vector Calculus",
                 "description": "Vector algebra, geometry of three-dimensional space; lines, planes, and curves in space; polar, cylindrical, and spherical coordinate systems; partial differentiation, max-min theory; multiple and iterated integration, line integrals, and Green\u2019s theorem in the plane.   FS: 12\/03\/2014.   CL: 2020.",
                 "letterGrade": "A",
@@ -821,7 +1132,14 @@
         "currentCourses": [
             {
                 "creditHours": "3",
+                "prerequisites": [
+                    [
+                        "39046cda-f913-4f9b-a002-f06e7c59f235",
+                        "D"
+                    ]
+                ],
                 "number": "311",
+                "corequisites": [],
                 "name": "Operating Systems",
                 "description": "Operating system structure and function; process implementation, scheduling, and synchronization; memory management; security; naming protection; resource allocation; network file systems.   FS:  12\/02\/2015.   CL: 2020.",
                 "id": "684f6d78-9f42-4e22-b447-7b15782007b3",
@@ -833,7 +1151,14 @@
             },
             {
                 "creditHours": "3",
+                "prerequisites": [
+                    [
+                        "39046cda-f913-4f9b-a002-f06e7c59f235",
+                        "D"
+                    ]
+                ],
                 "number": "330",
+                "corequisites": [],
                 "name": "Programming Language Structures",
                 "description": "Formal specification of syntax and semantics; structure of algorithms; list processing and string manipulation languages; statement types, control structures, and interfacing procedures.   FS: 09\/14\/2016.   CL: 2020.",
                 "id": "d71f3a41-5b83-40b6-94a7-609b01ca2caa",
@@ -845,7 +1170,14 @@
             },
             {
                 "creditHours": "3",
+                "prerequisites": [
+                    [
+                        "39046cda-f913-4f9b-a002-f06e7c59f235",
+                        "D"
+                    ]
+                ],
                 "number": "350",
+                "corequisites": [],
                 "name": "Data Structures and Algorithms",
                 "description": "Techniques for representing and processing information, including the use of lists, trees, and graphs; analysis of algorithms; sorting, searching, and hashing techniques.   FS: 12\/07\/2016.   CL: 2020.",
                 "id": "6c8202fd-b31b-4647-b551-b7f4dbf007a0",
@@ -857,7 +1189,9 @@
             },
             {
                 "creditHours": "1",
+                "prerequisites": [],
                 "number": "390",
+                "corequisites": [],
                 "name": "Professional Issues in Computer Science and Engineering",
                 "description": "Professional issues in the information technology professions; history and social context of computing; professional responsibilities; privacy; intellectual property; risks and liabilities of computer-based systems.   FS: 04\/02\/2014.   CL: 2020.",
                 "id": "96cd3d5d-590a-4567-9cc3-787e03cc5140",
@@ -869,7 +1203,18 @@
             },
             {
                 "creditHours": "3",
+                "prerequisites": [
+                    [
+                        "12224407-e656-4fe7-9078-88f1d9dc8325",
+                        "D"
+                    ],
+                    [
+                        "980e1056-4ed2-4459-b0e7-56d78eca5d73",
+                        "D"
+                    ]
+                ],
                 "number": "462",
+                "corequisites": [],
                 "name": "Technical Writing",
                 "description": "Preparation for and practice in types of writing important to scientists, engineers, and computer scientists, from brief technical letters to formal articles and reports.   FS: 06\/06\/2018.   CL: 2020.",
                 "id": "7100ca89-33cf-40da-acbe-84af49e92c3c",
@@ -881,7 +1226,9 @@
             },
             {
                 "creditHours": "3",
+                "prerequisites": [],
                 "number": "520",
+                "corequisites": [],
                 "name": "Database System Design",
                 "description": "Database management systems; database design and implementation; security, integrity, and privacy.   CL: 2020.",
                 "id": "86229990-45b3-48e6-b444-0b9db99e8a8c",
@@ -907,7 +1254,22 @@
             "semester8": [
                 {
                     "creditHours": "3",
+                    "prerequisites": [
+                        [
+                            "39046cda-f913-4f9b-a002-f06e7c59f235",
+                            "D"
+                        ],
+                        [
+                            "6c8202fd-b31b-4647-b551-b7f4dbf007a0",
+                            "D"
+                        ],
+                        [
+                            "42288ffd-4ead-4718-b840-4be2894d8f30",
+                            "D"
+                        ]
+                    ],
                     "number": "492",
+                    "corequisites": [],
                     "name": "Capstone Computing Project II",
                     "description": "Continuation of CSCE 490. Computer system implementation, testing, verification and validation of results. Written reports and oral presentations in a technical setting.   FS: 12\/07\/2022.",
                     "id": "f425f91f-92da-4261-be45-347d81b6ab9d",
@@ -919,7 +1281,18 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [
+                        [
+                            "b165928f-3a05-49dd-ba22-95c2292c42ec",
+                            "C"
+                        ],
+                        [
+                            "38673aaa-5d5c-43f9-9383-d476afca223e",
+                            "C"
+                        ]
+                    ],
                     "number": "447",
+                    "corequisites": [],
                     "name": "Management of Information Technology",
                     "description": "Overview of current practices and trends in end-user technology and information system management.   FS: 10\/03\/2018.   CL: 2020.",
                     "id": "a67e8606-4253-4960-a68a-008efcc844c2",
@@ -931,7 +1304,18 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [
+                        [
+                            "12224407-e656-4fe7-9078-88f1d9dc8325",
+                            "D"
+                        ],
+                        [
+                            "980e1056-4ed2-4459-b0e7-56d78eca5d73",
+                            "D"
+                        ]
+                    ],
                     "number": "270",
+                    "corequisites": [],
                     "name": "World Literature",
                     "description": "Selected masterpieces of world literature from antiquity to present.   CL: 2020.",
                     "id": "8ceabae0-d528-420b-a789-2260d7744811",
@@ -946,7 +1330,9 @@
             "semester1": [
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "101",
+                    "corequisites": [],
                     "name": "Critical Reading and Composition",
                     "description": "Instruction in strategies for critically reading and analyzing literature and non-literary texts; structured, sustained practice in composing expository and analytical essays.   CL: 2020.",
                     "id": "12224407-e656-4fe7-9078-88f1d9dc8325",
@@ -958,7 +1344,22 @@
                 },
                 {
                     "creditHours": "4",
+                    "prerequisites": [
+                        [
+                            "2f85f19f-f6ba-490f-9bb2-a41b9199d74f",
+                            "C"
+                        ],
+                        [
+                            "84b21549-16e9-4117-978c-39a43fb665b2",
+                            "C"
+                        ],
+                        [
+                            "0c9c5c16-a478-44eb-89a1-1589750b8604",
+                            "C"
+                        ]
+                    ],
                     "number": "141",
+                    "corequisites": [],
                     "name": "Calculus I",
                     "description": "Functions, limits, derivatives, introduction to integrals, the Fundamental Theorem of Calculus, applications of derivatives and integrals. Four classroom hours and one laboratory hour per week.    CL: 2020.",
                     "id": "4bd274cb-260e-47a5-9893-203a3943d704",
@@ -970,7 +1371,9 @@
                 },
                 {
                     "creditHours": "4",
+                    "prerequisites": [],
                     "number": "145",
+                    "corequisites": [],
                     "name": "Algorithmic Design I",
                     "description": "Problem-solving, algorithmic design, and programming. Three lectures and two laboratory hours per week.   FS: 12\/04\/2013.   CL: 2020.",
                     "id": "2e2ebf3f-c4d3-4dae-956b-d8afa7fca627",
@@ -982,7 +1385,9 @@
                 },
                 {
                     "creditHours": "1",
+                    "prerequisites": [],
                     "number": "190",
+                    "corequisites": [],
                     "name": "Computing in the Modern World",
                     "description": "An introduction to the field of computing: trends in computing technology, the profession, and careers; subdisciplines in computing; the nature of research and development.   CL: 2020.",
                     "id": "3cca9c4e-a195-4759-a761-cfe09adb20b8",
@@ -994,7 +1399,9 @@
                 },
                 {
                     "creditHours": "4",
+                    "prerequisites": [],
                     "number": "101",
+                    "corequisites": [],
                     "name": "Introduction to Astronomy",
                     "description": "An introduction to the solar system and universe accomplished with interactive lectures, demonstrations, and laboratory experience.  Designed primarily for the non-science major.    FS: 11\/04\/2020.   CL: 2020.",
                     "id": "c85eb519-e97b-488b-ba02-2947764cfe92",
@@ -1008,7 +1415,9 @@
             "semester2": [
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "102",
+                    "corequisites": [],
                     "name": "Rhetoric and Composition",
                     "description": "Instruction and intensive practice in researching, analyzing, and composing written arguments about academic and public issues.   FS: 12\/7\/2016.   CL: 2020.",
                     "id": "980e1056-4ed2-4459-b0e7-56d78eca5d73",
@@ -1020,7 +1429,22 @@
                 },
                 {
                     "creditHours": "4",
+                    "prerequisites": [
+                        [
+                            "2e2ebf3f-c4d3-4dae-956b-d8afa7fca627",
+                            "C"
+                        ],
+                        [
+                            "f8e10b3a-146b-4d43-a3d8-647028c98641",
+                            "C"
+                        ],
+                        [
+                            "4bd274cb-260e-47a5-9893-203a3943d704",
+                            "D"
+                        ]
+                    ],
                     "number": "146",
+                    "corequisites": [],
                     "name": "Algorithmic Design II",
                     "description": "Continuation of CSCE 145. Rigorous development of algorithms and computer programs; elementary data structures. Three lecture hours and two laboratory hours per week.   FS: 12\/04\/2013.   CL: 2020.",
                     "id": "57eaa5d5-a439-43b1-87fc-2d3a4c0b9cd6",
@@ -1032,7 +1456,9 @@
                 },
                 {
                     "creditHours": "1",
+                    "prerequisites": [],
                     "number": "215",
+                    "corequisites": [],
                     "name": "UNIX\/Linux Fundamentals",
                     "description": "UNIX operating system, user-level system commands, and programming tools. UNIX scripting languages.   CL: 2020.",
                     "id": "9b9ea0d0-3574-44be-b6cf-1ef50ce2aa23",
@@ -1044,7 +1470,9 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "101",
+                    "corequisites": [],
                     "name": "Biological Principles I",
                     "description": "Introductory survey of macromolecules, cell structure and function, genetics, and molecular biology.   FS: 10\/07\/2020.   CL: 2020.",
                     "id": "732e0849-4531-43d5-ae8e-363b59958631",
@@ -1058,7 +1486,9 @@
             "semester3": [
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "101",
+                    "corequisites": [],
                     "name": "Introduction to Art",
                     "description": "Introduction to art appreciation. Elements and principles of the visual arts, with examples from the history of art.   FS: 09\/09\/2020.   CL: 2020.",
                     "id": "5844e157-e966-4ca8-a60b-a86f76903c6d",
@@ -1070,7 +1500,9 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "205",
+                    "corequisites": [],
                     "name": "Business Applications Programming",
                     "description": "Introduction to computer applications in business. Programming exercises in COBOL.   CL: 2020.",
                     "id": "9583ee33-5e0b-43fe-9bc7-7ef3816da225",
@@ -1082,7 +1514,9 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "210",
+                    "corequisites": [],
                     "name": "Computer Hardware Foundations",
                     "description": "Number representation, data formats, CPU and memory organization, assembly language, I\/O and peripherals, computer networks. Students may not apply both CSCE 210 and CSCE 212 to any minor or major program of study.   FS: 11\/04\/2020.   CL: 2020.",
                     "id": "f9bc9ca2-9fe9-43eb-8444-2f0fc53da6c3",
@@ -1094,7 +1528,9 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "247",
+                    "corequisites": [],
                     "name": "Software Engineering",
                     "description": "Fundamentals of software design and development; software implementation strategies; object-oriented design techniques; functional design techniques; design patterns; design process; source control; testing.    FS: 12\/6\/2017.   CL: 2020.",
                     "id": "730005f1-113d-446e-865c-31b46dfbc924",
@@ -1106,7 +1542,9 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "223",
+                    "corequisites": [],
                     "name": "Introduction to Economics",
                     "description": "Introduction to economics principles for non-majors. Basics of supply and demand and government and monetary policy are covered in a non-technical manner. Not open to business or economics students. Credit not granted for both ECON 223 and ECON 221 or ECON 222.   CL: 2020.",
                     "id": "04c17131-ab1f-45f7-ac5e-a7d0091f41c7",
@@ -1120,7 +1558,9 @@
             "semester4": [
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "201",
+                    "corequisites": [],
                     "name": "Introduction to Computer Security",
                     "description": "Introduction to the theory and practice of computer security, including security policies, authentification, digital certificates, firewalls, malicious code, legal and ethical issues, and incident handling.   FS:  4\/5\/2017.   CL: 2020.",
                     "id": "cecc9003-5bf5-4d17-b01d-895f24ea03a2",
@@ -1132,7 +1572,14 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [
+                        [
+                            "9b9ea0d0-3574-44be-b6cf-1ef50ce2aa23",
+                            "D"
+                        ]
+                    ],
                     "number": "240",
+                    "corequisites": [],
                     "name": "Advanced Programming Techniques",
                     "description": "Pointers; memory management; advanced programming language structures: operator overloading, iterators, multiple inheritance, polymorphism, templates, virtual functions; Unix programming environment.   FS: 12\/6\/2017.   CL: 2020.",
                     "id": "39046cda-f913-4f9b-a002-f06e7c59f235",
@@ -1144,7 +1591,26 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [
+                        [
+                            "f8e10b3a-146b-4d43-a3d8-647028c98641",
+                            "C"
+                        ],
+                        [
+                            "84b21549-16e9-4117-978c-39a43fb665b2",
+                            "C"
+                        ],
+                        [
+                            "4bd274cb-260e-47a5-9893-203a3943d704",
+                            "C"
+                        ],
+                        [
+                            "0c9c5c16-a478-44eb-89a1-1589750b8604",
+                            "C"
+                        ]
+                    ],
                     "number": "174",
+                    "corequisites": [],
                     "name": "Discrete Mathematics for Computer Science",
                     "description": "Logic, number theory, sequences, series, recursion, mathematical induction, set theory, enumeration, functions, relations, graphs and trees. Connections to computers and to programming are emphasized when possible.   FS: 11\/04\/2020.   CL: 2020.",
                     "id": "a014f77a-2ac5-4f22-87d7-f0ab623dce64",
@@ -1156,7 +1622,9 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "290",
+                    "corequisites": [],
                     "name": "Computer Information Systems in Business",
                     "description": "An introduction to the effective use of information systems tools in day-to-day business communications, analysis, and decision making.",
                     "id": "377ddfb9-de27-4996-8f72-c86999f08c03",
@@ -1168,7 +1636,9 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "202",
+                    "corequisites": [],
                     "name": "Introduction to African-American Studies",
                     "description": "Introduction to the analysis and discussion of creative works and traditions by and about African Americans through folklore, music, art, dance, and literature.   FS: 11\/04\/2020.   CL: 2020.",
                     "id": "277c57bf-d5b8-4a69-941f-0f494c30d99e",
@@ -1182,7 +1652,14 @@
             "semester5": [
                 {
                     "creditHours": "3",
+                    "prerequisites": [
+                        [
+                            "39046cda-f913-4f9b-a002-f06e7c59f235",
+                            "D"
+                        ]
+                    ],
                     "number": "350",
+                    "corequisites": [],
                     "name": "Data Structures and Algorithms",
                     "description": "Techniques for representing and processing information, including the use of lists, trees, and graphs; analysis of algorithms; sorting, searching, and hashing techniques.   FS: 12\/07\/2016.   CL: 2020.",
                     "id": "6c8202fd-b31b-4647-b551-b7f4dbf007a0",
@@ -1194,7 +1671,9 @@
                 },
                 {
                     "creditHours": "1",
+                    "prerequisites": [],
                     "number": "390",
+                    "corequisites": [],
                     "name": "Professional Issues in Computer Science and Engineering",
                     "description": "Professional issues in the information technology professions; history and social context of computing; professional responsibilities; privacy; intellectual property; risks and liabilities of computer-based systems.   FS: 04\/02\/2014.   CL: 2020.",
                     "id": "96cd3d5d-590a-4567-9cc3-787e03cc5140",
@@ -1206,7 +1685,14 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [
+                        [
+                            "f8e10b3a-146b-4d43-a3d8-647028c98641",
+                            "D"
+                        ]
+                    ],
                     "number": "222",
+                    "corequisites": [],
                     "name": "Survey of Accounting",
                     "description": "Survey of accounting topics related to business decisions including financial reporting, managerial accounting, and other special topics.   FS: 09\/10\/2014.   CL: 2020.",
                     "id": "554472ab-c7cb-4ac6-bf69-0d8b58a99d3d",
@@ -1218,7 +1704,9 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "371",
+                    "corequisites": [],
                     "name": "Principles of Management",
                     "description": "A comprehensive survey of the basic principles of management applicable to all forms of business. The course provides the student with a basis for thinking about complex business situations in the framework of analysis of the management process.",
                     "id": "01f15c99-15af-4569-8cf0-4fe263053ed8",
@@ -1230,7 +1718,18 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [
+                        [
+                            "12224407-e656-4fe7-9078-88f1d9dc8325",
+                            "D"
+                        ],
+                        [
+                            "980e1056-4ed2-4459-b0e7-56d78eca5d73",
+                            "D"
+                        ]
+                    ],
                     "number": "463",
+                    "corequisites": [],
                     "name": "Business Writing",
                     "description": "Extensive practice in different types of business writing, from brief letters to formal articles and reports.   FS: 06\/06\/2018.   CL: 2020.",
                     "id": "c30f5f36-fc9c-49d4-b5c4-baec9cc82194",
@@ -1244,7 +1743,9 @@
             "applicationArea": [
                 {
                     "creditHours": 3,
+                    "prerequisites": [],
                     "number": "520",
+                    "corequisites": [],
                     "name": "Database System Design",
                     "description": "Database management systems; database design and implementation; security, integrity, and privacy.   CL: 2020.",
                     "id": "86229990-45b3-48e6-b444-0b9db99e8a8c",
@@ -1256,7 +1757,9 @@
                 },
                 {
                     "creditHours": 3,
+                    "prerequisites": [],
                     "number": "580",
+                    "corequisites": [],
                     "name": "Artificial Intelligence",
                     "description": "Heuristic problem solving, theorem proving, and knowledge representation, including the use of appropriate programming languages and tools.   CL: 2020.",
                     "id": "8e63a870-d35b-4970-b62a-c0274d8a6d97",
@@ -1268,7 +1771,9 @@
                 },
                 {
                     "creditHours": 3,
+                    "prerequisites": [],
                     "number": "587",
+                    "corequisites": [],
                     "name": "Big Data Analytics",
                     "description": "Foundational techniques and tools required for data science and big data analytics.  Concepts, principles, and techniques applicable to any technology and industry for establishing a baseline that can be enhanced by future study.   FS: 12\/03\/2014.   CL: 2020.",
                     "id": "b447804a-971b-4d1c-86f4-ea6da7802804",
@@ -1282,7 +1787,9 @@
             "semester6": [
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "520",
+                    "corequisites": [],
                     "name": "Database System Design",
                     "description": "Database management systems; database design and implementation; security, integrity, and privacy.   CL: 2020.",
                     "id": "86229990-45b3-48e6-b444-0b9db99e8a8c",
@@ -1294,7 +1801,9 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "594",
+                    "corequisites": [],
                     "name": "Strategic Management of Information Systems",
                     "description": "Strategic management and use of information systems in organizations.   FS: 12\/05\/2018.   CL: 2020.",
                     "id": "fdf13bc5-f270-4c26-a749-720a50d0b00a",
@@ -1306,7 +1815,9 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "324",
+                    "corequisites": [],
                     "name": "Survey of Commercial Law",
                     "description": "Basic legal concepts and the judicial system, with emphasis on business law.",
                     "id": "6390e71f-3219-4036-8347-5f8545de9a32",
@@ -1318,7 +1829,9 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "111",
+                    "corequisites": [],
                     "name": "United States History to 1865",
                     "description": "A general survey of the United States from the era of discovery to 1865, emphasizing major political, economic, social, and intellectual developments.     FS: 06\/02\/2021.",
                     "id": "3ad398a2-c2b4-438a-ac0a-b0525030bf9d",
@@ -1332,7 +1845,14 @@
             "semester7": [
                 {
                     "creditHours": "3",
+                    "prerequisites": [
+                        [
+                            "39046cda-f913-4f9b-a002-f06e7c59f235",
+                            "D"
+                        ]
+                    ],
                     "number": "490",
+                    "corequisites": [],
                     "name": "Capstone Computing Project I",
                     "description": "Major team-based software design project to be undertaken in a student\u2019s final year of study; project planning, software requirements analysis, design, and specification. Written reports and oral presentations in a technical setting.   FS: 09\/09\/2020.   CL: 2020.",
                     "id": "42288ffd-4ead-4718-b840-4be2894d8f30",
@@ -1344,7 +1864,9 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "416",
+                    "corequisites": [],
                     "name": "Introduction to Computer Networks",
                     "description": "Concepts and components of computer networks and the Internet; network applications; network protocol stack.   FS: 10\/5\/2016.   CL: 2020.",
                     "id": "f16c3f7d-4f83-4a11-8b47-632572514136",
@@ -1356,7 +1878,14 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [
+                        [
+                            "57eaa5d5-a439-43b1-87fc-2d3a4c0b9cd6",
+                            "D"
+                        ]
+                    ],
                     "number": "522",
+                    "corequisites": [],
                     "name": "Information Security Principles",
                     "description": "Threats to information resources and appropriate countermeasures. Cryptography, identification and authentication, access control models and mechanisms, multilevel database security, steganography, Internet security, and intrusion detection and prevention.   FS: 09\/14\/2016.   CL: 2020.",
                     "id": "5dfb6a47-ff2c-4977-ab64-588da4f687a4",
@@ -1368,7 +1897,9 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "311",
+                    "corequisites": [],
                     "name": "Issues in Economics",
                     "description": "The nature and causes of major economic problems facing the nation and its communities, and policy alternatives designed to solve them. The philosophy and methodology of economics in social problem solving.   CL: 2020.",
                     "id": "95e7009a-e959-4a3d-a546-293748d5d4f0",
@@ -1380,7 +1911,9 @@
                 },
                 {
                     "creditHours": "3",
+                    "prerequisites": [],
                     "number": "220",
+                    "corequisites": [],
                     "name": "Introduction to Classical Mythology",
                     "description": "Major gods, goddesses, heroes, and heroines of classical mythology as portrayed in major literary works; the function of myth in society and its relevance to modern life.   CL: 2020.",
                     "id": "e0ffb4fd-f232-4106-859d-23fa91d31d52",
@@ -1400,7 +1933,9 @@
         "completedCourses": [
             {
                 "creditHours": "3",
+                "prerequisites": [],
                 "number": "101",
+                "corequisites": [],
                 "name": "Critical Reading and Composition",
                 "description": "Instruction in strategies for critically reading and analyzing literature and non-literary texts; structured, sustained practice in composing expository and analytical essays.   CL: 2020.",
                 "letterGrade": "A",
@@ -1413,7 +1948,22 @@
             },
             {
                 "creditHours": "4",
+                "prerequisites": [
+                    [
+                        "2f85f19f-f6ba-490f-9bb2-a41b9199d74f",
+                        "C"
+                    ],
+                    [
+                        "84b21549-16e9-4117-978c-39a43fb665b2",
+                        "C"
+                    ],
+                    [
+                        "0c9c5c16-a478-44eb-89a1-1589750b8604",
+                        "C"
+                    ]
+                ],
                 "number": "141",
+                "corequisites": [],
                 "name": "Calculus I",
                 "description": "Functions, limits, derivatives, introduction to integrals, the Fundamental Theorem of Calculus, applications of derivatives and integrals. Four classroom hours and one laboratory hour per week.    CL: 2020.",
                 "letterGrade": "A",
@@ -1426,7 +1976,9 @@
             },
             {
                 "creditHours": "4",
+                "prerequisites": [],
                 "number": "145",
+                "corequisites": [],
                 "name": "Algorithmic Design I",
                 "description": "Problem-solving, algorithmic design, and programming. Three lectures and two laboratory hours per week.   FS: 12\/04\/2013.   CL: 2020.",
                 "letterGrade": "A",
@@ -1439,7 +1991,9 @@
             },
             {
                 "creditHours": "1",
+                "prerequisites": [],
                 "number": "190",
+                "corequisites": [],
                 "name": "Computing in the Modern World",
                 "description": "An introduction to the field of computing: trends in computing technology, the profession, and careers; subdisciplines in computing; the nature of research and development.   CL: 2020.",
                 "letterGrade": "A",
@@ -1452,7 +2006,9 @@
             },
             {
                 "creditHours": "4",
+                "prerequisites": [],
                 "number": "101",
+                "corequisites": [],
                 "name": "Introduction to Astronomy",
                 "description": "An introduction to the solar system and universe accomplished with interactive lectures, demonstrations, and laboratory experience.  Designed primarily for the non-science major.    FS: 11\/04\/2020.   CL: 2020.",
                 "letterGrade": "A",
@@ -1465,7 +2021,9 @@
             },
             {
                 "creditHours": "3",
+                "prerequisites": [],
                 "number": "102",
+                "corequisites": [],
                 "name": "Rhetoric and Composition",
                 "description": "Instruction and intensive practice in researching, analyzing, and composing written arguments about academic and public issues.   FS: 12\/7\/2016.   CL: 2020.",
                 "letterGrade": "A",
@@ -1478,7 +2036,22 @@
             },
             {
                 "creditHours": "4",
+                "prerequisites": [
+                    [
+                        "2e2ebf3f-c4d3-4dae-956b-d8afa7fca627",
+                        "C"
+                    ],
+                    [
+                        "f8e10b3a-146b-4d43-a3d8-647028c98641",
+                        "C"
+                    ],
+                    [
+                        "4bd274cb-260e-47a5-9893-203a3943d704",
+                        "D"
+                    ]
+                ],
                 "number": "146",
+                "corequisites": [],
                 "name": "Algorithmic Design II",
                 "description": "Continuation of CSCE 145. Rigorous development of algorithms and computer programs; elementary data structures. Three lecture hours and two laboratory hours per week.   FS: 12\/04\/2013.   CL: 2020.",
                 "letterGrade": "A",
@@ -1491,7 +2064,9 @@
             },
             {
                 "creditHours": "1",
+                "prerequisites": [],
                 "number": "215",
+                "corequisites": [],
                 "name": "UNIX\/Linux Fundamentals",
                 "description": "UNIX operating system, user-level system commands, and programming tools. UNIX scripting languages.   CL: 2020.",
                 "letterGrade": "A",
@@ -1504,7 +2079,9 @@
             },
             {
                 "creditHours": "3",
+                "prerequisites": [],
                 "number": "101",
+                "corequisites": [],
                 "name": "Biological Principles I",
                 "description": "Introductory survey of macromolecules, cell structure and function, genetics, and molecular biology.   FS: 10\/07\/2020.   CL: 2020.",
                 "letterGrade": "A",
@@ -1519,7 +2096,9 @@
         "currentCourses": [
             {
                 "creditHours": "3",
+                "prerequisites": [],
                 "number": "205",
+                "corequisites": [],
                 "name": "Business Applications Programming",
                 "description": "Introduction to computer applications in business. Programming exercises in COBOL.   CL: 2020.",
                 "id": "9583ee33-5e0b-43fe-9bc7-7ef3816da225",
@@ -1531,7 +2110,9 @@
             },
             {
                 "creditHours": "3",
+                "prerequisites": [],
                 "number": "210",
+                "corequisites": [],
                 "name": "Computer Hardware Foundations",
                 "description": "Number representation, data formats, CPU and memory organization, assembly language, I\/O and peripherals, computer networks. Students may not apply both CSCE 210 and CSCE 212 to any minor or major program of study.   FS: 11\/04\/2020.   CL: 2020.",
                 "id": "f9bc9ca2-9fe9-43eb-8444-2f0fc53da6c3",
@@ -1543,7 +2124,9 @@
             },
             {
                 "creditHours": "3",
+                "prerequisites": [],
                 "number": "247",
+                "corequisites": [],
                 "name": "Software Engineering",
                 "description": "Fundamentals of software design and development; software implementation strategies; object-oriented design techniques; functional design techniques; design patterns; design process; source control; testing.    FS: 12\/6\/2017.   CL: 2020.",
                 "id": "730005f1-113d-446e-865c-31b46dfbc924",
@@ -1555,7 +2138,9 @@
             },
             {
                 "creditHours": "3",
+                "prerequisites": [],
                 "number": "223",
+                "corequisites": [],
                 "name": "Introduction to Economics",
                 "description": "Introduction to economics principles for non-majors. Basics of supply and demand and government and monetary policy are covered in a non-technical manner. Not open to business or economics students. Credit not granted for both ECON 223 and ECON 221 or ECON 222.   CL: 2020.",
                 "id": "04c17131-ab1f-45f7-ac5e-a7d0091f41c7",

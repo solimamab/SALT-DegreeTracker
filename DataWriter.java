@@ -22,7 +22,7 @@ public class DataWriter extends DataConstants {
         }
 
         
-        try (FileWriter file = new FileWriter("tester_advisor.json")) {
+        try (FileWriter file = new FileWriter("json/advisor.json")) {
             file.write(jsonAdvisors.toJSONString());
             file.flush();
         } catch (IOException e) {
@@ -60,7 +60,7 @@ public class DataWriter extends DataConstants {
         }
 
         // Writing the JSON array to file
-        try (FileWriter file = new FileWriter("tester_course.json")) {
+        try (FileWriter file = new FileWriter("json/course.json")) {
             file.write(jsonCourses.toJSONString());
             file.flush();
         } catch (IOException e) {
@@ -84,31 +84,39 @@ public class DataWriter extends DataConstants {
         }
         jsonCourse.put(COURSE_AVAILABILITY, availability);
 
-        // Prerequisites and corequisites are ignored as per the current requirement
-        
+        HashMap<UUID, String> prereq_map = course.getPrerequisite();
+        JSONArray prerequisitesJSON = getPrerequisiteJSON(prereq_map);
+        jsonCourse.put(COURSE_PREREQUISITES, prerequisitesJSON);
+        ArrayList<UUID> coreq_list = course.getCorequisite();
+        JSONArray corequisiteJSON = getCorequisiteJSON(coreq_list);
+        jsonCourse.put(COURSE_COREQUISITES, corequisiteJSON);
+
         return jsonCourse;
     }
 
-    /* waiting for inital bugs to be resolved first  
     public static JSONArray getPrerequisiteJSON(HashMap<UUID, String> prerequisites) {
         JSONArray prerequisitesJSON = new JSONArray();
-        for (Entry<UUID, String> entry : prerequisites.entrySet()) {
-            JSONArray prereqPair = new JSONArray(); // Each prerequisite is an array [UUID, gradeRequirement]
-            prereqPair.add(entry.getKey().toString()); // Convert UUID to String
-            prereqPair.add(entry.getValue()); // Grade requirement
-            prerequisitesJSON.add(prereqPair);
+        if (prerequisites != null) {
+            for (Entry<UUID, String> entry : prerequisites.entrySet()) {
+                JSONArray prereqPair = new JSONArray(); // Each prerequisite is an array [UUID, gradeRequirement]
+                prereqPair.add(entry.getKey().toString()); // Convert UUID to String
+                prereqPair.add(entry.getValue()); // Grade requirement
+                prerequisitesJSON.add(prereqPair);
+            }
         }
         return prerequisitesJSON;
     }
 
     public static JSONArray getCorequisiteJSON(ArrayList<UUID> corequisites) {
         JSONArray corequisitesJSON = new JSONArray();
-        for (UUID coreq : corequisites) {
-            corequisitesJSON.add(coreq.toString()); // Convert UUID to String for each corequisite
+        if (corequisites != null) { // Check if corequisites is not null
+            for (UUID coreq : corequisites) {
+                corequisitesJSON.add(coreq.toString()); // Convert UUID to String and add it to JSONArray
+            }
         }
         return corequisitesJSON;
     }
-    */
+    
 
     // Save Students to a JSON file
     public static void saveStudents() {
@@ -119,7 +127,7 @@ public class DataWriter extends DataConstants {
             jsonStudents.add(getStudentJSON(student));
         }
 
-        try (FileWriter file = new FileWriter("tester_students.json")) { //DataConstants.STUDENT_FILE_NAME
+        try (FileWriter file = new FileWriter("json/students.json")) { //DataConstants.STUDENT_FILE_NAME
             file.write(jsonStudents.toJSONString());
             file.flush();
         } catch (IOException e) {
@@ -143,6 +151,7 @@ public class DataWriter extends DataConstants {
         jsonStudent.put(STUDENT_MINOR, student.getMinor());
         jsonStudent.put(STUDENT_FERPA, student.getFEPRA());
         jsonStudent.put(STUDENT_ADVISOR_ID, student.getAdvisor().getAdvisorID().toString());
+        jsonStudent.put(STUDENT_MAJOR_PROGRESS, student.getMajorProgress());
 
         // Handling completedCourses
         JSONArray completedCoursesArray = new JSONArray();
@@ -154,7 +163,13 @@ public class DataWriter extends DataConstants {
             completedCourseJSON.put(COURSE_NUMBER, course.getNumber());
             completedCourseJSON.put(COURSE_DESCRIPTION, course.getDescription());
             completedCourseJSON.put(COURSE_CREDIT_HOURS, String.valueOf(course.getCreditHours())); // Ensuring creditHours is a String
-            
+            HashMap<UUID, String> prereq_map = course.getPrerequisite();
+            JSONArray prerequisitesJSON = getPrerequisiteJSON(prereq_map);
+            completedCourseJSON.put(COURSE_PREREQUISITES, prerequisitesJSON);
+            ArrayList<UUID> coreq_list = course.getCorequisite();
+            JSONArray corequisiteJSON = getCorequisiteJSON(coreq_list);
+            completedCourseJSON.put(COURSE_COREQUISITES, corequisiteJSON);
+
             // Convert availability from ArrayList to JSONArray
             JSONArray availability = new JSONArray();
             for (Availablity avail : course.getAvailablity()) {
@@ -180,6 +195,12 @@ public class DataWriter extends DataConstants {
             courseJSON.put(COURSE_NUMBER, course.getNumber());
             courseJSON.put(COURSE_DESCRIPTION, course.getDescription());
             courseJSON.put(COURSE_CREDIT_HOURS, String.valueOf(course.getCreditHours())); // Ensuring creditHours is a String
+            HashMap<UUID, String> prereq_map = course.getPrerequisite();
+            JSONArray prerequisitesJSON = getPrerequisiteJSON(prereq_map);
+            courseJSON.put(COURSE_PREREQUISITES, prerequisitesJSON);
+            ArrayList<UUID> coreq_list = course.getCorequisite();
+            JSONArray corequisiteJSON = getCorequisiteJSON(coreq_list);
+            courseJSON.put(COURSE_COREQUISITES, corequisiteJSON);
 
             JSONArray availability = new JSONArray();
             for (Availablity avail : course.getAvailablity()) {
@@ -208,7 +229,13 @@ public class DataWriter extends DataConstants {
                 courseJSON.put(COURSE_NUMBER, course.getNumber());
                 courseJSON.put(COURSE_DESCRIPTION, course.getDescription());
                 courseJSON.put(COURSE_CREDIT_HOURS, String.valueOf(course.getCreditHours())); // Ensuring creditHours is a String
-    
+                HashMap<UUID, String> prereq_map = course.getPrerequisite();
+                JSONArray prerequisitesJSON = getPrerequisiteJSON(prereq_map);
+                courseJSON.put(COURSE_PREREQUISITES, prerequisitesJSON);
+                ArrayList<UUID> coreq_list = course.getCorequisite();
+                JSONArray corequisiteJSON = getCorequisiteJSON(coreq_list);
+                courseJSON.put(COURSE_COREQUISITES, corequisiteJSON);
+                
                 JSONArray availability = new JSONArray();
                 for (Availablity avail : course.getAvailablity()) {
                     availability.add(avail.toString());
@@ -228,6 +255,12 @@ public class DataWriter extends DataConstants {
             courseJSON.put("number", course.getNumber());
             courseJSON.put("description", course.getDescription());
             courseJSON.put("creditHours", course.getCreditHours());
+            HashMap<UUID, String> prereq_map = course.getPrerequisite();
+            JSONArray prerequisitesJSON = getPrerequisiteJSON(prereq_map);
+            courseJSON.put(COURSE_PREREQUISITES, prerequisitesJSON);
+            ArrayList<UUID> coreq_list = course.getCorequisite();
+            JSONArray corequisiteJSON = getCorequisiteJSON(coreq_list);
+            courseJSON.put(COURSE_COREQUISITES, corequisiteJSON);
             
             JSONArray availabilityArray = new JSONArray();
             for (Availablity avail : course.getAvailablity()) {
@@ -252,6 +285,12 @@ public class DataWriter extends DataConstants {
             courseJSON.put("number", course.getNumber());
             courseJSON.put("description", course.getDescription());
             courseJSON.put("creditHours", course.getCreditHours());
+            HashMap<UUID, String> prereq_map = course.getPrerequisite();
+            JSONArray prerequisitesJSON = getPrerequisiteJSON(prereq_map);
+            courseJSON.put(COURSE_PREREQUISITES, prerequisitesJSON);
+            ArrayList<UUID> coreq_list = course.getCorequisite();
+            JSONArray corequisiteJSON = getCorequisiteJSON(coreq_list);
+            courseJSON.put(COURSE_COREQUISITES, corequisiteJSON);
             
             JSONArray availabilityArray = new JSONArray();
             for (Availablity avail : course.getAvailablity()) {
@@ -298,7 +337,13 @@ public class DataWriter extends DataConstants {
             requiredCoursesJSON.put(COURSE_NUMBER, course.getNumber());
             requiredCoursesJSON.put(COURSE_DESCRIPTION, course.getDescription());
             requiredCoursesJSON.put(COURSE_CREDIT_HOURS, String.valueOf(course.getCreditHours())); // Ensuring creditHours is a String
-            
+            HashMap<UUID, String> prereq_map = course.getPrerequisite();
+            JSONArray prerequisitesJSON = getPrerequisiteJSON(prereq_map);
+            requiredCoursesJSON.put(COURSE_PREREQUISITES, prerequisitesJSON);
+            ArrayList<UUID> coreq_list = course.getCorequisite();
+            JSONArray corequisiteJSON = getCorequisiteJSON(coreq_list);
+            requiredCoursesJSON.put(COURSE_COREQUISITES, corequisiteJSON);
+
             // Convert availability from ArrayList to JSONArray
             JSONArray availability = new JSONArray();
             for (Availablity avail : course.getAvailablity()) {
@@ -317,8 +362,7 @@ public class DataWriter extends DataConstants {
     }
 
     public static void main(String[] args) {
-
-        
+        saveStudents();
     }
 
 }
