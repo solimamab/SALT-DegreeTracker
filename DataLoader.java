@@ -362,7 +362,7 @@ public class DataLoader extends DataConstants {
         ArrayList<Advisor> advisors = DataLoader.loadAdvisors();
         ArrayList<Major> majors = DataLoader.loadMajors(coursesMap);
         ArrayList<Student> students = DataLoader.loadStudents(coursesMap);
-        
+       
         // Printing students
         System.out.println("Students:");
         for (Student student : students) {
@@ -373,12 +373,13 @@ public class DataLoader extends DataConstants {
         int numberOfStudents = students.size();
         System.out.println("Number of students loaded: " + numberOfStudents);
     
-        // // Printing courses
-        //System.out.println("\nCourses:");
-        //for (Course course : coursesMap.values()) {
-        //    System.out.println(course.toString());
-        //    }
-            
+        //Printing courses
+        System.out.println("\nCourses:");
+        for (Course course : coursesMap.values()) {
+            System.out.println(course.toString());
+            }
+        
+        
         // Printing advisors
         System.out.println("\nAdvisors:");
         for (Advisor advisor : advisors) {
@@ -389,7 +390,11 @@ public class DataLoader extends DataConstants {
         System.out.println("\nMajors:");
         for (Major major : majors) {
             System.out.println(major);
-            System.out.println();
+            ArrayList<Course> REQ_c = major.getRequiredCourses();
+            for(Course course : REQ_c) {
+                System.out.println(course.toString());
+            }
         }
+        
         }
     }

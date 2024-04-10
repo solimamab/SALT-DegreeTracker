@@ -202,7 +202,7 @@ public class DataWriter extends DataConstants {
             JSONArray semesterCoursesArray = new JSONArray();
             for (Course course : eightSemesterPlan.getSemesters().get(i)) {
                 JSONObject courseJSON = new JSONObject();
-                /*courseJSON.put(COURSE_ID, course.getId().toString());
+                courseJSON.put(COURSE_ID, course.getId().toString());
                 courseJSON.put(COURSE_NAME, course.getName());
                 courseJSON.put(COURSE_DEPARTMENT, course.getDepartment());
                 courseJSON.put(COURSE_NUMBER, course.getNumber());
@@ -213,7 +213,7 @@ public class DataWriter extends DataConstants {
                 for (Availablity avail : course.getAvailablity()) {
                     availability.add(avail.toString());
                 }
-                courseJSON.put(COURSE_AVAILABILITY, availability);*/
+                courseJSON.put(COURSE_AVAILABILITY, availability);
                 semesterCoursesArray.add(courseJSON);
             }
             eightSemesterPlanJSON.put("semester" + (i + 1), semesterCoursesArray);
@@ -268,10 +268,10 @@ public class DataWriter extends DataConstants {
     }
 
     public static void saveMajor() {
-        MajorList majorList = MajorList.getInstance();
-        HashMap<UUID, Major> majors = majorList.getMajorMap();
+        HashMap<UUID, Course> coursesMap = DataLoader.loadCourses();
+        ArrayList<Major> majors = DataLoader.loadMajors(coursesMap);
         JSONArray jsonMajors = new JSONArray();
-        for (Major major : majors.values()) {
+        for (Major major : majors) {
             jsonMajors.add(getMajorJSON(major));
         }
 
@@ -288,7 +288,7 @@ public class DataWriter extends DataConstants {
         jsonMajor.put(MAJOR_ID, major.getId().toString());
         jsonMajor.put(MAJOR_NAME, major.getMajorName());
 
-        JSONArray requiredCourses = new JSONArray();
+         JSONArray requiredCourses = new JSONArray();
         for (Course course : major.getRequiredCourses()) {
             JSONObject requiredCoursesJSON = new JSONObject();
             requiredCoursesJSON.put(COURSE_ID, course.getId().toString());
@@ -310,14 +310,15 @@ public class DataWriter extends DataConstants {
 
         EightSemesterPlan defaultPlan = major.getDefaultPlan();
         JSONObject defaultPlanJSON = getEightSemesterPlanJSON(defaultPlan);
-        jsonMajor.put(MAJOR_DEFAULT_PLAN, defaultPlanJSON);
+        jsonMajor.put(MAJOR_DEFAULT_PLAN, defaultPlanJSON); 
         
         
         return jsonMajor;
     }
 
     public static void main(String[] args) {
-        saveMajor();
+
+        
     }
 
 }
