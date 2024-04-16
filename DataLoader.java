@@ -1,4 +1,7 @@
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
@@ -236,36 +239,39 @@ public class DataLoader extends DataConstants {
     */
     public static ArrayList<Major> loadMajors(HashMap<UUID, Course> courseMap) {
         ArrayList<Major> majors = new ArrayList<>();
-        
+        JSONParser parser = new JSONParser();
+    
         try {
             FileReader reader = new FileReader(MAJOR_FILE_NAME);
-            JSONArray majorsJSON = (JSONArray) new JSONParser().parse(reader);
+            JSONArray majorsJSON = (JSONArray) parser.parse(reader);
             
             System.out.println("Number of majors in JSON file: " + majorsJSON.size());
             
-            for (Object majorObj : majorsJSON) {
+            for (int i=0; i < majorsJSON.size(); i++) {
+                JSONObject majorJSON = (JSONObject)majorsJSON.get(i);
+                UUID majorId = UUID.fromString((String) majorJSON.get("id"));
+                String majorName = (String) majorJSON.get("majorName");
                 
-                // for testing
-                //System.out.println("Major JSON: " + majorsJSON);
-                
-                JSONObject majorJSON = (JSONObject) majorObj;
-                UUID id = UUID.fromString((String) majorJSON.get(MAJOR_ID));
-                String majorName = (String) majorJSON.get(MAJOR_NAME);
-                
-                // Parse required courses
-                JSONArray requiredCoursesJSON = (JSONArray) majorJSON.get(MAJOR_REQUIRED_COURSES);
+                // Parsing required courses
+                JSONArray requiredCoursesJSON = (JSONArray) majorJSON.get("requiredCourses");
                 ArrayList<Course> requiredCourses = parseCoursesFromJSONArray(requiredCoursesJSON, courseMap);
                 
-                // Parse default plan
-                JSONArray defaultPlanJSON = (JSONArray) majorJSON.get(MAJOR_DEFAULT_PLAN);
-                JSONObject defaultPlanObj = (JSONObject) defaultPlanJSON.get(0); // Assuming there's only one default plan
+                // Parsing default plans
+                JSONArray defaultPlansJSON = (JSONArray) majorJSON.get("defaultPlan");
+                EightSemesterPlan plan = null;
+                if (defaultPlansJSON != null && !defaultPlansJSON.isEmpty()) {
+                    JSONObject planJSON = (JSONObject) defaultPlansJSON.get(0);  // Assuming only one plan per major
+                    plan = parseEightSemesterPlan(planJSON, courseMap);
+                }
                 
-                EightSemesterPlan plan = parseDefaultPlan(defaultPlanObj, courseMap);
-                
-                Major major = new Major(id, majorName, requiredCourses, plan);
+                Major major = new Major(majorId, majorName, requiredCourses, plan);
                 majors.add(major);
             }
             reader.close();
+        } catch (FileNotFoundException e) {
+            System.err.println("The majors file was not found: " + e.getMessage());
+        } catch (IOException e) {
+            System.err.println("An I/O error occurred: " + e.getMessage());
         } catch (Exception e) {
             e.printStackTrace();
         }

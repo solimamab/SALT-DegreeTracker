@@ -8,19 +8,24 @@ public class MajorList {
     private HashMap<UUID, Major> majorMap;
     private static HashMap<UUID, Course> courseMap;
 
-
     private MajorList() {
-        courseMap = DataLoader.loadCourses();
+        courseMap = CourseList.getInstance().getAllCourses();  // Use CourseList to maintain a single source of courses
         this.availableMajors = DataLoader.loadMajors(courseMap);
         this.majorMap = new HashMap<>();
+        populateMajorMap();
+    }
 
+    private void populateMajorMap() {
+        for (Major major : availableMajors) {
+            majorMap.put(major.getId(), major);
+        }
     }
 
     public static MajorList getInstance() {
         if (majorList == null) {
             majorList = new MajorList();
         }
-        return majorList;    
+        return majorList;
     }
 
     public ArrayList<Major> getAvailableMajors() {
@@ -29,18 +34,9 @@ public class MajorList {
 
     public HashMap<UUID, Major> getMajorMap() {
         return majorMap;
-    } 
-
-    public Major findMajor(UUID majorId)
-    {
-        for( int i =0; i < availableMajors.size();i++)
-        {
-            if (availableMajors.get(i).getId().equals(majorId))
-            {
-                return availableMajors.get(i);
-            }
-        }
-        return null;
     }
-    
+
+    public Major findMajor(UUID majorId) {
+        return majorMap.get(majorId);  // Directly use HashMap for efficient lookup
+    }
 }

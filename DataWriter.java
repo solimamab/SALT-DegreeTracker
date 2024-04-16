@@ -5,6 +5,7 @@ import org.json.simple.parser.JSONParser;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
@@ -306,9 +307,9 @@ public class DataWriter extends DataConstants {
         return eightSemesterPlanJSON;
     }
 
-    public static void saveMajor() {
-        HashMap<UUID, Course> coursesMap = DataLoader.loadCourses();
-        ArrayList<Major> majors = DataLoader.loadMajors(coursesMap);
+    public static void saveMajor() throws ParseException {
+        MajorList majorList = MajorList.getInstance();
+        ArrayList<Major> majors = majorList.getAvailableMajors();
         JSONArray jsonMajors = new JSONArray();
         for (Major major : majors) {
             jsonMajors.add(getMajorJSON(major));
@@ -326,8 +327,45 @@ public class DataWriter extends DataConstants {
         JSONObject jsonMajor = new JSONObject();
         jsonMajor.put(MAJOR_ID, major.getId().toString());
         jsonMajor.put(MAJOR_NAME, major.getMajorName());
+    
+        JSONArray requiredCourses = new JSONArray();
+        for (Course course : major.getRequiredCourses()) {
+            JSONObject courseJSON = new JSONObject();
+            courseJSON.put(COURSE_ID, course.getId().toString());
+            courseJSON.put(COURSE_NAME, course.getName());
+            courseJSON.put(COURSE_DEPARTMENT, course.getDepartment());
+            courseJSON.put(COURSE_NUMBER, course.getNumber());
+            courseJSON.put(COURSE_DESCRIPTION, course.getDescription());
+            courseJSON.put(COURSE_CREDIT_HOURS, String.valueOf(course.getCreditHours()));
+    
+            JSONArray prerequisitesJSON = getPrerequisiteJSON(course.getPrerequisite());
+            courseJSON.put(COURSE_PREREQUISITES, prerequisitesJSON);
+    
+            JSONArray corequisitesJSON = getCorequisiteJSON(course.getCorequisite());
+            courseJSON.put(COURSE_COREQUISITES, corequisitesJSON);
+    
+            JSONArray availabilityJSON = new JSONArray();
+            for (Availablity avail : course.getAvailablity()) {
+                availabilityJSON.add(avail.toString());
+            }
+            courseJSON.put(COURSE_AVAILABILITY, availabilityJSON);
+    
+            requiredCourses.add(courseJSON);
+        }
+        jsonMajor.put(MAJOR_REQUIRED_COURSES, requiredCourses);
+    
+        JSONObject defaultPlanJSON = getEightSemesterPlanJSON(major.getDefaultPlan());
+        jsonMajor.put(MAJOR_DEFAULT_PLAN, defaultPlanJSON);
+    
+        return jsonMajor;
+    }
 
-         JSONArray requiredCourses = new JSONArray();
+    public static JSONObject getMajorsJSON(Major major) {
+        JSONObject jsonMajor = new JSONObject();
+        jsonMajor.put(MAJOR_ID, major.getId().toString());
+        jsonMajor.put(MAJOR_NAME, major.getMajorName());
+
+        JSONArray requiredCourses = new JSONArray();
         for (Course course : major.getRequiredCourses()) {
             JSONObject requiredCoursesJSON = new JSONObject();
             requiredCoursesJSON.put(COURSE_ID, course.getId().toString());
@@ -361,8 +399,8 @@ public class DataWriter extends DataConstants {
         return jsonMajor;
     }
 
-    public static void main(String[] args) {
-        saveStudents();
+    public static void main(String[] args) throws ParseException {
+        saveMajor();
     }
 
 }
